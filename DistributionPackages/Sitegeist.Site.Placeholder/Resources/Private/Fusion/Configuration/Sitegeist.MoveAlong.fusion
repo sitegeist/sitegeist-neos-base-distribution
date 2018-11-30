@@ -1,0 +1,13 @@
+//
+// Apply 404 status code in case of hitting a pre-configured 404 page
+//
+prototype(Sitegeist.MoveAlong:Match404Page) < prototype(Neos.Fusion:Matcher) {
+    condition = true
+    condition.@process {
+        featureIsEnabled = ${value && (Configuration.setting('Sitegeist.MoveAlong.enable') == true)}
+        isNotFoundDocument = ${value && documentNode.properties.uriPathSegment == 'notfound'}
+        onlyRenderWhenInLiveWorkspace = ${value && documentNode.context.workspace.name == 'live'}
+    }
+
+    renderer = 404
+}
