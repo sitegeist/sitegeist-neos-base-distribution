@@ -1,0 +1,5 @@
+prototype(Sitegeist.Site.Placeholder:Document.Page) < prototype(Neos.Fusion:Component) {
+    renderer = Sitegeist.Site.Placeholder:Document.Base {
+        body = Sitegeist.Site.Placeholder:Component.Template.Page
+    }
+}
