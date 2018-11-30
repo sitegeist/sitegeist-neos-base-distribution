@@ -1,0 +1,4 @@
+'Sitegeist.Site.Placeholder:Content':
+  abstract: true
+  superTypes:
+    'Neos.Neos:Content': true

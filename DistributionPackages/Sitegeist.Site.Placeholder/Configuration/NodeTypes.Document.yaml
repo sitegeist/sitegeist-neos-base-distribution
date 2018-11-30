@@ -1,0 +1,4 @@
+'Sitegeist.Site.Placeholder:Document':
+  abstract: true
+  superTypes:
+    'Neos.Neos:Document': true

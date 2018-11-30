@@ -1,0 +1,15 @@
+'Sitegeist.Site.Placeholder:Document.Error.404':
+  superTypes:
+    'Sitegeist.Site.Placeholder:Document.Page': true
+    'Sitegeist.Site.Placeholder:Constraint.Document.Restricted': true
+  ui:
+    icon: exclamation-triangle
+    label: i18n
+  properties:
+    title:
+      defaultValue: '404'
+    uriPathSegment:
+      ui:
+        inspector:
+          editorOptions:
+            disabled: true
