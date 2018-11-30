@@ -1,0 +1,16 @@
+prototype(Sitegeist.Site.Placeholder:Resource.BodyScripts) < prototype(Neos.Fusion:Array) {
+    main = Neos.Fusion:Tag {
+        tagName = 'script'
+        attributes.src = Neos.Fusion:ResourceUri {
+            path = 'resource://Sitegeist.Site.Placeholder/Public/JavaScript/main.js'
+            @process.stripBaseUri = ${(
+                String.replace(
+                    value,
+                    Configuration.setting('Neos.Flow.http.baseUri'),
+                    '/'
+                )
+            )}
+            @process.addCacheBuster = ${value + '?cb=' + SitegeistKlarSchiffCacheBuster.get()}
+        }
+    }
+}
