@@ -37,6 +37,12 @@ Neos:
         password: '<your database password>'
 ```
 
+Now, run all database migrations:
+
+```sh
+./flow doctrine:migrate
+```
+
 Finally, perform a site import:
 
 ```sh
