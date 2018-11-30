@@ -1,0 +1,13 @@
+prototype(Sitegeist.Site.Placeholder:Component.Template.Page) < prototype(Neos.Fusion:Component) {
+    @styleguide {
+        title = 'Page'
+    }
+
+    renderer = afx`
+        <Sitegeist.Site.Placeholder:Component.Organism.SiteHeader/>
+        <main class={styles.page}>
+            {props.content}
+        </main>
+        <Sitegeist.Site.Placeholder:Component.Organism.SiteFooter/>
+    `
+}
