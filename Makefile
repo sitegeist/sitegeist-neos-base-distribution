@@ -43,6 +43,7 @@ environment:
 	@docker --version
 	@composer --version
 	@php --version
+	@mysql --version
 	@echo Node $$(node --version)
 	@echo Yarn $$(yarn --version)
 
@@ -97,7 +98,7 @@ lint:
 ###############################################################################
 .PHONY: build
 build:
-	@time webpack --mode production --optimize-dedupe
+	@time webpack -p --hide-modules --mode production --optimize-dedupe --progress
 
 watch:
 	@webpack --mode development -w
