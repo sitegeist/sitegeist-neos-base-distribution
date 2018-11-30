@@ -1,0 +1,21 @@
+Sitegeist:
+  Monocle:
+    packages:
+      'Sitegeist.Site.Placeholder':
+        ui:
+          viewportPresets:
+            xs: ~
+            md: ~
+            l: ~
+            mobile:
+              label: 'Mobile'
+              width: 375
+              height: 647
+            tablet:
+              label: 'Tablet'
+              width: 768
+              height: 1024
+            desktop:
+              label: 'Desktop'
+              width: 1440
+              height: 900
