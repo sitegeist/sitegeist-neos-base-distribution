@@ -1,0 +1,25 @@
+prototype(Sitegeist.Site.Placeholder:Document.Base) < prototype(Neos.Fusion:Component) {
+    title = ${q(documentNode).property('title')}
+    titleOverride = ${q(documentNode).property('titleOverride')}
+    body = null
+
+    renderer = Neos.Neos:Page {
+        head {
+            metaViewport = '<meta name="viewport" content="width=device-width">'
+            stylesheets = Sitegeist.Site.Placeholder:Resource.StyleSheets
+
+            titleTag {
+                content = ${props.titleOverride ? props.titleOverride : props.title}
+                content.@process.environmentPrefix {
+                    expression = ${Configuration.setting('Sitegeist.Site.Placeholder.environmentPrefix') + ' ' + value}
+                    @if.isSet = ${!String.isBlank(Configuration.setting('Sitegeist.Site.Placeholder.environmentPrefix'))}
+                }
+            }
+        }
+
+        body = ${props.body}
+
+        bodyScripts = Sitegeist.Site.Placeholder:Resource.BodyScripts
+        bodyScripts.@position = 'before closingBodyTag'
+    }
+}
