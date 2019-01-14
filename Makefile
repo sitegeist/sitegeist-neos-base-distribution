@@ -114,6 +114,7 @@ up::
 		/project /project/bin /project/Data /project/Packages /project/Web
 	@$(COMPOSE_EXEC_ROOT) chown -R www-data:www-data \
 		/project/Build
+	@$(COMPOSE_EXEC_ROOT) chmod -R 0777 /project/Data
 	$(MAKE) install
 
 down::
