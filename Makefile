@@ -104,6 +104,9 @@ lint::
 	@$(MAKE) -s lint-css
 	@$(MAKE) -s lint-js
 
+test-e2e:
+	@docker-compose exec testcafe /opt/testcafe/docker/testcafe-docker.sh 'chromium --no-sandbox' /tests/*.ts
+
 ###############################################################################
 #                               FRONTEND BUILD                                #
 ###############################################################################
