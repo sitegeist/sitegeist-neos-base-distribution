@@ -62,12 +62,13 @@ install::
 	@time $(MAKE) -j 3 @install-githooks @install-composer @install-yarn
 
 cleanup::
-	@rm -rf Data/Temporary/
-	@rm -rf Packages/
-	@rm -rf bin/
-	@rm -rf node_modules/
-	$(MAKE) install
-	$(MAKE) build
+	@$(COMPOSE_EXEC) $(SHELL) -c 'rm -rf ./Data/Temporary/*'
+	@$(COMPOSE_EXEC) $(SHELL) -c 'rm -rf ./Packages/*'
+	@$(COMPOSE_EXEC) $(SHELL) -c 'rm -rf ./bin/*'
+	@@rm -rf node_modules/
+	@$(MAKE) install
+	@$(MAKE) build
+	@$(COMPOSE_EXEC) ./flow flow:package:rescan
 
 ###############################################################################
 #                                LINTING & QA                                 #
