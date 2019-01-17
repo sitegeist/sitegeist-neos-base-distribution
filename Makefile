@@ -48,10 +48,18 @@ environment::
 	@echo Node $$(node --version)
 	@echo Yarn $$(yarn --version)
 
-install::
+@install-githooks::
 	@if [ -z $${CI+x} ]; then $(MAKE) environment; fi
 	@if [ -z $${CI+x} ]; then cp ./.git/hooks/pre-commit.sample ./.git/hooks/pre-commit && echo "make lint" >> ./.git/hooks/pre-commit; fi
-	time $(SHELL) -c "$(COMPOSE_EXEC) composer install & yarn install & wait"
+
+@install-composer::
+	@$(COMPOSE_EXEC) composer install
+
+@install-yarn::
+	@yarn install
+
+install::
+	@time $(MAKE) -j 3 @install-githooks @install-composer @install-yarn
 
 cleanup::
 	@rm -rf Data/Temporary/
