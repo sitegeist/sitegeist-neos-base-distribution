@@ -17,7 +17,10 @@
     "no-unused-expressions": ["error", {
       "allowShortCircuit": true
     }],
-    "react/no-danger": false
+    "react/no-danger": false,
+    "quotes": ["error", "single", {
+      "allowTemplateLiterals": true
+    }]
   },
   "globals": {
     "renderComponent": true
