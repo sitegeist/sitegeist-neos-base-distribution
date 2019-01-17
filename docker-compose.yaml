@@ -10,7 +10,9 @@ services:
       - MYSQL_DATABASE=${CRED_MYSQL_DATABASE}
       - MYSQL_USER=${CRED_MYSQL_USER}
       - MYSQL_PASSWORD=${CRED_MYSQL_PASSWORD}
+      - COMPOSER_HOME=/project/.composer
     volumes:
+      - composer_cache:/project/.composer:delegated
       - bin:/project/bin:delegated
       - buildessentials:/project/Build/BuildEssentials:delegated
       - packages:/project/Packages:delegated
@@ -67,6 +69,7 @@ services:
   #    - "${PORT_ELASTICSEARCH}:9200"
 
 volumes:
+  composer_cache:
   bin:
   buildessentials:
   packages:

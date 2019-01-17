@@ -120,7 +120,7 @@ up::
 	@docker-compose up -d
 	@$(COMPOSE_EXEC_ROOT) usermod --uid $$UID www-data
 	@$(COMPOSE_EXEC_ROOT) chown www-data:www-data \
-		/project /project/bin /project/Data /project/Packages /project/Web
+		/project /project/.composer /project/bin /project/Data /project/Packages /project/Web
 	@$(COMPOSE_EXEC_ROOT) chown -R www-data:www-data \
 		/project/Build
 	@$(COMPOSE_EXEC_ROOT) chmod -R 0777 /project/Data
