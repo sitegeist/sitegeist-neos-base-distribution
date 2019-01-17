@@ -106,8 +106,11 @@ lint::
 	@$(MAKE) -s lint-css
 	@$(MAKE) -s lint-js
 
-test-e2e:
+test-e2e::
 	@docker-compose exec testcafe /opt/testcafe/docker/testcafe-docker.sh 'chromium --no-sandbox' /tests/*.ts
+
+test-component-semantics::
+	jest --verbose -t '#semantics'
 
 ###############################################################################
 #                               FRONTEND BUILD                                #
@@ -146,7 +149,7 @@ logs::
 	@docker-compose logs -f
 
 flow::
-	@docker-compose exec --user $$UID php-fpm ssh-agent /project/flow $(FLOW_ARGS)
+	@docker-compose exec -T --user $$UID php-fpm ssh-agent /project/flow $(FLOW_ARGS)
 
 ###############################################################################
 #                                  SSH                                        #
