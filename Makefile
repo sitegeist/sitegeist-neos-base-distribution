@@ -57,6 +57,7 @@ environment::
 
 @install-yarn::
 	@yarn install
+	@ln -sf ../node/bin/node ./node_modules/.bin/node
 
 install::
 	@time $(MAKE) -j 3 @install-githooks @install-composer @install-yarn
