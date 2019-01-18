@@ -155,7 +155,7 @@ ssh-mariadb::
 	docker-compose exec mariadb $(SHELL) -c "mysql -uroot -p$(CRED_MYSQL_ROOT_PASSWORD) $(CRED_MYSQL_DATABASE)"
 
 ssh-webserver::
-	docker-compose exec webserver sh
+	docker-compose exec -w /etc/nginx webserver sh
 
 ###############################################################################
 #                                DEPLOYMENT                                   #
