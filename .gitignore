@@ -38,3 +38,4 @@ DistributionPackages/*/Resources/Public/Styles/
 .vscode
 
 custom.makefile
+docker-compose.override.y*ml
