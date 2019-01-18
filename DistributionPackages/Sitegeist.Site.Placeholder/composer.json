@@ -4,7 +4,7 @@
     "version": "1.0.0",
     "require": {
         "neos/neos": "*",
-        "neos/nodetypes-basemixins": "^4.1",
+        "neos/nodetypes-basemixins": "^4.2",
         "packagefactory/atomicfusion-proptypes": "^1.2",
         "flowpack/nodetemplates": "^1.0",
         "sitegeist/klarschiff": "^2.1",
