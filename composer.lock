@@ -4001,16 +4001,16 @@
         },
         {
             "name": "sitegeist/monocle",
-            "version": "v4.6.0",
+            "version": "v4.6.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sitegeist/Sitegeist.Monocle.git",
-                "reference": "82335cd60ca32fa28cbe8554a122c3beb321f1cb"
+                "reference": "8cfd9fb792c862227a2d0721d028684ad73d413b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sitegeist/Sitegeist.Monocle/zipball/82335cd60ca32fa28cbe8554a122c3beb321f1cb",
-                "reference": "82335cd60ca32fa28cbe8554a122c3beb321f1cb",
+                "url": "https://api.github.com/repos/sitegeist/Sitegeist.Monocle/zipball/8cfd9fb792c862227a2d0721d028684ad73d413b",
+                "reference": "8cfd9fb792c862227a2d0721d028684ad73d413b",
                 "shasum": ""
             },
             "require": {
@@ -4110,7 +4110,7 @@
                 }
             ],
             "description": "An living-styleguide for Neos that is based on the actual fusion-code",
-            "time": "2019-01-18T12:23:01+00:00"
+            "time": "2019-01-23T16:46:17+00:00"
         },
         {
             "name": "sitegeist/movealong",
