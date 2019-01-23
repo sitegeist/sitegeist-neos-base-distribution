@@ -59,6 +59,14 @@ services:
   redis:
     image: sitegeist/neos-redis:latest
 
+  testcafe:
+    image: sitegeist/neos-testcafe
+    entrypoint: tail -f /dev/null
+    environment:
+      - TEST_DOMAIN=webserver:${PORT_NGINX}
+    volumes:
+      - ./Test:/tests
+
   ###############################################################################
   #                                EXAMPLES                                     #
   ###############################################################################
