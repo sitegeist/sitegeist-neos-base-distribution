@@ -16,6 +16,8 @@
 SHELL=/bin/bash
 COMPOSE_EXEC=docker-compose exec -T --user www-data php-fpm ssh-agent
 COMPOSE_EXEC_ROOT=docker-compose exec -T php-fpm
+HOST_USER=$(shell id -u)
+HOST_GROUP=$(shell id -g)
 export PATH := ./node_modules/.bin:./bin:$(PATH)
 
 -include ./Build/config.makefile
@@ -62,7 +64,8 @@ environment::
 	@ln -sf ../node/bin/node ./node_modules/.bin/node
 
 install::
-	@time $(MAKE) -j 3 @install-githooks @install-composer @install-yarn
+	$(MAKE) -s up
+	@time $(MAKE) -s -j 3 @install-githooks @install-composer @install-yarn
 
 cleanup::
 	@$(COMPOSE_EXEC) $(SHELL) -c 'rm -rf ./Data/Temporary/*'
@@ -127,13 +130,9 @@ watch::
 ###############################################################################
 up::
 	@docker-compose up -d
-	@$(COMPOSE_EXEC_ROOT) usermod --uid $$UID www-data
-	@$(COMPOSE_EXEC_ROOT) chown www-data:www-data \
-		/project /project/.composer /project/bin /project/Data /project/Packages /project/Web
-	@$(COMPOSE_EXEC_ROOT) chown -R www-data:www-data \
-		/project/Build
-	@$(COMPOSE_EXEC_ROOT) chmod -R 0777 /project/Data
-	$(MAKE) install
+	@$(COMPOSE_EXEC_ROOT) groupmod --gid $(HOST_GROUP) www-data
+	@$(COMPOSE_EXEC_ROOT) usermod --uid $(HOST_USER) www-data
+	@$(COMPOSE_EXEC_ROOT) chmod -R 0777 /data
 
 down::
 	@docker-compose down --remove-orphans
@@ -149,13 +148,13 @@ logs::
 	@docker-compose logs -f
 
 flow::
-	@docker-compose exec -T --user $$UID php-fpm ssh-agent /project/flow $(FLOW_ARGS)
+	@docker-compose exec -T --user $(HOST_USER) php-fpm ssh-agent /project/flow-container $(FLOW_ARGS)
 
 ###############################################################################
 #                                  SSH                                        #
 ###############################################################################
 ssh::
-	docker-compose exec --user $$UID php-fpm ssh-agent $(SHELL)
+	docker-compose exec --user $(HOST_USER) php-fpm ssh-agent $(SHELL)
 
 ssh-root::
 	docker-compose exec --user root php-fpm ssh-agent $(SHELL)

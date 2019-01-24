@@ -1,0 +1,13 @@
+#!/usr/bin/env php
+<?php
+if (getenv('FLOW_CONTEXT') !== 'Development/Docker') {
+    throw new \Exception('Please do not run this script outside the container.');
+}
+
+/**
+ * Bootstrap for the command line
+ */
+
+require(__DIR__ . '/Packages/Framework/Neos.Flow/Scripts/flow.php');
+
+?>
