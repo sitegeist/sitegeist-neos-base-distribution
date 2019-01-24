@@ -19,7 +19,8 @@ COMPOSE_EXEC_ROOT=docker-compose exec -T php-fpm
 export PATH := ./node_modules/.bin:./bin:$(PATH)
 
 -include ./Build/config.makefile
--include ./Custom/before.makefile
+-include $(DIR_CONFIG_GLOBAL)/before.makefile
+-include $(DIR_CONFIG_LOCAL)/before.makefile
 
 ###############################################################################
 #                                  README                                     #
@@ -50,7 +51,8 @@ environment::
 
 @install-githooks::
 	@if [ -z $${CI+x} ]; then $(MAKE) environment; fi
-	@if [ -z $${CI+x} ]; then cp ./.git/hooks/pre-commit.sample ./.git/hooks/pre-commit && echo "make lint" >> ./.git/hooks/pre-commit; fi
+	@if [ -z $${CI+x} ]; then cp ./.git/hooks/pre-commit.sample ./.git/hooks/pre-commit && \
+		echo "make lint" >> ./.git/hooks/pre-commit; fi
 
 @install-composer::
 	@$(COMPOSE_EXEC) composer install
@@ -175,4 +177,5 @@ deploy-live::
 	@echo "ERROR: There's no live deployment configured yet"
 	@exit 1
 
--include ./Custom/after.makefile
+-include $(DIR_CONFIG_GLOBAL)/after.makefile
+-include $(DIR_CONFIG_LOCAL)/after.makefile
