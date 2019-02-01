@@ -1,5 +1,6 @@
 const path = require('path');
 const querystring = require('querystring');
+const webpack = require('webpack');
 const LiveReloadPlugin = require('webpack-livereload-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -63,6 +64,7 @@ module.exports = (_, argv) => ({
 	},
 
 	plugins: [
+		new webpack.IgnorePlugin(/\.spec.js?$/),
 		new MiniCssExtractPlugin({
 			filename: '[name]/Resources/Public/Styles/main.css',
 			path: path.join(__dirname, 'DistributionPackages')
