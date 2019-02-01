@@ -39,6 +39,7 @@
     "postcss-selector-not": "^4.0.0",
     "precss": "^4.0.0",
     "promise-polyfill": "^8.1.0",
+    "shelljs": "^0.8.3",
     "style-loader": "^0.23.1",
     "stylelint": "^9.9.0",
     "testcafe": "^0.23.3",
