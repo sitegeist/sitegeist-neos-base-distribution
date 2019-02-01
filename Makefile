@@ -130,7 +130,6 @@ watch::
 ###############################################################################
 up::
 	@docker-compose up -d
-	@$(COMPOSE_EXEC_ROOT) groupmod --gid $(HOST_GROUP) www-data
 	@$(COMPOSE_EXEC_ROOT) usermod --uid $(HOST_USER) www-data
 	@$(COMPOSE_EXEC_ROOT) chmod -R 0777 /data
 
