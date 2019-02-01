@@ -19,6 +19,10 @@ export PORT_ELASTICSEARCH=9200
 # ssh
 export CONF_SSH=./Docker/Config/ssh/config
 
+# local environment
+export DIR_CONFIG_GLOBAL=$(HOME)/.neos
+export DIR_CONFIG_LOCAL=./Custom
+
 config::
 	@echo ".env config"
 	@echo "______________________________________________"
