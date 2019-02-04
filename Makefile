@@ -76,6 +76,9 @@ cleanup::
 	@$(MAKE) build
 	@$(COMPOSE_EXEC) ./flow flow:package:rescan
 
+generate::
+	@plop --plopfile ./Build/Generators/index.js
+
 ###############################################################################
 #                                LINTING & QA                                 #
 ###############################################################################
