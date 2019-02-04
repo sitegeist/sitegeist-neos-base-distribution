@@ -1,5 +1,6 @@
 module.exports = plop => {
-    plop.addHelper('cwd', () => process.cwd());
+    plop.addHelper('phpNamespace', s => s.replace(/\./g, '\\'));
 
-    plop.load('./fusion-component');
+    require('./fusion-component')(plop);
+    require('./eel-helper')(plop);
 };
