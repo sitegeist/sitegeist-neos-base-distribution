@@ -1,4 +1,6 @@
 Neos:
+  Imagine:
+    driver: Imagick
   Flow:
     persistence:
       backendOptions:
