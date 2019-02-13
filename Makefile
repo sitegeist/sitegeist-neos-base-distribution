@@ -15,9 +15,9 @@
 ###############################################################################
 SHELL=/bin/bash
 COMPOSE_EXEC=docker-compose exec -T --user www-data php-fpm ssh-agent
-COMPOSE_EXEC_ROOT=docker-compose exec -T php-fpm
-HOST_USER=$(shell id -u)
-HOST_GROUP=$(shell id -g)
+COMPOSE_EXEC_ROOT=docker-compose exec -T --user root php-fpm
+export HOST_USER=$(shell id -u)
+export HOST_GROUP=$(shell id -g)
 export PATH := ./node_modules/.bin:./bin:$(PATH)
 
 -include ./Build/config.makefile
@@ -66,6 +66,7 @@ environment::
 install::
 	$(MAKE) -s up
 	@time $(MAKE) -s -j 3 @install-githooks @install-composer @install-yarn
+	@./flow flow:cache:warmup
 
 cleanup::
 	@$(COMPOSE_EXEC) $(SHELL) -c 'rm -rf ./Data/Temporary/*'
@@ -129,8 +130,7 @@ watch::
 #                                  Docker                                     #
 ###############################################################################
 up::
-	@docker-compose up -d
-	@$(COMPOSE_EXEC_ROOT) usermod --uid $(HOST_USER) www-data
+	@docker-compose up --force-recreate -d
 	@$(COMPOSE_EXEC_ROOT) chmod -R 0777 /data
 
 down::

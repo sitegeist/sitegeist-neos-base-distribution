@@ -4,6 +4,7 @@ services:
   php-fpm:
     image: sitegeist/neos-php-fpm:latest
     working_dir: /project
+    user: ${HOST_USER}:82
     environment:
       - FLOW_CONTEXT=Development/Docker
       - MYSQL_HOST=mariadb
