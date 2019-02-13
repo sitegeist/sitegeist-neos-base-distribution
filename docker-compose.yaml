@@ -4,25 +4,19 @@ services:
   php-fpm:
     image: sitegeist/neos-php-fpm:latest
     working_dir: /project
+    user: ${HOST_USER}:82
     environment:
       - FLOW_CONTEXT=Development/Docker
       - MYSQL_HOST=mariadb
       - MYSQL_DATABASE=${CRED_MYSQL_DATABASE}
       - MYSQL_USER=${CRED_MYSQL_USER}
       - MYSQL_PASSWORD=${CRED_MYSQL_PASSWORD}
-      - COMPOSER_HOME=/project/.composer
+      - COMPOSER_HOME=/data/composer
+      - FLOW_PATH_DATA=/data/neos
     volumes:
-      - composer_cache:/project/.composer:delegated
-      - bin:/project/bin:delegated
-      - buildessentials:/project/Build/BuildEssentials:delegated
-      - packages:/project/Packages:delegated
-      - data:/project/Data:delegated
-      - web:/project/Web:delegated
-      - ./Build:/project/Build
-      - ./DistributionPackages:/project/DistributionPackages
-      - ./Configuration:/project/Configuration
-      - ./composer.json:/project/composer.json
-      - ./composer.lock:/project/composer.lock
+      - composer_data:/data/composer:delegated
+      - neos_data:/data/neos:delegated
+      - .:/project
     secrets:
       - id_rsa.pub
       - id_rsa
@@ -37,10 +31,7 @@ services:
       - PHP_FPM_PORT=9000
       - FLOW_CONTEXT=Development/Docker
     volumes:
-      - packages:/project/Packages:delegated
-      - data:/project/Data:delegated
-      - web:/project/Web:delegated
-      - ./DistributionPackages:/project/DistributionPackages
+      - .:/project
     ports:
       - "${PORT_NGINX}:${PORT_NGINX}"
 
@@ -77,12 +68,8 @@ services:
   #    - "${PORT_ELASTICSEARCH}:9200"
 
 volumes:
-  composer_cache:
-  bin:
-  buildessentials:
-  packages:
-  data:
-  web:
+  composer_data:
+  neos_data:
   database:
 
 secrets:
