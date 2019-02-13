@@ -1,4 +1,4 @@
-import shell from 'shelljs';
+import shell from "shelljs";
 
 const COMPONENT = `Sitegeist.Site.Placeholder:Component.Organism.SiteHeader`;
 const RENDER = `./flow styleguide:render ${COMPONENT}`;
@@ -6,9 +6,13 @@ const RENDER = `./flow styleguide:render ${COMPONENT}`;
 describe(COMPONENT, () => {
 	describe(`Semantics`, () => {
 		it(`must be a <header>. #semantics`, () => {
-			document.body.innerHTML = shell.exec(RENDER);
+			document.body.innerHTML = shell.exec(RENDER).stdout;
 
-			expect(document.body.firstChild.nodeName).toBe('HEADER');
+			expect(document.body.firstChild).not.toBeNull();
+
+			if (document.body.firstChild !== null) {
+				expect(document.body.firstChild.nodeName).toBe('HEADER');
+			}
 		});
 	});
 });
