@@ -34,7 +34,7 @@ Finally, perform a site import:
 You can start a development server via:
 
 ```sh
-./flow server:run [--port <Optional Port>]
+make up
 ```
 
 ## Versioning
