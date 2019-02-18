@@ -25,6 +25,10 @@ const config: webpack.Configuration = {
         path: path.join(__dirname, 'DistributionPackages')
     },
 
+	resolve: {
+		extensions: ['.ts', '.tsx', '.js', '.json']
+	},
+
     module: {
 		rules: [{
 			test: /\.jsx?$/,
