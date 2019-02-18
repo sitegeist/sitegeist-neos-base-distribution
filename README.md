@@ -13,28 +13,10 @@
 
 ## Installation
 
-First, instal dependencies via:
+Install dependencies via:
 
 ```sh
 make install
-```
-
-Then, create a database:
-
-```sql
-create database vendor_site_dev collate utf8_unicode_ci;
-```
-
-and configure the connection to it in `Configuration/Development/Settings.yaml` as such:
-
-```yaml
-Neos:
-  Flow:
-    persistence:
-      backendOptions:
-        dbname: 'vendor_site_dev'
-        user: '<your database user>'
-        password: '<your database password>'
 ```
 
 Now, run all database migrations:
