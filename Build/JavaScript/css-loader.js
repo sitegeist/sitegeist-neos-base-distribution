@@ -23,7 +23,7 @@ module.exports = function (content) {
 			};
 
 			vm.createContext(sandbox);
-			vm.runInContext(content.split('// exports')[1], sandbox);
+			vm.runInContext(content.split('// Exports')[1], sandbox);
 
 			const additionalFusionSource = `
 prototype(${prototypeName}) {

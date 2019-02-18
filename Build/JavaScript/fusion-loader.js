@@ -33,7 +33,11 @@ module.exports = function (fusionSource) {
 		}
 
 		if (fs.existsSync(`${basePath}.js`)) {
-			importStatements.push(`import script from '${basePath}.js';`);
+			throw new Error(`Do not use JS files for components. Please create a "${path.basename(basePath)}.ts" instead.`);
+		}
+
+		if (fs.existsSync(`${basePath}.ts`)) {
+			importStatements.push(`import script from '${basePath}.ts';`);
 			exportStatements.push('export {script};');
 
 			const additionalFusionSource = `

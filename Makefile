@@ -14,11 +14,12 @@
 #                                VARIABLES                                    #
 ###############################################################################
 SHELL=/bin/bash
-COMPOSE_EXEC=docker-compose exec -T --user www-data php-fpm ssh-agent
 COMPOSE_EXEC_ROOT=docker-compose exec -T --user root php-fpm
+export TS_NODE_PROJECT=./tsconfig.json
 export HOST_USER=$(shell id -u)
 export HOST_GROUP=$(shell id -g)
 export PATH := ./node_modules/.bin:./bin:$(PATH)
+COMPOSE_EXEC=docker-compose exec -T --user $(HOST_USER) php-fpm ssh-agent
 
 -include ./Build/config.makefile
 -include $(DIR_CONFIG_GLOBAL)/before.makefile
@@ -69,10 +70,10 @@ install::
 	@./flow flow:cache:warmup
 
 cleanup::
-	@$(COMPOSE_EXEC) $(SHELL) -c 'rm -rf ./Data/Temporary/*'
-	@$(COMPOSE_EXEC) $(SHELL) -c 'rm -rf ./Packages/*'
-	@$(COMPOSE_EXEC) $(SHELL) -c 'rm -rf ./bin/*'
-	@@rm -rf node_modules/
+	@rm -rf ./Data/Temporary/*
+	@rm -rf ./Packages/*
+	@rm -rf ./bin/*
+	@rm -rf node_modules/
 	@$(MAKE) install
 	@$(MAKE) build
 	@$(COMPOSE_EXEC) ./flow flow:package:rescan
