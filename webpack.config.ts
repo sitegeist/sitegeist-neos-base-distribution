@@ -15,7 +15,7 @@ const config: webpack.Configuration = {
                 componentPaths: [
                     './DistributionPackages/Sitegeist.Site.Placeholder/Resources/Private/Fusion/Presentation'
                 ],
-                runtime: './DistributionPackages/Sitegeist.Site.Placeholder/Resources/Private/Fusion/Root.js'
+                runtime: './DistributionPackages/Sitegeist.Site.Placeholder/Resources/Private/Fusion/Root.ts'
             })}`
         ]
     },
@@ -26,7 +26,13 @@ const config: webpack.Configuration = {
     },
 
     module: {
-        rules: [{
+		rules: [{
+			test: /\.jsx?$/,
+			exclude: /(node_modules)/,
+			use: [{
+				loader: 'babel-loader'
+			}]
+		}, {
             test: /\.tsx?$/,
             exclude: /(node_modules)/,
             use: [{
@@ -34,9 +40,9 @@ const config: webpack.Configuration = {
             }]
         }, {
             test: /\.fusion$/,
-            use: [{
-                loader: 'ts-loader'
-            }, {
+			use: [{
+				loader: 'babel-loader'
+			}, {
                 loader: './Build/JavaScript/fusion-loader',
                 options: {
                     compress: true
@@ -78,3 +84,5 @@ const config: webpack.Configuration = {
         ]
     }
 };
+
+export default config;

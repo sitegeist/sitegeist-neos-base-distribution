@@ -15,6 +15,7 @@
 ###############################################################################
 SHELL=/bin/bash
 COMPOSE_EXEC_ROOT=docker-compose exec -T --user root php-fpm
+export TS_NODE_PROJECT=./tsconfig.json
 export HOST_USER=$(shell id -u)
 export HOST_GROUP=$(shell id -g)
 export PATH := ./node_modules/.bin:./bin:$(PATH)
@@ -57,8 +58,6 @@ environment::
 		echo "make lint" >> ./.git/hooks/pre-commit; fi
 
 @install-composer::
-	$(COMPOSE_EXEC) id -u
-	$(COMPOSE_EXEC) mkdir Packages/Libraries
 	@$(COMPOSE_EXEC) composer install
 
 @install-yarn::

@@ -13,7 +13,7 @@ module.exports = function () {
 		.map(path => {
 			this.addContextDependency(path);
 
-			return `${path}/**/*.+(css|js|fusion)`;
+			return `${path}/**/*.+(css|ts|fusion)`;
 		})
 		.reduce((files, pattern) => [...files, ...glob.sync(pattern)], [])
 		.filter(fileName => !fileName.endsWith('.css.fusion'))
@@ -35,9 +35,12 @@ module.exports = function () {
 				break;
 
 			case fileName.endsWith('.css'):
-			case fileName.endsWith('.js'):
-			default:
+			case fileName.endsWith('.js') && !fileName.endsWith('.spec.js'):
+			case fileName.endsWith('.ts') && !fileName.endsWith('.spec.ts'):
 				source.push(`import '${fileName}';`);
+				break;
+
+			default:
 				break;
 		}
 	}
