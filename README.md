@@ -4,12 +4,10 @@
 
 ### Linux + Mac
 
-* docker >=17.06.1-ce
-* php >= 7.2
-* composer >=1.6
-* node >= 8.10 (LTS)
-* yarn >= 1.7
-* MariaDB >= 10.2.2
+* docker >= 18.09.1
+* docker-compose >= 1.23.2
+* node >= 10 (LTS)
+* yarn >= 1.13
 
 ## Installation
 
