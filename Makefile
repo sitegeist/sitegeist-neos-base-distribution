@@ -67,7 +67,9 @@ environment::
 install::
 	$(MAKE) -s up
 	@time $(MAKE) -s -j 3 @install-githooks @install-composer @install-yarn
+	@./flow flow:cache:flush
 	@./flow flow:cache:warmup
+	@./flow flow:package:rescan
 
 cleanup::
 	@rm -rf ./Data/Temporary/*
