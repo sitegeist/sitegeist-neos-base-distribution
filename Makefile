@@ -150,7 +150,7 @@ logs::
 	@docker-compose logs -f
 
 flow::
-	@docker-compose exec -T --user $(HOST_USER) php-fpm ssh-agent /project/flow-container $(FLOW_ARGS)
+	@docker-compose exec -T --user $(HOST_USER) php-fpm ssh-agent /project/flow $(FLOW_ARGS)
 
 ###############################################################################
 #                                  SSH                                        #

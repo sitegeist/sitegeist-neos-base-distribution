@@ -1,3 +1,21 @@
-#!/bin/bash
+#!/usr/bin/env php
+<?php
+if (getenv('FLOW_CONTEXT')) {
 
-make -s flow FLOW_ARGS="$(echo $@)"
+    /**
+     * Bootstrap for the command line
+     */
+
+    require(__DIR__ . '/Packages/Framework/Neos.Flow/Scripts/flow.php');
+
+} else {
+
+    /**
+     * Bootstrap for docker environment
+     */
+
+    $flowArguments = implode(' ', array_slice($argv, 1));
+
+    passthru(sprintf('make -s flow FLOW_ARGS="%s"', $flowArguments));
+}
+?>
