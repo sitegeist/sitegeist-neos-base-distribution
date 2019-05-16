@@ -72,7 +72,7 @@ environment::
 install::
 	$(MAKE) -s up
 	@time $(MAKE) -s -j 3 @install-githooks @install-composer @install-yarn
-	$(MAKE) -s @install-create-user
+	$(MAKE) -si @install-create-user
 	@./flow flow:cache:flush
 	@./flow flow:cache:warmup
 	@./flow flow:package:rescan
