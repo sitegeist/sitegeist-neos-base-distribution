@@ -72,7 +72,6 @@ environment::
 install::
 	$(MAKE) -s up
 	@time $(MAKE) -s -j 3 @install-githooks @install-composer @install-yarn
-	$(MAKE) -si @install-create-user
 	@./flow flow:cache:flush
 	@./flow flow:cache:warmup
 	@./flow flow:package:rescan
@@ -140,7 +139,8 @@ watch::
 ###############################################################################
 up::
 	@docker-compose up --force-recreate -d
-	@$(COMPOSE_EXEC_ROOT) chmod -R 0777 /data
+	@$(MAKE) -si @install-create-user & \
+	 $(COMPOSE_EXEC_ROOT) chmod -R 0777 /data
 
 down::
 	@docker-compose down --remove-orphans
