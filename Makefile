@@ -179,7 +179,7 @@ ssh-webserver::
 clone::
 	@docker-compose exec --user $(HOST_USER) php-fpm ssh-agent /bin/bash -c "\
 		./flow clone:list; \
-		./flow clone:preset --yes"
+		./flow clone:preset $(preset) --yes"
 
 ###############################################################################
 #                                DEPLOYMENT                                   #
