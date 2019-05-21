@@ -64,6 +64,11 @@ environment::
 	@yarn install
 	@ln -sf ../node/bin/node ./node_modules/.bin/node
 
+@install-create-user::
+	@$(COMPOSE_EXEC_ROOT) mkdir -p /home/hostuser
+	@$(COMPOSE_EXEC_ROOT) useradd -u $(HOST_USER) hostuser
+	@$(COMPOSE_EXEC_ROOT) chown hostuser /home/hostuser
+
 install::
 	$(MAKE) -s up
 	@time $(MAKE) -s -j 3 @install-githooks @install-composer @install-yarn
@@ -134,7 +139,8 @@ watch::
 ###############################################################################
 up::
 	@docker-compose up --force-recreate -d
-	@$(COMPOSE_EXEC_ROOT) chmod -R 0777 /data
+	@$(MAKE) -si @install-create-user & \
+	 $(COMPOSE_EXEC_ROOT) chmod -R 0777 /data
 
 down::
 	@docker-compose down --remove-orphans
@@ -166,6 +172,14 @@ ssh-mariadb::
 
 ssh-webserver::
 	docker-compose exec -w /etc/nginx webserver sh
+
+###############################################################################
+#                                CLONE                                        #
+###############################################################################
+clone::
+	@docker-compose exec --user $(HOST_USER) php-fpm ssh-agent /bin/bash -c "\
+		./flow clone:list; \
+		./flow clone:preset $(preset) --yes"
 
 ###############################################################################
 #                                DEPLOYMENT                                   #

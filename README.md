@@ -37,6 +37,20 @@ You can start a development server via:
 make up
 ```
 
+## Clone project data
+
+You can clone your projectdata directly with make. This command shows up the list and ask for the preset.
+
+```
+make clone
+```
+
+or type the preset directly:
+
+```sh
+make clone preset=dev
+```
+
 ## Versioning
 
 <!-- @TODO: Versioning -->
