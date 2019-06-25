@@ -20,13 +20,13 @@ make install
 Now, run all database migrations:
 
 ```sh
-./flow doctrine:migrate
+FLOW_CONTEXT=Development/Docker ./flow doctrine:migrate
 ```
 
 Finally, perform a site import:
 
 ```sh
-./flow site:import --package-key Sitegeist.Site.Placeholder
+FLOW_CONTEXT=Development/Docker ./flow site:import --package-key Sitegeist.Site.Placeholder
 ```
 
 ## Running the site locally
