@@ -4,35 +4,54 @@
 ETC_HOSTS=/etc/hosts
 
 function removehost {
+    DOMAIN=$PROJECT_HOSTNAME
+    remove
+    DOMAIN=$COMPOSE_DATABASE_NAME
+    remove
+}
+
+
+function remove {
     echo ""
     echo -e "\e[96m\e[1mRemove domain from hosts file\e[39m"
-    if [ -n "$(grep $PROJECT_HOSTNAME /etc/hosts)" ]
+    if [ -n "$(grep $DOMAIN /etc/hosts)" ]
     then
-        echo "$PROJECT_HOSTNAME Found in your $ETC_HOSTS, Removing now...";
-        sudo sed -i".bak" "/$PROJECT_HOSTNAME/d" $ETC_HOSTS
+        echo "$DOMAIN Found in your $ETC_HOSTS, Removing now...";
+        sudo sed -i".bak" "/$DOMAIN/d" $ETC_HOSTS
     else
-        echo "$PROJECT_HOSTNAME was not found in your $ETC_HOSTS";
+        echo "$DOMAIN was not found in your $ETC_HOSTS";
     fi
 }
 
 function addhost {
+    IP=$WEB_IP
+    DOMAIN=$PROJECT_HOSTNAME
+    add
+
+    IP=$DB_IP
+    DOMAIN=$COMPOSE_DATABASE_NAME
+    add
+}
+
+
+function add {
     echo ""
     echo -e "\e[96m\e[1mAdd domain to hosts file\e[39m"
 
-    HOSTS_LINE="$WEB_IP\t$PROJECT_HOSTNAME"
-    if [ -n "$(grep $PROJECT_HOSTNAME /etc/hosts)" ]
+    HOSTS_LINE="$IP\t$DOMAIN"
+    if [ -n "$(grep DOMAIN /etc/hosts)" ]
         then
-            echo "$PROJECT_HOSTNAME already exists : $(grep $PROJECT_HOSTNAME $ETC_HOSTS)"
+            echo "DOMAIN already exists : $(grep $DOMAIN $ETC_HOSTS)"
         else
-            echo "Adding $PROJECT_HOSTNAME to your $ETC_HOSTS";
+            echo "Adding $DOMAIN to your $ETC_HOSTS";
             sudo -- sh -c -e "echo '$HOSTS_LINE' >> /etc/hosts";
 
-            if [ -n "$(grep $PROJECT_HOSTNAME /etc/hosts)" ]
+            if [ -n "$(grep $DOMAIN /etc/hosts)" ]
                 then
-                    echo "$PROJECT_HOSTNAME was added succesfully"
-                    echo "$(grep $PROJECT_HOSTNAME /etc/hosts)";
+                    echo "$DOMAIN was added succesfully"
+                    echo "$(grep $DOMAIN /etc/hosts)";
                 else
-                    echo "Failed to Add $PROJECT_HOSTNAME, Try again!";
+                    echo "Failed to Add $DOMAIN, Try again!";
             fi
     fi
 }
