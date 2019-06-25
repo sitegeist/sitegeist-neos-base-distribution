@@ -4,7 +4,7 @@ services:
   php-fpm:
     image: sitegeist/neos-php-fpm:latest
     working_dir: /project
-    user: ${HOST_USER}:82
+    user: ${HOST_USER}
     environment:
       - FLOW_CONTEXT=Development/Docker
       - MYSQL_HOST=mariadb
@@ -33,7 +33,7 @@ services:
     volumes:
       - .:/project
     ports:
-      - "${PORT_NGINX}:${PORT_NGINX}"
+      - "${PORT_NGINX}"
 
   mariadb:
     image: sitegeist/neos-mariadb:latest
@@ -45,7 +45,7 @@ services:
     volumes:
       - database:/var/lib/mysql:delegated
     ports:
-      - "${PORT_MARIADB}:3306"
+      - "${PORT_MARIADB}"
 
   redis:
     image: sitegeist/neos-redis:latest
@@ -65,7 +65,7 @@ services:
   # elasticsearch:
   #   image: sitegeist/neos-elasticsearch:latest
   #  ports:
-  #    - "${PORT_ELASTICSEARCH}:9200"
+  #    - "${PORT_ELASTICSEARCH}"
 
 volumes:
   composer_data:

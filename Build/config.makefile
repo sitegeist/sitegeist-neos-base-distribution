@@ -2,11 +2,11 @@
 export CONF_PHP_PHPINI=./Build/Docker/Config/php/php.ini
 
 # nginx
-export PORT_NGINX=8081
+export PORT_NGINX=80
 export CONF_NGINX_VHOST=./Build/Docker/Config/nginx/vhost.conf
 
 # mariadb
-export PORT_MARIADB=33061
+export PORT_MARIADB=3306
 export CONF_MARIADB_MYCNF=./Build/Docker/Config/mariadb/my.cnf
 export CRED_MYSQL_ROOT_PASSWORD=toor
 export CRED_MYSQL_DATABASE=app

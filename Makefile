@@ -24,6 +24,7 @@ COMPOSE_EXEC=docker-compose exec -T --user $(HOST_USER) php-fpm ssh-agent
 -include ./Build/config.makefile
 -include $(DIR_CONFIG_GLOBAL)/before.makefile
 -include $(DIR_CONFIG_LOCAL)/before.makefile
+-include ./DomainScripts/domain.makefile
 
 ###############################################################################
 #                                  README                                     #
@@ -141,12 +142,15 @@ up::
 	@docker-compose up --force-recreate -d
 	@$(MAKE) -si @install-create-user & \
 	 $(COMPOSE_EXEC_ROOT) chmod -R 0777 /data
+	@$(MAKE) host-add
 
 down::
 	@docker-compose down --remove-orphans
+	@$(MAKE) host-remove
 
 prune::
 	@docker-compose down --remove-orphans --volumes
+	@$(MAKE) host-remove
 
 restart::
 	$(MAKE) down
@@ -180,6 +184,7 @@ clone::
 	@docker-compose exec --user $(HOST_USER) php-fpm ssh-agent /bin/bash -c "\
 		./flow clone:list; \
 		./flow clone:preset $(preset) --yes"
+	@$(MAKE) domain-add
 
 ###############################################################################
 #                                DEPLOYMENT                                   #
