@@ -2,6 +2,7 @@
 
 # PATH TO YOUR HOSTS FILE
 ETC_HOSTS=/etc/hosts
+CONFIGURATION_SETTINGS=Configuration/Development/Settings.yaml
 
 function removehost {
     DOMAIN=$PROJECT_HOSTNAME
@@ -18,6 +19,15 @@ function addhost {
     IP=$DB_IP
     DOMAIN=$PROJECT_DATABASE_HOSTNAME
     add
+    changesettings
+}
+
+function changesettings {
+    if [ -n "$(grep $DOMAIN $CONFIGURATION_SETTINGS)" ]
+    then
+        echo "Changing database host from your $CONFIGURATION_SETTINGS";
+        sed -i -e 's/        host: mariadb/        host: $DOMAIN/g' /tmp/file.txt $CONFIGURATION_SETTINGS
+    fi
 }
 
 function removemulti {
@@ -38,7 +48,7 @@ function addmulti {
 function remove {
     echo ""
     echo -e "\e[96m\e[1mRemove domain from hosts file\e[39m"
-    if [ -n "$(grep '$DOMAIN' /etc/hosts)" ]
+    if [ -n "$(grep $DOMAIN /etc/hosts)" ]
     then
         echo "$DOMAIN Found in your $ETC_HOSTS, Removing now...";
         sudo sed -i".bak" "/$DOMAIN/d" $ETC_HOSTS

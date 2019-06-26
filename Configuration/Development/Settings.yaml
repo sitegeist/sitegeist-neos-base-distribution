@@ -2,7 +2,7 @@ Neos:
   Flow:
     persistence:
       backendOptions:
-        host: sitegeist-neos-base-distribution.mariadb
+        host: mariadb
         dbname: app
         user: toor
         password: toor
