@@ -23,6 +23,7 @@ function addhost {
 }
 
 function changesettings {
+    echo ""
     if [ -n "$(grep 'host: mariadb' Configuration/Development/Settings.yaml)" ]
     then
         echo "Changing database host from your $CONFIGURATION_SETTINGS";

@@ -184,7 +184,6 @@ clone::
 	@docker-compose exec --user $(HOST_USER) php-fpm ssh-agent /bin/bash -c "\
 		./flow clone:list; \
 		./flow clone:preset $(preset) --yes"
-	@$(MAKE) domain-add
 
 ###############################################################################
 #                                DEPLOYMENT                                   #
