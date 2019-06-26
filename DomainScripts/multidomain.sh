@@ -7,10 +7,8 @@ source DomainScripts//tools.sh
 #### fetch IP addresses of running containers ####
 fetchContainerIPs
 
-#### add domain to etc/hosts ####
-removehost
-addhost
+#### add database to Configuration/Development/Settings.yaml ####
+removemulti
+addmulti
 
-echo ""
-echo "http://$PROJECT_HOSTNAME"
 echo ""

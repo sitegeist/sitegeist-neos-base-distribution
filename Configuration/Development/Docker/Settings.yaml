@@ -4,7 +4,7 @@ Neos:
   Flow:
     persistence:
       backendOptions:
-        host: mariadb
-        dbname: app
-        user: toor
-        password: toor
+        host: '%env:MYSQL_HOST%'
+        dbname: '%env:MYSQL_DATABASE%'
+        user: '%env:MYSQL_USER%'
+        password: '%env:MYSQL_PASSWORD%'

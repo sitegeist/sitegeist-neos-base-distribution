@@ -6,21 +6,8 @@ ETC_HOSTS=/etc/hosts
 function removehost {
     DOMAIN=$PROJECT_HOSTNAME
     remove
-    DOMAIN=$COMPOSE_DATABASE_NAME
+    DOMAIN=$PROJECT_DATABASE_HOSTNAME
     remove
-}
-
-
-function remove {
-    echo ""
-    echo -e "\e[96m\e[1mRemove domain from hosts file\e[39m"
-    if [ -n "$(grep $DOMAIN /etc/hosts)" ]
-    then
-        echo "$DOMAIN Found in your $ETC_HOSTS, Removing now...";
-        sudo sed -i".bak" "/$DOMAIN/d" $ETC_HOSTS
-    else
-        echo "$DOMAIN was not found in your $ETC_HOSTS";
-    fi
 }
 
 function addhost {
@@ -29,10 +16,36 @@ function addhost {
     add
 
     IP=$DB_IP
-    DOMAIN=$COMPOSE_DATABASE_NAME
+    DOMAIN=$PROJECT_DATABASE_HOSTNAME
     add
 }
 
+function removemulti {
+    DOMAIN=$PROJECT_MULTIDOMAIN_HOSTNAMES
+    echo "Removing multidomains ($DOMAIN) from your $ETC_HOSTS";
+    sudo sed -i".bak" "/$DOMAIN/d" $ETC_HOSTS
+}
+
+function addmulti {
+    IP=$WEB_IP
+    DOMAIN=$PROJECT_MULTIDOMAIN_HOSTNAMES
+    HOSTS_LINE="$IP\t$DOMAIN"
+    echo "Adding multidomains to your $ETC_HOSTS";
+    echo "$IP   $DOMAIN";
+    sudo -- sh -c -e "echo '$HOSTS_LINE' >> /etc/hosts";
+}
+
+function remove {
+    echo ""
+    echo -e "\e[96m\e[1mRemove domain from hosts file\e[39m"
+    if [ -n "$(grep '$DOMAIN' /etc/hosts)" ]
+    then
+        echo "$DOMAIN Found in your $ETC_HOSTS, Removing now...";
+        sudo sed -i".bak" "/$DOMAIN/d" $ETC_HOSTS
+    else
+        echo "$DOMAIN was not found in your $ETC_HOSTS";
+    fi
+}
 
 function add {
     echo ""

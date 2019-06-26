@@ -6,6 +6,7 @@
 /Configuration/README
 /Configuration/**/*.example
 /Configuration/Development/*
+!/Configuration/Development/Settings.yaml
 !/Configuration/Development/Docker
 /Configuration/Production/*
 /Configuration/Testing/*
