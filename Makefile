@@ -8,6 +8,8 @@
 
 #
 # @author Wilhelm Behncke <behncke@sitegeist.de>
+# @author Bernhard Schmitt <schmitt@sitegeist.de>
+# @author Andreas Freund <freund@sitegeist.de>
 #
 
 ###############################################################################
@@ -129,6 +131,7 @@ test-component-semantics::
 ###############################################################################
 .PHONY: build
 build::
+	$(MAKE) @install-yarn
 	@time webpack -p --hide-modules --mode production --optimize-dedupe --progress
 
 watch::
@@ -184,16 +187,14 @@ clone::
 ###############################################################################
 #                                DEPLOYMENT                                   #
 ###############################################################################
-deploy-develop::
-	@bin/dep deploy develop -vv --revision="develop"
+deploy-development::
+	@bin/dep deploy development -vv
 
 deploy-staging::
-	@echo "ERROR: There's no stage deployment configured yet"
-	@exit 1
+	@bin/dep deploy staging -vv
 
 deploy-live::
-	@echo "ERROR: There's no live deployment configured yet"
-	@exit 1
+	@bin/dep deploy live -vv
 
 -include $(DIR_CONFIG_GLOBAL)/after.makefile
 -include $(DIR_CONFIG_LOCAL)/after.makefile
