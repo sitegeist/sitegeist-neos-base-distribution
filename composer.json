@@ -9,7 +9,7 @@
         }
     },
     "require": {
-        "sitegeist/site-placeholder": "1.0.0"
+        "sitegeist/site-placeholder": "1.0.1"
     },
     "require-dev": {
         "neos/buildessentials": "5.3.x-dev",
