@@ -2,7 +2,7 @@ Neos:
   Flow:
     persistence:
       backendOptions:
-        host: mariadb
+        host: mariadb #dbhost
         dbname: app
         user: toor
         password: toor

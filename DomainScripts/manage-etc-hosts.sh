@@ -24,10 +24,10 @@ function addhost {
 
 function changesettings {
     echo ""
-    if [ -n "$(grep 'host: mariadb' $CONFIGURATION_SETTINGS)" ]
+    if [ -n "$(grep 'host:.*#dbhost' $CONFIGURATION_SETTINGS)" ]
     then
         echo "Changing database host from your $CONFIGURATION_SETTINGS";
-        sed -i -e "s/host: mariadb/host: $DOMAIN/g" $CONFIGURATION_SETTINGS;
+        sed -i -e "s/host:.*#dbhost/host: $DOMAIN #dbhost/g" $CONFIGURATION_SETTINGS;
     else
         echo "Not changing your $CONFIGURATION_SETTINGS";
     fi
