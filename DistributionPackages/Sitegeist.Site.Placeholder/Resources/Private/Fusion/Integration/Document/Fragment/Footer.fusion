@@ -1,0 +1,3 @@
+prototype(Sitegeist.Site.Placeholder:Document.Fragment.Footer) < prototype(Neos.Fusion:Component) {
+    renderer = Sitegeist.Site.Placeholder:Component.Organism.SiteFooter
+}

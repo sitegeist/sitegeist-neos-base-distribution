@@ -1,0 +1,7 @@
+prototype(Sitegeist.Site.Placeholder:Document.Fragment.Header) < prototype(Neos.Fusion:Component) {
+    menuItems = Neos.Neos:MenuItems
+
+    renderer = Sitegeist.Site.Placeholder:Component.Organism.SiteHeader {
+        @apply.props = ${props}
+    }
+}

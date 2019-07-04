@@ -1,4 +1,4 @@
-'Sitegeist.Site.Placeholder:Document.Page':
+'Sitegeist.Site.Placeholder:Document.WebPage':
   superTypes:
     'Sitegeist.Site.Placeholder:Document': true
 

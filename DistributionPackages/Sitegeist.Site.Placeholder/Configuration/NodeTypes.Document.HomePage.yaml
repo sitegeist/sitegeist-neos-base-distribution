@@ -1,6 +1,6 @@
 'Sitegeist.Site.Placeholder:Document.HomePage':
   superTypes:
-    'Sitegeist.Site.Placeholder:Document.Page': true
+    'Sitegeist.Site.Placeholder:Document.WebPage': true
     'Sitegeist.Site.Placeholder:Constraint.Document.Restricted': true
   ui:
     icon: globe
