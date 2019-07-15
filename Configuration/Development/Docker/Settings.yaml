@@ -1,6 +1,7 @@
 Neos:
   Imagine:
     driver: Imagick
+
   Flow:
     persistence:
       backendOptions:
@@ -8,3 +9,9 @@ Neos:
         dbname: '%env:MYSQL_DATABASE%'
         user: '%env:MYSQL_USER%'
         password: '%env:MYSQL_PASSWORD%'
+
+  SwiftMailer:
+    transport:
+      type: 'Swift_SmtpTransport'
+      options:
+        host: '%env:MAILHOG_HOST%'
