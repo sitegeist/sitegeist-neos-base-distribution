@@ -86,6 +86,14 @@ cleanup::
 	@$(MAKE) build
 	@$(COMPOSE_EXEC) ./flow flow:package:rescan
 
+
+resource-publish::
+	@$(COMPOSE_EXEC) ./flow resource:publish
+
+
+nodeindex-build::
+	@$(COMPOSE_EXEC) ./flow nodeindex:build --workspace live
+
 ###############################################################################
 #                                LINTING & QA                                 #
 ###############################################################################
