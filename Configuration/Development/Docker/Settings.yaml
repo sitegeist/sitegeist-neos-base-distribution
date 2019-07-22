@@ -8,3 +8,12 @@ Neos:
         dbname: '%env:MYSQL_DATABASE%'
         user: '%env:MYSQL_USER%'
         password: '%env:MYSQL_PASSWORD%'
+#Flowpack:
+#  ElasticSearch:
+#    clients:
+#      default:
+#        -
+#          host: elasticsearch
+#          port: 9200
+#          username: ''
+#          password: ''

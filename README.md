@@ -51,6 +51,19 @@ or type the preset directly:
 make clone preset=dev
 ```
 
+## Multi domain
+
+You can add multiple domains to your /etc/hosts file. If you need this feature you have to change the **DomainScripts/project.env.makefile** and add your domains to the variable **PROJECT_MULTIDOMAIN_HOSTNAMES** and change the Makefile up:: part.
+
+```
+up::
+	@docker-compose up --force-recreate -d
+	@$(MAKE) -si @install-create-user & \
+	 $(COMPOSE_EXEC_ROOT) chmod -R 0777 /data
+	@$(MAKE) host-add
+	@$(MAKE) multidomain-add
+```
+
 ## Versioning
 
 <!-- @TODO: Versioning -->
