@@ -1,0 +1,1 @@
+prototype(Sitegeist.Site.Placeholder:Document.Error.404) < prototype(Sitegeist.Site.Placeholder:Document.WebPage)

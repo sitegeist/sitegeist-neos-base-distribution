@@ -1,7 +1,8 @@
 'Sitegeist.Site.Placeholder:Document.Error.404':
   superTypes:
-    'Sitegeist.Site.Placeholder:Document.Page': true
+    'Sitegeist.Site.Placeholder:Document.WebPage': true
     'Sitegeist.Site.Placeholder:Constraint.Document.Restricted': true
+    'Neos.Seo:NoindexMixin': true
   ui:
     icon: exclamation-triangle
     label: i18n
