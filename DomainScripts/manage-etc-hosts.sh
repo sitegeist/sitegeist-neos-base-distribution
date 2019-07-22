@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# PATH TO YOUR HOSTS FILE
-ETC_HOSTS=/etc/hosts
-CONFIGURATION_SETTINGS=Configuration/Development/Settings.yaml
-
 function removehost {
     DOMAIN=$PROJECT_HOSTNAME
     remove
@@ -33,6 +29,17 @@ function changesettings {
     fi
 }
 
+function elasticsettings {
+    echo ""
+    if [ -n "$(grep 'host:.*#elastic' $CONFIGURATION_SETTINGS)" ]
+    then
+        echo "Changing database host from your $CONFIGURATION_SETTINGS";
+        sed -i -e "s/host:.*#elastic/host: $DOMAIN #elastic/g" $CONFIGURATION_SETTINGS;
+    else
+        echo "Not changing your $CONFIGURATION_SETTINGS";
+    fi
+}
+
 function removemulti {
     DOMAIN=$PROJECT_MULTIDOMAIN_HOSTNAMES
     echo "Removing multidomains ($DOMAIN) from your $ETC_HOSTS";
@@ -50,7 +57,7 @@ function addmulti {
 
 function remove {
     echo ""
-    echo -e "\e[96m\e[1mRemove domain from hosts file\e[39m"
+    echo -e "\e[95m\e[1mRemove domain from hosts file\e[39m"
     if [ -n "$(grep $DOMAIN /etc/hosts)" ]
     then
         echo "$DOMAIN Found in your $ETC_HOSTS, Removing now...";
@@ -62,7 +69,7 @@ function remove {
 
 function add {
     echo ""
-    echo -e "\e[96m\e[1mAdd domain to hosts file\e[39m"
+    echo -e "\e[95m\e[1mAdd domain to hosts file\e[39m"
 
     HOSTS_LINE="$IP\t$DOMAIN"
     if [ -n "$(grep DOMAIN /etc/hosts)" ]

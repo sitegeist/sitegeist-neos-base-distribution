@@ -2,7 +2,20 @@ Neos:
   Flow:
     persistence:
       backendOptions:
-        host: mariadb #dbhost
+        host: sitegeist-neos-base-distribution.mariadb #dbhost
         dbname: app
         user: toor
         password: toor
+  ContentRepository:
+    Search:
+      indexAllWorkspaces: false
+
+Flowpack:
+  ElasticSearch:
+    clients:
+      default:
+        -
+          host: sitegeist-neos-base-distribution.elasticsearch #elastic
+          port: 9200
+          username: ''
+          password: ''

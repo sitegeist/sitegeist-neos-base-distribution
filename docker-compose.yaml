@@ -47,6 +47,13 @@ services:
     ports:
       - "${PORT_MARIADB}"
 
+  mailhog:
+    image: sitegeist/neos-mailhog:latest
+    restart: always
+    ports:
+      - "${PORT_MAILHOG_SMTP_PORT}"
+      - "${PORT_MAILHOG_WEB_UI_PORT}"
+
   redis:
     image: sitegeist/neos-redis:latest
 
@@ -58,14 +65,10 @@ services:
     volumes:
       - ./Test:/tests
 
-  ###############################################################################
-  #                                EXAMPLES                                     #
-  ###############################################################################
-
-  # elasticsearch:
-  #   image: sitegeist/neos-elasticsearch:latest
-  #  ports:
-  #    - "${PORT_ELASTICSEARCH}"
+  elasticsearch:
+    image: sitegeist/neos-elasticsearch:latest
+    ports:
+      - "${PORT_ELASTICSEARCH}"
 
 volumes:
   composer_data:

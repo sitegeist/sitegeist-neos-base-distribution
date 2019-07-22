@@ -90,10 +90,6 @@ cleanup::
 resource-publish::
 	@$(COMPOSE_EXEC) ./flow resource:publish
 
-
-nodeindex-build::
-	@$(COMPOSE_EXEC) ./flow nodeindex:build --workspace live
-
 ###############################################################################
 #                                LINTING & QA                                 #
 ###############################################################################
@@ -139,6 +135,7 @@ test-component-semantics::
 .PHONY: build
 build::
 	@time webpack -p --hide-modules --mode production --optimize-dedupe --progress
+	@$(MAKE) resource-publish --no-print-directory
 
 watch::
 	@webpack --mode development -w
@@ -150,15 +147,21 @@ up::
 	@docker-compose up --force-recreate -d
 	@$(MAKE) -si @install-create-user & \
 	 $(COMPOSE_EXEC_ROOT) chmod -R 0777 /data
-	@$(MAKE) host-add
+	@$(MAKE) host-add --no-print-directory
+	@$(MAKE) elasticsearch-add --no-print-directory
+	@$(MAKE) mailhog-add --no-print-directory
 
 down::
 	@docker-compose down --remove-orphans
-	@$(MAKE) host-remove
+	@$(MAKE) host-remove --no-print-directory
+	@$(MAKE) elasticsearch-remove --no-print-directory
+	@$(MAKE) mailhog-remove --no-print-directory
 
 prune::
 	@docker-compose down --remove-orphans --volumes
-	@$(MAKE) host-remove
+	@$(MAKE) host-remove --no-print-directory
+	@$(MAKE) elasticsearch-remove --no-print-directory
+	@$(MAKE) mailhog-remove --no-print-directory
 
 restart::
 	$(MAKE) down

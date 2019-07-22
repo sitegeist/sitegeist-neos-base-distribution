@@ -5,12 +5,12 @@ source DomainScripts/manage-etc-hosts.sh
 source DomainScripts/tools.sh
 
 #### fetch IP addresses of running containers ####
-fetchContainerIPs
+fetchElasticsearchIP
 
-#### add domain to etc/hosts ####
-removehost
-addhost
+IP=$ELASTIC_IP
+DOMAIN=$PROJECT_ELASTICSEARCH_HOSTNAME
+remove
+add
+elasticsettings
 
-echo ""
-echo -e "\e[93m\e[1mhttp://$PROJECT_HOSTNAME\e[39m"
 echo ""

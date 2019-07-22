@@ -2,7 +2,7 @@
 
 function fetchContainerIPs {
     echo ""
-    echo -e "\e[96m\e[1mFetching Container IPs"
+    echo -e "\e[96m\e[1m### Fetching Container IPs"
 
     export DOCKERWEBNAME=$(docker ps | grep -o ${COMPOSE_PROJECT_NAME}_${COMPOSE_WEBSERVER_NAME}_1.*)
     export DOCKERDBNAME=$(docker ps | grep -o ${COMPOSE_PROJECT_NAME}_${COMPOSE_DATABASE_NAME}_1.*)
@@ -10,6 +10,21 @@ function fetchContainerIPs {
     getDockerContainerIP ${DOCKERWEBNAME} WEB_IP
     getDockerContainerIP ${DOCKERDBNAME} DB_IP
 }
+
+function fetchElasticsearchIP {
+    echo ""
+    echo -e "\e[96m\e[1m### Fetching Elasticsearch IP"
+    export DOCKERNAME=$(docker ps | grep -o ${COMPOSE_PROJECT_NAME}_${COMPOSE_ELASTICSEARCH_NAME}_1.*)
+    getDockerContainerIP ${DOCKERNAME} ELASTIC_IP
+}
+
+function fetchMailhogIP {
+    echo ""
+    echo -e "\e[96m\e[1m### Fetching Mailhog IP"
+    export DOCKERNAME=$(docker ps | grep -o ${COMPOSE_PROJECT_NAME}_${COMPOSE_MAILHOG_NAME}_1.*)
+    getDockerContainerIP ${DOCKERNAME} MAILHOG_IP
+}
+
 
 # Returns the IP of a docker container
 # pass name of docker-container as first parameter

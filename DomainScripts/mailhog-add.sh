@@ -5,12 +5,13 @@ source DomainScripts/manage-etc-hosts.sh
 source DomainScripts/tools.sh
 
 #### fetch IP addresses of running containers ####
-fetchContainerIPs
+fetchMailhogIP
 
-#### add domain to etc/hosts ####
-removehost
-addhost
+IP=$MAILHOG_IP
+DOMAIN=$PROJECT_MAILHOG_HOSTNAME
+remove
+add
 
 echo ""
-echo -e "\e[93m\e[1mhttp://$PROJECT_HOSTNAME\e[39m"
+echo -e "\e[93m\e[1mhttp://$DOMAIN:8025\e[39m"
 echo ""
