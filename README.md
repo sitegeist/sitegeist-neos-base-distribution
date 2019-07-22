@@ -60,8 +60,10 @@ up::
 	@docker-compose up --force-recreate -d
 	@$(MAKE) -si @install-create-user & \
 	 $(COMPOSE_EXEC_ROOT) chmod -R 0777 /data
-	@$(MAKE) host-add
-	@$(MAKE) multidomain-add
+	@$(MAKE) host-add --no-print-directory
+	@$(MAKE) elasticsearch-add --no-print-directory
+	@$(MAKE) mailhog-add --no-print-directory
+	@$(MAKE) multidomain-add--no-print-directory
 ```
 
 ## Versioning
