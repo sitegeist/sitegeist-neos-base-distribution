@@ -1,0 +1,9 @@
+prototype(Sitegeist.Site.Placeholder:Document.WebPage) < prototype(Sitegeist.Site.Placeholder:Document.Base) {
+    body = Neos.Fusion:Join {
+        header = Sitegeist.Site.Placeholder:Document.Fragment.Header
+        main = Neos.Neos:ContentCollection {
+            nodePath = 'main'
+        }
+        footer = Sitegeist.Site.Placeholder:Document.Fragment.Footer
+    }
+}

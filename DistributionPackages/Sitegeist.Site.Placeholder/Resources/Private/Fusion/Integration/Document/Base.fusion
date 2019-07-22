@@ -1,7 +1,6 @@
 prototype(Sitegeist.Site.Placeholder:Document.Base) < prototype(Neos.Fusion:Component) {
-    title = ${q(documentNode).property('title')}
-    titleOverride = ${q(documentNode).property('titleOverride')}
     body = null
+    jsonLd = null
 
     renderer = Neos.Neos:Page {
         head {
@@ -9,12 +8,12 @@ prototype(Sitegeist.Site.Placeholder:Document.Base) < prototype(Neos.Fusion:Comp
             stylesheets = Sitegeist.Site.Placeholder:Resource.StyleSheets
 
             titleTag {
-                content = ${props.titleOverride ? props.titleOverride : props.title}
                 content.@process.environmentPrefix {
                     expression = ${Configuration.setting('Sitegeist.Site.Placeholder.environmentPrefix') + ' ' + value}
                     @if.isSet = ${!String.isBlank(Configuration.setting('Sitegeist.Site.Placeholder.environmentPrefix'))}
                 }
             }
+            jsonLd = afx`<Neos.Fusion:Loop items={props.jsonLd}><script type="application/ld+json">{Json.stringify(item)}</script></Neos.Fusion:Loop>`
         }
 
         body = ${props.body}
