@@ -1,0 +1,13 @@
+version: '3.6'
+services:
+  webserver:
+    ports:
+      - "8081:${PORT_NGINX}"
+
+  mariadb:
+    ports:
+      - "33061:${PORT_MARIADB}"
+
+  mailhog:
+    ports:
+      - "${PORT_MAILHOG_WEB_UI_PORT}:${PORT_MAILHOG_WEB_UI_PORT}"
