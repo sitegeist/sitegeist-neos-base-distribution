@@ -11,3 +11,7 @@ services:
   mailhog:
     ports:
       - "${PORT_MAILHOG_WEB_UI_PORT}:${PORT_MAILHOG_WEB_UI_PORT}"
+
+  elasticsearch:
+    ports:
+      - "${PORT_ELASTICSEARCH}:${PORT_ELASTICSEARCH}"
