@@ -1,5 +1,13 @@
 # Sitegeist Neos Base Distribution
 
+## Documentation
+
+**Configuration**
+
+* [Override and extend Makefile commands](docs/configuration/extend-makefile.md)
+* [Override or extend docker-compose.yml](docs/configuration/override-docker-compose-yml.md)
+
+
 ## System Requirements
 
 ### Linux + Mac
