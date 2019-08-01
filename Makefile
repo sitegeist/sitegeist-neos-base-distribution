@@ -19,7 +19,7 @@ export TS_NODE_PROJECT=./tsconfig.json
 export HOST_USER=$(shell id -u)
 export HOST_GROUP=$(shell id -g)
 export PATH := ./node_modules/.bin:./bin:$(PATH)
-COMPOSE_EXEC=docker-compose exec -T --user $(HOST_USER) php-fpm ssh-agent
+COMPOSE_EXEC=docker-compose exec --user $(HOST_USER) php-fpm ssh-agent
 
 -include ./Build/config.makefile
 -include $(DIR_CONFIG_GLOBAL)/before.makefile
