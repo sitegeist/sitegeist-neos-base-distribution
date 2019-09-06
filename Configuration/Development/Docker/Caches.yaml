@@ -1,0 +1,23 @@
+Flow_Mvc_Routing_Route:
+  backendOptions:
+    hostname: redis
+
+Flow_Mvc_Routing_Resolve:
+  backendOptions:
+    hostname: redis
+
+Neos_Fusion_Content:
+  backendOptions:
+    hostname: redis
+
+Flow_Session_MetaData:
+  backendOptions:
+    hostname: redis
+
+Flow_Session_Storage:
+  backendOptions:
+    hostname: redis
+
+Neos_Media_ImageSize:
+ backendOptions:
+   hostname: redis
