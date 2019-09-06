@@ -58,6 +58,13 @@ services:
     volumes:
       - ./Test:/tests
 
+  mailhog:
+    image: sitegeist/neos-mailhog:latest
+    restart: always
+    ports:
+      - "${PORT_MAILHOG_SMTP_PORT}:1025"
+      - "${PORT_MAILHOG_WEB_UI_PORT}:8025"
+
   ###############################################################################
   #                                EXAMPLES                                     #
   ###############################################################################

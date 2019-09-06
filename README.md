@@ -1,5 +1,13 @@
 # Sitegeist Neos Base Distribution
 
+## Documentation
+
+**Configuration**
+
+* [Override and extend Makefile commands](docs/configuration/extend-makefile.md)
+* [Override or extend docker-compose.yml](docs/configuration/override-docker-compose-yml.md)
+
+
 ## System Requirements
 
 ### Linux + Mac
@@ -35,6 +43,20 @@ You can start a development server via:
 
 ```sh
 make up
+```
+
+## Clone project data
+
+You can clone your projectdata directly with make. This command shows up the list and ask for the preset.
+
+```
+make clone
+```
+
+or type the preset directly:
+
+```sh
+make clone preset=dev
 ```
 
 ## Versioning

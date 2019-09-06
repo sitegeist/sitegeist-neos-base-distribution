@@ -40,7 +40,10 @@ const config: webpack.Configuration = {
             test: /\.tsx?$/,
             exclude: /(node_modules)/,
             use: [{
-                loader: 'ts-loader'
+				loader: 'ts-loader',
+				options: {
+					reportFiles: ['!DistributionPackages/**/*.spec.ts']
+				}
             }]
         }, {
             test: /\.fusion$/,

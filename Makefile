@@ -19,7 +19,7 @@ export TS_NODE_PROJECT=./tsconfig.json
 export HOST_USER=$(shell id -u)
 export HOST_GROUP=$(shell id -g)
 export PATH := ./node_modules/.bin:./bin:$(PATH)
-COMPOSE_EXEC=docker-compose exec -T --user $(HOST_USER) php-fpm ssh-agent
+COMPOSE_EXEC=docker-compose exec --user $(HOST_USER) php-fpm ssh-agent
 
 -include ./Build/config.makefile
 -include $(DIR_CONFIG_GLOBAL)/before.makefile
@@ -63,6 +63,11 @@ environment::
 @install-yarn::
 	@yarn install
 	@ln -sf ../node/bin/node ./node_modules/.bin/node
+
+@install-create-user::
+	@$(COMPOSE_EXEC_ROOT) mkdir -p /home/hostuser
+	@$(COMPOSE_EXEC_ROOT) useradd -u $(HOST_USER) hostuser
+	@$(COMPOSE_EXEC_ROOT) chown hostuser /home/hostuser
 
 install::
 	$(MAKE) -s up
@@ -134,7 +139,8 @@ watch::
 ###############################################################################
 up::
 	@docker-compose up --force-recreate -d
-	@$(COMPOSE_EXEC_ROOT) chmod -R 0777 /data
+	@$(MAKE) -si @install-create-user & \
+	 $(COMPOSE_EXEC_ROOT) chmod -R 0777 /data
 
 down::
 	@docker-compose down --remove-orphans
@@ -166,6 +172,14 @@ ssh-mariadb::
 
 ssh-webserver::
 	docker-compose exec -w /etc/nginx webserver sh
+
+###############################################################################
+#                                CLONE                                        #
+###############################################################################
+clone::
+	@docker-compose exec --user $(HOST_USER) php-fpm ssh-agent /bin/bash -c "\
+		./flow clone:list; \
+		./flow clone:preset $(preset) --yes"
 
 ###############################################################################
 #                                DEPLOYMENT                                   #

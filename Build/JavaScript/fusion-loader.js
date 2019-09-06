@@ -16,7 +16,7 @@ module.exports = function (fusionSource) {
 	const compressPrototypeName = prototypeName => {
 		const hashids = new Hashids(options.salt);
 
-		return hashids.encodeHex(Buffer(prototypeName).toString('hex')).substr(0, 8); // eslint-disable-line
+		return hashids.encodeHex(Buffer(prototypeName).toString('hex')); // eslint-disable-line
 	};
 
 	if (parsedFusionSource) {
