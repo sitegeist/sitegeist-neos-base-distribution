@@ -4,14 +4,7 @@
     "version": "1.0.0",
     "require": {
         "neos/neos": "*",
-        "neos/nodetypes-basemixins": "^4.2",
-        "packagefactory/atomicfusion-proptypes": "^1.2",
-        "flowpack/nodetemplates": "^1.0",
-        "sitegeist/klarschiff": "^2.1",
-        "sitegeist/movealong": "^4.0",
-        "sitegeist/monocle": "^4.5",
-        "sitegeist/kaleidoscope": "^3.0",
-        "sitegeist/silhouettes": "^1.0"
+        "neos/nodetypes-basemixins": "*"
     },
     "autoload": {
         "psr-4": {
