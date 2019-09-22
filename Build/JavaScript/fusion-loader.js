@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const loaderUtils = require('loader-utils');
-const Hashids = require('hashids');
 
 module.exports = function (fusionSource) {
 	const options = Object.assign(
@@ -13,15 +12,10 @@ module.exports = function (fusionSource) {
 		path.basename(this.resourcePath, '.fusion')
 	);
 	const parsedFusionSource = /prototype\(([.:a-zA-Z0-9]*)\)/.exec(fusionSource);
-	const compressPrototypeName = prototypeName => {
-		const hashids = new Hashids(options.salt);
-
-		return hashids.encodeHex(Buffer(prototypeName).toString('hex')); // eslint-disable-line
-	};
 
 	if (parsedFusionSource) {
 		const prototypeName = parsedFusionSource[1];
-		const exportName = options.compress ? compressPrototypeName(prototypeName) : prototypeName;
+		const exportName = prototypeName;
 		const importStatements = [];
 		const exportStatements = [];
 

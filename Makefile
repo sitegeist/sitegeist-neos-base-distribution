@@ -19,7 +19,7 @@ export TS_NODE_PROJECT=./tsconfig.json
 export HOST_USER=$(shell id -u)
 export HOST_GROUP=$(shell id -g)
 export PATH := ./node_modules/.bin:./bin:$(PATH)
-COMPOSE_EXEC=docker-compose exec --user $(HOST_USER) php-fpm ssh-agent
+COMPOSE_EXEC=docker-compose exec -T --user $(HOST_USER) php-fpm ssh-agent
 
 -include ./Build/config.makefile
 -include $(DIR_CONFIG_GLOBAL)/before.makefile
@@ -64,17 +64,17 @@ environment::
 	@yarn install
 	@ln -sf ../node/bin/node ./node_modules/.bin/node
 
-@install-create-user::
-	@$(COMPOSE_EXEC_ROOT) mkdir -p /home/hostuser
-	@$(COMPOSE_EXEC_ROOT) useradd -u $(HOST_USER) hostuser
-	@$(COMPOSE_EXEC_ROOT) chown hostuser /home/hostuser
-
 install::
-	$(MAKE) -s up
+	@time $(MAKE) -s up
 	@time $(MAKE) -s -j 3 @install-githooks @install-composer @install-yarn
-	@./flow flow:cache:flush
-	@./flow flow:cache:warmup
-	@./flow flow:package:rescan
+	@time $(MAKE) -s -j 2 build flush
+
+flush::
+	@$(COMPOSE_EXEC) ./flow flow:cache:flush --force
+	@$(COMPOSE_EXEC) ./flow flow:cache:warmup
+	@$(COMPOSE_EXEC) ./flow flow:package:rescan
+	@$(COMPOSE_EXEC) ./flow doctrine:migrate
+	@$(COMPOSE_EXEC) ./flow resource:publish
 
 cleanup::
 	@rm -rf ./Data/Temporary/*
@@ -82,8 +82,6 @@ cleanup::
 	@rm -rf ./bin/*
 	@rm -rf node_modules/
 	@$(MAKE) install
-	@$(MAKE) build
-	@$(COMPOSE_EXEC) ./flow flow:package:rescan
 
 ###############################################################################
 #                                LINTING & QA                                 #
