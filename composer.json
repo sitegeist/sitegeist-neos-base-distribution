@@ -26,7 +26,6 @@
         "sitegeist/magicwand": "^3.3",
         "deployer/deployer": "^6.2",
         "editorconfig-checker/editorconfig-checker": "^8.0",
-        "sitegeist/neosguidelines": "^1.2",
         "squizlabs/php_codesniffer": "^3.3"
     },
     "suggest": {
