@@ -11,7 +11,8 @@
         "sitegeist/movealong": "^4.0",
         "sitegeist/monocle": "^4.5",
         "sitegeist/kaleidoscope": "^3.0",
-        "sitegeist/silhouettes": "^1.0"
+        "sitegeist/silhouettes": "^1.0",
+        "sitegeist/csvpo": "^1.1"
     },
     "autoload": {
         "psr-4": {
