@@ -26,7 +26,8 @@
         "sitegeist/lazybones": "^2.0",
         "sitegeist/silhouettes": "^1.0",
 
-        "sitegeist/site-placeholder": "^1.0"
+        "sitegeist/site-placeholder": "^1.0",
+        "sitegeist/csvpo": "^1.1"
     },
     "require-dev": {
         "neos/buildessentials": "^6.0",

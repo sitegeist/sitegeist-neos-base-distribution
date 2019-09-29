@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "84820a5161861b436a5a4d43fa0421b2",
+    "content-hash": "fdcb079c98fbdf5c93b9077028f2ab34",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -5163,6 +5163,42 @@
                 "uuid"
             ],
             "time": "2018-07-19T23:38:55+00:00"
+        },
+        {
+            "name": "sitegeist/csvpo",
+            "version": "v1.1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sitegeist/Sitegeist.CsvPO.git",
+                "reference": "89d4df5d9725ddc866134d552d7178f3a3545492"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sitegeist/Sitegeist.CsvPO/zipball/89d4df5d9725ddc866134d552d7178f3a3545492",
+                "reference": "89d4df5d9725ddc866134d552d7178f3a3545492",
+                "shasum": ""
+            },
+            "require": {
+                "league/csv": "^9.2",
+                "neos/flow": "^5.0 || ^6.0 || dev-master"
+            },
+            "type": "neos-package",
+            "extra": {
+                "neos": {
+                    "package-key": "Sitegeist.CsvPO"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sitegeist\\CsvPO\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "CSV based translations handling for Neos for easy use and colocation with presentational fusion",
+            "time": "2019-09-23T10:59:58+00:00"
         },
         {
             "name": "sitegeist/kaleidoscope",
