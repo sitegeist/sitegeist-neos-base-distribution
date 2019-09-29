@@ -137,8 +137,11 @@ watch::
 ###############################################################################
 up::
 	@docker-compose up --force-recreate -d
-	@$(MAKE) -si @install-create-user & \
-	 $(COMPOSE_EXEC_ROOT) chmod -R 0777 /data
+	@$(COMPOSE_EXEC_ROOT) mkdir -p /var/mail
+	@$(COMPOSE_EXEC_ROOT) mkdir -p /home/hostuser
+	@$(COMPOSE_EXEC_ROOT) useradd -u $(HOST_USER) hostuser
+	@$(COMPOSE_EXEC_ROOT) chown hostuser /home/hostuser
+	@$(COMPOSE_EXEC_ROOT) chmod -R 0777 /data
 
 down::
 	@docker-compose down --remove-orphans
