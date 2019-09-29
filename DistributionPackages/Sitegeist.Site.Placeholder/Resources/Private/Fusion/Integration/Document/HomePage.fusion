@@ -1,1 +1,0 @@
-prototype(Sitegeist.Site.Placeholder:Document.HomePage) < prototype(Sitegeist.Site.Placeholder:Document.Page)

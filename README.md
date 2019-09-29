@@ -34,7 +34,7 @@ Now, run all database migrations:
 Finally, perform a site import:
 
 ```sh
-./flow site:import --package-key Sitegeist.Site.Placeholder
+./flow site:import --package-key Vendor.Site
 ```
 
 ## Running the site locally

@@ -25,9 +25,9 @@
         "sitegeist/kaleidoscope": "^5.0",
         "sitegeist/lazybones": "^2.0",
         "sitegeist/silhouettes": "^1.0",
+        "sitegeist/csvpo": "^1.1",
 
-        "sitegeist/site-placeholder": "^1.0",
-        "sitegeist/csvpo": "^1.1"
+        "vendor/site": "^1.0"
     },
     "require-dev": {
         "neos/buildessentials": "^6.0",
@@ -47,9 +47,7 @@
         "post-update-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
         "post-install-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
         "post-package-update": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
-        "post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
-        "lint": "exit 0",
-        "test": "exit 0"
+        "post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall"
     },
     "repositories": {
         "local": {

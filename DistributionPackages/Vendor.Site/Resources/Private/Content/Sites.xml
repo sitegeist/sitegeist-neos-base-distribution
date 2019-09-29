@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <site name="Vendor.Site" state="1" siteResourcesPackageKey="Vendor.Site" siteNodeName="vendor-site">
+        <nodes formatVersion="2.0">
+            <node nodeName="vendor-site">
+                <variant
+                    workspace="live"
+                    nodeType="Vendor.Site:Document.HomePage"
+                    sortingIndex="100"
+                    version="1"
+                    removed=""
+                    hidden=""
+                    hiddenInIndex=""
+                    >
+                    <dimensions/>
+                    <accessRoles __type="array"/>
+                    <properties>
+                        <title __type="string">Vendor.Site</title>
+                        <uriPathSegment __type="string">vendor-site</uriPathSegment>
+                    </properties>
+                </variant>
+                <node nodeName="main">
+                    <variant
+                        workspace="live"
+                        nodeType="Vendor.Site:Collection.Content.Main"
+                        sortingIndex="100"
+                        version="1"
+                        removed=""
+                        hidden=""
+                        hiddenInIndex=""
+                        >
+                        <dimensions/>
+                        <accessRoles __type="array" />
+                    </variant>
+                </node>
+            </node>
+        </nodes>
+    </site>
+</root>

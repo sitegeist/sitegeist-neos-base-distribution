@@ -1,0 +1,11 @@
+prototype(Vendor.Site:Component.Organism.SiteFooter) < prototype(Neos.Fusion:Component)  {
+    @styleguide {
+        title = 'Site Footer'
+    }
+
+    renderer = afx`
+        <footer class={styles.siteFooter}>
+            SITE FOOTER
+        </footer>
+    `
+}

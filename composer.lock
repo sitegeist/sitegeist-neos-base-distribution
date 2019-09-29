@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "fdcb079c98fbdf5c93b9077028f2ab34",
+    "content-hash": "b863e4414022aace9ee8a5eca0f091ab",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -5540,30 +5540,6 @@
             "time": "2019-09-13T07:16:06+00:00"
         },
         {
-            "name": "sitegeist/site-placeholder",
-            "version": "1.0.0",
-            "dist": {
-                "type": "path",
-                "url": "./DistributionPackages/Sitegeist.Site.Placeholder",
-                "reference": "f113a9ead912224c7545969933730164e3e5b90c"
-            },
-            "require": {
-                "neos/neos": "*",
-                "neos/nodetypes-basemixins": "*"
-            },
-            "type": "neos-site",
-            "extra": {
-                "neos": {
-                    "package-key": "Sitegeist.Site.Placeholder"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Sitegeist\\Site\\Placeholder\\": "Classes/"
-                }
-            }
-        },
-        {
             "name": "symfony/console",
             "version": "v4.3.4",
             "source": {
@@ -6029,6 +6005,30 @@
             ],
             "description": "The TYPO3 Fluid template rendering engine",
             "time": "2019-09-13T09:38:15+00:00"
+        },
+        {
+            "name": "vendor/site",
+            "version": "1.0.0",
+            "dist": {
+                "type": "path",
+                "url": "./DistributionPackages/Vendor.Site",
+                "reference": "475cd23e4faa8efcbd3a99aabf657eb067f1cca8"
+            },
+            "require": {
+                "neos/neos": "*",
+                "neos/nodetypes-basemixins": "*"
+            },
+            "type": "neos-site",
+            "extra": {
+                "neos": {
+                    "package-key": "Vendor.Site"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Vendor\\Site\\": "Classes/"
+                }
+            }
         },
         {
             "name": "zendframework/zend-code",

@@ -1,0 +1,25 @@
+prototype(Vendor.Site:Document.Base) < prototype(Neos.Fusion:Component) {
+    title = ${q(documentNode).property('title')}
+    titleOverride = ${q(documentNode).property('titleOverride')}
+    body = null
+
+    renderer = Neos.Neos:Page {
+        head {
+            metaViewport = '<meta name="viewport" content="width=device-width">'
+            stylesheets = Vendor.Site:Resource.StyleSheets
+
+            titleTag {
+                content = ${props.titleOverride ? props.titleOverride : props.title}
+                content.@process.environmentPrefix {
+                    expression = ${Configuration.setting('Vendor.Site.environmentPrefix') + ' ' + value}
+                    @if.isSet = ${!String.isBlank(Configuration.setting('Vendor.Site.environmentPrefix'))}
+                }
+            }
+        }
+
+        body = ${props.body}
+
+        bodyScripts = Vendor.Site:Resource.BodyScripts
+        bodyScripts.@position = 'before closingBodyTag'
+    }
+}

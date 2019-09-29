@@ -1,0 +1,11 @@
+prototype(Vendor.Site:Component.Organism.SiteHeader) < prototype(Neos.Fusion:Component)  {
+    @styleguide {
+        title = 'Site Header'
+    }
+
+    renderer = afx`
+        <header class={styles.siteHeader}>
+            SITE HEADER
+        </header>
+    `
+}
