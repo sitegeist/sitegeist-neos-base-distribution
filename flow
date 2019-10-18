@@ -1,21 +1,20 @@
 #!/usr/bin/env php
 <?php
-if (getenv('FLOW_CONTEXT')) {
 
-    /**
-     * Bootstrap for the command line
-     */
+/*
+ * This file is part of the Neos.Flow package.
+ *
+ * (c) Contributors of the Neos Project - www.neos.io
+ *
+ * This package is Open Source Software. For the full copyright and license
+ * information, please view the LICENSE file which was distributed with this
+ * source code.
+ */
 
-    require(__DIR__ . '/Packages/Framework/Neos.Flow/Scripts/flow.php');
+/**
+ * Bootstrap for the command line
+ */
 
-} else {
+require(__DIR__ . '/Packages/Framework/Neos.Flow/Scripts/flow.php');
 
-    /**
-     * Bootstrap for docker environment
-     */
-
-    $flowArguments = implode(' ', array_slice($argv, 1));
-
-    passthru(sprintf('make -s flow FLOW_ARGS="%s"', $flowArguments));
-}
 ?>
