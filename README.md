@@ -19,6 +19,31 @@
 
 ## Installation
 
+Create a project based on the sitegeist base distribution
+
+```sh
+composer create-project sitegeist/neos-base-distribution
+```
+
+Copy the included `Vendor.Site` package into the project namespace#
+
+```sh
+./flow package:adopt Vendor.Site Customer.Site
+```
+
+Require the Project package and remove the dependencies to `Vendor.Site` and `Sitegeist.Chantalle`
+
+```sh
+composer require Customer.Site
+composer remove Vendor.Site
+composer remove Sitegeist.Chantalle
+```
+
+Initialize the project git repository
+```sh
+git init
+```
+
 Install dependencies via:
 
 ```sh
