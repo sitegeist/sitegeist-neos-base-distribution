@@ -9,24 +9,6 @@
         }
     },
     "require": {
-        "neos/neos": "^5.0",
-        "neos/neos-ui": "^5.0",
-        "neos/seo": "^3.0",
-        "neos/redirecthandler-neosadapter": "^4.0",
-        "neos/redirecthandler-databasestorage": "^4.0",
-        "neos/nodetypes": "^5.0",
-
-        "packagefactory/atomicfusion-proptypes": "^2.0",
-
-        "flowpack/nodetemplates": "^1.1",
-
-        "sitegeist/klarschiff": "^2.1",
-        "sitegeist/monocle": "^7.0",
-        "sitegeist/kaleidoscope": "^5.0",
-        "sitegeist/lazybones": "^2.0",
-        "sitegeist/silhouettes": "^1.0",
-        "sitegeist/csvpo": "^1.1",
-
         "vendor/site": "^1.0"
     },
     "require-dev": {
