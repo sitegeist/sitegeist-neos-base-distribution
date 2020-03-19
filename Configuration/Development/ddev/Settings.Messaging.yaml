@@ -1,0 +1,6 @@
+Neos:
+  SwiftMailer:
+    transport:
+      type: 'Swift_SmtpTransport'
+      options:
+        host: localhost

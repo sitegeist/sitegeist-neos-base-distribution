@@ -1,0 +1,3 @@
+Neos:
+  Imagine:
+    driver: Imagick

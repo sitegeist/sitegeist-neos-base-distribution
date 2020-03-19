@@ -1,0 +1,8 @@
+Neos:
+  Flow:
+    persistence:
+      backendOptions:
+        host: db
+        dbname: db
+        user: db
+        password: db
