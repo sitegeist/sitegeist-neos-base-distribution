@@ -7,6 +7,7 @@
 ###############################################################################
 
 #
+# @author Bernhard Schmitt <schmitt@sitegeist.de>
 # @author Wilhelm Behncke <behncke@sitegeist.de>
 #
 
@@ -14,12 +15,10 @@
 #                                VARIABLES                                    #
 ###############################################################################
 SHELL=/bin/bash
-COMPOSE_EXEC_ROOT=docker-compose exec -T --user root php-fpm
 export TS_NODE_PROJECT=./tsconfig.json
 export HOST_USER=$(shell id -u)
 export HOST_GROUP=$(shell id -g)
 export PATH := ./node_modules/.bin:./bin:$(PATH)
-COMPOSE_EXEC=docker-compose exec -T --user $(HOST_USER) php-fpm ssh-agent
 
 -include ./Build/config.makefile
 -include $(DIR_CONFIG_GLOBAL)/before.makefile
@@ -47,8 +46,8 @@ readme::
 #                             INSTALL & CLEANUP                               #
 ###############################################################################
 environment::
-	@docker --version
-	@docker-compose --version
+	@echo mkcert: $$(mkcert -version)
+	@ddev version
 	@echo Node $$(node --version)
 	@echo Yarn $$(yarn --version)
 
@@ -65,16 +64,15 @@ environment::
 	@ln -sf ../node/bin/node ./node_modules/.bin/node
 
 install::
-	@time $(MAKE) -s up
 	@time $(MAKE) -s -j 3 @install-githooks @install-composer @install-yarn
 	@time $(MAKE) -s -j 2 build flush
 
 flush::
-	@$(COMPOSE_EXEC) ./flow flow:cache:flush --force
-	@$(COMPOSE_EXEC) ./flow flow:cache:warmup
-	@$(COMPOSE_EXEC) ./flow flow:package:rescan
-	@$(COMPOSE_EXEC) ./flow doctrine:migrate
-	@$(COMPOSE_EXEC) ./flow resource:publish
+	@ddev flow flow:cache:flush --force
+	@ddev flow flow:cache:warmup
+	@ddev flow flow:package:rescan
+	@ddev flow doctrine:migrate
+	@ddev flow resource:publish
 
 cleanup::
 	@rm -rf ./Data/Temporary/*
@@ -86,16 +84,13 @@ cleanup::
 ###############################################################################
 #                                LINTING & QA                                 #
 ###############################################################################
-lint-distribution::
-	@echo "Lint Distribution"
-	@./flow guidelines:validateDistribution && ./flow guidelines:validatePackages
 
 lint-editorconfig::
 	@echo "Lint .editorconfig"
 	@editorconfig-checker -d -e 'Public|Sites.xml|.*.css.fusion|.*.css.json|.*.js.fusion' ./DistributionPackages/*
 
 lint-php::
-	@echo "Lint PHP Sources"
+	@echo "Lint PHP Sources".
 	@for package in DistributionPackages/*; do \
 		if [ -d "$$package/Classes" ]; \
 		then phpcs --standard=PSR2 $$package/Classes || exit 1; fi \
@@ -110,7 +105,6 @@ lint-js::
 	@eslint DistributionPackages/*/Resources/Private/**/*.js
 
 lint::
-	@$(MAKE) -s lint-distribution
 	@$(MAKE) -s lint-editorconfig
 	@$(MAKE) -s lint-php
 	@$(MAKE) -s lint-css
@@ -156,12 +150,16 @@ restart::
 logs::
 	@docker-compose logs -f
 
-flow::
-	@docker-compose exec -T --user $(HOST_USER) php-fpm ssh-agent /project/flow $(FLOW_ARGS)
-
 ###############################################################################
 #                                  SSH                                        #
 ###############################################################################
+
+ssh::
+	@ddev ssh
+
+ssh-mariadb::
+	@ddev mysql
+
 ssh::
 	docker-compose exec --user $(HOST_USER) php-fpm ssh-agent $(SHELL)
 
@@ -177,16 +175,15 @@ ssh-webserver::
 ###############################################################################
 #                                CLONE                                        #
 ###############################################################################
+
 clone::
-	@docker-compose exec --user $(HOST_USER) php-fpm ssh-agent /bin/bash -c "\
-		./flow clone:list; \
-		./flow clone:preset $(preset) --yes"
+	@ddev flow clone:list && ddev flow clone:preset $(preset) --yes
 
 ###############################################################################
 #                                DEPLOYMENT                                   #
 ###############################################################################
 deploy-develop::
-	@bin/dep deploy develop -vv --revision="develop"
+	@bin/dep deploy develop -vv
 
 deploy-staging::
 	@echo "ERROR: There's no stage deployment configured yet"
