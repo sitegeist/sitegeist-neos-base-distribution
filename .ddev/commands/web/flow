@@ -1,0 +1,7 @@
+#!/bin/bash
+
+## Description: Run flow inside the web container
+## Usage: flow [command] [args]
+## Example: "ddev flow help" for overview
+
+./flow "$@"
