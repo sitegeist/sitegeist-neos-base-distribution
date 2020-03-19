@@ -6,7 +6,7 @@
 /Configuration/README
 /Configuration/**/*.example
 /Configuration/Development/*
-!/Configuration/Development/Docker
+!/Configuration/Development/ddev
 /Configuration/Production/*
 /Configuration/Testing/*
 /Custom/
@@ -20,6 +20,10 @@
 /Upgrading.rst
 /flow
 /flow.bat
+
+!/.ddev/config.yaml
+!/.ddev/docker-compose.*.yaml
+!/.ddev/commands/web
 
 # ignore the downloaded selenium server, config and the selenium
 # temporary directory (which starts with a quote, do not ask why...)
