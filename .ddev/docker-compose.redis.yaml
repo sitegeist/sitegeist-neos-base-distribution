@@ -1,0 +1,8 @@
+version: '3.6'
+
+services:
+  redis:
+    container_name: ddev-${DDEV_SITENAME}-redis
+    image: redis:4
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
