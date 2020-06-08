@@ -1,0 +1,9 @@
+version: '3.6'
+
+services:
+  web:
+    environment:
+      - FLOW_CONTEXT=Development/ddev
+      - FLOW_REWRITEURLS=1
+      - FLOW_PATH_TEMPORARY_BASE=/tmp/neos
+      - FLOW_ROOTPATH=/var/www/html
