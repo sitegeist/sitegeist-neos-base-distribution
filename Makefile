@@ -14,12 +14,8 @@
 #                                VARIABLES                                    #
 ###############################################################################
 SHELL=/bin/bash
-COMPOSE_EXEC_ROOT=docker-compose exec -T --user root php-fpm
 export TS_NODE_PROJECT=./tsconfig.json
-export HOST_USER=$(shell id -u)
-export HOST_GROUP=$(shell id -g)
 export PATH := ./node_modules/.bin:./bin:$(PATH)
-COMPOSE_EXEC=docker-compose exec -T --user $(HOST_USER) php-fpm ssh-agent
 
 -include ./Build/config.makefile
 -include $(DIR_CONFIG_GLOBAL)/before.makefile
@@ -47,8 +43,7 @@ readme::
 #                             INSTALL & CLEANUP                               #
 ###############################################################################
 environment::
-	@docker --version
-	@docker-compose --version
+	@ddev version
 	@echo Node $$(node --version)
 	@echo Yarn $$(yarn --version)
 
@@ -58,7 +53,7 @@ environment::
 		echo "make lint" >> ./.git/hooks/pre-commit; fi
 
 @install-composer::
-	@$(COMPOSE_EXEC) composer install
+	@ddev composer install
 
 @install-yarn::
 	@yarn install
@@ -70,11 +65,11 @@ install::
 	@time $(MAKE) -s -j 2 build flush
 
 flush::
-	@$(COMPOSE_EXEC) ./flow flow:cache:flush --force
-	@$(COMPOSE_EXEC) ./flow flow:cache:warmup
-	@$(COMPOSE_EXEC) ./flow flow:package:rescan
-	@$(COMPOSE_EXEC) ./flow doctrine:migrate
-	@$(COMPOSE_EXEC) ./flow resource:publish
+	@ddev flow flow:cache:flush --force
+	@ddev flow flow:cache:warmup
+	@ddev flow flow:package:rescan
+	@ddev flow doctrine:migrate
+	@ddev flow resource:publish
 
 cleanup::
 	@rm -rf ./Data/Temporary/*
@@ -133,54 +128,38 @@ watch::
 	@webpack --mode development -w
 
 ###############################################################################
-#                                  Docker                                     #
+#                                  DDEV                                     #
 ###############################################################################
 up::
-	@docker-compose up --force-recreate -d
-	@$(COMPOSE_EXEC_ROOT) mkdir -p /var/mail
-	@$(COMPOSE_EXEC_ROOT) mkdir -p /home/hostuser
-	@$(COMPOSE_EXEC_ROOT) useradd -u $(HOST_USER) hostuser
-	@$(COMPOSE_EXEC_ROOT) chown hostuser /home/hostuser
-	@$(COMPOSE_EXEC_ROOT) chmod -R 0777 /data
+	@ddev start
 
 down::
-	@docker-compose down --remove-orphans
+	@ddev stop
 
 prune::
-	@docker-compose down --remove-orphans --volumes
+	@ddev delete --omit-snapshot
 
 restart::
-	$(MAKE) down
-	$(MAKE) up
+	@ddev restart
 
 logs::
-	@docker-compose logs -f
-
-flow::
-	@docker-compose exec -T --user $(HOST_USER) php-fpm ssh-agent /project/flow $(FLOW_ARGS)
+	@ddev logs -f
 
 ###############################################################################
 #                                  SSH                                        #
 ###############################################################################
 ssh::
-	docker-compose exec --user $(HOST_USER) php-fpm ssh-agent $(SHELL)
-
-ssh-root::
-	docker-compose exec --user root php-fpm ssh-agent $(SHELL)
+	@ddev ssh
 
 ssh-mariadb::
-	docker-compose exec mariadb $(SHELL) -c "mysql -uroot -p$(CRED_MYSQL_ROOT_PASSWORD) $(CRED_MYSQL_DATABASE)"
-
-ssh-webserver::
-	docker-compose exec -w /etc/nginx webserver sh
+	@ddev mysql
 
 ###############################################################################
 #                                CLONE                                        #
 ###############################################################################
 clone::
-	@docker-compose exec --user $(HOST_USER) php-fpm ssh-agent /bin/bash -c "\
-		./flow clone:list; \
-		./flow clone:preset $(preset) --yes"
+	@$(MAKE) auth
+	@ddev flow clone:list && ddev flow clone:preset $(preset) --yes
 
 ###############################################################################
 #                                DEPLOYMENT                                   #
