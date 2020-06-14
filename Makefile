@@ -81,13 +81,10 @@ cleanup::
 ###############################################################################
 #                                LINTING & QA                                 #
 ###############################################################################
-lint-distribution::
-	@echo "Lint Distribution"
-	@./flow guidelines:validateDistribution && ./flow guidelines:validatePackages
 
 lint-editorconfig::
 	@echo "Lint .editorconfig"
-	@editorconfig-checker -d -e 'Public|Sites.xml|.*.css.fusion|.*.css.json|.*.js.fusion' ./DistributionPackages/*
+	@ddev exec bin/editorconfig-checker ./DistributionPackages/*
 
 lint-php::
 	@echo "Lint PHP Sources"
@@ -105,14 +102,10 @@ lint-js::
 	@eslint DistributionPackages/*/Resources/Private/**/*.js
 
 lint::
-	@$(MAKE) -s lint-distribution
 	@$(MAKE) -s lint-editorconfig
 	@$(MAKE) -s lint-php
 	@$(MAKE) -s lint-css
 	@$(MAKE) -s lint-js
-
-test-e2e::
-	@docker-compose exec testcafe /opt/testcafe/docker/testcafe-docker.sh 'chromium --no-sandbox' /tests/*.ts
 
 test-component-semantics::
 	jest --verbose -t '#semantics'
