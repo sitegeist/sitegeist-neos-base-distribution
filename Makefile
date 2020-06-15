@@ -44,8 +44,8 @@ readme::
 ###############################################################################
 environment::
 	@ddev version
-	@echo Node $$(node --version)
-	@echo Yarn $$(yarn --version)
+	@ddev exec echo Node $$(node --version)
+	@ddev exec echo Yarn $$(yarn --version)
 
 @install-githooks::
 	@if [ -z $${CI+x} ]; then $(MAKE) environment; fi
@@ -56,8 +56,7 @@ environment::
 	@ddev composer install
 
 @install-yarn::
-	@yarn install
-	@ln -sf ../node/bin/node ./node_modules/.bin/node
+	@ddev exec yarn
 
 install::
 	@time $(MAKE) -s up
@@ -65,11 +64,10 @@ install::
 	@time $(MAKE) -s -j 2 build flush
 
 flush::
-	@ddev flow flow:cache:flush --force
-	@ddev flow flow:cache:warmup
-	@ddev flow flow:package:rescan
-	@ddev flow doctrine:migrate
-	@ddev flow resource:publish
+	@ddev exec ./flow flow:cache:flush --force
+	@ddev exec ./flow flow:package:rescan
+	@ddev exec ./flow doctrine:migrate
+	@ddev exec ./flow resource:publish
 
 cleanup::
 	@rm -rf ./Data/Temporary/*
@@ -84,22 +82,19 @@ cleanup::
 
 lint-editorconfig::
 	@echo "Lint .editorconfig"
-	@ddev exec bin/editorconfig-checker ./DistributionPackages/*
+	ddev exec bin/editorconfig-checker ./DistributionPackages/*
 
 lint-php::
 	@echo "Lint PHP Sources"
-	@for package in DistributionPackages/*; do \
-		if [ -d "$$package/Classes" ]; \
-		then phpcs --standard=PSR2 $$package/Classes || exit 1; fi \
-	done
+	for package in DistributionPackages/*; do echo $$package; ddev exec bin/phpcs --standard=PSR2 $$package/Classes;  done
 
 lint-css::
 	@echo "Lint CSS Sources"
-	@stylelint DistributionPackages/*/Resources/Private/**/*.css
+	ddev exec node_modules/.bin/stylelint DistributionPackages/*/Resources/Private/**/*.css
 
 lint-js::
 	@echo "Lint JavaScript Sources"
-	@eslint DistributionPackages/*/Resources/Private/**/*.js
+	ddev exec node_modules/.bin/eslint DistributionPackages/*/Resources/Private/**/*.js
 
 lint::
 	@$(MAKE) -s lint-editorconfig
@@ -108,17 +103,20 @@ lint::
 	@$(MAKE) -s lint-js
 
 test-component-semantics::
-	jest --verbose -t '#semantics'
+	ddev exec node_modules/.bin/jest --verbose -t '#semantics'
+
+test::
+	@$(MAKE) -s test-component-semantics
 
 ###############################################################################
 #                               FRONTEND BUILD                                #
 ###############################################################################
 .PHONY: build
 build::
-	@time webpack -p --hide-modules --mode production --optimize-dedupe --progress
+	@ddev exec time node_modules/.bin/webpack -p --hide-modules --mode production --optimize-dedupe --progress
 
 watch::
-	@webpack --mode development -w
+	@ddev exec node_modules/.bin/webpack --mode development -w
 
 ###############################################################################
 #                                  DDEV                                     #
@@ -152,13 +150,14 @@ ssh-mariadb::
 ###############################################################################
 clone::
 	@$(MAKE) auth
-	@ddev flow clone:list && ddev flow clone:preset $(preset) --yes
+	@ddev exec ./flow clone:list
+	@ddev exec ./flow clone:preset $(preset) --yes
 
 ###############################################################################
 #                                DEPLOYMENT                                   #
 ###############################################################################
 deploy-develop::
-	@bin/dep deploy develop -vv --revision="develop"
+	@ddev exec bin/dep deploy develop -vv --revision="develop"
 
 deploy-staging::
 	@echo "ERROR: There's no stage deployment configured yet"
