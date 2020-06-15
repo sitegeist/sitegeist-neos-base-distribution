@@ -14,8 +14,7 @@
 
 * docker >= 18.09.1
 * docker-compose >= 1.23.2
-* node >= 10 (LTS)
-* yarn >= 1.13
+* ddev >= 1.14.2
 
 ## Installation
 
