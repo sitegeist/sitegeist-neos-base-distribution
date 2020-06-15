@@ -1,0 +1,13 @@
+version: '3.6'
+
+services:
+  kibana:
+    container_name: ddev-${DDEV_SITENAME}-kibana
+    image: kibana:5
+    restart: always
+    ports:
+      - 5601
+    depends_on:
+      - elasticsearch
+    environment:
+      - ELASTICSEARCH_URL=http://elasticsearch:9200
