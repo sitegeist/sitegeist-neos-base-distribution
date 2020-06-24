@@ -1,0 +1,17 @@
+version: '3.6'
+
+services:
+  testcafe:
+    container_name: ddev-${DDEV_SITENAME}-testcafe
+    image: testcafe/testcafe
+    restart: always
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: $DDEV_APPROOT
+    entrypoint: tail -f /dev/null
+    environment:
+      - TEST_DOMAIN=web:80
+    volumes:
+      - ../Test:/tests
+    links:
+      - web:web
