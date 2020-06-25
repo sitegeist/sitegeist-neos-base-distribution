@@ -15,7 +15,6 @@
         "neos/redirecthandler-ui": "^2.0",
         "neos/redirecthandler-neosadapter": "^4.0",
         "neos/redirecthandler-databasestorage": "^4.0",
-        "neos/nodetypes": "^5.0",
 
         "packagefactory/atomicfusion-proptypes": "^2.0",
 
