@@ -9,8 +9,8 @@
         }
     },
     "require": {
-        "neos/neos": "^5.0",
-        "neos/neos-ui": "^5.0",
+        "neos/neos": "~5.2.0",
+        "neos/neos-ui": "~5.2.0",
         "neos/seo": "^3.0",
         "neos/redirecthandler-neosadapter": "^4.0",
         "neos/redirecthandler-databasestorage": "^4.0",
