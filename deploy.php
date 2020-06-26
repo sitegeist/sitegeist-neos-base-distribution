@@ -16,7 +16,7 @@ set('ssh_multiplexing', true);
 // composer
 set('composer_options', function() {
     switch (input()->getArgument('stage')) {
-        case 'development':
+        case 'develop':
             return '{{composer_action}} --verbose --prefer-dist --no-progress --no-interaction --optimize-autoloader';
         default:
             return '{{composer_action}} --verbose --prefer-dist --no-progress --no-interaction --no-dev --optimize-autoloader';
@@ -26,8 +26,8 @@ set('composer_options', function() {
 // composer
 set('branch', function() {
     switch (input()->getArgument('stage')) {
-        case 'development':
-            return 'development';
+        case 'develop':
+            return 'develop';
         case 'staging':
             return 'staging';
         default:

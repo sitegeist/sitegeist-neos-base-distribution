@@ -2,11 +2,11 @@
 # Servers
 #
 
-development.example.com:
-    stage: development
+develop.example.com:
+    stage: develop
     hostname: example.com
-    deploy_path: '/srv/www/development.example.com'
-    homepage_url: https://development.example.com
+    deploy_path: '/srv/www/develop.example.com'
+    homepage_url: https://develop.example.com
 
 staging.example.com:
     stage: staging
