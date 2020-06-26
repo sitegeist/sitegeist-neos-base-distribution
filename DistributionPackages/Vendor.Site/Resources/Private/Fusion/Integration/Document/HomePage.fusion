@@ -1,0 +1,1 @@
+prototype(Vendor.Site:Document.HomePage) < prototype(Vendor.Site:Document.Page)

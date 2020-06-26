@@ -1,0 +1,4 @@
+'Vendor.Site:Document.Shortcut':
+  superTypes:
+    'Neos.Neos:Shortcut': true
+    'Vendor.Site:Document': true

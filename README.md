@@ -1,15 +1,47 @@
 # Sitegeist Neos Base Distribution
 
+## Documentation
+
+**Configuration**
+
+* [Override and extend Makefile commands](docs/configuration/extend-makefile.md)
+* [Override or extend docker-compose.yml](docs/configuration/override-docker-compose-yml.md)
+
+
 ## System Requirements
 
 ### Linux + Mac
 
 * docker >= 18.09.1
 * docker-compose >= 1.23.2
-* node >= 10 (LTS)
-* yarn >= 1.13
+* ddev >= 1.14.2
 
 ## Installation
+
+Create a project based on the sitegeist base distribution
+
+```sh
+composer create-project sitegeist/neos-base-distribution
+```
+
+Copy the included `Vendor.Site` package into the project namespace#
+
+```sh
+./flow package:adopt Vendor.Site Customer.Site
+```
+
+Require the Project package and remove the dependencies to `Vendor.Site` and `Sitegeist.Chantalle`
+
+```sh
+composer require Customer.Site
+composer remove Vendor.Site
+composer remove Sitegeist.Chantalle
+```
+
+Initialize the project git repository
+```sh
+git init
+```
 
 Install dependencies via:
 
@@ -26,7 +58,7 @@ Now, run all database migrations:
 Finally, perform a site import:
 
 ```sh
-./flow site:import --package-key Sitegeist.Site.Placeholder
+./flow site:import --package-key Vendor.Site
 ```
 
 ## Running the site locally

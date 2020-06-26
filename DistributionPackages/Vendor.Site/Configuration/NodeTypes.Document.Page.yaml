@@ -1,0 +1,11 @@
+'Vendor.Site:Document.Page':
+  superTypes:
+    'Vendor.Site:Document': true
+
+  ui:
+    icon: file
+    label: i18n
+
+  childNodes:
+    main:
+      type: 'Vendor.Site:Collection.Content.Main'

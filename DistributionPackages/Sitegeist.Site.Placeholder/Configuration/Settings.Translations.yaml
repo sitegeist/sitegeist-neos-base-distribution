@@ -1,6 +1,0 @@
-Neos:
-  Neos:
-    userInterface:
-      translation:
-        autoInclude:
-          'Sitegeist.Site.Placeholder': ['NodeTypes/*']

@@ -1,0 +1,17 @@
+'Vendor.Site:Document.Error.404':
+  superTypes:
+    'Vendor.Site:Document.Page': true
+    'Vendor.Site:Constraint.Document.Restricted': true
+  ui:
+    icon: exclamation-triangle
+    label: i18n
+  properties:
+    title:
+      defaultValue: '404'
+    uriPathSegment:
+      ui:
+        inspector:
+          editorOptions:
+            disabled: true
+    _hiddenInIndex:
+      defaultValue: true

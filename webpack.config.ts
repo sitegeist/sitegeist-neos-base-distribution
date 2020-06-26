@@ -9,13 +9,13 @@ const config: webpack.Configuration = {
     devtool: 'source-map',
 
     entry: {
-        'Sitegeist.Site.Placeholder': [
+        'Vendor.Site': [
             './Build/JavaScript/polyfill',
             `./Build/JavaScript/components-loader!?${querystring.stringify({
                 componentPaths: [
-                    './DistributionPackages/Sitegeist.Site.Placeholder/Resources/Private/Fusion/Presentation'
+                    './DistributionPackages/Vendor.Site/Resources/Private/Fusion/Presentation'
                 ],
-                runtime: './DistributionPackages/Sitegeist.Site.Placeholder/Resources/Private/Fusion/Root.ts'
+                runtime: './DistributionPackages/Vendor.Site/Resources/Private/Fusion/Root.ts'
             })}`
         ]
     },
@@ -64,8 +64,9 @@ const config: webpack.Configuration = {
                 loader: 'css-loader',
                 options: {
                     sourceMap: true,
-                    modules: true,
-                    localIdentName: '[local]___[hash:base64:5]'
+                    modules: {
+                        localIdentName: '[local]___[hash:base64:5]'
+                    }
                 }
             }, {
                 loader: 'postcss-loader'
