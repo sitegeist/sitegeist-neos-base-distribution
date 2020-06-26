@@ -1,0 +1,21 @@
+#
+# Servers
+#
+
+development.example.com:
+    stage: development
+    hostname: example.com
+    deploy_path: '/srv/www/development.example.com'
+    homepage_url: https://development.example.com
+
+staging.example.com:
+    stage: staging
+    hostname: example.com
+    deploy_path: '/srv/www/staging.example.com'
+    homepage_url: https://staging.example.com
+
+www.example.com:
+    stage: master
+    hostname: example.com
+    deploy_path: '/srv/www/www.example.com'
+    homepage_url: https://www.example.com/

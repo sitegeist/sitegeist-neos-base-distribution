@@ -8,6 +8,8 @@
 
 #
 # @author Wilhelm Behncke <behncke@sitegeist.de>
+# @author Bernhard Schmitt <schmitt@sitegeist.de>
+# @author Andreas Freund <freund@sitegeist.de>
 # @author Masoud Hedayati <hedayati@sitegeist.de>
 # @author Martin Ficzel <ficzel@sitegeist.de>
 #
@@ -118,7 +120,7 @@ test::
 #                               FRONTEND BUILD                                #
 ###############################################################################
 .PHONY: build
-build::
+build:: @install-yarn
 	@ddev exec time node_modules/.bin/webpack -p --hide-modules --mode production --optimize-dedupe --progress
 
 watch::
@@ -166,12 +168,10 @@ deploy-develop::
 	@ddev exec bin/dep deploy develop -vv --revision="develop"
 
 deploy-staging::
-	@echo "ERROR: There's no stage deployment configured yet"
-	@exit 1
+	@bin/dep deploy staging -vv
 
 deploy-live::
-	@echo "ERROR: There's no live deployment configured yet"
-	@exit 1
+	@bin/dep deploy live -vv
 
 -include $(DIR_CONFIG_GLOBAL)/after.makefile
 -include $(DIR_CONFIG_LOCAL)/after.makefile
