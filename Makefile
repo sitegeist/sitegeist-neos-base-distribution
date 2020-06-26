@@ -106,15 +106,11 @@ lint::
 	@$(MAKE) -s lint-css
 	@$(MAKE) -s lint-js
 
-test-e2e::
-	ddev exec --service testcafe /opt/testcafe/docker/testcafe-docker.sh 'chromium --no-sandbox' /test/*.ts
-
 test-component-semantics::
 	ddev exec node_modules/.bin/jest --verbose -t '#semantics'
 
 test::
 	@$(MAKE) -s test-component-semantics
-	@$(MAKE) -s test-e2e
 
 ###############################################################################
 #                               FRONTEND BUILD                                #
