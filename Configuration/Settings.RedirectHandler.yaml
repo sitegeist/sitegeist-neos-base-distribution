@@ -1,0 +1,4 @@
+Neos:
+  RedirectHandler:
+    statusCode:
+      redirect: 301
