@@ -1,3 +1,6 @@
 {
-  "presets": ["module:@sitegeist/es-neos-babel-configuration"]
+  "presets": [
+    "@babel/preset-env",
+    "module:@sitegeist/es-neos-babel-configuration"
+  ]
 }

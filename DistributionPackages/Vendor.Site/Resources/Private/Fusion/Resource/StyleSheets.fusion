@@ -9,7 +9,7 @@ prototype(Vendor.Site:Resource.StyleSheets) < prototype(Neos.Fusion:Array) {
         tagName = 'link'
         attributes.rel = 'stylesheet'
         attributes.href = Neos.Fusion:ResourceUri {
-            path = 'resource://Vendor.Site/Public/Styles/main.css'
+            path = 'resource://Vendor.Site/Public/Styles/main.min.css'
             @process.stripBaseUri = ${(
                 String.replace(
                     value,

@@ -21,7 +21,7 @@ const config: webpack.Configuration = {
     },
 
     output: {
-        filename: '[name]/Resources/Public/JavaScript/main.js',
+        filename: '[name]/Resources/Public/JavaScript/main.min.js',
         path: path.join(__dirname, 'DistributionPackages')
     },
 
@@ -77,7 +77,7 @@ const config: webpack.Configuration = {
     plugins: [
         new webpack.IgnorePlugin(/\.spec.ts$/),
         new MiniCssExtractPlugin({
-            filename: '[name]/Resources/Public/Styles/main.css'
+            filename: '[name]/Resources/Public/Styles/main.min.css'
         })
     ],
 

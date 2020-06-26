@@ -86,7 +86,7 @@ cleanup::
 
 lint-editorconfig::
 	@echo "Lint .editorconfig"
-	ddev exec bin/editorconfig-checker ./DistributionPackages/*
+	@ddev exec bin/editorconfig-checker ./DistributionPackages/*
 
 lint-php::
 	@echo "Lint PHP Sources"
