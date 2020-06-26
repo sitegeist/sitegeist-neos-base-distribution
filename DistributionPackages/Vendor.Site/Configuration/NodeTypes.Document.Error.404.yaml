@@ -13,3 +13,5 @@
         inspector:
           editorOptions:
             disabled: true
+    _hiddenInIndex:
+      defaultValue: true
