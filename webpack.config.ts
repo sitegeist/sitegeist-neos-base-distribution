@@ -2,8 +2,8 @@ import * as webpack from "webpack";
 import querystring from "querystring";
 import path from "path";
 import MiniCssExtractPlugin from "mini-css-extract-plugin";
-import UglifyJsPlugin from "uglifyjs-webpack-plugin";
 import OptimizeCSSAssetsPlugin from "optimize-css-assets-webpack-plugin";
+import TerserPlugin from 'terser-webpack-plugin';
 
 const config: webpack.Configuration = {
     devtool: 'source-map',
@@ -81,16 +81,15 @@ const config: webpack.Configuration = {
         })
     ],
 
-    optimization: {
-        minimizer: [
-            new UglifyJsPlugin({
-                cache: true,
-                parallel: true,
-                sourceMap: true
-            }),
-            new OptimizeCSSAssetsPlugin({})
-        ]
-    }
+	optimization: {
+		minimizer: [
+			new TerserPlugin({
+				parallel: true,
+				sourceMap: true
+			}),
+			new OptimizeCSSAssetsPlugin({})
+		]
+	}
 };
 
 export default config;
