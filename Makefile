@@ -8,6 +8,8 @@
 
 #
 # @author Wilhelm Behncke <behncke@sitegeist.de>
+# @author Masoud Hedayati <hedayati@sitegeist.de>
+# @author Martin Ficzel <ficzel@sitegeist.de>
 #
 
 ###############################################################################
