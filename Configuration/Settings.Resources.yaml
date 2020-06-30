@@ -5,11 +5,11 @@ Neos:
         localWebDirectoryPersistentResourcesTarget:
           targetOptions:
 
-            # split published urls into folters to avoid 
+            # split published urls into folders to avoid
             # running into fs folder limits
             subdivideHashPathSegment: true
 
             # use relative links to allow putting of
-            # Web/_Resources/Persistent into the shared 
-            # folder for faster deployments   
+            # Web/_Resources/Persistent into the shared
+            # folder for faster deployments
             relativeSymlinks: true
