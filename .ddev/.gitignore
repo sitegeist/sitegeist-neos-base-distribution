@@ -19,3 +19,4 @@
 /.webimageExtra
 /.dbimageExtra
 /*-build/Dockerfile.example
+/docker-compose.custom.yaml
