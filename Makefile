@@ -97,8 +97,12 @@ lint-css::
 	ddev exec node_modules/.bin/stylelint DistributionPackages/*/Resources/Private/**/*.css
 
 lint-js::
+ifneq (,$(wildcard DistributionPackages/*/Resources/Private/**/*.js))
 	@echo "Lint JavaScript Sources"
-	ddev exec node_modules/.bin/eslint DistributionPackages/*/Resources/Private/**/*.js
+	@ddev exec node_modules/.bin/eslint DistributionPackages/*/Resources/Private/**/*.js
+else
+	@echo "No JavaScript Source To Lint"
+endif
 
 lint::
 	@$(MAKE) -s lint-editorconfig

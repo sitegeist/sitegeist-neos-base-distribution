@@ -8,20 +8,12 @@
 * [Override or extend docker-compose.yml](docs/configuration/override-docker-compose-yml.md)
 
 
-## System Requirements
-
-### Linux + Mac
-
-* docker >= 18.09.1
-* docker-compose >= 1.23.2
-* ddev >= 1.14.2
-
 ## Installation
 
 Create a project based on the sitegeist base distribution
 
 ```sh
-composer create-project sitegeist/neos-base-distribution
+composer create-project sitegeist/neos-base-distribution customer-folder
 ```
 
 Copy the included `Vendor.Site` package into the project namespace#
@@ -33,9 +25,9 @@ Copy the included `Vendor.Site` package into the project namespace#
 Require the Project package and remove the dependencies to `Vendor.Site` and `Sitegeist.Chantalle`
 
 ```sh
-composer require Customer.Site
-composer remove Vendor.Site
-composer remove Sitegeist.Chantalle
+composer require customer/site
+composer remove vendor/site
+composer remove sitegeist/chantalle
 ```
 
 Initialize the project git repository
@@ -49,16 +41,16 @@ Install dependencies via:
 make install
 ```
 
-Now, run all database migrations:
+Now, get into the container:
 
 ```sh
-./flow doctrine:migrate
+make ssh
 ```
 
 Finally, perform a site import:
 
 ```sh
-./flow site:import --package-key Vendor.Site
+./flow site:import --package-key Customer.Site
 ```
 
 ## Running the site locally
