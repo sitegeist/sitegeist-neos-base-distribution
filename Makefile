@@ -63,6 +63,7 @@ environment::
 	@ddev exec yarn
 
 install::
+	@mkdir -p Data/Logs
 	@time $(MAKE) -s up
 	@time $(MAKE) -s -j 3 @install-githooks @install-composer @install-yarn
 	@time $(MAKE) -s -j 2 build flush
