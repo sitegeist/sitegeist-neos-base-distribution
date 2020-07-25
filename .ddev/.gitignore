@@ -19,4 +19,10 @@
 /.webimageExtra
 /.dbimageExtra
 /*-build/Dockerfile.example
+.global_commands/
+.homeadditions/
+apache/
+commands/.gitattributes
+commands/web/live
+nginx_full/
 /docker-compose.custom.yaml
