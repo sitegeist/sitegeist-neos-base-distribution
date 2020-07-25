@@ -32,7 +32,7 @@ export PATH := ./node_modules/.bin:./bin:$(PATH)
 .DEFAULT:
 readme::
 	@printf "\n"
-	@printf "\t\t\t\033[0;1mSitegeist Neos Base Distribution\033[0m\n"
+	@printf "\t\t\033[0;1mSitegeist Neos Base Distribution\033[0m\n"
 	@printf "\n"
 	@printf " Available Targets\n"
 	@printf " --------------------------------------------------------------------\n"
@@ -133,7 +133,7 @@ up::
 	@ddev start
 
 down::
-	@ddev stop
+	@ddev stop --unlist
 
 prune::
 	@ddev delete --omit-snapshot
