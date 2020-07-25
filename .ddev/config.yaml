@@ -12,6 +12,9 @@ mariadb_version: "10.4"
 provider: default
 use_dns_when_possible: true
 omit_containers: ["dba"]
+hooks:
+  post-start:
+    - exec: sudo echo alias ll=\"ls -lhA\" >> ~/.bashrc
 
 # This config.yaml was created with ddev version v1.14.2
 # webimage: drud/ddev-webserver:v1.14.2
