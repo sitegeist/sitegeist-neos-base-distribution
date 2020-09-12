@@ -39,7 +39,8 @@
         "editorconfig-checker/editorconfig-checker": "^10.0",
         "squizlabs/php_codesniffer": "^3.4",
         "sitegeist/magicwand": "^4.0",
-        "sitegeist/chantalle": "~1.0.1"
+        "sitegeist/chantalle": "~1.0.1",
+        "phpstan/phpstan": "^0.12.42"
     },
     "suggest": {
         "ext-pdo_sqlite": "For running functional tests out-of-the-box this is required"
