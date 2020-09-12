@@ -117,6 +117,9 @@ test-component-semantics::
 test::
 	@$(MAKE) -s test-component-semantics
 
+analyse::
+	@ddev exec bin/phpstan analyse --level 8 DistributionPackages
+
 ###############################################################################
 #                               FRONTEND BUILD                                #
 ###############################################################################
