@@ -21,7 +21,8 @@
         "flowpack/nodetemplates": "^1.1",
 
         "sitegeist/klarschiff": "^2.1",
-        "sitegeist/monocle": "^7.0",
+        "sitegeist/monocle": "^7.2",
+        "sitegeist/monocle-backstopjs": "dev-master",
         "sitegeist/kaleidoscope": "^5.0",
         "sitegeist/lazybones": "^2.0",
         "sitegeist/silhouettes": "^1.0",

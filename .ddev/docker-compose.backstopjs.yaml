@@ -1,0 +1,15 @@
+version: '3.6'
+
+services:
+  backstop:
+    container_name: ddev-${DDEV_SITENAME}-backstop
+    image: backstopjs/backstopjs
+    restart: always
+    labels:
+      com.ddev.site-name: ${DDEV_SITENAME}
+      com.ddev.approot: $DDEV_APPROOT
+    volumes: []
+    entrypoint: 'bash'
+    tty: true
+    links:
+      - web:web

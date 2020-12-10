@@ -114,6 +114,10 @@ lint::
 test-component-semantics::
 	ddev exec node_modules/.bin/jest --verbose -t '#semantics'
 
+test-component-rendering::
+	ddev exec FLOW_CONTEXT=Development/VisualRegressionTesting ./flow backstop:configuration --base-uri https://sitegeist-neos-base-distribution-2.ddev.site > backstop.json
+	node_modules/.bin/backstop test --config=backstop.json
+
 test::
 	@$(MAKE) -s test-component-semantics
 

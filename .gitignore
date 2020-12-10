@@ -41,3 +41,4 @@ DistributionPackages/*/Resources/Public/Styles/
 
 custom.makefile
 docker-compose.override.y*ml
+/backstop.json
