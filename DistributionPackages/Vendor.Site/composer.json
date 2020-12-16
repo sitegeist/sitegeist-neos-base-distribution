@@ -4,7 +4,8 @@
     "version": "1.0.0",
     "require": {
         "neos/neos": "*",
-        "neos/nodetypes-basemixins": "*"
+        "neos/nodetypes-basemixins": "*",
+        "sitegeist/csvpo": "^1.0"
     },
     "autoload": {
         "psr-4": {

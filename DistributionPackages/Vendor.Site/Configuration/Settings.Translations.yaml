@@ -4,3 +4,9 @@ Neos:
       translation:
         autoInclude:
           'Vendor.Site': ['NodeTypes/*']
+
+Sitegeist:
+  CsvPO:
+    management:
+      packageKeys:
+        - 'Vendor.Site'
