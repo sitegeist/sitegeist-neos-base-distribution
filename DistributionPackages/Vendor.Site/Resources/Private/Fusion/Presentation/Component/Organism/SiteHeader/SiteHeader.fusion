@@ -3,9 +3,11 @@ prototype(Vendor.Site:Component.Organism.SiteHeader) < prototype(Neos.Fusion:Com
         title = 'Site Header'
     }
 
+    i18n = ${CsvPO.create('resource://Vendor.Site/Private/Fusion/Presentation/Component/Organism/SiteHeader/SiteHeader.translation.csv')}
+
     renderer = afx`
         <header class={styles.siteHeader}>
-            SITE HEADER
+            {props.i18n.title}
         </header>
     `
 }
