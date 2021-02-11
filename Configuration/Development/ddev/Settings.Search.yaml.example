@@ -1,0 +1,15 @@
+Neos:
+  ContentRepository:
+    Search:
+      elasticSearch:
+        indexName: neos
+
+Flowpack:
+  ElasticSearch:
+    clients:
+      default:
+        -
+          host: elasticsearch
+          port: 9200
+          username: ''
+          password: ''
