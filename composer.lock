@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "97d89efb81af84f7b71dfc7a0cf5d57b",
+    "content-hash": "21c27005e269c71b15933c88fdc6f593",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -6273,6 +6273,45 @@
             ],
             "description": "An living-styleguide for Neos that is based on the actual fusion-code",
             "time": "2020-12-16T16:21:42+00:00"
+        },
+        {
+            "name": "sitegeist/stampede",
+            "version": "v1.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sitegeist/Sitegeist.Stampede.git",
+                "reference": "720faf59cf6b15d073e5c8ec27a41c1ccd897630"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sitegeist/Sitegeist.Stampede/zipball/720faf59cf6b15d073e5c8ec27a41c1ccd897630",
+                "reference": "720faf59cf6b15d073e5c8ec27a41c1ccd897630",
+                "shasum": ""
+            },
+            "require": {
+                "neos/fusion": "^4.3 || ^5.0 || ^7.0 || dev-master",
+                "neos/fusion-afx": "^1.3 || ^7.0 || dev-master"
+            },
+            "suggest": {
+                "sitegeist/klarschiff": "*"
+            },
+            "type": "neos-package",
+            "extra": {
+                "neos": {
+                    "package-key": "Sitegeist.Stampede"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sitegeist\\Stampede\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "svg-sprite icons for neos",
+            "time": "2020-12-16T22:22:45+00:00"
         },
         {
             "name": "symfony/console",

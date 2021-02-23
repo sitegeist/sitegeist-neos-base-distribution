@@ -5,7 +5,8 @@
     "require": {
         "neos/neos": "*",
         "neos/nodetypes-basemixins": "*",
-        "sitegeist/csvpo": "^1.0"
+        "sitegeist/csvpo": "*",
+        "sitegeist/stampede": "*"
     },
     "autoload": {
         "psr-4": {

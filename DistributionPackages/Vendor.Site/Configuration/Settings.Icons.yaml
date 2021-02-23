@@ -1,0 +1,6 @@
+Sitegeist:
+  Stampede:
+    collections:
+      'default':
+        label: "Default Collection"
+        path: resource://Vendor.Site/Private/Icons
