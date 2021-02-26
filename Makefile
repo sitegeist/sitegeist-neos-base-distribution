@@ -51,19 +51,22 @@ environment::
 	@ddev exec echo Node $$(node --version)
 	@ddev exec echo Yarn $$(yarn --version)
 
-@install-githooks::
+install-githooks::
 	@if [ -z $${CI+x} ]; then $(MAKE) environment; fi
 	@if [ -z $${CI+x} ]; then cp ./.git/hooks/pre-commit.sample ./.git/hooks/pre-commit && \
 		echo "make lint" >> ./.git/hooks/pre-commit; fi
 
-@install-composer::
+install-composer::
 	@ddev composer install
 
-@install-yarn::
-	@ddev exec yarn
+install-yarn::
+	@ddev yarn
 
 install::
 	@mkdir -p Data/Logs
+	@$(MAKE) -s install-githooks
+	@$(MAKE) -s install-composer
+	@$(MAKE) -s install-yarn
 	@$(MAKE) -s flush
 
 flush::
