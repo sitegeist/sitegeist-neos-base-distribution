@@ -29,7 +29,6 @@ export PATH := ./node_modules/.bin:./bin:$(PATH)
 ###############################################################################
 #                                  README                                     #
 ###############################################################################
-
 .DEFAULT:
 readme::
 	@printf "\n"
@@ -72,11 +71,11 @@ flush::
 
 cleanup::
 	@ddev composer cleanup:php
+	@ddev yarn cleanup:node
 
 ###############################################################################
 #                                LINTING & QA                                 #
 ###############################################################################
-
 lint-editorconfig::
 	@echo "Lint .editorconfig"
 	@ddev composer lint:editorconfig
@@ -87,15 +86,11 @@ lint-php::
 
 lint-css::
 	@echo "Lint CSS Sources"
-	ddev exec node_modules/.bin/stylelint DistributionPackages/*/Resources/Private/**/*.css
+	@ddev yarn lint:css
 
 lint-js::
-ifneq (,$(wildcard DistributionPackages/*/Resources/Private/**/*.js))
 	@echo "Lint JavaScript Sources"
-	@ddev exec node_modules/.bin/eslint DistributionPackages/*/Resources/Private/**/*.js
-else
-	@echo "No JavaScript Source To Lint"
-endif
+	@ddev yarn lint:js
 
 lint::
 	@$(MAKE) -s lint-editorconfig
@@ -103,24 +98,17 @@ lint::
 	@$(MAKE) -s lint-css
 	@$(MAKE) -s lint-js
 
-test-component-semantics::
-	ddev exec node_modules/.bin/jest --verbose -t '#semantics'
-
 test::
 	@ddev yarn test:component-semantics
-
-analyse::
-	@ddev exec bin/phpstan analyse --level 8 DistributionPackages
 
 ###############################################################################
 #                               FRONTEND BUILD                                #
 ###############################################################################
-.PHONY: build
-build:: @install-yarn
-	@ddev exec time node_modules/.bin/webpack -p --hide-modules --mode production --optimize-dedupe --progress
+build::
+	@ddev yarn build
 
 watch::
-	@ddev exec node_modules/.bin/webpack --mode development -w
+	@ddev yarn watch
 
 ###############################################################################
 #                                  DDEV                                     #
