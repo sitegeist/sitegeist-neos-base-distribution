@@ -50,7 +50,7 @@ export default function main(components: ComponentsDefinition) {
 				console.error(el);
 				console.error(componentName);
 				throw new Error(
-					`Component name was empty.`
+					'Component name was empty.'
 				);
 			} else {
 				return;

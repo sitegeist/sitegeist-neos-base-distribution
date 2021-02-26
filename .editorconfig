@@ -25,3 +25,6 @@ indent_style = tab
 
 [*.md]
 trim_trailing_whitespace = false
+
+[*.yaml.example]
+indent_size = 2
