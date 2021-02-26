@@ -1,0 +1,23 @@
+prototype(Vendor.Site:Document.Error.404) < prototype(Vendor.Site:Document.Page) {
+    prototype(Neos.Neos:Page) {
+        httpResponseHead {
+            statusCode = 404
+        }
+    }
+}
+
+error {
+    @context.notfoundDocument = ${q(site).children('notfound').get(0)}
+
+    4xx {
+        @position = 'start'
+        condition = ${statusCode >= 400 && statusCode < 500 && notfoundDocument}
+        renderer = Neos.Fusion:Renderer {
+            @context {
+                node = ${notfoundDocument}
+                documentNode = ${notfoundDocument}
+            }
+            renderPath = '/root'
+        }
+    }
+}
