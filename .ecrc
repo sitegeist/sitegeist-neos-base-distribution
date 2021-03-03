@@ -1,6 +1,0 @@
-{
-    "exclude": [
-        "\\.css\\.fusion$",
-        "\\.js\\.fusion$"
-    ]
-}

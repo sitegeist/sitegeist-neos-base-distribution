@@ -1,8 +1,8 @@
 import * as webpack from 'webpack';
 import querystring from 'querystring';
 import path from 'path';
+import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import OptimizeCSSAssetsPlugin from 'optimize-css-assets-webpack-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 
 const config: webpack.Configuration = {
@@ -31,12 +31,6 @@ const config: webpack.Configuration = {
 
 	module: {
 		rules: [{
-			test: /\.jsx?$/,
-			exclude: /(node_modules)/,
-			use: [{
-				loader: 'babel-loader'
-			}]
-		}, {
 			test: /\.tsx?$/,
 			exclude: /(node_modules)/,
 			use: [{
@@ -48,8 +42,6 @@ const config: webpack.Configuration = {
 		}, {
 			test: /\.fusion$/,
 			use: [{
-				loader: 'babel-loader'
-			}, {
 				loader: './Build/JavaScript/fusion-loader',
 				options: {
 					compress: true
@@ -75,7 +67,9 @@ const config: webpack.Configuration = {
 	},
 
 	plugins: [
-		new webpack.IgnorePlugin(/\.spec.ts$/),
+		new webpack.IgnorePlugin({
+			resourceRegExp: /\.spec.ts$/
+		}),
 		new MiniCssExtractPlugin({
 			filename: '[name]/Resources/Public/Styles/main.min.css'
 		})
@@ -84,10 +78,12 @@ const config: webpack.Configuration = {
 	optimization: {
 		minimizer: [
 			new TerserPlugin({
+				terserOptions: {
+					sourceMap: true
+				},
 				parallel: true,
-				sourceMap: true
 			}),
-			new OptimizeCSSAssetsPlugin({})
+			new CssMinimizerPlugin()
 		]
 	}
 };

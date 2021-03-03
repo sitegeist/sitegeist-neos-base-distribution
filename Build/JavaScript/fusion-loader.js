@@ -3,10 +3,10 @@ const path = require('path');
 const loaderUtils = require('loader-utils');
 
 module.exports = function (fusionSource) {
-	const options = Object.assign(
-		{compress: false, salt: 'eeThahM2'},
-		loaderUtils.getOptions(this)
-	);
+	const options = {
+		compress: false, salt: 'eeThahM2',
+		...loaderUtils.getOptions(this)
+	};
 	const basePath = path.join(
 		path.dirname(this.resourcePath),
 		path.basename(this.resourcePath, '.fusion')

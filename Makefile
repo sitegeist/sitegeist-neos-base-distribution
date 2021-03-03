@@ -19,9 +19,6 @@
 #                                VARIABLES                                    #
 ###############################################################################
 SHELL=/bin/bash
-export TS_NODE_PROJECT=./tsconfig.json
-export PATH := ./node_modules/.bin:./bin:$(PATH)
-
 -include ./Build/config.makefile
 -include $(DIR_CONFIG_GLOBAL)/before.makefile
 -include $(DIR_CONFIG_LOCAL)/before.makefile
@@ -100,9 +97,6 @@ lint::
 	@$(MAKE) -s lint-php
 	@$(MAKE) -s lint-css
 	@$(MAKE) -s lint-js
-
-test::
-	@ddev yarn test:component-semantics
 
 ###############################################################################
 #                               FRONTEND BUILD                                #
