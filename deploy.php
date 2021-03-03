@@ -44,7 +44,7 @@ inventory('deploy-hosts.yml');
  * Build frontend
  */
 task('deploy:build', function () {
-    run('cd {{release_path}} && make build', ['timeout' => 60 * 10]);
+    run('cd {{release_path}} && yarn build', ['timeout' => 60 * 10]);
 })->desc('Install and build');
 
 /**

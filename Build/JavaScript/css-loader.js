@@ -2,10 +2,9 @@ const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
 const {Parser} = require('acorn');
+const escodegen = require('escodegen');
 
-module.exports = function (content, _, ast) {
-	console.log(Parser.parse(content, {sourceType: 'module'}));
-
+module.exports = function (content) {
 	const basePath = path.join(
 		path.dirname(this.resourcePath),
 		path.basename(this.resourcePath, '.css')
@@ -18,25 +17,23 @@ module.exports = function (content, _, ast) {
 
 		if (parsedFusionSource) {
 			const prototypeName = parsedFusionSource[1];
-			const exports = {};
-			const sandbox = {
-				__webpack_public_path__: '', // eslint-disable-line
-				module: {exports},
-				exports
-			};
+			const cssModuleAst = Parser.parse(content, {sourceType: 'module'});
+			const node = cssModuleAst.body.find(node => {
+				return (
+					node.type === 'ExpressionStatement' &&
+					node.expression.type === 'AssignmentExpression' &&
+					node.expression.left.type === 'MemberExpression' &&
+					node.expression.left.object.name === '___CSS_LOADER_EXPORT___'
+				);
+			});
 
-			console.log(content);
-
-			vm.createContext(sandbox);
-			vm.runInContext(content.split('// Exports')[1], sandbox);
-
-			const additionalFusionSource = `
-prototype(${prototypeName}) {
-	renderer.@context.styles = \${${JSON.stringify(sandbox.module.exports.locals)}}
-}
-			`;
-
-			fs.writeFileSync(`${basePath}.css.fusion`, additionalFusionSource);
+			if (node) {
+				const code = escodegen.generate(node.expression.right);
+				const additionalFusionSource = `prototype(${prototypeName}) {
+	renderer.@context.styles = \${${code}}
+}`;
+				fs.writeFileSync(`${basePath}.css.fusion`, additionalFusionSource);
+			}
 		}
 	}
 

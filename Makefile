@@ -49,9 +49,10 @@ environment::
 	@ddev exec echo Yarn $$(yarn --version)
 
 install-githooks::
-	@if [ -z $${CI+x} ]; then $(MAKE) environment; fi
-	@if [ -z $${CI+x} ]; then cp ./.git/hooks/pre-commit.sample ./.git/hooks/pre-commit && \
-		echo "make lint" >> ./.git/hooks/pre-commit; fi
+	@if [ -z $${CI+x} ]; then touch ./.git/hooks/pre-commit && \
+		echo "#!/bin/sh" > ./.git/hooks/pre-commit && \
+		echo "make lint" >> ./.git/hooks/pre-commit && \
+		chmod +x ./.git/hooks/pre-commit; fi
 
 install-composer::
 	@ddev composer install
