@@ -50,7 +50,37 @@
         "post-update-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
         "post-install-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
         "post-package-update": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
-        "post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall"
+        "post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
+
+        "flush": [
+            "./flow flow:cache:flush --force",
+            "./flow flow:package:rescan",
+            "./flow doctrine:migrate",
+            "./flow resource:publish"
+        ],
+
+        "cleanup:php": [
+            "rm -rf ./Data/Temporary/*",
+            "rm -rf ./Packages/*",
+            "rm -rf ./bin/*"
+        ],
+
+        "lint:editorconfig": "ec",
+        "lint:phpcs": "phpcs --colors --standard=PSR2 ./DistributionPackages/*/Classes",
+        "lint:phpstan": "phpstan analyse",
+        "lint:php": [
+            "@lint:phpcs",
+            "@lint:phpstan"
+        ],
+
+        "clone": [
+            "./flow clone:list",
+            "./flow clone:preset"
+        ],
+
+        "deploy:develop": "dep deploy develop -vv",
+        "deploy:staging": "dep deploy staging -vv",
+        "deploy:master": "dep deploy master -vv"
     },
     "repositories": {
         "local": {

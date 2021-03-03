@@ -12,6 +12,7 @@
 # @author Andreas Freund <freund@sitegeist.de>
 # @author Masoud Hedayati <hedayati@sitegeist.de>
 # @author Martin Ficzel <ficzel@sitegeist.de>
+# @author Dogan Günaydin <guenaydin@sitegeist.de>
 #
 
 ###############################################################################
@@ -28,7 +29,6 @@ export PATH := ./node_modules/.bin:./bin:$(PATH)
 ###############################################################################
 #                                  README                                     #
 ###############################################################################
-
 .DEFAULT:
 readme::
 	@printf "\n"
@@ -51,59 +51,49 @@ environment::
 	@ddev exec echo Node $$(node --version)
 	@ddev exec echo Yarn $$(yarn --version)
 
-@install-githooks::
+install-githooks::
 	@if [ -z $${CI+x} ]; then $(MAKE) environment; fi
 	@if [ -z $${CI+x} ]; then cp ./.git/hooks/pre-commit.sample ./.git/hooks/pre-commit && \
 		echo "make lint" >> ./.git/hooks/pre-commit; fi
 
-@install-composer::
+install-composer::
 	@ddev composer install
 
-@install-yarn::
-	@ddev exec yarn
+install-yarn::
+	@ddev yarn
 
 install::
 	@mkdir -p Data/Logs
-	@time $(MAKE) -s up
-	@time $(MAKE) -s -j 3 @install-githooks @install-composer @install-yarn
-	@time $(MAKE) -s -j 2 build flush
+	@$(MAKE) -s install-githooks
+	@$(MAKE) -s install-composer
+	@$(MAKE) -s install-yarn
+	@$(MAKE) -s flush
 
 flush::
-	@ddev exec ./flow flow:cache:flush --force
-	@ddev exec ./flow flow:package:rescan
-	@ddev exec ./flow doctrine:migrate
-	@ddev exec ./flow resource:publish
+	@ddev composer flush
 
 cleanup::
-	@rm -rf ./Data/Temporary/*
-	@rm -rf ./Packages/*
-	@rm -rf ./bin/*
-	@rm -rf node_modules/
-	@$(MAKE) install
+	@ddev composer cleanup:php
+	@ddev yarn cleanup:node
 
 ###############################################################################
 #                                LINTING & QA                                 #
 ###############################################################################
-
 lint-editorconfig::
 	@echo "Lint .editorconfig"
-	@ddev exec bin/editorconfig-checker ./DistributionPackages/*
+	@ddev composer lint:editorconfig
 
 lint-php::
-	@echo "Lint PHP Sources"
-	for package in DistributionPackages/*; do echo $$package; ddev exec bin/phpcs --standard=PSR2 $$package/Classes;  done
+	@echo "Lint PHP Sources".
+	@ddev composer lint:php
 
 lint-css::
 	@echo "Lint CSS Sources"
-	ddev exec node_modules/.bin/stylelint DistributionPackages/*/Resources/Private/**/*.css
+	@ddev yarn lint:css
 
 lint-js::
-ifneq (,$(wildcard DistributionPackages/*/Resources/Private/**/*.js))
 	@echo "Lint JavaScript Sources"
-	@ddev exec node_modules/.bin/eslint DistributionPackages/*/Resources/Private/**/*.js
-else
-	@echo "No JavaScript Source To Lint"
-endif
+	@ddev yarn lint:js
 
 lint::
 	@$(MAKE) -s lint-editorconfig
@@ -111,24 +101,17 @@ lint::
 	@$(MAKE) -s lint-css
 	@$(MAKE) -s lint-js
 
-test-component-semantics::
-	ddev exec node_modules/.bin/jest --verbose -t '#semantics'
-
 test::
-	@$(MAKE) -s test-component-semantics
-
-analyse::
-	@ddev exec bin/phpstan analyse --level 8 DistributionPackages
+	@ddev yarn test:component-semantics
 
 ###############################################################################
 #                               FRONTEND BUILD                                #
 ###############################################################################
-.PHONY: build
-build:: @install-yarn
-	@ddev exec time node_modules/.bin/webpack -p --hide-modules --mode production --optimize-dedupe --progress
+build::
+	@ddev yarn build
 
 watch::
-	@ddev exec node_modules/.bin/webpack --mode development -w
+	@ddev yarn watch
 
 ###############################################################################
 #                                  DDEV                                     #
@@ -161,21 +144,19 @@ ssh-mariadb::
 #                                CLONE                                        #
 ###############################################################################
 clone::
-	@$(MAKE) auth
-	@ddev exec ./flow clone:list
-	@ddev exec ./flow clone:preset $(preset) --yes
+	@ddev composer clone
 
 ###############################################################################
 #                                DEPLOYMENT                                   #
 ###############################################################################
 deploy-develop::
-	@ddev exec bin/dep deploy develop -vv --revision="develop"
+	@ddev composer deploy:develop
 
 deploy-staging::
-	@bin/dep deploy staging -vv
+	@ddev composer deploy:staging
 
-deploy-live::
-	@bin/dep deploy live -vv
+deploy-master::
+	@ddev composer deploy:master
 
 -include $(DIR_CONFIG_GLOBAL)/after.makefile
 -include $(DIR_CONFIG_LOCAL)/after.makefile

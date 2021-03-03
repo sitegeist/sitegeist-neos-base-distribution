@@ -19,11 +19,9 @@ __global:__
 _~/.neos/before.makefile_
 _~/.neos/after.makefile_
 
-
-
 If you want to use another path you can configure this path in your __Build/config.makefile__ file:
 
-```
+```makefile
 export DIR_CONFIG_GLOBAL=$(HOME)/.neos
 export DIR_CONFIG_LOCAL=./Custom
 ```
@@ -38,16 +36,16 @@ Original command within _Makefile_:
 
 ```makefile
 help::
-	@echo ""
-	@echo "Command           | Shorthand | Description"
-	@echo ""
+    @echo ""
+    @echo "Command           | Shorthand | Description"
+    @echo ""
 ```
 
 Extensing with a prepending echo command in your _./Custom/before.makefile_ file:
 
 ```makefile
 help::
-	@echo "This is a prepending echo :)"
+    @echo "This is a prepending echo :)"
 ```
 
 Result:
@@ -67,16 +65,16 @@ Original command within _Makefile_:
 
 ```makefile
 help::
-	@echo ""
-	@echo "Command           | Shorthand | Description"
-	@echo ""
+    @echo ""
+    @echo "Command           | Shorthand | Description"
+    @echo ""
 ```
 
 Extending with a appending echo command in your _./Custom/after.makefile_ file:
 
 ```makefile
 help::
-	@echo "This is a appending echo :)"
+    @echo "This is a appending echo :)"
 ```
 
 Result:
@@ -95,5 +93,5 @@ To add own commands, you can just create a new command in one of both files.
 
 ```makefile
 mycommand::
-	@echo "This is my additional command."
+    @echo "This is my additional command."
 ```
