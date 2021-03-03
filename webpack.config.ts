@@ -8,9 +8,13 @@ import TerserPlugin from 'terser-webpack-plugin';
 const config: webpack.Configuration = {
 	devtool: 'source-map',
 
+	stats: {
+		modules: false,
+		entrypoints: false,
+	},
+
 	entry: {
 		'Vendor.Site': [
-			'./Build/JavaScript/polyfill',
 			`./Build/JavaScript/components-loader!?${querystring.stringify({
 				componentPaths: [
 					'./DistributionPackages/Vendor.Site/Resources/Private/Fusion/Presentation'
@@ -55,10 +59,11 @@ const config: webpack.Configuration = {
 			}, {
 				loader: 'css-loader',
 				options: {
-					sourceMap: true,
 					modules: {
 						localIdentName: '[local]___[hash:base64:5]'
-					}
+					},
+					sourceMap: true,
+					importLoaders: 1
 				}
 			}, {
 				loader: 'postcss-loader'

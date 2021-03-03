@@ -1,4 +1,7 @@
 .siteHeader {
 	position: relative;
+}
+
+.foo {
 	background-color: red;
 }

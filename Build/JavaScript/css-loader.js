@@ -1,8 +1,11 @@
 const fs = require('fs');
 const path = require('path');
 const vm = require('vm');
+const {Parser} = require('acorn');
 
-module.exports = function (content) {
+module.exports = function (content, _, ast) {
+	console.log(Parser.parse(content, {sourceType: 'module'}));
+
 	const basePath = path.join(
 		path.dirname(this.resourcePath),
 		path.basename(this.resourcePath, '.css')
@@ -21,6 +24,8 @@ module.exports = function (content) {
 				module: {exports},
 				exports
 			};
+
+			console.log(content);
 
 			vm.createContext(sandbox);
 			vm.runInContext(content.split('// Exports')[1], sandbox);

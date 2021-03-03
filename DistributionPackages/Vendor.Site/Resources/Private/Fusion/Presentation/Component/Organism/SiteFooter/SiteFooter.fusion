@@ -6,7 +6,7 @@ prototype(Vendor.Site:Component.Organism.SiteFooter) < prototype(Neos.Fusion:Com
     i18n = ${CsvPO.create('resource://Vendor.Site/Private/Fusion/Presentation/Component/Organism/SiteFooter/SiteFooter.translation.csv')}
 
     renderer = afx`
-        <footer class={styles.siteFooter}>
+        <footer class={AtomicFusion.classNames(styles.siteFooter, styles.foo)}>
             {props.i18n.title}
         </footer>
     `

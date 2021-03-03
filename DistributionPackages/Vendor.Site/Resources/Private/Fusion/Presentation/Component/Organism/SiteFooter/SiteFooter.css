@@ -1,3 +1,7 @@
 .siteFooter {
 	color: black;
 }
+
+/* .foo {
+	composes: foo from "../SiteHeader/SiteHeader.css";
+} */
