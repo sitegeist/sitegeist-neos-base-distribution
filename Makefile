@@ -19,9 +19,6 @@
 #                                VARIABLES                                    #
 ###############################################################################
 SHELL=/bin/bash
-export TS_NODE_PROJECT=./tsconfig.json
-export PATH := ./node_modules/.bin:./bin:$(PATH)
-
 -include ./Build/config.makefile
 -include $(DIR_CONFIG_GLOBAL)/before.makefile
 -include $(DIR_CONFIG_LOCAL)/before.makefile
@@ -52,9 +49,10 @@ environment::
 	@ddev exec echo Yarn $$(yarn --version)
 
 install-githooks::
-	@if [ -z $${CI+x} ]; then $(MAKE) environment; fi
-	@if [ -z $${CI+x} ]; then cp ./.git/hooks/pre-commit.sample ./.git/hooks/pre-commit && \
-		echo "make lint" >> ./.git/hooks/pre-commit; fi
+	@if [ -z $${CI+x} ]; then touch ./.git/hooks/pre-commit && \
+		echo "#!/bin/sh" > ./.git/hooks/pre-commit && \
+		echo "make lint" >> ./.git/hooks/pre-commit && \
+		chmod +x ./.git/hooks/pre-commit; fi
 
 install-composer::
 	@ddev composer install
@@ -100,9 +98,6 @@ lint::
 	@$(MAKE) -s lint-php
 	@$(MAKE) -s lint-css
 	@$(MAKE) -s lint-js
-
-test::
-	@ddev yarn test:component-semantics
 
 ###############################################################################
 #                               FRONTEND BUILD                                #

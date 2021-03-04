@@ -1,4 +1,0 @@
-{
-  "extends": ["@sitegeist/es-neos-eslint"],
-  "parser": "@typescript-eslint/parser"
-}
