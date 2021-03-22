@@ -1,6 +1,7 @@
 import * as webpack from 'webpack';
 import querystring from 'querystring';
 import path from 'path';
+import fs from 'fs';
 import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
@@ -59,7 +60,20 @@ const config: webpack.Configuration = {
 			}, {
 				loader: 'css-loader',
 				options: {
+					esModule: false,
 					modules: {
+						auto: (resourcePath: string) => {
+							const basePath = path.join(
+								path.dirname(resourcePath),
+								path.basename(resourcePath, '.css')
+							);
+
+							return (
+								basePath.endsWith('.module') ||
+								fs.existsSync(`${basePath}.fusion`) ||
+								fs.existsSync(`${basePath}.ts`)
+							);
+						},
 						localIdentName: '[local]___[hash:base64:5]'
 					},
 					sourceMap: true,
