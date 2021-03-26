@@ -58,7 +58,7 @@ make clone
 or type the preset directly:
 
 ```sh
-make clone preset=dev
+make clone
 ```
 
 ## Versioning

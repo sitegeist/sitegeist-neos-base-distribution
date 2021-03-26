@@ -19,9 +19,6 @@
 #                                VARIABLES                                    #
 ###############################################################################
 SHELL=/bin/bash
--include ./Build/config.makefile
--include $(DIR_CONFIG_GLOBAL)/before.makefile
--include $(DIR_CONFIG_LOCAL)/before.makefile
 
 ###############################################################################
 #                                  README                                     #
@@ -38,6 +35,14 @@ readme::
 	@printf "\033[0;1m lint \033[0m \t\t Lint all sources\n"
 	@printf "\033[0;1m build \033[0m \t Build Frontend\n"
 	@printf "\033[0;1m watch \033[0m \t Build Frontend (Watch Mode)\n"
+	@printf "\033[0;1m up \033[0m \t\t Start a development server\n"
+	@printf "\033[0;1m down \033[0m \t\t Stop the development server\n"
+	@printf "\033[0;1m prune \033[0m \t Stop the development server and remove all traces of it\n"
+	@printf "\033[0;1m restart \033[0m \t Restart the development server\n"
+	@printf "\033[0;1m logs \033[0m \t\t Show logs from the development server\n"
+	@printf "\033[0;1m ssh \033[0m \t\t Start a shell on the development server\n"
+	@printf "\033[0;1m ssh-mariadb \033[0m \t Run the mariadb client on the development server\n"
+	@printf "\033[0;1m clone \033[0m \t Clone data from a deployed instance\n"
 	@printf "\n"
 
 ###############################################################################
@@ -45,8 +50,10 @@ readme::
 ###############################################################################
 environment::
 	@ddev version
-	@ddev exec echo Node $$(node --version)
-	@ddev exec echo Yarn $$(yarn --version)
+	@echo mkcert $$(mkcert -version)
+	@ddev exec composer --version
+	@echo Node $$(ddev exec node --version)
+	@echo Yarn $$(ddev yarn --version)
 
 install-githooks::
 	@if [ -z $${CI+x} ]; then touch ./.git/hooks/pre-commit && \
@@ -152,6 +159,3 @@ deploy-staging::
 
 deploy-master::
 	@ddev composer deploy:master
-
--include $(DIR_CONFIG_GLOBAL)/after.makefile
--include $(DIR_CONFIG_LOCAL)/after.makefile
