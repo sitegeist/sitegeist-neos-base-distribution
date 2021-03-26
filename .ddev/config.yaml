@@ -15,6 +15,9 @@ omit_containers: ["dba"]
 hooks:
   post-start:
     - exec: sudo echo alias ll=\"ls -lhA\" >> ~/.bashrc
+  post-composer:
+    - exec: ./flow flow:package:rescan
+composer_version: "2"
 
 # This config.yaml was created with ddev version v1.14.2
 # webimage: drud/ddev-webserver:v1.14.2
