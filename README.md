@@ -11,15 +11,15 @@ composer create-project sitegeist/neos-base-distribution customer-folder
 Copy the included `Vendor.Site` package into the project namespace#
 
 ```sh
-./flow package:adopt Vendor.Site Customer.Site
+ddev flow package:adopt Vendor.Site Customer.Site
 ```
 
 Require the Project package and remove the dependencies to `Vendor.Site` and `Sitegeist.Chantalle`
 
 ```sh
-composer require customer/site
-composer remove vendor/site
-composer remove sitegeist/chantalle
+ddev composer require customer/site
+ddev composer remove vendor/site
+ddev composer remove sitegeist/chantalle
 ```
 
 Initialize the project git repository
@@ -33,16 +33,10 @@ Install dependencies via:
 make install
 ```
 
-Now, get into the container:
-
-```sh
-make ssh
-```
-
 Finally, perform a site import:
 
 ```sh
-./flow site:import --package-key Customer.Site
+ddev flow site:import --package-key Customer.Site
 ```
 
 ## Running the site locally
