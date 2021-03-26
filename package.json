@@ -56,7 +56,17 @@
   "stylelint": {
     "extends": [
       "@sitegeist/es-neos-stylelint"
-    ]
+    ],
+    "rules": {
+      "property-no-unknown": [
+        true,
+        {
+          "ignoreProperties": [
+            "composes"
+          ]
+        }
+      ]
+    }
   },
   "jest": {
     "preset": "ts-jest",
