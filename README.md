@@ -8,6 +8,12 @@ Create a project based on the sitegeist base distribution
 composer create-project sitegeist/neos-base-distribution customer-folder
 ```
 
+Migrate database and add Admin user
+```sh
+ddev flow doctrine:migrate
+ddev flow create:user --roles Administrator admin admin Admin User
+```
+
 Copy the included `Vendor.Site` package into the project namespace#
 
 ```sh
