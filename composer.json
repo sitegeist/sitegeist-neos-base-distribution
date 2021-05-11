@@ -9,12 +9,13 @@
         }
     },
     "require": {
-        "neos/neos": "~7.0.0",
-        "neos/neos-ui": "~7.0.0",
+        "neos/neos": "~7.1.0",
+        "neos/neos-ui": "~7.1.0",
         "neos/seo": "^3.0",
         "neos/redirecthandler-ui": "^2.4",
         "neos/redirecthandler-neosadapter": "^4.3",
         "neos/redirecthandler-databasestorage": "^5.0",
+        "neos/redirecthandler-ui": "^2.4",
 
         "packagefactory/atomicfusion-proptypes": "^2.0",
         "packagefactory/atomicfusion-classnames": "^1.0",
@@ -31,11 +32,11 @@
         "vendor/site": "^1.0"
     },
     "require-dev": {
-        "neos/buildessentials": "^7.0",
+        "neos/buildessentials": "^7.1",
         "mikey179/vfsstream": "^1.6",
         "phpunit/phpunit": "^9.0",
         "symfony/css-selector": "~2.0",
-        "neos/behat": "^6.1",
+        "neos/behat": "^7.1",
         "deployer/deployer": "^6.2",
         "editorconfig-checker/editorconfig-checker": "^10.0",
         "squizlabs/php_codesniffer": "^3.4",
