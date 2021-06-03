@@ -15,19 +15,19 @@ const config: webpack.Configuration = {
 	},
 
 	entry: {
-		'Vendor.Site': [
+		main: [
 			`./Build/JavaScript/components-loader!?${querystring.stringify({
 				componentPaths: [
-					'./DistributionPackages/Vendor.Site/Resources/Private/Fusion/Presentation'
+					'./Resources/Private/Fusion/Presentation'
 				],
-				runtime: './DistributionPackages/Vendor.Site/Resources/Private/Fusion/Root.ts'
+				runtime: './Resources/Private/Fusion/Root.ts'
 			})}`
 		]
 	},
 
 	output: {
-		filename: '[name]/Resources/Public/JavaScript/main.min.js',
-		path: path.join(__dirname, 'DistributionPackages')
+		filename: 'Resources/Public/JavaScript/[name].min.js',
+		path: __dirname
 	},
 
 	resolve: {
@@ -41,7 +41,7 @@ const config: webpack.Configuration = {
 			use: [{
 				loader: 'ts-loader',
 				options: {
-					reportFiles: ['!DistributionPackages/**/*.spec.ts']
+					reportFiles: ['!**/*.spec.ts']
 				}
 			}]
 		}, {
@@ -90,7 +90,7 @@ const config: webpack.Configuration = {
 			resourceRegExp: /\.spec.ts$/
 		}),
 		new MiniCssExtractPlugin({
-			filename: '[name]/Resources/Public/Styles/main.min.css'
+			filename: 'Resources/Public/Styles/[name].min.css'
 		})
 	],
 

@@ -36,12 +36,12 @@
     "ts-node": "^9.1.1",
     "typescript": "^4.2.3",
     "webpack": "^5.28.0",
-    "webpack-cli": "^4.5.0"
+    "webpack-cli": "^4.7.0"
   },
   "scripts": {
     "cleanup:node": "find . -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \\;",
-    "build": "webpack --mode production",
-    "watch": "webpack -w --mode development",
+    "build": "lerna run --parallel --stream build",
+    "watch": "lerna run --parallel --stream watch",
     "lint:css": "stylelint 'DistributionPackages/*/Resources/Private/**/*.css'",
     "lint:js": "eslint 'DistributionPackages/*/Resources/Private/**/*.ts'",
     "postinstall": "lerna bootstrap"
