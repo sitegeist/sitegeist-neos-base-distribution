@@ -2,10 +2,17 @@
   "name": "@vendor/wheelinventor",
   "version": "1.0.0",
   "scripts": {
-    "build": "webpack --mode production",
-    "watch": "webpack -w --mode development"
+    "build": "concurrently 'yarn build:js' 'yarn build:css'",
+    "build:js": "webpack --mode production",
+    "build:css": "TAILWIND_MODE=build NODE_ENV=production postcss Resources/Private/Styles/styles.css -o Resources/Public/Styles/main.min.css",
+    "watch": "webpack -w --mode development",
+    "watch:js": "webpack -w --mode development",
+    "watch:css": "TAILWIND_MODE=watch NODE_ENV=development postcss -w Resources/Private/Styles/styles.css -o Resources/Public/Styles/main.min.css"
   },
   "devDependencies": {
+    "concurrently": "^6.2.0",
+    "postcss-cli": "^8.3.1",
+    "tailwindcss": "^2.1.4",
     "webpack-cli": "^4.7.0"
   }
 }

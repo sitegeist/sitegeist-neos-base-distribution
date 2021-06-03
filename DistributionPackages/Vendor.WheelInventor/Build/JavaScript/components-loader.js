@@ -9,10 +9,9 @@ module.exports = function () {
 		runtime: '', ...querystring.parse(this.resourceQuery.substr(1))};
 	const componentFileNames = asArray(options.componentPaths)
 		.map(path => {
-			return `${path}/**/*.+(css|ts|fusion)`;
+			return `${path}/**/*.+(ts|fusion)`;
 		})
 		.reduce((files, pattern) => [...files, ...glob.sync(pattern)], [])
-		.filter(fileName => !fileName.endsWith('.css.fusion'))
 		.filter(fileName => !fileName.endsWith('.js.fusion'));
 	const source = [];
 	const components = [];
@@ -30,7 +29,6 @@ module.exports = function () {
 				components.push(importName);
 				break;
 
-			case fileName.endsWith('.css'):
 			case fileName.endsWith('.js') && !fileName.endsWith('.spec.js'):
 			case fileName.endsWith('.ts') && !fileName.endsWith('.spec.ts'):
 				source.push(`import '${fileName}';`);

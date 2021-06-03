@@ -21,11 +21,6 @@ module.exports = function (fusionSource) {
 
 		exportStatements.push(`export const prototypeName = '${exportName}';`);
 
-		if (fs.existsSync(`${basePath}.css`)) {
-			importStatements.push(`import styles from '${basePath}.css';`);
-			exportStatements.push('export {styles};');
-		}
-
 		if (fs.existsSync(`${basePath}.js`)) {
 			throw new Error(`Do not use JS files for components. Please create a "${path.basename(basePath)}.ts" instead.`);
 		}

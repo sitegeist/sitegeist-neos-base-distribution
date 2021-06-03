@@ -1,9 +1,5 @@
 import * as webpack from 'webpack';
 import querystring from 'querystring';
-import path from 'path';
-import fs from 'fs';
-import CssMinimizerPlugin from 'css-minimizer-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import TerserPlugin from 'terser-webpack-plugin';
 
 const config: webpack.Configuration = {
@@ -52,36 +48,6 @@ const config: webpack.Configuration = {
 					compress: true
 				}
 			}]
-		}, {
-			test: /\.css$/,
-			exclude: /(node_modules)/,
-			use: [MiniCssExtractPlugin.loader, {
-				loader: './Build/JavaScript/css-loader'
-			}, {
-				loader: 'css-loader',
-				options: {
-					esModule: false,
-					modules: {
-						auto: (resourcePath: string) => {
-							const basePath = path.join(
-								path.dirname(resourcePath),
-								path.basename(resourcePath, '.css')
-							);
-
-							return (
-								basePath.endsWith('.module') ||
-								fs.existsSync(`${basePath}.fusion`) ||
-								fs.existsSync(`${basePath}.ts`)
-							);
-						},
-						localIdentName: '[local]___[hash:base64:5]'
-					},
-					sourceMap: true,
-					importLoaders: 1
-				}
-			}, {
-				loader: 'postcss-loader'
-			}]
 		}]
 	},
 
@@ -89,9 +55,6 @@ const config: webpack.Configuration = {
 		new webpack.IgnorePlugin({
 			resourceRegExp: /\.spec.ts$/
 		}),
-		new MiniCssExtractPlugin({
-			filename: 'Resources/Public/Styles/[name].min.css'
-		})
 	],
 
 	optimization: {
@@ -102,7 +65,6 @@ const config: webpack.Configuration = {
 				},
 				parallel: true,
 			}),
-			new CssMinimizerPlugin()
 		]
 	}
 };
