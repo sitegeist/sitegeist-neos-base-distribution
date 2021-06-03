@@ -14,17 +14,26 @@ ddev flow doctrine:migrate
 ddev flow create:user --roles Administrator admin admin Admin User
 ```
 
-Copy the included `Vendor.Site` package into the project namespace#
+You can choose to either copy the included `Vendor.Site` package or the `Vendor.WheelInventor` package into the project namespace:
 
 ```sh
 ddev flow package:adopt Vendor.Site Customer.Site
 ```
 
-Require the Project package and remove the dependencies to `Vendor.Site` and `Sitegeist.Chantalle`
+or:
+
+```sh
+ddev flow package:adopt Vendor.WheelInventor Customer.Site
+```
+
+**Background:** `Vendor.Site` is a blank site package with no defined frontend components, no content node types and a CSS Modules setup. `Vendor.WheelInventor` uses [Tailwind CSS](https://tailwindcss.com/) and defines a lot of default frontend components and content node types. Use the latter to quickstart projects of medium size.
+
+Require the Project package and remove the dependencies to `Vendor.Site`, `Vendor.WheelInventor` and `Sitegeist.Chantalle`:
 
 ```sh
 ddev composer require customer/site
 ddev composer remove vendor/site
+ddev composer remove vendor/wheelinventor
 ddev composer remove sitegeist/chantalle
 ```
 

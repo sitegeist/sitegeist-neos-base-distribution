@@ -1,0 +1,13 @@
+prototype(Vendor.WheelInventor:Component.Organism.WheelInventorHeader) < prototype(Neos.Fusion:Component)  {
+    @styleguide {
+        title = 'Site Header'
+    }
+
+    i18n = ${CsvPO.create('resource://Vendor.WheelInventor/Private/Fusion/Presentation/Component/Organism/SiteHeader/SiteHeader.translation.csv')}
+
+    renderer = afx`
+        <header class={styles.WheelInventorHeader}>
+            {props.i18n.title}
+        </header>
+    `
+}

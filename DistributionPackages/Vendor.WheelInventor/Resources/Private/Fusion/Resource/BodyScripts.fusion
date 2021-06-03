@@ -1,0 +1,16 @@
+prototype(Vendor.WheelInventor:Resource.BodyScripts) < prototype(Neos.Fusion:Array) {
+    main = Neos.Fusion:Tag {
+        tagName = 'script'
+        attributes.src = Neos.Fusion:ResourceUri {
+            path = 'resource://Vendor.WheelInventor/Public/JavaScript/main.min.js'
+            @process.stripBaseUri = ${(
+                String.replace(
+                    value,
+                    Configuration.setting('Neos.Flow.http.baseUri'),
+                    '/'
+                )
+            )}
+            @process.addCacheBuster = ${value + '?cb=' + SitegeistKlarSchiffCacheBuster.get()}
+        }
+    }
+}

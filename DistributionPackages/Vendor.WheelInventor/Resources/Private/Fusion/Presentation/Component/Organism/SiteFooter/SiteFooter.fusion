@@ -1,0 +1,13 @@
+prototype(Vendor.WheelInventor:Component.Organism.WheelInventorFooter) < prototype(Neos.Fusion:Component)  {
+    @styleguide {
+        title = 'Site Footer'
+    }
+
+    i18n = ${CsvPO.create('resource://Vendor.WheelInventor/Private/Fusion/Presentation/Component/Organism/SiteFooter/SiteFooter.translation.csv')}
+
+    renderer = afx`
+        <footer class={styles.WheelInventorFooter}>
+            {props.i18n.title}
+        </footer>
+    `
+}

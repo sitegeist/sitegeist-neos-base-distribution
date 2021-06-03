@@ -1,0 +1,23 @@
+prototype(Vendor.WheelInventor:Resource.StyleSheets) < prototype(Neos.Fusion:Array) {
+    font = Neos.Fusion:Tag {
+        tagName = 'link'
+        attributes.rel = 'stylesheet'
+        attributes.href = 'https://fonts.googleapis.com/css?family=Lato:300,400,400i,700'
+    }
+
+    main = Neos.Fusion:Tag {
+        tagName = 'link'
+        attributes.rel = 'stylesheet'
+        attributes.href = Neos.Fusion:ResourceUri {
+            path = 'resource://Vendor.WheelInventor/Public/Styles/main.min.css'
+            @process.stripBaseUri = ${(
+                String.replace(
+                    value,
+                    Configuration.setting('Neos.Flow.http.baseUri'),
+                    '/'
+                )
+            )}
+            @process.addCacheBuster = ${value + '?cb=' + SitegeistKlarSchiffCacheBuster.get()}
+        }
+    }
+}

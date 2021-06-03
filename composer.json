@@ -28,7 +28,8 @@
         "sitegeist/csvpo": "^1.3",
         "sitegeist/stampede": "^1.1",
 
-        "vendor/site": "^1.0"
+        "vendor/site": "^1.0",
+        "vendor/wheelinventor": "^1.0"
     },
     "require-dev": {
         "neos/buildessentials": "^7.1",
