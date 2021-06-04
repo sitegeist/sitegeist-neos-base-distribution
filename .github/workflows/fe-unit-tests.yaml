@@ -1,0 +1,20 @@
+name: Frontend Unit Tests
+
+on: [push, pull_request]
+
+
+jobs:
+  run-frontend-unit-tests:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup DDEV
+        uses: jonaseberle/github-action-setup-ddev@v1
+
+      - run: ddev composer install
+      - run: ddev yarn
+
+      - run: ddev flow doctrine:migrate
+
+      - run: ddev yarn test
