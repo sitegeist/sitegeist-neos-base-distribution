@@ -1,7 +1,7 @@
 module.exports = {
 	mode: 'jit',
 	purge: [
-		'./Resource/Private/Fusion/**/*'
+		'./Resources/Private/Fusion/**/*'
 	],
 	darkMode: false,
 	theme: {

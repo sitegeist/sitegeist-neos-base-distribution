@@ -1,0 +1,9 @@
+prototype(Vendor.WheelInventor:Block.Button) < prototype(Neos.Fusion:Component) {
+    @styleguide {
+        title = 'Button'
+    }
+
+    renderer = afx`
+        <button></button>
+    `
+}

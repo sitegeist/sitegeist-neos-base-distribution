@@ -5,14 +5,38 @@
     "build": "concurrently 'yarn build:js' 'yarn build:css'",
     "build:js": "webpack --mode production",
     "build:css": "TAILWIND_MODE=build NODE_ENV=production postcss Resources/Private/Styles/styles.css -o Resources/Public/Styles/main.min.css",
-    "watch": "webpack -w --mode development",
+    "watch": "concurrently 'yarn watch:js' 'yarn watch:css'",
     "watch:js": "webpack -w --mode development",
-    "watch:css": "TAILWIND_MODE=watch NODE_ENV=development postcss -w Resources/Private/Styles/styles.css -o Resources/Public/Styles/main.min.css"
+    "watch:css": "TAILWIND_MODE=watch NODE_ENV=development postcss -w Resources/Private/Styles/styles.css -o Resources/Public/Styles/main.min.css",
+    "test": "SITE_PACKAGE_KEY=Vendor.WheelInventor jest"
   },
   "devDependencies": {
     "concurrently": "^6.2.0",
     "postcss-cli": "^8.3.1",
     "tailwindcss": "^2.1.4",
     "webpack-cli": "^4.7.0"
+  },
+  "jest": {
+    "preset": "jest-puppeteer",
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "setupFilesAfterEnv": [
+      "../../Build/JavaScript/setup-jest.js"
+    ],
+    "testMatch": [
+      "<rootDir>/Resources/Private/Fusion/**/*.spec.ts"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "jsx",
+      "json",
+      "node"
+    ],
+    "moduleNameMapper": {
+      "\\.fusion$": "../../Build/JavaScript/fusion-mock.js"
+    }
   }
 }
