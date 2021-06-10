@@ -3,7 +3,47 @@ prototype(Vendor.WheelInventor:Block.Button) < prototype(Neos.Fusion:Component) 
         title = 'Button'
     }
 
+    @propTypes {
+        id = ${PropTypes.string}
+        name = ${PropTypes.string}
+        href = ${PropTypes.string}
+        target = ${PropTypes.string}
+        formaction = ${PropTypes.string}
+        rel = ${PropTypes.string}
+        disabled = ${PropTypes.boolean}
+        value = ${PropTypes.string}
+
+        content = ${PropTypes.string}
+
+        type = ${PropTypes.oneOf(['static', 'link', 'button', 'submit'])}
+        variant = ${PropTypes.oneOf(['cta', 'info', 'error', 'success', 'warning'])}
+    }
+
+    variant = 'info'
+
     renderer = afx`
-        <button></button>
+        <Neos.Fusion:Tag
+            tagName={props.type == 'link' ? 'a' : (props.type == 'button' || props.type == 'submit') ? 'button' : 'span'}
+            attributes.id={props.id}
+            attributes.name={props.name}
+            attributes.name.@if.1={props.type != 'static'}
+            attributes.href={props.href}
+            attributes.href.@if.1={props.type == 'link'}
+            attributes.target={props.target}
+            attributes.target.@if.1={props.type == 'link'}
+            attributes.rel={props.rel}
+            attributes.rel.@if.1={props.type == 'link'}
+            attributes.formaction={props.formaction}
+            attributes.formaction.@if.1={props.type == 'submit'}
+            attributes.value={props.value}
+            attributes.value.@if.1={props.type == 'button' || props.type == 'submit'}
+            attributes.role="button"
+            attributes.role.@if.1={props.type == 'static'}
+            attributes.type={props.type == 'submit' ? 'submit' : 'button'}
+            attributes.type.@if.1={props.type == 'button' || props.type == 'submit'}
+            attributes.disabled={props.disabled ? 'disabled' : null}
+        >
+            {props.content}
+        </Neos.Fusion:Tag>
     `
 }
