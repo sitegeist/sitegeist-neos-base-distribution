@@ -1,6 +1,38 @@
 prototype(Vendor.WheelInventor:Block.Button) < prototype(Neos.Fusion:Component) {
     @styleguide {
         title = 'Button'
+
+        props {
+            content = 'I am a button.'
+            variant = 'info'
+        }
+
+        useCases {
+            cta {
+                title = 'Variant: CTA'
+                props {
+                    variant = 'cta'
+                }
+            }
+            error {
+                title = 'Variant: Error'
+                props {
+                    variant = 'error'
+                }
+            }
+            success {
+                title = 'Variant: Success'
+                props {
+                    variant = 'success'
+                }
+            }
+            warning {
+                title = 'Variant: Warning'
+                props {
+                    variant = 'warning'
+                }
+            }
+        }
     }
 
     @propTypes {
@@ -21,29 +53,75 @@ prototype(Vendor.WheelInventor:Block.Button) < prototype(Neos.Fusion:Component) 
 
     variant = 'info'
 
-    renderer = afx`
-        <Neos.Fusion:Tag
-            tagName={props.type == 'link' ? 'a' : (props.type == 'button' || props.type == 'submit') ? 'button' : 'span'}
-            attributes.id={props.id}
-            attributes.name={props.name}
-            attributes.name.@if.1={props.type != 'static'}
-            attributes.href={props.href}
-            attributes.href.@if.1={props.type == 'link'}
-            attributes.target={props.target}
-            attributes.target.@if.1={props.type == 'link'}
-            attributes.rel={props.rel}
-            attributes.rel.@if.1={props.type == 'link'}
-            attributes.formaction={props.formaction}
-            attributes.formaction.@if.1={props.type == 'submit'}
-            attributes.value={props.value}
-            attributes.value.@if.1={props.type == 'button' || props.type == 'submit'}
-            attributes.role="button"
-            attributes.role.@if.1={props.type == 'static'}
-            attributes.type={props.type == 'submit' ? 'submit' : 'button'}
-            attributes.type.@if.1={props.type == 'button' || props.type == 'submit'}
-            attributes.disabled={props.disabled ? 'disabled' : null}
-        >
-            {props.content}
-        </Neos.Fusion:Tag>
-    `
+    renderer = Neos.Fusion:Tag {
+        tagName = Neos.Fusion:Case {
+            link {
+                condition = ${props.type == 'link'}
+                renderer = 'a'
+            }
+
+            buttonOrSubmit {
+                condition = ${props.type == 'button' || props.type == 'submit'}
+                renderer = 'button'
+            }
+
+            default {
+                @position = 'end 9999'
+                condition = true
+                renderer = 'span'
+            }
+        }
+
+        attributes {
+            id = ${props.id}
+
+            class = Neos.Fusion:DataStructure {
+                base = "p-4 flex gap-4 justify-center items-center cursor cursor-pointer rounded-sm whitespace-nowrap overflow-hidden overflow-ellipsis"
+                states = "shadow-sm hover:shadow-md active:shadow-none transition-shadow"
+
+                info = "bg-info text-info-contrast"
+                info.@if.1 = ${props.variant == 'info'}
+
+                cta = "bg-cta text-cta-contrast"
+                cta.@if.1 = ${props.variant == 'cta'}
+
+                error = "bg-error text-error-contrast"
+                error.@if.1 = ${props.variant == 'error'}
+
+                success = "bg-success text-success-contrast"
+                success.@if.1 = ${props.variant == 'success'}
+
+                warning = "bg-warning text-warning-contrast"
+                warning.@if.1 = ${props.variant == 'warning'}
+            }
+
+            name = ${props.name}
+            name.@if.1 = ${props.type != 'static'}
+
+            href = ${props.href}
+            href.@if.1 = ${props.type == 'link'}
+
+            target = ${props.target}
+            target.@if.1 = ${props.type == 'link'}
+
+            rel = ${props.rel}
+            rel.@if.1 = ${props.type == 'link'}
+
+            formaction = ${props.formaction}
+            formaction.@if.1 = ${props.type == 'submit'}
+
+            value = ${props.value}
+            value.@if.1 = ${props.type == 'button' || props.type == 'submit'}
+
+            role="button"
+            role.@if.1 = ${props.type == 'static'}
+
+            type = ${props.type == 'submit' ? 'submit' : 'button'}
+            type.@if.1 = ${props.type == 'button' || props.type == 'submit'}
+
+            disabled = ${props.disabled ? 'disabled' : null}
+        }
+
+        content = ${props.content}
+    }
 }
