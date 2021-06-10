@@ -17,4 +17,7 @@ jobs:
 
       - run: ddev flow doctrine:migrate
 
+      - run: ddev flow site:import --package-key Vendor.WheelInventor
+
       - run: ddev yarn test
+
