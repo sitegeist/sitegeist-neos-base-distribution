@@ -8,7 +8,7 @@
     "watch": "concurrently 'yarn watch:js' 'yarn watch:css'",
     "watch:js": "webpack -w --mode development",
     "watch:css": "TAILWIND_MODE=watch NODE_ENV=development postcss -w Resources/Private/Styles/styles.css -o Resources/Public/Styles/main.min.css",
-    "test": "SITE_PACKAGE_KEY=Vendor.WheelInventor jest"
+    "test": "SITE_PACKAGE_KEY=Vendor.WheelInventor jest --runInBand"
   },
   "devDependencies": {
     "concurrently": "^6.2.0",
