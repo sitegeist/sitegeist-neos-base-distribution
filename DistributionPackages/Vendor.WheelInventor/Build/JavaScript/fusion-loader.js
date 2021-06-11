@@ -1,12 +1,7 @@
 const fs = require('fs');
 const path = require('path');
-const loaderUtils = require('loader-utils');
 
 module.exports = function (fusionSource) {
-	const options = {
-		compress: false, salt: 'eeThahM2',
-		...loaderUtils.getOptions(this)
-	};
 	const basePath = path.join(
 		path.dirname(this.resourcePath),
 		path.basename(this.resourcePath, '.fusion')
@@ -38,6 +33,10 @@ prototype(${prototypeName}) {
 			`;
 
 			fs.writeFileSync(`${basePath}.js.fusion`, additionalFusionSource);
+		}
+
+		if (fs.existsSync(`${basePath}.alpine.ts`)) {
+			importStatements.push(`import '${basePath}.alpine.ts';`);
 		}
 
 		return [...importStatements, '', ...exportStatements].join('\n');

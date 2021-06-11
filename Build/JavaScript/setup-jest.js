@@ -38,6 +38,7 @@ expect.extend({
 		const pass = await page.$eval(selector, el => {
 			return (
 				el !== null &&
+				window.getComputedStyle(el).opacity > 0 &&
 				window.getComputedStyle(el).display !== 'none' &&
 				window.getComputedStyle(el).visibility === 'visible' &&
 				el.getBoundingClientRect() &&

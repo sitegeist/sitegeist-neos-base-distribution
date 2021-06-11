@@ -21,6 +21,6 @@ declare function renderComponent(
 
 declare namespace jest {
 	interface Matchers<R> {
-		toContainVisibleElement: (selector: string) => R;
+		toContainVisibleElement: (selector: string) => Promise<R>;
 	}
 }
