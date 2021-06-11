@@ -13,8 +13,10 @@
             "dom"
         ]
     },
+    "include": [
+        "DistributionPackages/**/*"
+    ],
     "exclude": [
-        "node_modules",
-        "Packages"
+        "node_modules"
     ]
 }
