@@ -11,6 +11,13 @@ jobs:
       - name: Setup DDEV
         uses: jonaseberle/github-action-setup-ddev@v1
 
+      - run: ddev composer install
       - run: ddev yarn
 
+      - run: ddev flow doctrine:migrate
+
+      - run: ddev flow site:import --package-key Vendor.WheelInventor
+
       - run: make build
+
+      - run: ddev yarn test
