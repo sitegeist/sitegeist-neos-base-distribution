@@ -1,5 +1,9 @@
 {
   "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "DistributionPackages/*"
+  ],
   "devDependencies": {
     "@sitegeist/es-neos-stylelint": "^2.0.2",
     "@sitegeist/eslint-config-es-neos-eslint": "^2.0.2",
@@ -15,6 +19,7 @@
     "eslint": "^7.22.0",
     "glob": "^7.1.6",
     "jest": "^26.6.3",
+    "lerna": "^4.0.0",
     "mini-css-extract-plugin": "^1.3.9",
     "node": "^15.10.0",
     "postcss": "^8.2.8",
@@ -31,16 +36,16 @@
     "ts-node": "^9.1.1",
     "typescript": "^4.2.3",
     "webpack": "^5.28.0",
-    "webpack-cli": "^4.5.0"
+    "webpack-cli": "^4.7.0"
   },
   "scripts": {
     "cleanup:node": "find . -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \\;",
-    "build": "webpack --mode production",
-    "watch": "webpack -w --mode development",
+    "build": "lerna run --parallel --stream build",
+    "watch": "lerna run --parallel --stream watch",
     "lint:css": "stylelint 'DistributionPackages/*/Resources/Private/**/*.css'",
-    "lint:js": "eslint 'DistributionPackages/*/Resources/Private/**/*.ts'"
+    "lint:js": "eslint 'DistributionPackages/*/Resources/Private/**/*.ts'",
+    "postinstall": "lerna bootstrap"
   },
-  "dependencies": {},
   "browserslist": [
     ">1%",
     "not dead",
@@ -84,5 +89,6 @@
     "modulePathIgnorePatterns": [
       "<rootDir>/Packages/"
     ]
-  }
+  },
+  "name": "sitegeist-neos-base-distribution"
 }
