@@ -1,10 +1,15 @@
 'Vendor.WheelInventor:Document.Error.404':
   superTypes:
-    'Vendor.WheelInventor:Document.Page': true
-    'Vendor.WheelInventor:Constraint.Document.Restricted': true
+    'Vendor.WheelInventor:Document': true
   ui:
     icon: exclamation-triangle
     label: i18n
+  childNodes:
+    main:
+      type: 'Neos.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          '*': false
   properties:
     title:
       defaultValue: '404'

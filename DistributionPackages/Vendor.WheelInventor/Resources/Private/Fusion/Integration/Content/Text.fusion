@@ -1,0 +1,8 @@
+prototype(Vendor.WheelInventor:Content.Text) < prototype(Neos.Neos:ContentComponent) {
+    renderer = Vendor.WheelInventor:Block.Text {
+        content = Neos.Neos:Editable {
+            property = 'text__content'
+        }
+        @process.convertUris = Neos.Neos:ConvertUris
+    }
+}

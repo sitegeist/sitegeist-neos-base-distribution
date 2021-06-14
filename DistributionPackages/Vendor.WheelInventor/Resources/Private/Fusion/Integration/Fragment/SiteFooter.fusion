@@ -1,0 +1,3 @@
+prototype(Vendor.WheelInventor:Fragment.SiteFooter) < prototype(Neos.Fusion:Component) {
+    renderer = Vendor.WheelInventor:Block.SiteFooter
+}

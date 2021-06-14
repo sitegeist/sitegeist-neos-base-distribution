@@ -1,14 +1,12 @@
-'Vendor.WheelInventor:Document.HomePage':
+'Vendor.WheelInventor:Document.WebPage':
   superTypes:
     'Vendor.WheelInventor:Document': true
-
   ui:
-    icon: globe
+    icon: file
     label: i18n
 
   constraints:
     nodeTypes:
-      'Vendor.WheelInventor:Document.LandingPage': true
       'Vendor.WheelInventor:Document.WebPage': true
       'Vendor.WheelInventor:Document.Shortcut': true
 
@@ -18,5 +16,4 @@
       constraints:
         nodeTypes:
           '*': false
-    notfound:
-      type: 'Vendor.WheelInventor:Document.Error.404'
+          'Vendor.WheelInventor:Content.Text': true

@@ -1,9 +1,9 @@
-'Vendor.WheelInventor:Document.HomePage':
+'Vendor.WheelInventor:Document.LandingPage':
   superTypes:
     'Vendor.WheelInventor:Document': true
 
   ui:
-    icon: globe
+    icon: file-import
     label: i18n
 
   constraints:
@@ -18,5 +18,3 @@
       constraints:
         nodeTypes:
           '*': false
-    notfound:
-      type: 'Vendor.WheelInventor:Document.Error.404'

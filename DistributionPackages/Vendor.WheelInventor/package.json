@@ -11,6 +11,7 @@
     "test": "SITE_PACKAGE_KEY=Vendor.WheelInventor jest --runInBand"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.4.1",
     "concurrently": "^6.2.0",
     "postcss-cli": "^8.3.1",
     "tailwindcss": "^2.1.4",
