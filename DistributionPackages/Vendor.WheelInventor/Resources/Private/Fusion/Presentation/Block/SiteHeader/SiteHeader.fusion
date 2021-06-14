@@ -1,0 +1,27 @@
+prototype(Vendor.WheelInventor:Block.SiteHeader) < prototype(Neos.Fusion:Component) {
+    @styleguide {
+        title = 'Site Header'
+    }
+
+    logo = Neos.Fusion:DataStructure {
+        alt = 'Logo'
+        title = 'Go to homepage'
+    }
+    renderer = afx`
+        <div class="h-32 p-4 bg-brand">
+            <a
+                id="logoLink"
+                class="block h-full"
+                href="/"
+                target="_self"
+            >
+                <img
+                    id="logo"
+                    class="h-full"
+                    src={StaticResource.uri('Vendor.WheelInventor', 'Public/Images/Logo.svg')}
+                    {...props.logo}
+                />
+            </a>
+        </div>
+    `
+}

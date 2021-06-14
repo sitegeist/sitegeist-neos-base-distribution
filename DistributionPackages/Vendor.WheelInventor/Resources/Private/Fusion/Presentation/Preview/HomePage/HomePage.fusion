@@ -5,15 +5,8 @@ prototype(Vendor.WheelInventor:Preview.HomePage) < prototype(Neos.Fusion:Compone
 
     renderer = afx`
         <Vendor.WheelInventor:Layout.Page>
-            <Vendor.WheelInventor:Layout.Heap @path="header">
-                <Vendor.WheelInventor:Block.Logo/>
-                <Vendor.WheelInventor:Layout.Heap>
-
-                </Vendor.WheelInventor:Layout.Heap>
-                <Vendor.WheelInventor:Block.Burger/>
-            </Vendor.WheelInventor:Layout.Heap>
-            <Vendor.WheelInventor:Layout.Heap @path="footer">
-            </Vendor.WheelInventor:Layout.Heap>
+            <Vendor.WheelInventor:Block.SiteHeader @path="header"/>
+            <Vendor.WheelInventor:Block.SiteFooter @path="footer"/>
         </Vendor.WheelInventor:Layout.Page>
     `
 }
