@@ -1,5 +1,6 @@
 prototype(Vendor.WheelInventor:Document.Page) < prototype(Neos.Fusion:Component) {
     renderer = Vendor.WheelInventor:Document.Base {
-        body = Vendor.WheelInventor:Component.Template.Page
+        body = Vendor.WheelInventor:Layout.Page {
+        }
     }
 }

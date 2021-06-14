@@ -4,27 +4,16 @@ prototype(Vendor.WheelInventor:Preview.HomePage) < prototype(Neos.Fusion:Compone
     }
 
     renderer = afx`
-        <Vendor.WheelInventor:Block.Plane
-            as="header"
-            spacing="sparse"
-            background=""
-            >
-        </Vendor.WheelInventor:Block.Plane>
-
         <Vendor.WheelInventor:Layout.Page>
-            <header>
+            <Vendor.WheelInventor:Layout.Heap @path="header">
+                <Vendor.WheelInventor:Block.Logo/>
                 <Vendor.WheelInventor:Layout.Heap>
-                    <Vendor.WheelInventor:Block.Logo/>
-                    <Vendor.WheelInventor:Layout.Heap>
 
-                    </Vendor.WheelInventor:Layout.Heap>
-                    <Vendor.WheelInventor:Block.Burger/>
                 </Vendor.WheelInventor:Layout.Heap>
-            </header>
-            <main>
-            </main>
-            <footer>
-            </footer>
+                <Vendor.WheelInventor:Block.Burger/>
+            </Vendor.WheelInventor:Layout.Heap>
+            <Vendor.WheelInventor:Layout.Heap @path="footer">
+            </Vendor.WheelInventor:Layout.Heap>
         </Vendor.WheelInventor:Layout.Page>
     `
 }

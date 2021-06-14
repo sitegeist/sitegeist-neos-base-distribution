@@ -12,24 +12,28 @@ prototype(Vendor.WheelInventor:Block.Button) < prototype(Neos.Fusion:Component) 
                 title = 'Variant: CTA'
                 props {
                     variant = 'cta'
+                    content = 'I am a cta button.'
                 }
             }
             error {
                 title = 'Variant: Error'
                 props {
                     variant = 'error'
+                    content = 'I am an error button.'
                 }
             }
             success {
                 title = 'Variant: Success'
                 props {
                     variant = 'success'
+                    content = 'I am a success button.'
                 }
             }
             warning {
                 title = 'Variant: Warning'
                 props {
                     variant = 'warning'
+                    content = 'I am a warning button.'
                 }
             }
         }
