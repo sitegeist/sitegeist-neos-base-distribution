@@ -86,11 +86,11 @@ cleanup::
 ###############################################################################
 lint-editorconfig::
 	@echo "Lint .editorconfig"
-	@ddev composer lint:editorconfig
+	@ddev exec composer lint:editorconfig
 
 lint-php::
 	@echo "Lint PHP Sources".
-	@ddev composer lint:php
+	@ddev exec composer lint:php
 
 lint-css::
 	@echo "Lint CSS Sources"

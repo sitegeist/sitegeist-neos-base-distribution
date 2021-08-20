@@ -1,0 +1,16 @@
+name: QA
+
+on: [push, pull_request]
+
+jobs:
+  fe-build:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup DDEV
+        uses: jonaseberle/github-action-setup-ddev@v1
+
+      - run: ddev yarn
+
+      - run: make build
