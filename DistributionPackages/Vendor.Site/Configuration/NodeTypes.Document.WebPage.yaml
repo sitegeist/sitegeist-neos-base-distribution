@@ -1,4 +1,4 @@
-'Vendor.Site:Document.Page':
+'Vendor.Site:Document.WebPage':
   superTypes:
     'Vendor.Site:Document': true
 

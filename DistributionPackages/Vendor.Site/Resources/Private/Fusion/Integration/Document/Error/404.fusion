@@ -1,4 +1,4 @@
-prototype(Vendor.Site:Document.Error.404) < prototype(Vendor.Site:Document.Page) {
+prototype(Vendor.Site:Document.Error.404) < prototype(Vendor.Site:Document.WebPage) {
     prototype(Neos.Neos:Page) {
         httpResponseHead {
             statusCode = 404
