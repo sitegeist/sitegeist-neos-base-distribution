@@ -27,6 +27,7 @@
         "sitegeist/lazybones": "^3.0",
         "sitegeist/csvpo": "^1.3",
         "sitegeist/stampede": "^1.1",
+        "sitegeist/archaeopteryx": "^1.0",
 
         "vendor/site": "^1.0"
     },
