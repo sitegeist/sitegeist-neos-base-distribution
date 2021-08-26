@@ -52,7 +52,7 @@
         "post-install-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
         "post-package-update": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
         "post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
-
+        "post-create-project-cmd": "ddev config --projectname=`basename \"$PWD\"`",
         "flush": [
             "./flow flow:cache:flush --force",
             "./flow flow:package:rescan",
