@@ -77,9 +77,14 @@ install::
 flush::
 	@ddev composer flush
 
+remove-artefacts:
+	@ddev exec find ./DistributionPackages/ -type f -name '*.js.fusion' -delete
+	@ddev exec find ./DistributionPackages/ -type f -name '*.css.fusion' -delete
+
 cleanup::
 	@ddev composer cleanup:php
 	@ddev yarn cleanup:node
+	@$(MAKE) -s remove-artefacts
 
 ###############################################################################
 #                                LINTING & QA                                 #
