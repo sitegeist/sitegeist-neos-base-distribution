@@ -21,8 +21,16 @@ module.exports = function (fusionSource) {
 			exportStatements.push('export {styles};');
 		}
 
+		if (!fs.existsSync(`${basePath}.css`) && fs.existsSync(`${basePath}.css.fusion`)) {
+			fs.unlinkSync(`${basePath}.css.fusion`);
+		}
+
 		if (fs.existsSync(`${basePath}.js`)) {
 			throw new Error(`Do not use JS files for components. Please create a "${path.basename(basePath)}.ts" instead.`);
+		}
+
+		if (!fs.existsSync(`${basePath}.ts`) && !fs.existsSync(`${basePath}.js`) && fs.existsSync(`${basePath}.js.fusion`)) {
+			fs.unlinkSync(`${basePath}.js.fusion`);
 		}
 
 		if (fs.existsSync(`${basePath}.ts`)) {

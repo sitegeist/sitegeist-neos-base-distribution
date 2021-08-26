@@ -18,7 +18,11 @@ export default function main(components: ComponentsDefinition) {
 		if (componentName in components) {
 			const {script, prototypeName, styles} = components[componentName];
 
-			script(el, {prototypeName, styles});
+			if (script) {
+				script(el, {prototypeName, styles});
+				return;
+			}
+
 			return;
 		}
 
