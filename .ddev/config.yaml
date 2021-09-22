@@ -25,7 +25,7 @@ web_environment:
 - FLOW_REWRITEURLS=1
 - FLOW_PATH_TEMPORARY_BASE=/tmp/neos
 - FLOW_ROOTPATH=/var/www/html
-
+webimage_extra_packages: [pngquant,jpegoptim]
 
 # This config.yaml was created with ddev version v1.18.0-alpha4
 # webimage: drud/ddev-webserver:20210729_cspitzlay_mysql_history

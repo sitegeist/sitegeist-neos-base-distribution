@@ -1,0 +1,25 @@
+MOC:
+  ImageOptimizer:
+    formats:
+
+      #
+      # The binaries and pathes have to be configured for the server environment
+      # in the Production/Settings.yaml on the server
+      #
+      'image/jpeg':
+        enabled: false
+
+      'image/png':
+        enabled: false
+
+      # No good optimizer found yet
+      'image/webp':
+        enabled: false
+
+      # Rarely needed ... not worth the hassle
+      'image/gif':
+        enabled: false
+
+      # Optimized by gzip
+      'image/svg+xml':
+        enabled: false

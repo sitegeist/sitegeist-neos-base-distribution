@@ -1,0 +1,23 @@
+MOC:
+  ImageOptimizer:
+    formats:
+      #
+      # Configuration for image optimization in the ddev evironment
+      #
+      'image/jpeg':
+        enabled: true
+        useGlobalBinary: true
+        library: 'jpegoptim'
+        arguments: "${'--strip-all --max=' + quality + ' ' + (progressive ? '--all-progressive ' : '') + '-o ' + file}"
+        parameters:
+          progressive: true
+          quality: 90
+
+      'image/png':
+        enabled: true
+        useGlobalBinary: true
+        library: 'pngquant'
+        arguments: "${'--quality=' + qualityMin + '-' + qualityMax + ' --skip-if-larger --strip --force -o ' + file + ' ' + file}"
+        parameters:
+          qualityMin: 80
+          qualityMax: 90

@@ -29,7 +29,8 @@
         "sitegeist/stampede": "^1.1",
         "sitegeist/archaeopteryx": "^1.0",
 
-        "vendor/site": "^1.0"
+        "vendor/site": "^1.0",
+        "moc/imageoptimizer": "^4.0"
     },
     "require-dev": {
         "neos/buildessentials": "^7.1",
