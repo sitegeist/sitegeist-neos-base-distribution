@@ -7,5 +7,5 @@ prototype(Neos.Neos:Page) {
     // it is disabled as only editors would benefit but
     // all user would see the additional request
     //
-    lastVisitedNodeScript.@if.disabled = false
+    lastVisitedNodeScript.@if.enabled = false
 }
