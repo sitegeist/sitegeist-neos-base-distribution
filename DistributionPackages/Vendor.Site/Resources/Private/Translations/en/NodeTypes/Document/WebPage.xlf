@@ -3,8 +3,8 @@
     <file original="" product-name="Vendor.Site" source-language="en" target-language="en" datatype="plaintext">
         <body>
             <trans-unit id="ui.label" xml:space="preserve">
-                <source>Page</source>
-                <target>Page</target>
+                <source>Web Page</source>
+                <target>Web Page</target>
             </trans-unit>
         </body>
     </file>
