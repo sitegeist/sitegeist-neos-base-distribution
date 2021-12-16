@@ -1,0 +1,23 @@
+Sitegeist:
+  Iconoclasm:
+    command: 'imagemin {input} > {output}'
+    mediaTypes:
+      'image/jpeg':
+        enabled: true
+        # this would be better
+        # command: 'imagemin {input} --plugin=mozjpeg > {output}'
+        command: 'imagemin {input} > {output}'
+
+      'image/png':
+        enabled: true
+        command: 'imagemin {input} --plugin=pngquant > {output}'
+
+      'image/webp':
+        enabled: true
+        command: 'imagemin {input} --plugin=webp > {output}'
+
+      'image/gif':
+        enabled: false
+
+      'image/svg':
+        enabled: false
