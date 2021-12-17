@@ -81,7 +81,9 @@
 
         "deploy:develop": "dep deploy develop -vv",
         "deploy:staging": "dep deploy staging -vv",
-        "deploy:master": "dep deploy master -vv"
+        "deploy:master": "dep deploy master -vv",
+
+        "test": "echo \"No tests yet.\""
     },
     "repositories": {
         "local": {

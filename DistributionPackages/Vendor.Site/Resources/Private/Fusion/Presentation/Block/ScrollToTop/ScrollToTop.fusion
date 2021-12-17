@@ -1,0 +1,31 @@
+prototype(Vendor.WheelInventor:Block.ScrollToTop) < prototype(Neos.Fusion:Component) {
+    @styleguide {
+        title = 'Scroll To Top'
+
+        container = afx`
+            <div style="min-height: 150vh">{value}</div>
+        `
+
+        props {
+            id = 'scroll-to-top'
+            title = 'Scroll To Top'
+        }
+    }
+
+    @propTypes {
+        id = ${PropTypes.string.isRequired}
+        title = ${PropTypes.string.isRequired}
+    }
+
+    renderer = afx`
+        <button
+            id={props.id}
+            class={styles.scrollToTop}
+            type="button"
+            title={props.title}
+            x-data="{...ScrollToTop()}"
+            x-spread="button"
+        >
+        </button>
+    `
+}

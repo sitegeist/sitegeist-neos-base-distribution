@@ -92,19 +92,14 @@ lint-php::
 	@echo "Lint PHP Sources".
 	@ddev exec composer lint:php
 
-lint-css::
-	@echo "Lint CSS Sources"
-	@ddev yarn lint:css
-
-lint-js::
-	@echo "Lint JavaScript Sources"
-	@ddev yarn lint:js
+lint-fe::
+	@echo "Lint CSS/TS Sources"
+	@ddev yarn lint
 
 lint::
 	@$(MAKE) -s lint-editorconfig
 	@$(MAKE) -s lint-php
-	@$(MAKE) -s lint-css
-	@$(MAKE) -s lint-js
+	@$(MAKE) -s lint-fe
 
 ###############################################################################
 #                               FRONTEND BUILD                                #

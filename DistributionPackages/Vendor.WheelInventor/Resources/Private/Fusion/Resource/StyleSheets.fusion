@@ -9,7 +9,7 @@ prototype(Vendor.WheelInventor:Resource.StyleSheets) < prototype(Neos.Fusion:Arr
         tagName = 'link'
         attributes.rel = 'stylesheet'
         attributes.href = Neos.Fusion:ResourceUri {
-            path = 'resource://Vendor.WheelInventor/Public/Styles/main.min.css'
+            path = 'resource://Vendor.WheelInventor/Public/Build/Styles/main.min.css'
             @process.stripBaseUri = ${(
                 String.replace(
                     value,

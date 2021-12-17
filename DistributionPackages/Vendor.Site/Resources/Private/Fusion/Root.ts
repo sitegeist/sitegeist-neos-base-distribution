@@ -13,7 +13,7 @@ type ComponentsDefinition = {
 	};
 };
 
-export default function main(components: ComponentsDefinition) {
+export default function main(components: ComponentsDefinition): void {
 	function initializeComponent(el: Element, componentName: string): void {
 		if (componentName in components) {
 			const {script, prototypeName, styles} = components[componentName];
@@ -22,7 +22,7 @@ export default function main(components: ComponentsDefinition) {
 			return;
 		}
 
-		if (process.env.NODE_ENV === 'development') {
+		if (process.env.NODE_ENV === "development") {
 			console.error(el);
 			console.error(componentName);
 
@@ -30,11 +30,11 @@ export default function main(components: ComponentsDefinition) {
 		}
 	}
 
-	Array.from(document.querySelectorAll('[data-component]')).forEach(el => {
-		const componentName = el.getAttribute('data-component');
+	Array.from(document.querySelectorAll("[data-component]")).forEach(el => {
+		const componentName = el.getAttribute("data-component");
 
-		if (typeof componentName !== 'string') {
-			if (process.env.NODE_ENV === 'development') {
+		if (typeof componentName !== "string") {
+			if (process.env.NODE_ENV === "development") {
 				console.error(el);
 				console.error(componentName);
 				throw new Error(
@@ -46,18 +46,18 @@ export default function main(components: ComponentsDefinition) {
 		}
 
 		if (!componentName) {
-			if (process.env.NODE_ENV === 'development') {
+			if (process.env.NODE_ENV === "development") {
 				console.error(el);
 				console.error(componentName);
 				throw new Error(
-					'Component name was empty.'
+					"Component name was empty."
 				);
 			} else {
 				return;
 			}
 		}
 
-		componentName.split(' ').forEach(
+		componentName.split(" ").forEach(
 			componentName => initializeComponent(el, componentName)
 		);
 	});

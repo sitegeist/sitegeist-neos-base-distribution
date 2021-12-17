@@ -1,72 +1,117 @@
 import * as webpack from 'webpack';
-import querystring from 'querystring';
-import TerserPlugin from 'terser-webpack-plugin';
+import path from 'path';
+import glob from 'glob';
 
-const config: webpack.Configuration = {
-	devtool: 'source-map',
+import packageJson from './package.json';
+import composerJson from './composer.json';
 
-	stats: {
-		modules: false,
-		entrypoints: false,
-	},
+interface ComposerJson {
+	extra: {
+		neos: {
+			'package-key': string;
+		};
+	};
+}
 
-	entry: {
-		main: [
-			`./Build/JavaScript/components-loader!?${querystring.stringify({
-				componentPaths: [
-					'./Resources/Private/Fusion/Presentation'
-				],
-				runtime: './Resources/Private/Fusion/Root.ts'
-			})}`
-		]
-	},
+const shared = [
+	...Object.entries(packageJson.dependencies).map(
+		([name, version]) => ({
+			[name]: {
+				requiredVersion: version,
+				singleton: true
+			}
+		})
+	)
+];
 
-	output: {
-		filename: 'Resources/Public/JavaScript/[name].min.js',
-		path: __dirname
-	},
+export function buildCommonConfig(): webpack.Configuration {
+	return {
+		stats: 'minimal',
 
-	resolve: {
-		extensions: ['.ts', '.tsx', '.js', '.json']
-	},
+		output: {
+			filename: 'JavaScript/[name].min.js',
+			chunkFilename: `JavaScript/[id].chunk.js?t=${Date.now()}`,
+			path: path.join(process.cwd(), 'Resources/Public/Build')
+		},
 
-	module: {
-		rules: [{
-			test: /\.tsx?$/,
-			exclude: /(node_modules)/,
-			use: [{
-				loader: 'ts-loader',
-				options: {
-					reportFiles: ['!**/*.spec.ts']
-				}
-			}]
-		}, {
-			test: /\.fusion$/,
-			use: [{
-				loader: './Build/JavaScript/fusion-loader',
-				options: {
-					compress: true
-				}
-			}]
-		}]
-	},
+		resolve: {
+			extensions: ['.ts', '.tsx', '.js', '.json']
+		},
 
-	plugins: [
-		new webpack.IgnorePlugin({
-			resourceRegExp: /\.spec.ts$/
-		}),
-	],
-
-	optimization: {
-		minimizer: [
-			new TerserPlugin({
-				terserOptions: {
-					sourceMap: true
+		module: {
+			rules: [
+				{
+					test: /\.entry\.tsx?$/,
+					use: [{
+						loader: require.resolve('./Build/ts-entry-loader')
+					}]
 				},
-				parallel: true,
+				{
+					test: /\.tsx?$/,
+					use: [{
+						loader: 'ts-loader'
+					}]
+				},
+			]
+		},
+
+		plugins: [
+			new webpack.IgnorePlugin({
+				resourceRegExp: /\.spec.ts$/,
+			}),
+		],
+
+		optimization: {
+			minimize: true,
+		},
+	};
+}
+
+export function buildRuntimeConfig() {
+	const common = buildCommonConfig();
+
+	return {
+		...common,
+		entry: './Resources/Private/Fusion/Root.ts',
+		plugins: [
+			...(common.plugins as any[]),
+			new webpack.container.ModuleFederationPlugin({
+				name: 'host',
+				shared
 			}),
 		]
-	}
-};
+	};
+}
 
-export default config;
+export function buildComponentsConfig(composerJson: ComposerJson, entry?: string) {
+	const common = buildCommonConfig();
+	const foo = glob.sync('./Resources/Private/**/Root.ts');
+	const components = glob.sync('./Resources/Private/Fusion/Presentation/**/*.entry.ts');
+
+	return {
+		...common,
+		entry: entry ? entry : {foo},
+		plugins: [
+			...(common.plugins as any[]),
+			new webpack.container.ModuleFederationPlugin({
+				name: composerJson.extra.neos['package-key'].replace(/\./g, '_'),
+				filename: 'JavaScript/components.js',
+				exposes: components.reduce<{ [key: string]: string }>(
+					(entries, pathToEntryFile) => {
+						const componentName = path.basename(pathToEntryFile, '.entry.ts');
+						entries[`components/${componentName}`] = pathToEntryFile;
+
+						return entries;
+					},
+					{}
+				),
+				shared
+			}),
+		]
+	};
+}
+
+export default [
+	buildRuntimeConfig(),
+	buildComponentsConfig(composerJson)
+];

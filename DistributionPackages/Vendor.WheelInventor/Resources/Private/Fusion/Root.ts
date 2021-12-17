@@ -1,64 +1,69 @@
-interface GlobalDependencies {
-	prototypeName: string;
-	styles: {[key: string]: string};
-}
+type ComponentFn = (_el: HTMLElement) => any;
 
-type Component = (el: Element, dependencies: GlobalDependencies) => void;
+const scriptCache = new Map<string, Promise<boolean>>();
 
-type ComponentsDefinition = {
-	[key: string]: {
-		script: Component;
-		prototypeName: string;
-		styles: { [key: string]: string };
-	};
-};
+async function dynamicScript(src: string): Promise<boolean> {
+	if (!scriptCache.has(src)) {
+		const promise = new Promise<boolean>(resolve => {
+			const script = document.createElement("script");
 
-export default function main(components: ComponentsDefinition) {
-	function initializeComponent(el: Element, componentName: string): void {
-		if (componentName in components) {
-			const {script, prototypeName, styles} = components[componentName];
+			script.src = src;
+			script.type = "text/javascript";
+			script.async = true;
 
-			script(el, {prototypeName, styles});
-			return;
-		}
+			document.head.appendChild(script);
 
-		if (process.env.NODE_ENV === 'development') {
-			console.error(el);
-			console.error(componentName);
+			script.onload = () => {
+				resolve(true);
+				document.head.removeChild(script);
+			};
 
-			throw new Error(`Component "${componentName}" was not found.`);
-		}
+			script.onerror = () => {
+				console.error(`Dynamic Script Error: ${src}`);
+				resolve(false);
+				document.head.removeChild(script);
+			};
+		});
+
+		scriptCache.set(src, promise);
+
+		return promise;
 	}
 
-	Array.from(document.querySelectorAll('[data-component]')).forEach(el => {
-		const componentName = el.getAttribute('data-component');
-
-		if (typeof componentName !== 'string') {
-			if (process.env.NODE_ENV === 'development') {
-				console.error(el);
-				console.error(componentName);
-				throw new Error(
-					`Expected string is componentName, got: ${typeof componentName}`
-				);
-			} else {
-				return;
-			}
-		}
-
-		if (!componentName) {
-			if (process.env.NODE_ENV === 'development') {
-				console.error(el);
-				console.error(componentName);
-				throw new Error(
-					'Component name was empty.'
-				);
-			} else {
-				return;
-			}
-		}
-
-		componentName.split(' ').forEach(
-			componentName => initializeComponent(el, componentName)
-		);
-	});
+	return scriptCache.get(src) ?? false;
 }
+
+async function loadComponent(identifier: string): Promise<null | ComponentFn> {
+	const [packageName, componentName] = identifier.split(":");
+	const src = `/_Resources/Static/Packages/${packageName}/Build/JavaScript/components.js`;
+
+	if (await dynamicScript(src)) {
+		/* eslint-disable */
+		// @ts-expect-error
+		await ((__webpack_init_sharing__ as any)('default') as Promise<any>);
+		const container = window[packageName.replace(/\./g, '_') as any] as any;
+
+		// @ts-expect-error
+		await container.init((__webpack_share_scopes__ as any).default);
+		const factory = await container.get(`components/${componentName}`);
+
+		const {default: componentFn} = factory();
+		return componentFn;
+		/* eslint-enable */
+	}
+
+	return null;
+}
+
+document.querySelectorAll("[data-esm]").forEach(async el => {
+	if (el instanceof HTMLElement) {
+		const {esm} = el.dataset;
+
+		if (esm) {
+			const componentFn = await loadComponent(esm);
+			if (componentFn) {
+				componentFn(el);
+			}
+		}
+	}
+});

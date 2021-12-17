@@ -2,7 +2,7 @@ prototype(Vendor.WheelInventor:Resource.BodyScripts) < prototype(Neos.Fusion:Arr
     main = Neos.Fusion:Tag {
         tagName = 'script'
         attributes.src = Neos.Fusion:ResourceUri {
-            path = 'resource://Vendor.WheelInventor/Public/JavaScript/main.min.js'
+            path = 'resource://Vendor.WheelInventor/Public/Build/JavaScript/main.min.js'
             @process.stripBaseUri = ${(
                 String.replace(
                     value,
