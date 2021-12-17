@@ -12,11 +12,10 @@ jobs:
         uses: jonaseberle/github-action-setup-ddev@v1
 
       - run: ddev composer install
-
+      - run: ddev composer lint
       - run: ddev composer test
 
       - run: ddev yarn
-
       - run: ddev yarn build
-
+      - run: ddev yarn lint
       - run: ddev yarn test

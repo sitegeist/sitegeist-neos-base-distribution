@@ -86,11 +86,11 @@ cleanup::
 ###############################################################################
 lint-editorconfig::
 	@echo "Lint .editorconfig"
-	@ddev exec composer lint:editorconfig
+	@ddev composer lint:editorconfig
 
 lint-php::
 	@echo "Lint PHP Sources".
-	@ddev exec composer lint:php
+	@ddev composer lint
 
 lint-fe::
 	@echo "Lint CSS/TS Sources"
@@ -100,6 +100,11 @@ lint::
 	@$(MAKE) -s lint-editorconfig
 	@$(MAKE) -s lint-php
 	@$(MAKE) -s lint-fe
+
+test::
+	@echo "Lint CSS/TS Sources"
+	@ddev composer test
+	@ddev yarn test
 
 ###############################################################################
 #                               FRONTEND BUILD                                #
