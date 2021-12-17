@@ -4,9 +4,8 @@ Sitegeist:
     mediaTypes:
       'image/jpeg':
         enabled: true
-        # this would be better
+        # this would be better but requires mozjpeg
         # command: 'imagemin {input} --plugin=mozjpeg > {output}'
-        command: 'imagemin {input} > {output}'
 
       'image/png':
         enabled: true
