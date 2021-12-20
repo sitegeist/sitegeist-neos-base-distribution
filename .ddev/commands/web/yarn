@@ -1,7 +1,0 @@
-#!/bin/bash
-
-## Description: Run yarn inside the web container
-## Usage: yarn [command] [args]
-## Example: "ddev yarn --help" for overview
-
-yarn "$@"
