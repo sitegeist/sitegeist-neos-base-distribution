@@ -18,7 +18,6 @@ hooks:
   post-start:
   - exec: sudo echo alias ll=\"ls -lhA\" >> ~/.bashrc
 omit_containers: [dba]
-webimage_extra_packages: [automake, autoconf, zlib1g-dev]
 use_dns_when_possible: true
 composer_version: "2"
 web_environment:
@@ -93,7 +92,7 @@ web_environment:
 # Please take care with this because it can cause great confusion.
 
 # upload_dir: custom/upload/dir
-# would set the destination path for ddev import-files to <docroot>/custom/upload/dir 
+# would set the destination path for ddev import-files to <docroot>/custom/upload/dir
 
 # working_dir:
 #   web: /var/www/html
