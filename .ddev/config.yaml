@@ -18,6 +18,7 @@ hooks:
   post-start:
   - exec: sudo echo alias ll=\"ls -lhA\" >> ~/.bashrc
 omit_containers: [dba]
+webimage_extra_packages: [automake, autoconf, zlib1g-dev]
 use_dns_when_possible: true
 composer_version: "2"
 web_environment:
