@@ -1,6 +1,7 @@
 'Vendor.WheelInventor:Document.Error.404':
   superTypes:
     'Vendor.WheelInventor:Document': true
+    'Vendor.WheelInventor:Constraint.Document.Restricted': true
   ui:
     icon: exclamation-triangle
     label: i18n

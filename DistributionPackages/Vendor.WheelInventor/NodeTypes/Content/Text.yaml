@@ -1,6 +1,7 @@
 'Vendor.WheelInventor:Content.Text':
   superTypes:
     'Vendor.WheelInventor:Content': true
+    'Vendor.WheelInventor:Constraint.Content.Main': true
   ui:
     icon: align-justify
     label: i18n
