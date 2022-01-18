@@ -11,7 +11,7 @@ composer create-project sitegeist/neos-base-distribution customer-folder
 Migrate database and add Admin user
 ```sh
 ddev flow doctrine:migrate
-ddev flow create:user --roles Administrator admin admin Admin User
+ddev flow user:create --roles Administrator admin admin Admin User
 ```
 
 You can choose to either copy the included `Vendor.Site` package or the `Vendor.WheelInventor` package into the project namespace:
