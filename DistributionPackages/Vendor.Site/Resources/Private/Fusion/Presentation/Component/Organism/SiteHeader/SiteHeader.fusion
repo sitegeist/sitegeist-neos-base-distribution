@@ -1,13 +1,30 @@
 prototype(Vendor.Site:Component.Organism.SiteHeader) < prototype(Neos.Fusion:Component)  {
     @styleguide {
         title = 'Site Header'
+        props {
+            menuItems = Neos.Fusion:DataStructure {
+                0 = ${{url:'#', label:'Page 1'}}
+                1 = ${{url:'#', label:'Page 2'}}
+                2 = ${{url:'#', label:'Page 3'}}
+                3 = ${{url:'#', label:'Page 4'}}
+            }
+        }
     }
 
     i18n = ${CsvPO.create('resource://Vendor.Site/Private/Fusion/Presentation/Component/Organism/SiteHeader/SiteHeader.translation.csv')}
 
+    menuItems = null
+
     renderer = afx`
         <header class={styles.siteHeader}>
             {props.i18n.title}
+            <nav>
+                <ul>
+                    <Neos.Fusion:Loop items={props.menuItems} itemName="menuItem">
+                        <li><Neos.Neos:NodeLink node={menuItem.url} >{menuItem.label}</Neos.Neos:NodeLink></li>
+                    </Neos.Fusion:Loop>
+                </ul>
+            </nav>
         </header>
     `
 }

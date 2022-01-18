@@ -1,6 +1,6 @@
 interface GlobalDependencies {
 	prototypeName: string;
-	styles: {[key: string]: string};
+	styles: { [key: string]: string };
 }
 
 type Component = (el: Element, dependencies: GlobalDependencies) => void;
@@ -18,7 +18,11 @@ export default function main(components: ComponentsDefinition): void {
 		if (componentName in components) {
 			const {script, prototypeName, styles} = components[componentName];
 
-			script(el, {prototypeName, styles});
+			if (script) {
+				script(el, {prototypeName, styles});
+				return;
+			}
+
 			return;
 		}
 

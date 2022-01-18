@@ -1,6 +1,6 @@
 'Vendor.Site:Document.HomePage':
   superTypes:
-    'Vendor.Site:Document.Page': true
+    'Vendor.Site:Document.WebPage': true
     'Vendor.Site:Constraint.Document.Restricted': true
   ui:
     icon: globe

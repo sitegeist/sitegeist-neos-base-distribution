@@ -9,8 +9,8 @@
         }
     },
     "require": {
-        "neos/neos": "~7.1.0",
-        "neos/neos-ui": "~7.1.0",
+        "neos/neos": "~7.3.0",
+        "neos/neos-ui": "~7.3.0",
         "neos/seo": "^3.0",
         "neos/redirecthandler-ui": "^2.4",
         "neos/redirecthandler-neosadapter": "^4.3",
@@ -27,6 +27,8 @@
         "sitegeist/lazybones": "^3.0",
         "sitegeist/csvpo": "^1.3",
         "sitegeist/stampede": "^1.1",
+        "sitegeist/archaeopteryx": "^1.0",
+        "sitegeist/iconoclasm": "^1.0",
 
         "vendor/site": "^1.0",
         "vendor/wheelinventor": "^1.0"
@@ -52,7 +54,7 @@
         "post-install-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
         "post-package-update": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
         "post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
-
+        "post-create-project-cmd": "ddev config --project-name=`basename \"$PWD\"`",
         "flush": [
             "./flow flow:cache:flush --force",
             "./flow flow:package:rescan",

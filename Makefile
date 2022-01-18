@@ -66,6 +66,7 @@ install-composer::
 
 install-yarn::
 	@ddev yarn
+	@ddev flow flow:package:rescan
 
 install::
 	@mkdir -p Data/Logs
@@ -77,9 +78,14 @@ install::
 flush::
 	@ddev composer flush
 
+remove-artifacts:
+	@ddev exec find ./DistributionPackages/ -type f -name '*.js.fusion' -delete
+	@ddev exec find ./DistributionPackages/ -type f -name '*.css.fusion' -delete
+
 cleanup::
 	@ddev composer cleanup:php
 	@ddev yarn cleanup:node
+	@$(MAKE) -s remove-artefacts
 
 ###############################################################################
 #                                LINTING & QA                                 #

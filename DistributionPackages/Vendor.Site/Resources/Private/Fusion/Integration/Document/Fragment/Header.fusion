@@ -1,0 +1,25 @@
+prototype(Vendor.Site:Document.Fragment.Header) < prototype(Neos.Fusion:Component) {
+
+    renderer = Vendor.Site:Component.Organism.SiteHeader {
+        menuItems = Neos.Fusion:Map {
+            items = Neos.Neos:MenuItems
+            itemName = 'menuitem'
+            itemRenderer = Neos.Fusion:DataStructure {
+                url = Neos.Neos:NodeUri {
+                    node = ${menuitem.node}
+                }
+                label = ${menuitem.label}
+            }
+        }
+    }
+
+    @cache {
+        mode = 'cached'
+        entryIdentifier {
+            documentNode = ${documentNode}
+        }
+        entryTags {
+            1 = ${Neos.Caching.nodeTypeTag('Neos.Neos:Document', documentNode)}
+        }
+    }
+}

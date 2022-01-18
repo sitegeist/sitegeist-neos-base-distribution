@@ -1,13 +1,25 @@
 prototype(Vendor.Site:Component.Template.Page) < prototype(Neos.Fusion:Component) {
     @styleguide {
         title = 'Page'
+        props {
+            header = Sitegeist.Monocle:Preview.Prototype {
+                prototypeName = 'Vendor.Site:Component.Organism.SiteHeader'
+            }
+            footer = Sitegeist.Monocle:Preview.Prototype {
+                prototypeName = 'Vendor.Site:Component.Organism.SiteFooter'
+            }
+        }
     }
 
+    header = null
+    content = null
+    footer = null
+
     renderer = afx`
-        <Vendor.Site:Component.Organism.SiteHeader/>
+        {props.header}
         <main class={styles.page}>
             {props.content}
         </main>
-        <Vendor.Site:Component.Organism.SiteFooter/>
+        {props.footer}
     `
 }
