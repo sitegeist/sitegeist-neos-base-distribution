@@ -1,0 +1,11 @@
+//
+// Neos.Neos:Page Configuration
+//
+prototype(Neos.Neos:Page) {
+    //
+    // the last visited node is an unwanted side effect
+    // it is disabled as only editors would benefit but
+    // all user would see the additional request
+    //
+    lastVisitedNodeScript.@if.enabled = false
+}
