@@ -1,4 +1,4 @@
-prototype(Vendor.Site:Component.Organism.SiteHeader) < prototype(Neos.Fusion:Component)  {
+prototype(Vendor.Site:Component.Organism.SiteHeader) < prototype(Neos.Fusion:Component) {
     @styleguide {
         title = 'Site Header'
         props {
@@ -21,7 +21,9 @@ prototype(Vendor.Site:Component.Organism.SiteHeader) < prototype(Neos.Fusion:Com
             <nav>
                 <ul>
                     <Neos.Fusion:Loop items={props.menuItems} itemName="menuItem">
-                        <li><Neos.Neos:NodeLink node={menuItem.url} >{menuItem.label}</Neos.Neos:NodeLink></li>
+                        <li>
+                            <Neos.Neos:NodeLink node={menuItem.url}>{menuItem.label}</Neos.Neos:NodeLink>
+                        </li>
                     </Neos.Fusion:Loop>
                 </ul>
             </nav>
