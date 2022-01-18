@@ -1,0 +1,22 @@
+'Vendor.WheelInventor:Document.Error.404':
+  superTypes:
+    'Vendor.WheelInventor:Document': true
+  ui:
+    icon: exclamation-triangle
+    label: i18n
+  childNodes:
+    main:
+      type: 'Neos.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          '*': false
+  properties:
+    title:
+      defaultValue: '404'
+    uriPathSegment:
+      ui:
+        inspector:
+          editorOptions:
+            disabled: true
+    _hiddenInIndex:
+      defaultValue: true

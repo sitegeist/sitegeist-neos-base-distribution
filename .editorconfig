@@ -8,7 +8,7 @@ insert_final_newline = true
 indent_style = space
 indent_size = 4
 
-[*.{yaml,yml}]
+[*.{yaml,yml,yaml.example}]
 indent_size = 2
 
 [{package.json,lerna.json,.babelrc,.eslintrc,.stylelintrc}]
@@ -28,3 +28,4 @@ trim_trailing_whitespace = false
 
 [*.yaml.example]
 indent_size = 2
+

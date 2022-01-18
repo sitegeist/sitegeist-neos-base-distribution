@@ -1,94 +1,18 @@
 {
-  "license": "MIT",
-  "private": true,
+"name": "sitegeist-neos-base-distribution",
+"private": true,
   "workspaces": [
     "DistributionPackages/*"
   ],
   "devDependencies": {
-    "@sitegeist/es-neos-stylelint": "^2.0.2",
-    "@sitegeist/eslint-config-es-neos-eslint": "^2.0.2",
-    "@types/css-minimizer-webpack-plugin": "^1.1.3",
-    "@types/jest": "^26.0.22",
-    "@types/mini-css-extract-plugin": "^1.2.3",
-    "@types/node": "^14.14.36",
-    "@types/terser-webpack-plugin": "^5.0.3",
-    "autoprefixer": "^10.2.5",
-    "browserslist": "^4.16.3",
-    "css-loader": "^5.2.0",
-    "css-minimizer-webpack-plugin": "^1.3.0",
-    "eslint": "^7.22.0",
-    "glob": "^7.1.6",
-    "jest": "^26.6.3",
-    "lerna": "^4.0.0",
-    "mini-css-extract-plugin": "^1.3.9",
-    "node": "^15.10.0",
-    "postcss": "^8.2.8",
-    "postcss-custom-media": "^8.0.0",
-    "postcss-discard-duplicates": "^4.0.2",
-    "postcss-loader": "^5.2.0",
-    "postcss-media-minmax": "^5.0.0",
-    "postcss-mixins": "^7.0.3",
-    "postcss-modules": "^4.0.0",
-    "precss": "^4.0.0",
-    "stylelint": "^13.12.0",
-    "ts-jest": "^26.5.4",
-    "ts-loader": "^8.0.18",
-    "ts-node": "^9.1.1",
-    "typescript": "^4.2.3",
-    "webpack": "^5.28.0",
-    "webpack-cli": "^4.7.0"
+    "lerna": "^4.0.0"
   },
   "scripts": {
     "cleanup:node": "find . -name 'node_modules' -type d -prune -print -exec rm -rf '{}' \\;",
-    "build": "lerna run --parallel --stream build",
-    "watch": "lerna run --parallel --stream watch",
-    "lint:css": "stylelint 'DistributionPackages/*/Resources/Private/**/*.css'",
-    "lint:js": "eslint 'DistributionPackages/*/Resources/Private/**/*.ts'",
+    "build": "lerna run --stream --parallel build",
+    "watch": "lerna run --stream --parallel watch",
+    "lint": "lerna run --stream --parallel lint",
+    "test": "lerna run --stream test",
     "postinstall": "lerna bootstrap"
-  },
-  "browserslist": [
-    ">1%",
-    "not dead",
-    "not IE 11",
-    "not IE_Mob 11"
-  ],
-  "eslintConfig": {
-    "extends": [
-      "@sitegeist/es-neos-eslint"
-    ],
-    "parser": "@typescript-eslint/parser"
-  },
-  "stylelint": {
-    "extends": [
-      "@sitegeist/es-neos-stylelint"
-    ],
-    "rules": {
-      "property-no-unknown": [
-        true,
-        {
-          "ignoreProperties": [
-            "composes"
-          ]
-        }
-      ]
-    }
-  },
-  "jest": {
-    "preset": "ts-jest",
-    "testMatch": [
-      "<rootDir>/DistributionPackages/*/Resources/Private/Fusion/**/*.spec.ts"
-    ],
-    "moduleFileExtensions": [
-      "ts",
-      "tsx",
-      "js",
-      "jsx",
-      "json",
-      "node"
-    ],
-    "modulePathIgnorePatterns": [
-      "<rootDir>/Packages/"
-    ]
-  },
-  "name": "sitegeist-neos-base-distribution"
+  }
 }

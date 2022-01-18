@@ -3,7 +3,7 @@ Neos:
     userInterface:
       translation:
         autoInclude:
-          'Vendor.Site': ['NodeTypes/*']
+          'Vendor.Site': [ 'NodeTypes/*' ]
 
 Sitegeist:
   CsvPO:

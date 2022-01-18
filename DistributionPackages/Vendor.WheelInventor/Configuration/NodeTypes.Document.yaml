@@ -1,0 +1,9 @@
+'Vendor.WheelInventor:Document':
+  abstract: true
+  superTypes:
+    'Neos.Neos:Document': true
+
+  constraints:
+    nodeTypes:
+      '*': false
+      'Neos.Neos:Document': false

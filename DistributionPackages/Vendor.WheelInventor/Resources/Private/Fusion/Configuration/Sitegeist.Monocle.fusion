@@ -1,0 +1,14 @@
+//
+// Sitegeist.Monocle Preview Page Configuration
+// @see: https://github.com/sitegeist/Sitegeist.Monocle#preview-configuration
+// also: Vendor.WheelInventor/Configuration/Settings.WheelInventorgeist.Monocle.yaml
+//
+prototype(Sitegeist.Monocle:Preview.Page) {
+    head {
+        metaViewport = '<meta name="viewport" content="width=device-width">'
+        stylesheets = Vendor.WheelInventor:Resource.StyleSheets
+    }
+
+    bodyScripts = Vendor.WheelInventor:Resource.BodyScripts
+    bodyScripts.@position = 'before closingBodyTag'
+}

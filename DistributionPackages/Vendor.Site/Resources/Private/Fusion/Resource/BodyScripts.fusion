@@ -2,7 +2,7 @@ prototype(Vendor.Site:Resource.BodyScripts) < prototype(Neos.Fusion:Array) {
     main = Neos.Fusion:Tag {
         tagName = 'script'
         attributes.src = Neos.Fusion:ResourceUri {
-            path = 'resource://Vendor.Site/Public/JavaScript/main.min.js'
+            path = 'resource://Vendor.Site/Public/Build/JavaScript/main.min.js'
             @process.stripBaseUri = ${(
                 String.replace(
                     value,

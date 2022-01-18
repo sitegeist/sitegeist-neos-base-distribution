@@ -1,0 +1,3 @@
+{
+    "Exclude": ["node_modules", "^Packages", "^Data", "^Web", "^Build", "Configuration/README", ".yaml.example", ".ddev", "bin"]
+}

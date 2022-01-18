@@ -14,8 +14,10 @@ function runInSandbox(code, loaderContext) {
 				resolve(null);
 			} else if (request.endsWith('runtime/api.js')) {
 				resolve(() => ({
-					push: () => { },
-					i: () => { }
+					push: () => {
+					},
+					i: () => {
+					}
 				}));
 			} else {
 				loaderContext.loadModule(request, (err, source) => {
@@ -33,7 +35,7 @@ function runInSandbox(code, loaderContext) {
 	const modifiedCode = `async function main() { ${code
 		.replace(/module\.exports \= /gi, 'return ')
 		.replace(/require\(/gi, 'await get(')
-		} }`;
+	} }`;
 
 	vm.runInContext(modifiedCode, vm.createContext(sandbox));
 

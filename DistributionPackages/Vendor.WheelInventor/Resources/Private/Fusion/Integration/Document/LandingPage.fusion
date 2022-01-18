@@ -1,0 +1,13 @@
+prototype(Vendor.WheelInventor:Document.LandingPage) < prototype(Neos.Fusion:Component) {
+    renderer = Vendor.WheelInventor:Document.Base {
+        body = Vendor.WheelInventor:Layout.Page {
+            header = Vendor.WheelInventor:Fragment.SiteHeader
+
+            main = Neos.Neos:ContentCollection {
+                nodePath = 'main'
+            }
+
+            footer = Vendor.WheelInventor:Fragment.SiteFooter
+        }
+    }
+}

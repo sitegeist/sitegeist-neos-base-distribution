@@ -8,15 +8,13 @@
         "jsx": "react",
         "moduleResolution": "node",
         "downlevelIteration": true,
+        "resolveJsonModule": true,
         "lib": [
             "ESNext",
             "dom"
         ]
     },
-    "include": [
-        "DistributionPackages/**/*"
-    ],
     "exclude": [
-        "node_modules"
+        "**/node_modules/**"
     ]
 }

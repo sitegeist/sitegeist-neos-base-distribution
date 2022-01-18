@@ -1,0 +1,4 @@
+'Vendor.WheelInventor:Document.Shortcut':
+  superTypes:
+    'Neos.Neos:Shortcut': true
+    'Vendor.WheelInventor:Document': true

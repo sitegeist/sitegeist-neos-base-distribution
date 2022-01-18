@@ -1,0 +1,20 @@
+'Vendor.WheelInventor:Document.LandingPage':
+  superTypes:
+    'Vendor.WheelInventor:Document': true
+
+  ui:
+    icon: file-import
+    label: i18n
+
+  constraints:
+    nodeTypes:
+      'Vendor.WheelInventor:Document.LandingPage': true
+      'Vendor.WheelInventor:Document.WebPage': true
+      'Vendor.WheelInventor:Document.Shortcut': true
+
+  childNodes:
+    main:
+      type: 'Neos.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          '*': false

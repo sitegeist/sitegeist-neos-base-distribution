@@ -11,6 +11,11 @@ jobs:
       - name: Setup DDEV
         uses: jonaseberle/github-action-setup-ddev@v1
 
-      - run: ddev yarn
+      - run: ddev composer install
+      - run: ddev composer lint
+      - run: ddev composer test
 
-      - run: make build
+      - run: ddev yarn
+      - run: ddev yarn build
+      - run: ddev yarn lint
+      - run: ddev yarn test

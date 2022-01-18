@@ -1,0 +1,58 @@
+Sitegeist:
+  Monocle:
+    packages:
+      'Vendor.WheelInventor':
+        ui:
+          structure:
+            preview:
+              position: 100
+              match: (\.Preview|Preview\.)
+              label: Preview
+              icon: television
+              color: '#0f0'
+            layout:
+              position: 200
+              match: Layout\.
+              label: Layout
+              icon: table
+              color: '#55f'
+            block:
+              position: 300
+              match: Block\.
+              label: Block
+              icon: square
+              color: '#aaa'
+          viewportPresets:
+            xs: ~
+            md: ~
+            l: ~
+            tailwind_sm:
+              label: 'small'
+              width: 320
+              height: 640
+              position: 10
+            tailwind_md:
+              label: 'medium'
+              width: 640
+              height: 1024
+              position: 20
+            tailwind_lg:
+              label: 'large'
+              width: 1024
+              height: 1024
+              position: 30
+            tailwind_xl:
+              label: 'x-large'
+              width: 1280
+              height: 1024
+              position: 40
+            tailwind_2xl:
+              label: '2x-large'
+              width: 1536
+              height: 1024
+              position: 50
+            hd:
+              label: 'hd'
+              width: 1920
+              height: 1080
+              position: 60

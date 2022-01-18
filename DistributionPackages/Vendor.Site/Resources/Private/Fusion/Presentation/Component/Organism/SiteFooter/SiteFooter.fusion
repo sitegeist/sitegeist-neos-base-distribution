@@ -1,4 +1,4 @@
-prototype(Vendor.Site:Component.Organism.SiteFooter) < prototype(Neos.Fusion:Component)  {
+prototype(Vendor.Site:Component.Organism.SiteFooter) < prototype(Neos.Fusion:Component) {
     @styleguide {
         title = 'Site Footer'
     }

@@ -1,0 +1,131 @@
+prototype(Vendor.WheelInventor:Block.Button) < prototype(Neos.Fusion:Component) {
+    @styleguide {
+        title = 'Button'
+
+        props {
+            content = 'I am a button.'
+            variant = 'info'
+        }
+
+        useCases {
+            cta {
+                title = 'Variant: CTA'
+                props {
+                    variant = 'cta'
+                    content = 'I am a cta button.'
+                }
+            }
+            error {
+                title = 'Variant: Error'
+                props {
+                    variant = 'error'
+                    content = 'I am an error button.'
+                }
+            }
+            success {
+                title = 'Variant: Success'
+                props {
+                    variant = 'success'
+                    content = 'I am a success button.'
+                }
+            }
+            warning {
+                title = 'Variant: Warning'
+                props {
+                    variant = 'warning'
+                    content = 'I am a warning button.'
+                }
+            }
+        }
+    }
+
+    @propTypes {
+        id = ${PropTypes.string}
+        name = ${PropTypes.string}
+        href = ${PropTypes.string}
+        target = ${PropTypes.string}
+        formaction = ${PropTypes.string}
+        rel = ${PropTypes.string}
+        disabled = ${PropTypes.boolean}
+        value = ${PropTypes.string}
+
+        content = ${PropTypes.string}
+
+        type = ${PropTypes.oneOf(['static', 'link', 'button', 'submit'])}
+        variant = ${PropTypes.oneOf(['cta', 'info', 'error', 'success', 'warning'])}
+    }
+
+    variant = 'info'
+
+    renderer = Neos.Fusion:Tag {
+        tagName = Neos.Fusion:Case {
+            link {
+                condition = ${props.type == 'link'}
+                renderer = 'a'
+            }
+
+            buttonOrSubmit {
+                condition = ${props.type == 'button' || props.type == 'submit'}
+                renderer = 'button'
+            }
+
+            default {
+                @position = 'end 9999'
+                condition = true
+                renderer = 'span'
+            }
+        }
+
+        attributes {
+            id = ${props.id}
+
+            class = Neos.Fusion:DataStructure {
+                base = "p-4 flex gap-4 justify-center items-center cursor cursor-pointer rounded-sm whitespace-nowrap overflow-hidden overflow-ellipsis"
+                states = "shadow-sm hover:shadow-md active:shadow-none transition-shadow"
+
+                info = "bg-info text-info-contrast"
+                info.@if.1 = ${props.variant == 'info'}
+
+                cta = "bg-cta text-cta-contrast"
+                cta.@if.1 = ${props.variant == 'cta'}
+
+                error = "bg-error text-error-contrast"
+                error.@if.1 = ${props.variant == 'error'}
+
+                success = "bg-success text-success-contrast"
+                success.@if.1 = ${props.variant == 'success'}
+
+                warning = "bg-warning text-warning-contrast"
+                warning.@if.1 = ${props.variant == 'warning'}
+            }
+
+            name = ${props.name}
+            name.@if.1 = ${props.type != 'static'}
+
+            href = ${props.href}
+            href.@if.1 = ${props.type == 'link'}
+
+            target = ${props.target}
+            target.@if.1 = ${props.type == 'link'}
+
+            rel = ${props.rel}
+            rel.@if.1 = ${props.type == 'link'}
+
+            formaction = ${props.formaction}
+            formaction.@if.1 = ${props.type == 'submit'}
+
+            value = ${props.value}
+            value.@if.1 = ${props.type == 'button' || props.type == 'submit'}
+
+            role="button"
+            role.@if.1 = ${props.type == 'static'}
+
+            type = ${props.type == 'submit' ? 'submit' : 'button'}
+            type.@if.1 = ${props.type == 'button' || props.type == 'submit'}
+
+            disabled = ${props.disabled ? 'disabled' : null}
+        }
+
+        content = ${props.content}
+    }
+}

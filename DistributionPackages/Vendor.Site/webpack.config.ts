@@ -26,7 +26,7 @@ const config: webpack.Configuration = {
 	},
 
 	output: {
-		filename: 'Resources/Public/JavaScript/[name].min.js',
+		filename: 'Resources/Public/Build/JavaScript/[name].min.js',
 		path: __dirname
 	},
 
@@ -90,7 +90,7 @@ const config: webpack.Configuration = {
 			resourceRegExp: /\.spec.ts$/
 		}),
 		new MiniCssExtractPlugin({
-			filename: 'Resources/Public/Styles/[name].min.css'
+			filename: 'Resources/Public/Build/Styles/[name].min.css'
 		})
 	],
 

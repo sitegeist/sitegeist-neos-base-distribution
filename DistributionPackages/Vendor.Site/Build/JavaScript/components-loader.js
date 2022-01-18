@@ -5,8 +5,10 @@ const querystring = require('querystring');
 const asArray = value => Array.isArray(value) ? value : [value];
 
 module.exports = function () {
-	const options = {componentPaths: [],
-		runtime: '', ...querystring.parse(this.resourceQuery.substr(1))};
+	const options = {
+		componentPaths: [],
+		runtime: '', ...querystring.parse(this.resourceQuery.substr(1))
+	};
 	const componentFileNames = asArray(options.componentPaths)
 		.map(path => {
 			return `${path}/**/*.+(css|ts|fusion)`;

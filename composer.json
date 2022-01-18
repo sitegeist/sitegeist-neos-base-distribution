@@ -30,7 +30,8 @@
         "sitegeist/archaeopteryx": "^1.0",
         "sitegeist/iconoclasm": "^1.0",
 
-        "vendor/site": "^1.0"
+        "vendor/site": "^1.0",
+        "vendor/wheelinventor": "^1.0"
     },
     "require-dev": {
         "neos/buildessentials": "^7.1",
@@ -70,7 +71,7 @@
         "lint:editorconfig": "ec",
         "lint:phpcs": "phpcs --colors --standard=PSR2 ./DistributionPackages/*/Classes",
         "lint:phpstan": "phpstan analyse",
-        "lint:php": [
+        "lint": [
             "@lint:phpcs",
             "@lint:phpstan"
         ],
@@ -82,7 +83,9 @@
 
         "deploy:develop": "dep deploy develop -vv",
         "deploy:staging": "dep deploy staging -vv",
-        "deploy:master": "dep deploy master -vv"
+        "deploy:master": "dep deploy master -vv",
+
+        "test": "echo \"No tests yet.\""
     },
     "repositories": {
         "local": {

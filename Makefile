@@ -66,6 +66,7 @@ install-composer::
 
 install-yarn::
 	@ddev yarn
+	@ddev flow flow:package:rescan
 
 install::
 	@mkdir -p Data/Logs
@@ -77,7 +78,7 @@ install::
 flush::
 	@ddev composer flush
 
-remove-artefacts:
+remove-artifacts:
 	@ddev exec find ./DistributionPackages/ -type f -name '*.js.fusion' -delete
 	@ddev exec find ./DistributionPackages/ -type f -name '*.css.fusion' -delete
 
@@ -91,25 +92,25 @@ cleanup::
 ###############################################################################
 lint-editorconfig::
 	@echo "Lint .editorconfig"
-	@ddev exec composer lint:editorconfig
+	@ddev composer lint:editorconfig
 
 lint-php::
 	@echo "Lint PHP Sources".
-	@ddev exec composer lint:php
+	@ddev composer lint
 
-lint-css::
-	@echo "Lint CSS Sources"
-	@ddev yarn lint:css
-
-lint-js::
-	@echo "Lint JavaScript Sources"
-	@ddev yarn lint:js
+lint-fe::
+	@echo "Lint CSS/TS Sources"
+	@ddev yarn lint
 
 lint::
 	@$(MAKE) -s lint-editorconfig
 	@$(MAKE) -s lint-php
-	@$(MAKE) -s lint-css
-	@$(MAKE) -s lint-js
+	@$(MAKE) -s lint-fe
+
+test::
+	@echo "Lint CSS/TS Sources"
+	@ddev composer test
+	@ddev yarn test
 
 ###############################################################################
 #                               FRONTEND BUILD                                #
