@@ -1,0 +1,11 @@
+'Vendor.WheelInventor:Document.HomePage':
+  superTypes:
+    'Vendor.WheelInventor:Document.LandingPage': true
+    'Vendor.WheelInventor:Constraint.Document.Restricted': true
+  ui:
+    icon: globe
+    label: i18n
+
+  childNodes:
+    notfound:
+      type: 'Vendor.WheelInventor:Document.Error.404'

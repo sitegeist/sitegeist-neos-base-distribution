@@ -1,37 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <root>
-    <site name="Vendor.WheelInventor" state="1" siteResourcesPackageKey="Vendor.WheelInventor" siteNodeName="vendor-wheelinventor">
+    <site name="Vendor.WheelInventor" state="1" siteResourcesPackageKey="Vendor.WheelInventor"
+            siteNodeName="vendor-wheelinventor">
         <nodes formatVersion="2.0">
-            <node nodeName="vendor-wheelinventor">
-                <variant
-                    workspace="live"
-                    nodeType="Vendor.WheelInventor:Document.HomePage"
-                    sortingIndex="100"
-                    version="1"
-                    removed=""
-                    hidden=""
-                    hiddenInIndex=""
-                    >
+            <node identifier="b9936423-8f86-4834-821b-a14cb6db0407" nodeName="vendor-wheelinventor">
+                <variant sortingIndex="100" workspace="live" nodeType="Vendor.WheelInventor:Document.HomePage"
+                        version="1" removed="" hidden="" hiddenInIndex="">
                     <dimensions/>
                     <accessRoles __type="array"/>
+                    <creationDateTime __type="object" __classname="DateTime">2022-01-18T18:19:35+00:00
+                    </creationDateTime>
+                    <lastModificationDateTime __type="object" __classname="DateTime">2022-01-18T18:19:35+00:00
+                    </lastModificationDateTime>
                     <properties>
                         <title __type="string">Vendor.WheelInventor</title>
                         <uriPathSegment __type="string">vendor-wheelinventor</uriPathSegment>
                     </properties>
                 </variant>
-                <node nodeName="main">
-                    <variant
-                        workspace="live"
-                        nodeType="Vendor.WheelInventor:Collection.Content.Main"
-                        sortingIndex="100"
-                        version="1"
-                        removed=""
-                        hidden=""
-                        hiddenInIndex=""
-                        >
+                <node identifier="be44cc2e-f9c5-30de-aaeb-9a8f33fc299b" nodeName="main">
+                    <variant sortingIndex="100" workspace="live" nodeType="Vendor.WheelInventor:Collection.Content.Main"
+                            version="1" removed="" hidden="" hiddenInIndex="">
                         <dimensions/>
-                        <accessRoles __type="array" />
+                        <accessRoles __type="array"/>
+                        <creationDateTime __type="object" __classname="DateTime">2022-01-18T18:19:35+00:00
+                        </creationDateTime>
+                        <lastModificationDateTime __type="object" __classname="DateTime">2022-01-18T18:19:35+00:00
+                        </lastModificationDateTime>
+                        <properties/>
                     </variant>
+                </node>
+                <node identifier="510168d1-9337-7bee-0caf-e20917cbc41c" nodeName="notfound">
+                    <variant sortingIndex="200" workspace="live" nodeType="Vendor.WheelInventor:Document.Error.404"
+                            version="1" removed="" hidden="" hiddenInIndex="1">
+                        <dimensions/>
+                        <accessRoles __type="array"/>
+                        <creationDateTime __type="object" __classname="DateTime">2022-01-18T18:35:50+00:00
+                        </creationDateTime>
+                        <lastModificationDateTime __type="object" __classname="DateTime">2022-01-18T18:35:50+00:00
+                        </lastModificationDateTime>
+                        <properties>
+                            <uriPathSegment __type="string">notfound</uriPathSegment>
+                            <title __type="string">404</title>
+                        </properties>
+                    </variant>
+                    <node identifier="5bec9937-e5b4-7cb8-139d-78b0c7e59c3d" nodeName="main">
+                        <variant sortingIndex="100" workspace="live" nodeType="Neos.Neos:ContentCollection" version="1"
+                                removed="" hidden="" hiddenInIndex="">
+                            <dimensions/>
+                            <accessRoles __type="array"/>
+                            <creationDateTime __type="object" __classname="DateTime">2022-01-18T18:35:50+00:00
+                            </creationDateTime>
+                            <lastModificationDateTime __type="object" __classname="DateTime">2022-01-18T18:35:50+00:00
+                            </lastModificationDateTime>
+                            <properties/>
+                        </variant>
+                    </node>
                 </node>
             </node>
         </nodes>

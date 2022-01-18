@@ -1,4 +1,4 @@
-prototype(Vendor.WheelInventor:Document.Error.404) < prototype(Vendor.WheelInventor:Document.Page) {
+prototype(Vendor.WheelInventor:Document.Error.404) < prototype(Vendor.WheelInventor:Document.WebPage) {
     prototype(Neos.Neos:Page) {
         httpResponseHead {
             statusCode = 404
