@@ -5,4 +5,4 @@
     nodeTypes:
       '*': false
       'Neos.Neos:Document': false
-      'Vendor.WheelInventor:Constraint.Content.Main': true
+      'Vendor.WheelInventor:Content.Text': true

@@ -1,7 +1,6 @@
 'Vendor.WheelInventor:Document.HomePage':
   superTypes:
-    'Vendor.WheelInventor:Document.LandingPage': true
-    'Vendor.WheelInventor:Constraint.Document.Restricted': true
+    'Vendor.WheelInventor:Document.WebPage.Restricted': true
   ui:
     icon: globe
     label: i18n

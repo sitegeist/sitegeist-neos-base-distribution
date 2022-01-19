@@ -1,0 +1,4 @@
+'Vendor.WheelInventor:Document.WebPage.Restricted':
+  abstract: true
+  superTypes:
+    'Vendor.WheelInventor:Document.WebPage': true

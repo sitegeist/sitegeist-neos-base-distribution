@@ -1,7 +1,0 @@
-'Vendor.WheelInventor:Document.LandingPage':
-  superTypes:
-    'Vendor.WheelInventor:Document.WebPage': true
-
-  ui:
-    icon: file-import
-    label: i18n
