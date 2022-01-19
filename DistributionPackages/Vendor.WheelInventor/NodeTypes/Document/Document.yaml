@@ -7,5 +7,4 @@
     nodeTypes:
       '*': false
       'Neos.Neos:Document': false
-      'Vendor.WheelInventor:Document': true
-      'Vendor.WheelInventor:Constraint.Document.Restricted': false
+

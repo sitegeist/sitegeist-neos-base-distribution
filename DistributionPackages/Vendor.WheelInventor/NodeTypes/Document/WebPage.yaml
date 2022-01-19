@@ -9,7 +9,7 @@
     nodeTypes:
       'Vendor.WheelInventor:Document.WebPage': true
       'Vendor.WheelInventor:Document.Shortcut': true
-
+      'Vendor.WheelInventor:Document.WebPage.Restricted': false
   childNodes:
     main:
       type: 'Vendor.WheelInventor:Collection.Content.Main'
