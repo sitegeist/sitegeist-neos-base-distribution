@@ -15,17 +15,17 @@ prototype(Vendor.WheelInventor:Block.ScrollToTop) < prototype(Neos.Fusion:Compon
     @propTypes {
         id = ${PropTypes.string.isRequired}
         title = ${PropTypes.string.isRequired}
+        content = ${PropTypes.string.isRequired}
     }
 
     renderer = afx`
         <button
             id={props.id}
-            class="min-h-[48px] min-w-[48px] opacity-0 pointer-events-none cursor-pointer fixed right-0 bottom-0 bg-info transition-opacity"
+            class="cursor-pointer bg-info"
             type="button"
             title={props.title}
-            x-data="{...ScrollToTop()}"
-            x-spread="button"
         >
+            {props.content}
         </button>
     `
 }
