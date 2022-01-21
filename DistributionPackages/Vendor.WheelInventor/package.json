@@ -4,10 +4,10 @@
   "scripts": {
     "build": "concurrently 'yarn build:js' 'yarn build:css'",
     "build:js": "webpack --mode production",
-    "build:css": "TAILWIND_MODE=build NODE_ENV=production postcss Resources/Private/Styles/styles.css -o Resources/Public/Build/Styles/main.min.css",
+    "build:css": "TAILWIND_MODE=build NODE_ENV=production postcss Resources/Private/Fusion/Root.css -o Resources/Public/Build/Styles/main.min.css",
     "watch": "concurrently 'yarn watch:js' 'yarn watch:css'",
     "watch:js": "webpack -w --mode development",
-    "watch:css": "TAILWIND_MODE=watch NODE_ENV=development postcss -w Resources/Private/Styles/styles.css -o Resources/Public/Build/Styles/main.min.css",
+    "watch:css": "TAILWIND_MODE=watch NODE_ENV=development postcss -w Resources/Private/Fusion/Root.css -o Resources/Public/Build/Styles/main.min.css --verbose",
     "lint": "eslint Resources/Private/**/*.ts",
     "test": "echo \"Error: no test specified\""
   },
