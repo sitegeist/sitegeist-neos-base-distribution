@@ -3,7 +3,24 @@ prototype(Sitegeist.FocusPoints:Block.Image) < prototype(Neos.Fusion:Component) 
         title = 'image'
 
         props {
-            image = ${}
+            imageSource = Sitegeist.Kaleidoscope:DummyImageSource {
+                foregroundColor = '#9e2d39'
+                baseWidth = 1000
+                baseHeight = 400
+            }
+            imageTitle = 'title'
+            imageAlt = 'image alt'
+            imageFocus = 'center'
+        }
+
+        propSets {
+            portrait {
+                imageSource = Sitegeist.Kaleidoscope:DummyImageSource {
+                    foregroundColor = '#9e2d39'
+                    baseWidth = 400
+                    baseHeight = 1000
+                }
+            }
         }
     }
 
@@ -11,16 +28,20 @@ prototype(Sitegeist.FocusPoints:Block.Image) < prototype(Neos.Fusion:Component) 
         <div class="px-20 h-40">
             <Sitegeist.Kaleidoscope:Image
                 imageSource={props.imageSource}
+                imageFocus={props.imageFocus}
                 srcset="320w, 400w, 600w, 800w, 1000w, 1200w, 1600w"
                 sizes="(min-width: 800px) 1000px, (min-width: 480px) 800px, (min-width: 320px) 440px, 100vw"
-                width="400"
-                height="400"
-                class={'w-full h-full object-cover object-' + props.imageFocus}
+                class={['w-full', 'h-full', 'object-cover']}
                 title={props.imageTitle}
                 alt={props.imageAlt}
                 />
-
-            {props.imageFocus}
         </div>
     `
+
+    prototype(Sitegeist.Kaleidoscope:Image) {
+        renderer.@process.wrapImageFocus = Neos.Fusion:Augmenter {
+            style = ${'object-position:' + props.imageFocus}
+            content = ${value}
+        }
+    }
 }

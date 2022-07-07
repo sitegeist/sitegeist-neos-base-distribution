@@ -21,4 +21,8 @@ prototype(Sitegeist.FocusPoints:Content.Image) < prototype(Neos.Neos:ContentComp
         imageAlt = ${props.imageAlt}
         imageFocus = ${props.imageFocus}
     }
+
+    renderer.@process.wrap = Sitegeist.FocusPoints:Block.ContentContainer {
+        content = ${value}
+    }
 }

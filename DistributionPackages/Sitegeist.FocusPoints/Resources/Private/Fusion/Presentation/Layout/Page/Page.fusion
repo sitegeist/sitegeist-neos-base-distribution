@@ -4,7 +4,19 @@ prototype(Sitegeist.FocusPoints:Layout.Page) < prototype(Neos.Fusion:Component) 
 
         props {
             header = 'HEADER CONTENT'
-            main = 'MAIN CONTENT'
+            main = afx`
+                <Sitegeist.FocusPoints:Block.ContentContainer useCase="small">
+                    <Sitegeist.Monocle:Preview.Prototype prototypeName="Sitegeist.FocusPoints:Block.Image" propSet="portrait"/>
+                </Sitegeist.FocusPoints:Block.ContentContainer>
+
+                <Sitegeist.FocusPoints:Block.ContentContainer>
+                    <Sitegeist.Monocle:Preview.Prototype prototypeName="Sitegeist.FocusPoints:Block.Image" propSet="portrait"/>
+                </Sitegeist.FocusPoints:Block.ContentContainer>
+
+                <Sitegeist.FocusPoints:Block.ContentContainer useCase="small">
+                    <Sitegeist.Monocle:Preview.Prototype prototypeName="Sitegeist.FocusPoints:Block.Image" />
+                </Sitegeist.FocusPoints:Block.ContentContainer>
+            `
             footer = 'FOOTER CONTENT'
         }
     }
@@ -18,7 +30,7 @@ prototype(Sitegeist.FocusPoints:Layout.Page) < prototype(Neos.Fusion:Component) 
     main = ''
 
     renderer = afx`
-        <div class="flex flex-col min-h-screen h-full items-stretch">
+        <div class="min-h-screen h-full items-stretch">
             <header>
                 {props.header}
             </header>

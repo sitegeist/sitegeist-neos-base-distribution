@@ -5,7 +5,7 @@ prototype(Sitegeist.FocusPoints:Document.WebPage) < prototype(Neos.Fusion:Compon
 
             main = Neos.Neos:ContentCollection {
                 nodePath = 'main'
-                attributes.class = "flex flex-col"
+                attributes.class = ""
             }
 
             footer = Sitegeist.FocusPoints:Fragment.SiteFooter
