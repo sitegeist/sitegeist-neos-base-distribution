@@ -1,0 +1,10 @@
+'Sitegeist.FocusPoints:Document.HomePage':
+  superTypes:
+    'Sitegeist.FocusPoints:Document.WebPage.Restricted': true
+  ui:
+    icon: globe
+    label: i18n
+
+  childNodes:
+    notfound:
+      type: 'Sitegeist.FocusPoints:Document.Error.404'

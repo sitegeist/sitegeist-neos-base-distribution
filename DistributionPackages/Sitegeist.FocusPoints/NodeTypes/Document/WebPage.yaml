@@ -1,0 +1,15 @@
+'Sitegeist.FocusPoints:Document.WebPage':
+  superTypes:
+    'Sitegeist.FocusPoints:Document': true
+  ui:
+    icon: file
+    label: i18n
+
+  constraints:
+    nodeTypes:
+      'Sitegeist.FocusPoints:Document.WebPage': true
+      'Sitegeist.FocusPoints:Document.Shortcut': true
+      'Sitegeist.FocusPoints:Document.WebPage.Restricted': false
+  childNodes:
+    main:
+      type: 'Sitegeist.FocusPoints:Collection.Content.Main'

@@ -1,0 +1,8 @@
+prototype(Sitegeist.FocusPoints:Content.Text) < prototype(Neos.Neos:ContentComponent) {
+    renderer = Sitegeist.FocusPoints:Block.Text {
+        content = Neos.Neos:Editable {
+            property = 'text__content'
+        }
+        @process.convertUris = Neos.Neos:ConvertUris
+    }
+}

@@ -1,0 +1,3 @@
+prototype(Sitegeist.FocusPoints:Fragment.SiteHeader) < prototype(Neos.Fusion:Component) {
+    renderer = Sitegeist.FocusPoints:Block.SiteHeader
+}

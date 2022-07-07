@@ -1,0 +1,1 @@
+prototype(Sitegeist.FocusPoints:Document.HomePage) < prototype(Sitegeist.FocusPoints:Document.WebPage)

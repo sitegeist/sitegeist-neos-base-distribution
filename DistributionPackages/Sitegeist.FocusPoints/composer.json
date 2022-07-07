@@ -1,0 +1,22 @@
+{
+    "description": "",
+    "name": "sitegeist/focuspoints",
+    "type": "neos-site",
+    "version": "1.0.0",
+    "require": {
+        "neos/neos": "*",
+        "neos/nodetypes-basemixins": "*",
+        "sitegeist/csvpo": "*",
+        "sitegeist/stampede": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Sitegeist\\FocusPoints\\": "Classes/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Sitegeist.FocusPoints"
+        }
+    }
+}

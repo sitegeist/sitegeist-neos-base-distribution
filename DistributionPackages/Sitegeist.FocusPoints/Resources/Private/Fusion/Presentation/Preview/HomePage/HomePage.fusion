@@ -1,0 +1,12 @@
+prototype(Sitegeist.FocusPoints:Preview.HomePage) < prototype(Neos.Fusion:Component) {
+    @styleguide {
+        title = 'HomePage'
+    }
+
+    renderer = afx`
+        <Sitegeist.FocusPoints:Layout.Page>
+            <Sitegeist.FocusPoints:Block.SiteHeader @path="header"/>
+            <Sitegeist.FocusPoints:Block.SiteFooter @path="footer"/>
+        </Sitegeist.FocusPoints:Layout.Page>
+    `
+}

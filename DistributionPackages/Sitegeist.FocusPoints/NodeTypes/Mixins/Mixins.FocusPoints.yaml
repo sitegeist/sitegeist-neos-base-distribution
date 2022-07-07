@@ -1,0 +1,26 @@
+'Sitegeist.FocusPoints:Mixins.FocusPoints':
+  abstract: true
+  properties:
+      focus:
+        type: string
+        defaultValue: 'center'
+        ui:
+          label: Fokuspunkt
+          reloadIfChanged: true
+          inspector:
+            group: 'image'
+            position: 400
+            editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+            editorOptions:
+              placeholder: Bitte Bereich auswaehlen
+              values:
+                center:
+                  label: center
+                left:
+                  label: left
+                right:
+                  label: right
+                top:
+                  label: top
+                bottom:
+                  label: bottom

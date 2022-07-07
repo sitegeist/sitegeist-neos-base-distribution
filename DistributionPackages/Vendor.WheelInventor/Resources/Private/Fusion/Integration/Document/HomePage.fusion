@@ -1,1 +1,0 @@
-prototype(Vendor.WheelInventor:Document.HomePage) < prototype(Vendor.WheelInventor:Document.WebPage)

@@ -1,0 +1,14 @@
+prototype(Sitegeist.FocusPoints:Document.WebPage) < prototype(Neos.Fusion:Component) {
+    renderer = Sitegeist.FocusPoints:Document.Base {
+        body = Sitegeist.FocusPoints:Layout.Page {
+            header = Sitegeist.FocusPoints:Fragment.SiteHeader
+
+            main = Neos.Neos:ContentCollection {
+                nodePath = 'main'
+                attributes.class = "flex flex-col"
+            }
+
+            footer = Sitegeist.FocusPoints:Fragment.SiteFooter
+        }
+    }
+}

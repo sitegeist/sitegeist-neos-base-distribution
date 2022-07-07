@@ -1,0 +1,4 @@
+'Sitegeist.FocusPoints:Document.Shortcut':
+  superTypes:
+    'Neos.Neos:Shortcut': true
+    'Sitegeist.FocusPoints:Document': true

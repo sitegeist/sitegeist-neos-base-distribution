@@ -1,0 +1,16 @@
+'Sitegeist.FocusPoints:Content.Text':
+  superTypes:
+    'Sitegeist.FocusPoints:Content': true
+  ui:
+    icon: align-justify
+    label: i18n
+  properties:
+    text__content:
+      ui:
+        inline:
+          editorOptions:
+            placeholder: i18n
+      options:
+        preset: 'rte.rich'
+
+

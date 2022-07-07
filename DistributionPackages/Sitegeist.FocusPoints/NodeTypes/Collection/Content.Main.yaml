@@ -1,0 +1,9 @@
+'Sitegeist.FocusPoints:Collection.Content.Main':
+  superTypes:
+    'Neos.Neos:ContentCollection': true
+  constraints:
+    nodeTypes:
+      '*': false
+      'Neos.Neos:Document': false
+      'Sitegeist.FocusPoints:Content.Text': true
+      'Sitegeist.FocusPoints:Content.Image': true

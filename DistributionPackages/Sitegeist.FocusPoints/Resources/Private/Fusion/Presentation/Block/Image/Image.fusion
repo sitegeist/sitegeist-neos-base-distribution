@@ -1,0 +1,26 @@
+prototype(Sitegeist.FocusPoints:Block.Image) < prototype(Neos.Fusion:Component) {
+    @styleguide {
+        title = 'image'
+
+        props {
+            image = ${}
+        }
+    }
+
+    renderer = afx`
+        <div class="px-20 h-40">
+            <Sitegeist.Kaleidoscope:Image
+                imageSource={props.imageSource}
+                srcset="320w, 400w, 600w, 800w, 1000w, 1200w, 1600w"
+                sizes="(min-width: 800px) 1000px, (min-width: 480px) 800px, (min-width: 320px) 440px, 100vw"
+                width="400"
+                height="400"
+                class={'w-full h-full object-cover object-' + props.imageFocus}
+                title={props.imageTitle}
+                alt={props.imageAlt}
+                />
+
+            {props.imageFocus}
+        </div>
+    `
+}

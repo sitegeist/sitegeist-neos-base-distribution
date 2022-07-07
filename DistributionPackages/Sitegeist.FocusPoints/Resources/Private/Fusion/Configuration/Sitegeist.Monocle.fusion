@@ -1,0 +1,14 @@
+//
+// Sitegeist.Monocle Preview Page Configuration
+// @see: https://github.com/sitegeist/Sitegeist.Monocle#preview-configuration
+// also: Sitegeist.FocusPoints/Configuration/Settings.WheelInventorgeist.Monocle.yaml
+//
+prototype(Sitegeist.Monocle:Preview.Page) {
+    head {
+        metaViewport = '<meta name="viewport" content="width=device-width">'
+        stylesheets = Sitegeist.FocusPoints:Resource.StyleSheets
+    }
+
+    bodyScripts = Sitegeist.FocusPoints:Resource.BodyScripts
+    bodyScripts.@position = 'before closingBodyTag'
+}

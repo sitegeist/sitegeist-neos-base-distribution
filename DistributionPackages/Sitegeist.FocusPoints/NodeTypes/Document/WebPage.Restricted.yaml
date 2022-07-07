@@ -1,0 +1,4 @@
+'Sitegeist.FocusPoints:Document.WebPage.Restricted':
+  abstract: true
+  superTypes:
+    'Sitegeist.FocusPoints:Document.WebPage': true

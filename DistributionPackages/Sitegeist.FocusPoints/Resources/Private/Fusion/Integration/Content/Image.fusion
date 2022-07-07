@@ -1,0 +1,24 @@
+prototype(Sitegeist.FocusPoints:Content.Image) < prototype(Neos.Neos:ContentComponent) {
+    imageSource = Neos.Fusion:Case {
+        asset {
+            condition = ${q(node).property('image')}
+            renderer = Sitegeist.Kaleidoscope:AssetImageSource {
+                asset = ${q(node).property('image')}
+            }
+        }
+        inBackend {
+            condition = ${documentNode.context.inBackend}
+            renderer = Sitegeist.Kaleidoscope:DummyImageSource
+        }
+    }
+    imageTitle = ${q(node).property('title')}
+    imageAlt = ${q(node).property('alternativeText')}
+    imageFocus = ${q(node).property('focus')}
+
+    renderer = Sitegeist.FocusPoints:Block.Image {
+        imageSource = ${props.imageSource}
+        imageTitle = ${props.imageTitle}
+        imageAlt = ${props.imageAlt}
+        imageFocus = ${props.imageFocus}
+    }
+}

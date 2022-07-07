@@ -1,0 +1,9 @@
+'Sitegeist.FocusPoints:Content.Image':
+  superTypes:
+    'Sitegeist.FocusPoints:Content': true
+    'Neos.NodeTypes.BaseMixins:ImageMixin': true
+    'Sitegeist.FocusPoints:Mixins.FocusPoints': true
+  ui:
+    icon: image
+    label: Image
+

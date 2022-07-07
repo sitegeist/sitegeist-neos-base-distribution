@@ -6,6 +6,9 @@
         "bin-dir": "bin",
         "platform": {
             "php": "7.3"
+        },
+        "allow-plugins": {
+            "neos/composer-plugin": true
         }
     },
     "require": {
@@ -29,9 +32,7 @@
         "sitegeist/stampede": "^1.1",
         "sitegeist/archaeopteryx": "^1.0",
         "sitegeist/iconoclasm": "^1.0",
-
-        "vendor/site": "^1.0",
-        "vendor/wheelinventor": "^1.0"
+        "sitegeist/focuspoints": "^1.0"
     },
     "require-dev": {
         "neos/buildessentials": "^7.1",
@@ -43,7 +44,6 @@
         "editorconfig-checker/editorconfig-checker": "^10.0",
         "squizlabs/php_codesniffer": "^3.4",
         "sitegeist/magicwand": "^4.3",
-        "sitegeist/chantalle": "^1.0",
         "phpstan/phpstan": "^0.12.42"
     },
     "suggest": {

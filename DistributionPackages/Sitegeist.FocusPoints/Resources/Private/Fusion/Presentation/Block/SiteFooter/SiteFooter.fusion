@@ -1,0 +1,11 @@
+prototype(Sitegeist.FocusPoints:Block.SiteFooter) < prototype(Neos.Fusion:Component) {
+    @styleguide {
+        title = 'Site Footer'
+    }
+
+    renderer = afx`
+        <div class="h-16 p-4 bg-brand">
+
+        </div>
+    `
+}
