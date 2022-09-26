@@ -1,5 +1,5 @@
 {
-    "name": "sitegeist/:project-canonical:",
+    "name": "sitegeist/neos-base-distribution",
     "description": "Sitegeist Neos Base Distribution",
     "config": {
         "vendor-dir": "Packages/Libraries",
