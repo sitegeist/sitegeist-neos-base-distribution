@@ -1,0 +1,28 @@
+prototype(Vendor.SupportWheelInventor:Document.Error.404) < prototype(Neos.Fusion:Component) {
+    renderer = Vendor.SupportWheelInventor:Document.Base {
+        body = Vendor.Shared:Layout.Page {
+            presentationObject = ${SupportWheelInventor.Page.for404Page(documentNode, site, documentNode.context, documentNode.context.inBackend)}
+        }
+    }
+    prototype(Neos.Neos:Page) {
+        httpResponseHead {
+            statusCode = 404
+        }
+    }
+}
+
+error {
+    @context.notfoundDocument = ${q(site).children('notfound').get(0)}
+
+    4xx {
+        @position = 'start'
+        condition = ${statusCode == 404 && notfoundDocument}
+        renderer = Neos.Fusion:Renderer {
+            @context {
+                node = ${notfoundDocument}
+                documentNode = ${notfoundDocument}
+            }
+            renderPath = '/root'
+        }
+    }
+}

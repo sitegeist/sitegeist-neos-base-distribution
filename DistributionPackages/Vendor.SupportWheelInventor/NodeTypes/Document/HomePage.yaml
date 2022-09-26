@@ -1,0 +1,19 @@
+'Vendor.SupportWheelInventor:Document.HomePage':
+  superTypes:
+    'Vendor.SupportWheelInventor:Document': true
+  ui:
+    icon: globe
+    label: i18n
+
+  constraints:
+    nodeTypes:
+      'Vendor.SupportWheelInventor:Document.WebPage': true
+      'Vendor.SupportWheelInventor:Document.Shortcut': true
+  childNodes:
+    notfound:
+      type: 'Vendor.SupportWheelInventor:Document.Error.404'
+    main:
+      type: 'Neos.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          '*': false

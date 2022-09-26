@@ -1,0 +1,37 @@
+{
+    "name": "vendor/shared",
+    "type": "neos-vendor",
+    "version": "1.0.0",
+    "require": {
+        "neos/neos": "~8.1.0",
+        "neos/neos-ui": "~8.1.0",
+        "neos/seo": "^3.0",
+        "neos/redirecthandler-ui": "^2.4",
+        "neos/redirecthandler-neosadapter": "^4.3",
+        "neos/redirecthandler-databasestorage": "^5.0",
+
+        "packagefactory/atomicfusion-presentationobjects": "4.0",
+
+        "flowpack/nodetemplates": "^1.3",
+
+        "sitegeist/klarschiff": "^3.0",
+        "sitegeist/monocle": "^7.6",
+        "sitegeist/kaleidoscope": "^6.5",
+        "sitegeist/csvpo": "^1.5",
+        "sitegeist/stampede": "^1.5",
+        "sitegeist/archaeopteryx": "^1.0",
+        "sitegeist/iconoclasm": "^2.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vendor\\Shared\\": "Classes/",
+            "Vendor\\Shared\\Presentation\\": "Resources/Private/Fusion/Presentation/",
+            "Vendor\\Shared\\Integration\\": "Resources/Private/Fusion/Integration/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Vendor.Shared"
+        }
+    }
+}
