@@ -44,6 +44,7 @@ final class PageFactory extends AbstractComponentPresentationObjectFactory
 
     public function for404Page(
         Node $errorPage,
+        Node $site,
         ContentContext $subgraph,
         bool $inBackend
     ): Page {
