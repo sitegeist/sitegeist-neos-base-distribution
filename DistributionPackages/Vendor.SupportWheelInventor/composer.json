@@ -3,7 +3,7 @@
     "type": "neos-site",
     "version": "1.0.0",
     "require": {
-        "vendor/supportwheelinventor-shared": "*"
+        "vendor/shared": "*"
     },
     "autoload": {
         "psr-4": {

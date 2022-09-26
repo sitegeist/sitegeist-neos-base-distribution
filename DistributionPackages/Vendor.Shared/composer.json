@@ -10,7 +10,7 @@
         "neos/redirecthandler-neosadapter": "^4.3",
         "neos/redirecthandler-databasestorage": "^5.0",
 
-        "packagefactory/atomicfusion-presentationobjects": "4.0",
+        "packagefactory/atomicfusion-presentationobjects": "4.0.x-dev",
 
         "flowpack/nodetemplates": "^1.3",
 
