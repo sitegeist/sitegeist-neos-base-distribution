@@ -1,0 +1,5 @@
+prototype(Neos.Neos:ContentCollectionRenderer) {
+    itemRenderer {
+        default.type = ${String.split(node.nodeType.name, ':')[0] + ':ContentSlot'}
+    }
+}
