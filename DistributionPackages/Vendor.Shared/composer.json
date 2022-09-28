@@ -16,6 +16,7 @@
 
         "sitegeist/klarschiff": "^3.0",
         "sitegeist/monocle": "^7.6",
+        "sitegeist/monocle-presentationobjects": "*",
         "sitegeist/kaleidoscope": "^6.5",
         "sitegeist/csvpo": "^1.5",
         "sitegeist/stampede": "^1.5",
