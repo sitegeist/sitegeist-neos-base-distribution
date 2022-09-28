@@ -1,0 +1,6 @@
+PackageFactory:
+  AtomicFusion:
+    PresentationObjects:
+      componentGeneration:
+        defaultPackageKey: 'Vendor.Shared'
+        colocate: true

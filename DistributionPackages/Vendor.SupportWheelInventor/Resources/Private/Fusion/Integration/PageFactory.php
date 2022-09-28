@@ -24,7 +24,7 @@ final class PageFactory extends AbstractComponentPresentationObjectFactory
         bool $inBackend
     ): Page {
         return new Page(
-            new Collection(
+            Collection::fromSlots(
                 Content::fromNode($homePage->findNamedChildNode(NodeName::fromString('main')))
             )
         );
@@ -36,7 +36,7 @@ final class PageFactory extends AbstractComponentPresentationObjectFactory
         bool $inBackend
     ): Page {
         return new Page(
-            new Collection(
+            Collection::fromSlots(
                 Content::fromNode($homePage->findNamedChildNode(NodeName::fromString('main')))
             )
         );
@@ -49,7 +49,7 @@ final class PageFactory extends AbstractComponentPresentationObjectFactory
         bool $inBackend
     ): Page {
         return new Page(
-            new Collection(
+            Collection::fromSlots(
             )
         );
     }
