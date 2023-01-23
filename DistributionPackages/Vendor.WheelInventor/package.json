@@ -23,7 +23,7 @@
   },
   "devDependencies": {
     "@sitegeist/eslint-config-es-neos-eslint": "^2.0.2",
-    "@tailwindcss/typography": "^0.4.1",
+    "@tailwindcss/typography": "^0.5.0",
     "@types/classnames": "^2.3.1",
     "@types/final-form-focus": "^1.1.1",
     "@types/react": "^17.0.34",
@@ -44,7 +44,7 @@
     "postcss-cli": "^8.3.1",
     "postcss-discard-duplicates": "^5.0.1",
     "postcss-selector-parser": "^6.0.6",
-    "tailwindcss": "^2.2.9",
+    "tailwindcss": "^3.0.0",
     "ts-loader": "^9.2.5",
     "ts-node": "^10.2.1",
     "typescript": "^4.4.2",
