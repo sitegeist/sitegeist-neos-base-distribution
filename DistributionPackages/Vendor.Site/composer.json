@@ -6,7 +6,8 @@
         "neos/neos": "*",
         "neos/nodetypes-basemixins": "*",
         "sitegeist/csvpo": "*",
-        "sitegeist/stampede": "*"
+        "sitegeist/stampede": "*",
+        "sitegeist/kaleidoscope": "*"
     },
     "autoload": {
         "psr-4": {
