@@ -43,6 +43,7 @@
         "squizlabs/php_codesniffer": "^3.4",
         "sitegeist/magicwand": "^4.3",
         "sitegeist/chantalle": "^1.0",
+        "sitegeist/noderobis": "^1.0",
         "phpstan/phpstan": "~1.8"
     },
     "suggest": {
