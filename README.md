@@ -63,7 +63,7 @@ composer-require neos/demo
 
 ## Initialize the project git repository
 
-The following commands will initialize the git repository, setup git-hooks and perdorm composer and yarn install.
+The following commands will initialize the git repository, setup git-hooks and perform composer and yarn install.
 
 ```sh
 git init
