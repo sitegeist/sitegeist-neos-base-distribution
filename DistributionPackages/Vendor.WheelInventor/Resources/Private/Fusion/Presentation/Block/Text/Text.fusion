@@ -3,7 +3,17 @@ prototype(Vendor.WheelInventor:Block.Text) < prototype(Neos.Fusion:Component) {
         title = 'Text'
 
         props {
-            content = ${File.readFile('resource://Vendor.WheelInventor/Private/Fusion/Presentation/Block/Text/kitchenSink.html')}
+            content = afx`
+                <Sitegeist.ChitChat:H1 />
+                <Sitegeist.ChitChat:P />
+                <Sitegeist.ChitChat:H2 />
+                <Sitegeist.ChitChat:P />
+                <Sitegeist.ChitChat:H3 />
+                <Sitegeist.ChitChat:P />
+                <Sitegeist.ChitChat:UL />
+                <Sitegeist.ChitChat:P />
+                <Sitegeist.ChitChat:OL />
+            `
         }
     }
 
