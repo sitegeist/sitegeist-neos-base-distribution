@@ -2,6 +2,14 @@ Sitegeist:
   Noderobis:
     properties:
 
+      # generate inlineEditables in props section
+      'inlineEditable':
+        prop: |
+          ###NAME### = Neos.Neos:Editable {
+            property = "###NAME###"
+          }
+        afx: '{props.###NAME###}'
+        
       # Adjust generation of Image props to render using Sitegeist.Kaleidoscope
       # with fallback to a dummy image in backend
       'Neos\Media\Domain\Model\ImageInterface':
