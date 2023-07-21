@@ -1,0 +1,28 @@
+Sitegeist:
+  Noderobis:
+    properties:
+
+      # Adjust generation of Image props to render using Sitegeist.Kaleidoscope
+      # with fallback to a dummy image in backend
+      'Neos\Media\Domain\Model\ImageInterface':
+        prop: |
+          ###NAME### = Neos.Fusion:Case {
+              image {
+                  condition = ${q(node).property('###NAME###')}
+                  renderer = Sitegeist.Kaleidoscope:AssetImageSource {
+                      asset = ${q(node).property('###NAME###')}
+                      # @todo !!! ensure property ###NAME###Title really exists
+                      title = ${q(node).property('###NAME###Title')}
+                      # @todo !!! ensure property ###NAME###Alt really exists
+                      alt = ${q(node).property('###NAME###Alt')}
+                  }
+              }
+              dummyImage {
+                  condition = ${node.context.inBackend}
+                  renderer = Sitegeist.Kaleidoscope:DummyImageSource {
+                      alt = "dummy"
+                      title = "image"
+                  }
+              }
+          }
+        afx: '<Sitegeist.Kaleidoscope:Image imageSource={props.###NAME###} />'
