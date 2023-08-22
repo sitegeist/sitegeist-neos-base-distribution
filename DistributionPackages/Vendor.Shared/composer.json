@@ -3,8 +3,8 @@
     "type": "neos-vendor",
     "version": "1.0.0",
     "require": {
-        "neos/neos": "~8.1.0",
-        "neos/neos-ui": "~8.1.0",
+        "neos/neos": "~8.3.0",
+        "neos/neos-ui": "~8.3.0",
         "neos/seo": "^3.0",
         "neos/redirecthandler-ui": "^2.4",
         "neos/redirecthandler-neosadapter": "^4.3",

@@ -15,14 +15,15 @@ mutagen_enabled: false
 hooks:
   post-start:
   - exec: sudo echo alias ll=\"ls -lhA\" >> ~/.bashrc
-omit_containers: [dba]
+omit_containers: []
 use_dns_when_possible: true
 composer_version: "2"
 web_environment:
-- FLOW_CONTEXT=Development/ddev
-- FLOW_REWRITEURLS=1
-- FLOW_PATH_TEMPORARY_BASE=/tmp/neos
-- FLOW_ROOTPATH=/var/www/html
+  - FLOW_CONTEXT=Development/ddev
+  - FLOW_REWRITEURLS=1
+  - FLOW_PATH_TEMPORARY_BASE=/tmp/neos
+  - FLOW_ROOTPATH=/var/www/html
+  - NODE_OPTIONS=--openssl-legacy-provider
 
 # Key features of ddev's config.yaml:
 

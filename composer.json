@@ -14,8 +14,8 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "neos/neos": "~8.1.0",
-        "neos/neos-ui": "~8.1.0",
+        "neos/neos": "~8.3.0",
+        "neos/neos-ui": "~8.3.0",
         "neos/seo": "^3.0",
         "neos/redirecthandler-ui": "^2.4",
         "neos/redirecthandler-neosadapter": "^4.3",
@@ -28,28 +28,31 @@
 
         "sitegeist/klarschiff": "^3.0",
         "sitegeist/monocle": "^7.6",
+        "sitegeist/chitchat": "~1.2",
         "sitegeist/kaleidoscope": "^6.5",
         "sitegeist/csvpo": "^1.5",
         "sitegeist/stampede": "^1.5",
         "sitegeist/archaeopteryx": "^1.0",
         "sitegeist/iconoclasm": "^2.0",
-
+        "sitegeist/noderobis": "~1.1",
+        "sitegeist/pyranodis": "~1.0",
         "vendor/site": "*",
         "vendor/wheelinventor": "*",
         "vendor/supportwheelinventor": "*"
     },
     "require-dev": {
-        "neos/buildessentials": "^8.0",
-        "mikey179/vfsstream": "^1.6",
-        "phpunit/phpunit": "^9.0",
+        "neos/buildessentials": "^8.3.x-dev",
+        "mikey179/vfsstream": "^1.6.10",
+        "phpunit/phpunit": "~9.1",
         "symfony/css-selector": "~2.0",
         "neos/behat": "^8.0",
-        "deployer/deployer": "^6.2",
+        "deployer/deployer": "^7.0",
         "editorconfig-checker/editorconfig-checker": "^10.0",
         "squizlabs/php_codesniffer": "^3.4",
         "sitegeist/magicwand": "^4.4",
         "sitegeist/chantalle": "^1.0",
-        "phpstan/phpstan": "^0.12.42"
+        "sitegeist/noderobis": "^1.0",
+        "phpstan/phpstan": "~1.8"
     },
     "suggest": {
         "ext-pdo_sqlite": "For running functional tests out-of-the-box this is required"
