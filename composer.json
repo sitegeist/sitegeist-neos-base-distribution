@@ -26,13 +26,13 @@
 
         "flowpack/nodetemplates": "dev-neos9",
 
-        "sitegeist/klarschiff": "^3.0",
-        "sitegeist/monocle": "^7.6",
+        "sitegeist/klarschiff": "dev-neos9",
+        "sitegeist/monocle": "^7.10",
         "sitegeist/chitchat": "~1.2",
         "sitegeist/kaleidoscope": "^6.5",
-        "sitegeist/csvpo": "^1.5",
-        "sitegeist/stampede": "^1.5",
-        "sitegeist/archaeopteryx": "^1.0",
+        "sitegeist/csvpo": "^2.0",
+        "sitegeist/stampede": "^1.6",
+        "sitegeist/archaeopteryx": "^dev-neos9",
         "sitegeist/iconoclasm": "^2.0",
 
         "vendor/site": "*",
@@ -50,10 +50,10 @@
         "behat/behat": "^3.0",
         "deployer/deployer": "^7.0",
         "editorconfig-checker/editorconfig-checker": "^10.0",
-        "sitegeist/magicwand": "^4.4",
+        "sitegeist/magicwand": "dev-neos9",
         "sitegeist/chantalle": "^1.0",
-        "sitegeist/noderobis": "^1.3",
-        "sitegeist/pyranodis": "^1.0"
+        "sitegeist/noderobis": "dev-neos9",
+        "sitegeist/pyranodis": "dev-neos9"
     },
     "suggest": {
         "ext-pdo_sqlite": "For running functional tests out-of-the-box this is required"
