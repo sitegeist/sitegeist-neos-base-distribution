@@ -1,0 +1,4 @@
+'Vendor.SupportWheelInventor:Content':
+  abstract: true
+  superTypes:
+    'Neos.Neos:Content': true

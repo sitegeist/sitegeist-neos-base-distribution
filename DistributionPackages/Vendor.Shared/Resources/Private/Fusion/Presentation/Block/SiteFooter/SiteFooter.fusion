@@ -1,0 +1,11 @@
+prototype(Vendor.Shared:Block.SiteFooter) < prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    @presentationObjectInterface = 'Vendor\\Shared\\Presentation\\Block\\SiteFooter\\SiteFooter'
+
+    @styleguide {
+        title = 'Site Footer'
+    }
+
+    renderer = afx`
+        <div>[Site Footer]</div>
+    `
+}

@@ -1,0 +1,13 @@
+prototype(Sitegeist.Monocle:Preview.Page) {
+    head {
+        metaViewport = '<meta name="viewport" content="width=device-width">'
+        stylesheets = Vendor.Shared:Resource.StyleSheets
+    }
+
+    bodyScripts = Vendor.Shared:Resource.BodyScripts
+    bodyScripts.@position = 'before closingBodyTag'
+}
+
+prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    isInPreviewMode = ${String.startsWith(request.httpRequest.uri.path, '/monocle/')}
+}

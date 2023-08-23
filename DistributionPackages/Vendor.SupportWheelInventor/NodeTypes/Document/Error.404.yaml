@@ -1,0 +1,16 @@
+'Vendor.SupportWheelInventor:Document.Error.404':
+  superTypes:
+    'Vendor.SupportWheelInventor:Document': true
+  ui:
+    icon: exclamation-triangle
+    label: i18n
+  properties:
+    title:
+      defaultValue: '404'
+    uriPathSegment:
+      ui:
+        inspector:
+          editorOptions:
+            disabled: true
+    _hiddenInIndex:
+      defaultValue: true

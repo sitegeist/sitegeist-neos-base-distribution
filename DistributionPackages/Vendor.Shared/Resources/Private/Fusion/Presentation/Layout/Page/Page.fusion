@@ -1,0 +1,26 @@
+prototype(Vendor.Shared:Layout.Page) < prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    @presentationObjectInterface = 'Vendor\\Shared\\Presentation\\Layout\\Page\\Page'
+
+    @styleguide {
+        title = 'Page'
+
+        props {
+            content = '- Add Slot Content -'
+        }
+    }
+
+    renderer = afx`
+        <div
+            class={[
+                "[Layout.Page]"
+            ]}
+            style="hyphens:auto;word-break:normal;"
+        >
+            <Neos.Fusion:Renderer renderPath="/siteHeader" />
+            <main class="">
+                <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />
+            </main>
+            <Neos.Fusion:Renderer renderPath="/siteFooter" />
+        </div>
+    `
+}

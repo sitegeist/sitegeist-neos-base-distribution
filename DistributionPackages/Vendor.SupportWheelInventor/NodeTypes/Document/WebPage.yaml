@@ -1,0 +1,17 @@
+'Vendor.SupportWheelInventor:Document.WebPage':
+  superTypes:
+    'Vendor.SupportWheelInventor:Document': true
+  ui:
+    icon: file
+    label: i18n
+
+  constraints:
+    nodeTypes:
+      'Vendor.WheelInventor:Document.WebPage': true
+      'Vendor.WheelInventor:Document.Shortcut': true
+  childNodes:
+    main:
+      type: 'Neos.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          '*': false

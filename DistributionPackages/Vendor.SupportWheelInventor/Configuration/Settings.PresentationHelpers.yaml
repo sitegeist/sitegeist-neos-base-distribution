@@ -1,0 +1,7 @@
+Neos:
+  Fusion:
+    defaultContext:
+      SupportWheelInventor.ContentSlot: Vendor\SupportWheelInventor\Integration\ContentSlotFactory
+      SupportWheelInventor.Page: Vendor\SupportWheelInventor\Integration\PageFactory
+      SupportWheelInventor.SiteHeader: Vendor\SupportWheelInventor\Integration\SiteHeaderFactory
+      SupportWheelInventor.SiteFooter: Vendor\SupportWheelInventor\Integration\SiteFooterFactory

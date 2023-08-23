@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <site name="Vendor.SupportWheelInventor" state="1" siteResourcesPackageKey="Vendor.SupportWheelInventor"
+            siteNodeName="vendor-supportwheelinventor">
+        <nodes formatVersion="2.0">
+            <node nodeName="vendor-supportwheelinventor">
+                <variant sortingIndex="100" workspace="live" nodeType="Vendor.SupportWheelInventor:Document.HomePage"
+                        version="1" removed="" hidden="" hiddenInIndex="">
+                    <dimensions/>
+                    <properties>
+                        <title __type="string">Vendor.SupportWheelInventor</title>
+                        <uriPathSegment __type="string">vendor-supportwheelinventor</uriPathSegment>
+                    </properties>
+                </variant>
+            </node>
+        </nodes>
+    </site>
+</root>

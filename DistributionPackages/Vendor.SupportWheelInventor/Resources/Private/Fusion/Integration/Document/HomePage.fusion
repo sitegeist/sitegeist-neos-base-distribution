@@ -1,0 +1,7 @@
+prototype(Vendor.SupportWheelInventor:Document.HomePage) < prototype(Neos.Fusion:Component) {
+    renderer = Vendor.SupportWheelInventor:Document.Base {
+        body = Vendor.Shared:Layout.Page {
+            presentationObject = ${SupportWheelInventor.Page.forHomePage(documentNode, documentNode.context, documentNode.context.inBackend)}
+        }
+    }
+}

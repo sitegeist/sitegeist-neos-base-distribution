@@ -1,0 +1,20 @@
+{
+    "name": "vendor/supportwheelinventor",
+    "type": "neos-site",
+    "version": "1.0.0",
+    "require": {
+        "vendor/shared": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Vendor\\SupportWheelInventor\\": "Classes/",
+            "Vendor\\SupportWheelInventor\\Presentation\\": "Resources/Private/Fusion/Presentation/",
+            "Vendor\\SupportWheelInventor\\Integration\\": "Resources/Private/Fusion/Integration/"
+        }
+    },
+    "extra": {
+        "neos": {
+            "package-key": "Vendor.SupportWheelInventor"
+        }
+    }
+}

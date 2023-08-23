@@ -2,4 +2,3 @@ Sitegeist:
   Monocle:
     hiddenPrototypeNamePatterns:
       - 'Sitegeist.Kaleidoscope:*'
-      - 'Sitegeist.Lazybones:*'
