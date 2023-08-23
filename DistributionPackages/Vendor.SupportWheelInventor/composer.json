@@ -1,7 +1,6 @@
 {
     "name": "vendor/supportwheelinventor",
     "type": "neos-site",
-    "version": "1.0.0",
     "require": {
         "vendor/shared": "*"
     },

@@ -1,18 +1,17 @@
 {
     "name": "vendor/shared",
     "type": "neos-vendor",
-    "version": "1.0.0",
     "require": {
-        "neos/neos": "~8.3.0",
-        "neos/neos-ui": "~8.3.0",
-        "neos/seo": "^3.0",
-        "neos/redirecthandler-ui": "^2.4",
-        "neos/redirecthandler-neosadapter": "^4.3",
-        "neos/redirecthandler-databasestorage": "^5.0",
+        "neos/neos": "^9.0",
+        "neos/neos-ui": "^9.0",
+        "neos/seo": "^4.1",
+        "neos/redirecthandler-ui": "dev-neos9",
+        "neos/redirecthandler-neosadapter": "dev-90/feature-upgrade-to-neos-9",
+        "neos/redirecthandler-databasestorage": "dev-flow-9-compatibility",
 
-        "packagefactory/atomicfusion-presentationobjects": "4.0.x-dev",
+        "packagefactory/atomicfusion-presentationobjects": "^5.0",
 
-        "flowpack/nodetemplates": "^1.3",
+        "flowpack/nodetemplates": "dev-neos9",
 
         "sitegeist/klarschiff": "^3.0",
         "sitegeist/monocle": "^7.6",
