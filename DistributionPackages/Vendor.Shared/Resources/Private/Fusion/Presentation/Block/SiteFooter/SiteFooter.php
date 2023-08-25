@@ -12,6 +12,6 @@ use Neos\Flow\Annotations as Flow;
 use PackageFactory\AtomicFusion\PresentationObjects\Fusion\AbstractComponentPresentationObject;
 
 #[Flow\Proxy(false)]
-final class SiteFooter extends AbstractComponentPresentationObject
+final readonly class SiteFooter extends AbstractComponentPresentationObject
 {
 }

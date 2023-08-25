@@ -28,12 +28,12 @@
 
         "sitegeist/klarschiff": "dev-neos9",
         "sitegeist/monocle": "^7.10",
-        "sitegeist/chitchat": "~1.2",
-        "sitegeist/kaleidoscope": "^6.5",
+        "sitegeist/chitchat": "dev-neos9",
+        "sitegeist/kaleidoscope": "dev-neos9",
         "sitegeist/csvpo": "^2.0",
-        "sitegeist/stampede": "^1.6",
-        "sitegeist/archaeopteryx": "^dev-neos9",
-        "sitegeist/iconoclasm": "^2.0",
+        "sitegeist/stampede": "dev-neos9",
+        "sitegeist/archaeopteryx": "dev-neos9",
+        "sitegeist/iconoclasm": "dev-neos9",
 
         "vendor/site": "*",
         "vendor/wheelinventor": "*",
@@ -51,7 +51,7 @@
         "deployer/deployer": "^7.0",
         "editorconfig-checker/editorconfig-checker": "^10.0",
         "sitegeist/magicwand": "dev-neos9",
-        "sitegeist/chantalle": "^1.0",
+        "sitegeist/chantalle": "dev-neos9",
         "sitegeist/noderobis": "dev-neos9",
         "sitegeist/pyranodis": "dev-neos9"
     },

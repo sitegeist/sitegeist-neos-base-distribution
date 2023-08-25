@@ -13,10 +13,10 @@ use PackageFactory\AtomicFusion\PresentationObjects\Fusion\AbstractComponentPres
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\SlotInterface;
 
 #[Flow\Proxy(false)]
-final class Page extends AbstractComponentPresentationObject
+final readonly class Page extends AbstractComponentPresentationObject
 {
     public function __construct(
-        public readonly SlotInterface $content
+        public SlotInterface $content
     ) {
     }
 }
