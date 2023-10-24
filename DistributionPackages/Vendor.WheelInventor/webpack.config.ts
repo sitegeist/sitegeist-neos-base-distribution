@@ -48,10 +48,12 @@ export function buildCommonConfig(): webpack.Configuration {
 				},
 				{
 					test: /\.tsx?$/,
-					use: [{
-						loader: 'ts-loader'
-					}]
-				},
+					loader: 'esbuild-loader',
+					options: {
+						loader: 'tsx',
+						target: 'es2015'
+					}
+				}
 			]
 		},
 

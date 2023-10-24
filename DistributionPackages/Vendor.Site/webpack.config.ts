@@ -37,13 +37,11 @@ const config: webpack.Configuration = {
 	module: {
 		rules: [{
 			test: /\.tsx?$/,
-			exclude: /(node_modules)/,
-			use: [{
-				loader: 'ts-loader',
-				options: {
-					reportFiles: ['!**/*.spec.ts']
-				}
-			}]
+			loader: 'esbuild-loader',
+			options: {
+				loader: 'tsx',
+				target: 'es2015'
+			}
 		}, {
 			test: /\.fusion$/,
 			use: [{

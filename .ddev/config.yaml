@@ -23,7 +23,7 @@ web_environment:
   - FLOW_REWRITEURLS=1
   - FLOW_PATH_TEMPORARY_BASE=/tmp/neos
   - FLOW_ROOTPATH=/var/www/html
-  - NODE_OPTIONS=--openssl-legacy-provider
+nodejs_version: "16"
 
 # Key features of ddev's config.yaml:
 
