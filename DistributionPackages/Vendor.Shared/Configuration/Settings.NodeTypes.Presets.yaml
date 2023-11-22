@@ -1,0 +1,116 @@
+Neos:
+  Neos:
+    nodeTypes:
+      presets:
+        properties:
+          'rte':
+            'plain':
+              type: string
+              ui:
+                inlineEditable: true
+                inline:
+                  editorOptions:
+                    autoparagraph: false
+                    formatting:
+                      removeFormat: true
+                      sup: true
+                      sub: true
+            'text':
+              type: string
+              ui:
+                inlineEditable: true
+                inline:
+                  editorOptions:
+                    autoparagraph: true
+                    linking:
+                      anchor: true
+                      title: true
+                      relNofollow: true
+                      targetBlank: true
+                      'Sitegeist.Archaeopteryx':
+                        linkTypes:
+                          'Sitegeist.Archaeopteryx:Node':
+                            position: start 100
+                          'Sitegeist.Archaeopteryx:Asset':
+                            position: start 90
+                          'Sitegeist.Archaeopteryx:MailTo':
+                            position: start 80
+                          'Sitegeist.Archaeopteryx:Web':
+                            position: start 70
+                          'Sitegeist.Archaeopteryx:PhoneNumber':
+                            position: start 60
+                    formatting:
+                      strong: true
+                      em: true
+                      underline: true
+                      p: true
+                      ol: true
+                      ul: true
+                      sub: true
+                      sup: true
+                      a: true
+                      h1: false
+                      h2: false
+                      h3: false
+                      h4: false
+                      h5: false
+                      h6: false
+                      table: false
+                      removeFormat: true
+          'image':
+            '1:1':
+              type: 'Neos\Media\Domain\Model\ImageInterface'
+              ui:
+                inspector:
+                  group: 'image'
+                  editorOptions:
+                    features:
+                      crop: true
+                    crop:
+                      aspectRatio:
+                        forceCrop: true
+                        locked:
+                          width: 1
+                          height: 1
+            '4:3':
+              type: 'Neos\Media\Domain\Model\ImageInterface'
+              ui:
+                inspector:
+                  group: 'image'
+                  editorOptions:
+                    features:
+                      crop: true
+                    crop:
+                      aspectRatio:
+                        forceCrop: true
+                        locked:
+                          width: 4
+                          height: 3
+            '3:2':
+              type: 'Neos\Media\Domain\Model\ImageInterface'
+              ui:
+                inspector:
+                  group: 'image'
+                  editorOptions:
+                    features:
+                      crop: true
+                    crop:
+                      aspectRatio:
+                        forceCrop: true
+                        locked:
+                          width: 3
+                          height: 2
+            '8:3':
+              type: 'Neos\Media\Domain\Model\ImageInterface'
+              ui:
+                inspector:
+                  group: 'image'
+                  editorOptions:
+                    features:
+                      crop: true
+                    crop:
+                      aspectRatio:
+                        forceCrop: true
+                        locked:
+                          width: 8
+                          height: 3

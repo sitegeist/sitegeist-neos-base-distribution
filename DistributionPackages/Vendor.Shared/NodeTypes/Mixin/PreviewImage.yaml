@@ -1,0 +1,36 @@
+'Vendor.Shared:Mixin.PreviewImage':
+  abstract: true
+  ui:
+    inspector:
+      tabs:
+        preview:
+          label: 'Vorschau'
+          icon: 'eye'
+          position: 12
+      groups:
+        preview:
+          label: 'Vorschau'
+          icon: 'eye'
+          tab: 'preview'
+  properties:
+    previewImage:
+      type: 'Neos\Media\Domain\Model\ImageInterface'
+      ui:
+        label: 'Vorschaubild (4:3 mind. 430x330)'
+        reloadIfChanged: true
+        inspector:
+          group: 'preview'
+      options:
+        preset: 'image.4:3'
+    previewImage__alt:
+      type: string
+      ui:
+        label: 'Alt-Text'
+        inspector:
+          group: 'preview'
+    previewImage__title:
+      type: string
+      ui:
+        label: 'Titel'
+        inspector:
+          group: 'preview'

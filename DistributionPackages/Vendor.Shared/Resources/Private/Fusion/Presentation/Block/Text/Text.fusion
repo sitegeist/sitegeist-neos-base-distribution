@@ -1,0 +1,22 @@
+prototype(Vendor.Shared:Block.Text) < prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    @presentationObjectInterface = 'Vendor\\Shared\\Presentation\\Block\\Text\\Text'
+
+    @styleguide {
+        title = 'Text'
+
+        @caseFactory = 'Vendor\\Shared\\Presentation\\Block\\Text\\TextFactory'
+    }
+
+    renderer = afx`
+        <div
+            class={[
+                "[Block.Text]"
+            ]}
+        >
+            <div
+            >
+                <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />
+            </div>
+        </div>
+    `
+}

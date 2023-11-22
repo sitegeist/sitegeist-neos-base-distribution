@@ -1,0 +1,32 @@
+'Vendor.Shared:Mixin.PreviewText':
+  abstract: true
+  ui:
+    inspector:
+      tabs:
+        preview:
+          label: 'Vorschau'
+          icon: 'eye'
+          position: 12
+      groups:
+        preview:
+          label: 'Vorschau'
+          icon: 'eye'
+          tab: 'preview'
+  properties:
+    previewHeadline:
+      type: string
+      ui:
+        label: 'Vorschau-Überschrift'
+        inspector:
+          group: 'preview'
+    previewText:
+      type: string
+      ui:
+        label: 'Vorschau-Text'
+        inspector:
+          group: 'preview'
+          editor: Neos.Neos/Inspector/Editors/TextAreaEditor
+#      search:
+#        fulltextExtractor: ${Indexing.extractInto('text', value)}
+#        elasticSearchMapping:
+#          type: text

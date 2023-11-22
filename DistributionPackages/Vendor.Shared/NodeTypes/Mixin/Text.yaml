@@ -1,0 +1,12 @@
+'Vendor.Shared:Mixin.Text':
+  abstract: true
+  properties:
+    text:
+      options:
+        preset: 'rte.text'
+      ui:
+        inline:
+          editorOptions:
+            placeholder: 'Bitte Text eingeben'
+#      search:
+#        fulltextExtractor: ${Indexing.extractInto('text', value)}

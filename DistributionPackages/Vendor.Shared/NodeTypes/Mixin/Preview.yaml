@@ -1,0 +1,6 @@
+'Vendor.Shared:Mixin.Text':
+  abstract: true
+  superTypes:
+    'Vendor.Shared:Mixin.PreviewImage': true
+    'Vendor.Shared:Mixin.PreviewText': true
+

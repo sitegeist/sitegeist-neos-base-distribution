@@ -1,0 +1,13 @@
+'Vendor.Shared:Mixin.Abstract':
+  abstract: true
+  properties:
+    abstract:
+      options:
+        preset: 'rte.text'
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Bitte Abstract eingeben'
+#      search:
+#        fulltextExtractor: ${Indexing.extractInto('p', value)}

@@ -1,0 +1,11 @@
+'Vendor.SupportWheelInventor:Content.Text':
+  label: "${q(node).property('headline') || node.nodeType.label}"
+  superTypes:
+    'Vendor.SupportWheelInventor:Content': true
+    'Vendor.Shared:Mixin.Headline': true
+    'Vendor.Shared:Mixin.Text': true
+    'Vendor.Shared:Mixin.Link': true
+
+  ui:
+    label: 'Text'
+    icon: 'align-left'

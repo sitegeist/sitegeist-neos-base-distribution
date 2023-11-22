@@ -6,7 +6,7 @@ prototype(Vendor.SupportWheelInventor:Document.Base) < prototype(Neos.Fusion:Com
     renderer = Neos.Neos:Page {
         head {
             metaViewport = '<meta name="viewport" content="width=device-width">'
-            stylesheets = Vendor.SupportWheelInventor.Shared:Resource.StyleSheets
+            stylesheets = Vendor.Shared:Resource.StyleSheets
 
             titleTag {
                 content = ${props.titleOverride ? props.titleOverride : props.title}
@@ -19,7 +19,7 @@ prototype(Vendor.SupportWheelInventor:Document.Base) < prototype(Neos.Fusion:Com
 
         body = ${props.body}
 
-        bodyScripts = Vendor.SupportWheelInventor.Shared:Resource.BodyScripts
+        bodyScripts = Vendor.Shared:Resource.BodyScripts
         bodyScripts.@position = 'before closingBodyTag'
     }
 }
