@@ -1,0 +1,20 @@
+prototype(Vendor.Shared:Layout.ContentContainer) < prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    @presentationObjectInterface = 'Vendor\\Shared\\Presentation\\Layout\\ContentContainer\\ContentContainer'
+
+    @styleguide {
+        title = 'ContentContainer'
+
+        @caseFactory = 'Vendor\\Shared\\Presentation\\Layout\\ContentContainer\\ContentContainerFactory'
+    }
+
+    renderer = afx`
+        <div
+            class={[
+                "[Layout.ContentContainer (" + presentationObject.variant.value + ")]",
+                presentationObject.variant.equals('regular') && "",
+            ]}
+        >
+            <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />
+        </div>
+    `
+}

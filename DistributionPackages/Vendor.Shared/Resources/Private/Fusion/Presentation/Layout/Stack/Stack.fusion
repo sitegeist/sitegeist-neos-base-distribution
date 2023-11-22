@@ -1,0 +1,20 @@
+prototype(Vendor.Shared:Layout.Stack) < prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    @presentationObjectInterface = 'Vendor\\Shared\\Presentation\\Layout\\Stack\\Stack'
+
+    @styleguide {
+        title = 'Stack'
+
+        @caseFactory = 'Vendor\\Shared\\Presentation\\Layout\\Stack\\StackFactory'
+    }
+
+    renderer = afx`
+        <div
+            class={[
+                "[Layout.Stack (" + presentationObject.variant.value + ")]",
+                "flex"
+            ]}
+        >
+            <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />
+        </div>
+    `
+}
