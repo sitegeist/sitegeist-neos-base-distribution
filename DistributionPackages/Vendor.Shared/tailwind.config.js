@@ -1,11 +1,8 @@
-const theme = require('tailwindcss/defaultTheme');
-
 module.exports = {
-	mode: 'jit',
-	purge: [
-		'./Resources/Private/Fusion/**/*'
+	content: [
+		'./Resources/Private/Fusion/**/*',
+		'./Resources/Private/Fusion/**/*.{ts,tsx,fusion,css}',
 	],
-	darkMode: false,
 	theme: {
 		colors: {
 			brand: {
@@ -15,11 +12,6 @@ module.exports = {
 			cta: {
 				DEFAULT: '#ff934f',
 				contrast: '#000'
-			},
-			neutral: {
-				lighter: theme.colors.gray[200],
-				DEFAULT: theme.colors.gray[500],
-				darker: theme.colors.gray[900]
 			},
 			info: {
 				DEFAULT: '#76bed0',
