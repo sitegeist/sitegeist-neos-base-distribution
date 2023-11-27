@@ -6,6 +6,6 @@ prototype(Vendor.Shared:Block.SiteFooter) < prototype(PackageFactory.AtomicFusio
     }
 
     renderer = afx`
-        <div>[Site Footer]</div>
+        <div class="bg-error">[Site Footer]</div>
     `
 }
