@@ -18,6 +18,7 @@ final class TextFactory extends AbstractComponentPresentationObjectFactory imple
     public function getDefaultCase(): SlotInterface
     {
         return new Text(
+            TextColumns::COLUMNS_ONE_COLUMN,
             self::getLoremIpsum()
         );
     }

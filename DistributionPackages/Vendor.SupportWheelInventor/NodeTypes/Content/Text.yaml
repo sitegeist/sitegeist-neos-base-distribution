@@ -4,6 +4,7 @@
     'Vendor.SupportWheelInventor:Content': true
     'Vendor.Shared:Mixin.Headline': true
     'Vendor.Shared:Mixin.Text': true
+    'Vendor.Shared:Mixin.TextColumns': true
     'Vendor.Shared:Mixin.Link': true
 
   ui:

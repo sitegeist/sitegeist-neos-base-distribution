@@ -10,7 +10,9 @@ prototype(Vendor.Shared:Block.Text) < prototype(PackageFactory.AtomicFusion.Pres
     renderer = afx`
         <div
             class={[
-                "[Block.Text]"
+                "[Block.Text (" + presentationObject.columns.value + ")]",
+                presentationObject.columns.equals('oneColumn') && "",
+                presentationObject.columns.equals('twoColumns') && ""
             ]}
         >
             <div

@@ -34,6 +34,7 @@ DistributionPackages/*/Resources/Private/**/*.css.json
 DistributionPackages/*/Resources/Private/**/*.js.fusion
 DistributionPackages/*/Resources/Public/JavaScript/
 DistributionPackages/*/Resources/Public/Styles/
+DistributionPackages/*/Resources/Public/Build/Styles/
 .build/
 
 .idea

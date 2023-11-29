@@ -1,0 +1,29 @@
+prototype(Vendor.Shared:Block.Link) < prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    @presentationObjectInterface = 'Vendor\\Shared\\Presentation\\Block\\Link\\Link'
+
+    @styleguide {
+        title = 'Link'
+
+        @caseFactory = 'Vendor\\Shared\\Presentation\\Block\\Link\\LinkFactory'
+    }
+
+    renderer = afx`
+        <Neos.Fusion:Tag
+            tagName={presentationObject.inBackend ? 'span' : 'a'}
+            attributes.class={[
+                "[Block.Link (" + presentationObject.variant.value+ ")]",
+                presentationObject.variant.equals("regular") && ""
+            ]}
+            attributes.href={presentationObject.href}
+            attributes.href.@if.isLink={!presentationObject.inBackend }
+            attributes.title={presentationObject.title}
+            attributes.title.@if.isLink={!presentationObject.inBackend }
+            attributes.rel={presentationObject.rel}
+            attributes.rel.@if.isLink={!presentationObject.inBackend }
+            attributes.target={presentationObject.target.value}
+            attributes.target.@if.isLink={!presentationObject.inBackend }
+        >
+            <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />
+        </Neos.Fusion:Tag>
+    `
+}

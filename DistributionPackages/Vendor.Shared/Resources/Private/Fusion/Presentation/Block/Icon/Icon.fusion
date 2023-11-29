@@ -1,0 +1,20 @@
+prototype(Vendor.Shared:Block.Icon) < prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    @presentationObjectInterface = 'Vendor\\Shared\\Presentation\\Block\\Icon\\Icon'
+
+    @styleguide {
+        title = 'Icon'
+
+        @caseFactory = 'Vendor\\Shared\\Presentation\\Block\\Icon\\IconFactory'
+    }
+
+    renderer = Sitegeist.Stampede:Icon {
+        collection = ${presentationObject.collection.value}
+        icon = ${presentationObject.name.value}
+        class = Neos.Fusion:Join {
+            size_1 = ""
+            size_1.@if.1 = ${presentationObject.size.equals('regular')}
+        }
+        style = null
+        inline = true
+    }
+}

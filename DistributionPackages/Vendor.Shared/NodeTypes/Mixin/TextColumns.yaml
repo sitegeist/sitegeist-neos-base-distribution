@@ -1,0 +1,25 @@
+'Vendor.Shared:Mixin.TextColumns':
+  abstract: true
+  ui:
+    inspector:
+      groups:
+        textFormatting:
+          label: 'Textformatierung'
+          icon: 'align-left'
+  properties:
+    columns:
+      type: string
+      defaultValue: 'oneColumn'
+      ui:
+        label: 'Spaltigkeit'
+        reloadIfChanged: true
+        inspector:
+          group: 'textFormatting'
+          editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
+  postprocessors:
+    layouts:
+      postprocessor: PackageFactory\AtomicFusion\PresentationObjects\Application\EnumProvider
+      postprocessorOptions:
+        enumName: Vendor\Shared\Presentation\Block\Text\TextColumns
+        propertyNames:
+          - columns

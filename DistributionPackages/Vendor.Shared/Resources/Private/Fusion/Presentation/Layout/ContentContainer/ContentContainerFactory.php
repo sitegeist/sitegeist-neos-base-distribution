@@ -9,6 +9,7 @@ declare(strict_types=1);
 namespace Vendor\Shared\Presentation\Layout\ContentContainer;
 
 use Vendor\Shared\Presentation\Block\Text\Text;
+use Vendor\Shared\Presentation\Block\Text\TextColumns;
 use Vendor\Shared\Presentation\Block\Text\TextFactory;
 use PackageFactory\AtomicFusion\PresentationObjects\Fusion\AbstractComponentPresentationObjectFactory;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\SlotInterface;
@@ -22,6 +23,7 @@ final class ContentContainerFactory extends AbstractComponentPresentationObjectF
         return new ContentContainer(
             ContentContainerVariant::VARIANT_REGULAR,
             new Text(
+                TextColumns::COLUMNS_ONE_COLUMN,
                 TextFactory::getLoremIpsum()
             )
         );

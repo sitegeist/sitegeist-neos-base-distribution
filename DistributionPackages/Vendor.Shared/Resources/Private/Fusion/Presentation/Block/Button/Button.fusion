@@ -1,0 +1,51 @@
+prototype(Vendor.Shared:Block.Button) < prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    @presentationObjectInterface = 'Vendor\\Shared\\Presentation\\Block\\Button\\Button'
+
+    @styleguide {
+        title = 'Button'
+
+        @caseFactory = 'Vendor\\Shared\\Presentation\\Block\\Button\\ButtonFactory'
+    }
+
+    renderer = afx`
+        <span
+            class={[
+                "[Block.Button (" + presentationObject.variant.value + ")]",
+                "",
+                (presentationObject.variant.equals("solid") &&
+                    "")
+            ]}
+        >
+            <Neos.Fusion:Tag
+                tagName={presentationObject.inBackend ? 'div' : 'button'}
+                attributes.class=""
+                attributes.type='submit'
+                attributes.type.@if.isSumbitButton={presentationObject.type.equals('submit') && !presentationObject.inBackend}
+            >
+                <div
+                    class={[
+                        "",
+                        presentationObject.variant.equals("solid") && ""
+                    ]}
+                >
+                    <span
+                        class={[
+                            (presentationObject.icon) && ""
+                        ]}
+                    >
+                        <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />
+                    </span>
+                    <span
+                        class={[
+                            "",
+                            presentationObject.variant.equals("solid") && ""
+                        ]}
+                        @if.1={presentationObject.icon}
+                    >
+                        <Vendor.Shared:Block.Icon presentationObject={presentationObject.icon}/>
+                    </span>
+                </div>
+            </Neos.Fusion:Tag>
+        </span>
+    `
+}
