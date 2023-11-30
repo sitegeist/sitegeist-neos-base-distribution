@@ -6,6 +6,6 @@ prototype(Vendor.Shared:Block.SiteHeader) < prototype(PackageFactory.AtomicFusio
     }
 
     renderer = afx`
-        <div class="bg-cta">[Site Header]</div>
+        <div class="bg-[purple]">[Site Header]</div>
     `
 }
