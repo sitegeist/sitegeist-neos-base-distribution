@@ -1,0 +1,42 @@
+prototype(Vendor.Shared:Block.Figure) < prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    @presentationObjectInterface = 'Vendor\\Shared\\Presentation\\Block\\Figure\\Figure'
+
+    @styleguide {
+        title = 'Figure'
+
+        @caseFactory = 'Vendor\\Shared\\Presentation\\Block\\Figure\\FigureFactory'
+    }
+
+    renderer = afx`
+        <figure class={[
+            "[Block.Figure (" + presentationObject.objectFit.value + ", ",
+            presentationObject.objectPosition.value + " | " + presentationObject.size.value + ")]",
+            "w-full h-full flex flex-col max-h-full relative rounded-space5 overflow-hidden"
+        ]}>
+            <Sitegeist.Kaleidoscope:Image
+                imageSource={presentationObject.imageSource}
+                srcset={Array.join(Array.filter([
+                    presentationObject.size.equals('fifthHalfFull') && "320w, 640w",
+                    presentationObject.size.equals('thirdHalfFull') && "320w, 640w",
+                    presentationObject.size.equals('fullFullFull') && "320w, 640w, 1000w, 1200w, 1440w, 1600w",
+                    presentationObject.size.equals('halfFullFull') && "320w, 640w, 870w"
+                ]), ' ')}
+                sizes={Array.join(Array.filter([
+                    presentationObject.size.equals('fifthHalfFull') && "(min-width: 1024px) 20vw, (min-width: 640px) 50vw, 100vw",
+                    presentationObject.size.equals('thirdHalfFull') && "(min-width: 640px) 50vw, (min-width: 1024px) 33vw, 100vw",
+                    presentationObject.size.equals('fullFullFull') && "100vw",
+                    presentationObject.size.equals('halfFullFull') && "(min-width: 768px) 50vw, 100vw"
+                ]), ' ')}
+                class={Array.join(Array.filter([
+                    "w-full h-full",
+                    presentationObject.objectFit.equals('cover') && "object-cover",
+                    presentationObject.objectFit.equals('contain') && "object-contain",
+                    presentationObject.objectPosition.equals('center') && "object-center",
+                    presentationObject.objectPosition.equals('top')  && "object-top",
+                    presentationObject.objectPosition.equals('bottom')  && "object-bottom"
+                ]), ' ')}
+                loading={presentationObject.isLazyLoaded ? 'lazy' : 'eager'}
+            />
+        </figure>
+    `
+}

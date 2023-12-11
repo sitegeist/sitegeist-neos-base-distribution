@@ -61,6 +61,8 @@ Neos:
             '1:1':
               type: 'Neos\Media\Domain\Model\ImageInterface'
               ui:
+                label: 'Bild'
+                reloadIfChanged: true
                 inspector:
                   group: 'image'
                   editorOptions:
@@ -75,6 +77,8 @@ Neos:
             '4:3':
               type: 'Neos\Media\Domain\Model\ImageInterface'
               ui:
+                label: 'Bild'
+                reloadIfChanged: true
                 inspector:
                   group: 'image'
                   editorOptions:
@@ -89,6 +93,8 @@ Neos:
             '3:2':
               type: 'Neos\Media\Domain\Model\ImageInterface'
               ui:
+                label: 'Bild'
+                reloadIfChanged: true
                 inspector:
                   group: 'image'
                   editorOptions:
@@ -103,6 +109,8 @@ Neos:
             '8:3':
               type: 'Neos\Media\Domain\Model\ImageInterface'
               ui:
+                label: 'Bild'
+                reloadIfChanged: true
                 inspector:
                   group: 'image'
                   editorOptions:

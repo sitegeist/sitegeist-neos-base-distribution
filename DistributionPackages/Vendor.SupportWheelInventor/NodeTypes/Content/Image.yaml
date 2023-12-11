@@ -1,0 +1,10 @@
+'Vendor.SupportWheelInventor:Content.Image':
+  label: "${q(node).property('headline') || node.nodeType.label}"
+  superTypes:
+    'Vendor.SupportWheelInventor:Content': true
+    'Vendor.Shared:Mixin.Headline': true
+    'Vendor.Shared:Mixin.Image': true
+
+  ui:
+    label: 'Bild'
+    icon: 'image'

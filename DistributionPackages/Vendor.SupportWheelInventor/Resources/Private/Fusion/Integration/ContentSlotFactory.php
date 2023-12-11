@@ -15,10 +15,16 @@ use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Collection
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Editable;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\SlotInterface;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Value;
+use Vendor\Shared\Integration\ImageSourceFactory;
 use Vendor\Shared\Presentation\Block\Button\Button;
 use Vendor\Shared\Presentation\Block\Button\ButtonColor;
 use Vendor\Shared\Presentation\Block\Button\ButtonType;
 use Vendor\Shared\Presentation\Block\Button\ButtonVariant;
+use Vendor\Shared\Presentation\Block\Figure\Figure;
+use Vendor\Shared\Presentation\Block\Figure\FigureAspectRatio;
+use Vendor\Shared\Presentation\Block\Figure\FigureObjectFit;
+use Vendor\Shared\Presentation\Block\Figure\FigureObjectPosition;
+use Vendor\Shared\Presentation\Block\Figure\FigureSize;
 use Vendor\Shared\Presentation\Block\Headline\Headline;
 use Vendor\Shared\Presentation\Block\Headline\HeadlineType;
 use Vendor\Shared\Presentation\Block\Headline\HeadlineVariant;
@@ -39,6 +45,7 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
 {
     public function __construct(
         private readonly LinkFactory $linkFactory,
+        private readonly ImageSourceFactory $imageSourceFactory,
     ) {
     }
     public function forContentNode(
@@ -49,6 +56,8 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
         bool $inBackend
     ): SlotInterface {
         return match ((string) $contentNode->getNodeTypeName()) {
+            'Vendor.SupportWheelInventor:Content.Image'
+                => $this->forImageNode($contentNode, $subgraph, $inBackend),
             'Vendor.SupportWheelInventor:Content.Text'
                 => $this->forTextNode($contentNode, $subgraph, $inBackend),
             default => throw new \InvalidArgumentException(
@@ -58,13 +67,45 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
         };
     }
 
+    public function forImageNode(
+        Node $contentNode,
+        ContentContext $subgraph,
+        bool $inBackend
+    ): SlotInterface {
+        $imageSource = $this->imageSourceFactory->tryFromImageMixin($contentNode, $inBackend);
+
+        return new ContentContainer(
+            ContentContainerVariant::VARIANT_REGULAR,
+            new Stack(
+                StackVariant::VARIANT_REGULAR,
+                Collection::fromSlots(... array_filter([
+                    $contentNode->getProperty('headline') || $inBackend
+                        ? new Headline(
+                            HeadlineVariant::VARIANT_REGULAR,
+                            HeadlineType::TYPE_H2,
+                            Editable::fromNodeProperty($contentNode, 'headline')
+                        )
+                        : null,
+                    $imageSource
+                        ? new Figure(
+                            $imageSource,
+                            true,
+                            FigureSize::SIZE_FULL_FULL_FULL,
+                            FigureObjectFit::FIT_COVER,
+                            FigureObjectPosition::POSITION_CENTER,
+                            FigureAspectRatio::RATIO_4X3
+                        )
+                        : null
+                ]))
+            )
+        );
+    }
+
     public function forTextNode(
         Node $textNode,
         ContentContext $subgraph,
         bool $inBackend
-    ): ContentContainer
-    {
-
+    ): SlotInterface {
         $linkProperty = $textNode->getProperty('link__href');
 
         $href = $this->linkFactory->resolveRawLinkHref($linkProperty, $subgraph);

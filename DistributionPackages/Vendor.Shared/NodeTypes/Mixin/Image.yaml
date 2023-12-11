@@ -9,12 +9,8 @@
           position: 'after document'
   properties:
     image:
-      type: 'Neos\Media\Domain\Model\ImageInterface'
-      ui:
-        label: 'Bild'
-        reloadIfChanged: true
-        inspector:
-          group: 'image'
+      options:
+        preset: 'image.4:3'
       validation:
         Neos.Neos/Validation/NotEmptyValidator: {}
     image__alt:
