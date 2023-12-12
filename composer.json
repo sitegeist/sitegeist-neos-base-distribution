@@ -32,7 +32,7 @@
         "sitegeist/kaleidoscope": "^6.5",
         "sitegeist/csvpo": "^1.5",
         "sitegeist/stampede": "^1.5",
-        "sitegeist/archaeopteryx": "^1.0",
+        "sitegeist/archaeopteryx": "dev-feature/inspectorLinkProperty as 1.4.0",
         "sitegeist/iconoclasm": "^2.0",
         "sitegeist/noderobis": "~1.1",
         "sitegeist/pyranodis": "~1.0",
