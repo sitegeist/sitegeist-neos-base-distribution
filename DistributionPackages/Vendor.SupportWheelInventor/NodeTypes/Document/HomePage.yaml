@@ -17,4 +17,6 @@
       constraints:
         nodeTypes:
           '*': false
+          'Vendor.SupportWheelInventor:Content.Image': true
+          'Vendor.SupportWheelInventor:Content.ImageWithText': true
           'Vendor.SupportWheelInventor:Content.Text': true

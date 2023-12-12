@@ -1,0 +1,53 @@
+'Vendor.SupportWheelInventor:Content.ImageWithText':
+  label: "${q(node).property('headline') || q(node).property('text') || node.nodeType.label}"
+  superTypes:
+    'Vendor.SupportWheelInventor:Content': true
+    'Vendor.Shared:Mixin.Headline': true
+    'Vendor.Shared:Mixin.Text': true
+    'Vendor.Shared:Mixin.TextColumns': true
+    'Vendor.Shared:Mixin.Link': true
+    'Vendor.Shared:Mixin.Image': true
+
+  ui:
+    label: 'Bild mit Text'
+    icon: 'id-card'
+    inspector:
+      groups:
+        layout:
+          label: 'Layout'
+          icon: 'palette'
+          position: 10
+
+  properties:
+    alignment:
+      type: string
+      defaultValue: 'Bild links'
+      ui:
+        label: 'Ausrichtung'
+        reloadIfChanged: true
+        inspector:
+          group: 'layout'
+          editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
+    layout:
+      type: string
+      defaultValue: '50-50'
+      ui:
+        label: 'Breite Varianten'
+        reloadIfChanged: true
+        inspector:
+          group: 'layout'
+          editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
+
+  postprocessors:
+    alignment:
+      postprocessor: PackageFactory\AtomicFusion\PresentationObjects\Application\EnumProvider
+      postprocessorOptions:
+        enumName: Vendor\Shared\Presentation\ImageWithTextAlignment
+        propertyNames:
+          - alignment
+    layout:
+      postprocessor: PackageFactory\AtomicFusion\PresentationObjects\Application\EnumProvider
+      postprocessorOptions:
+        enumName: Vendor\Shared\Presentation\ImageWithTextLayout
+        propertyNames:
+          - layout

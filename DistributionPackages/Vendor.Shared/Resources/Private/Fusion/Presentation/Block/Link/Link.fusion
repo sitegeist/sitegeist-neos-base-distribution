@@ -9,19 +9,15 @@ prototype(Vendor.Shared:Block.Link) < prototype(PackageFactory.AtomicFusion.Pres
 
     renderer = afx`
         <Neos.Fusion:Tag
-            tagName={presentationObject.inBackend ? 'span' : 'a'}
+            tagName={'a'}
             attributes.class={[
                 "[Block.Link (" + presentationObject.variant.value+ ")]",
                 presentationObject.variant.equals("regular") && ""
             ]}
-            attributes.href={presentationObject.href}
-            attributes.href.@if.isLink={!presentationObject.inBackend }
-            attributes.title={presentationObject.title}
-            attributes.title.@if.isLink={!presentationObject.inBackend }
-            attributes.rel={presentationObject.rel}
-            attributes.rel.@if.isLink={!presentationObject.inBackend }
-            attributes.target={presentationObject.target.value}
-            attributes.target.@if.isLink={!presentationObject.inBackend }
+            attributes.href={presentationObject.link.href}
+            attributes.title={presentationObject.link.title}
+            attributes.rel={Array.join(presentationObject.link.rel, ' ')}
+            attributes.target={presentationObject.link.target}
         >
             <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />
         </Neos.Fusion:Tag>

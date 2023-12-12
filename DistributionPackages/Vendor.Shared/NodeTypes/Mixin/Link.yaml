@@ -7,34 +7,15 @@
           label: 'Link'
           icon: 'link'
   properties:
-    link__href:
-      type: string
+    link:
+      type: Sitegeist\Archaeopteryx\Link
       ui:
         label: 'Link-Ziel'
         reloadIfChanged: true
         inspector:
           group: 'link'
-          editor: 'Neos.Neos/Inspector/Editors/LinkEditor'
-          #editor: 'Sitegeist.Archaeopteryx/Inspector/Editors/LinkEditor'
-          #editorOptions:
-          #  linkTypes:
-          #    'Sitegeist.Archaeopteryx:Node':
-          #      position: start 100
-          #    'Sitegeist.Archaeopteryx:Asset':
-          #      position: start 90
-          #    'Sitegeist.Archaeopteryx:MailTo':
-          #      position: start 80
-          #    'Sitegeist.Archaeopteryx:Web':
-          #      position: start 70
-          #    'Sitegeist.Archaeopteryx:PhoneNumber':
-          #      position: start 60
-    link__label:
-      type: string
-      ui:
-        label: 'Link-Label'
-        reloadIfChanged: true
-        inspector:
-          group: 'link'
-#      search:
-#        fulltextExtractor: ${Indexing.extractInto('text', value)}
-
+          editorOptions:
+            anchor: true
+            title: true
+            relNofollow: true
+            targetBlank: true
