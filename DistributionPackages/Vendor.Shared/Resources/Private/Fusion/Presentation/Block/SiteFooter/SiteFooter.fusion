@@ -6,7 +6,7 @@ prototype(Vendor.Shared:Block.SiteFooter) < prototype(PackageFactory.AtomicFusio
     }
 
     renderer = afx`
-        <div class="bg-error  p-5">
+        <div class="bg-brand-grey p-5">
             [Site Footer]
         </div>
     `

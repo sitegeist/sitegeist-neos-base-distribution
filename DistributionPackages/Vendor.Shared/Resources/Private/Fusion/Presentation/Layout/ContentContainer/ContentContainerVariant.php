@@ -14,5 +14,6 @@ use PackageFactory\AtomicFusion\PresentationObjects\Fusion\StringComponentVarian
 enum ContentContainerVariant: string implements ProtectedContextAwareInterface
 {
     use StringComponentVariant;
+    case VARIANT_NONE = 'none';
     case VARIANT_REGULAR = 'regular';
 }

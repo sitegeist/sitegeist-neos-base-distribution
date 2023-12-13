@@ -7,7 +7,8 @@ module.exports = {
 		colors: {
 			brand: {
 				DEFAULT: '#564e58',
-				contrast: '#fff'
+				contrast: '#fff',
+				grey: '#efefef'
 			},
 			cta: {
 				DEFAULT: '#ff934f',

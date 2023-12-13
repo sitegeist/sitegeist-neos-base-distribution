@@ -44,18 +44,18 @@ final class LinkedButtonFactory extends AbstractComponentPresentationObjectFacto
                 ButtonVariant::VARIANT_SOLID,
                 ButtonType::TYPE_REGULAR,
                 ButtonColor::COLOR_BRAND,
-                Value::fromString($link->title ?: ''),
+                Value::fromString($link?->title ?: ''),
                 Icon::specifiedWith(IconName::NAME_ARROW_RIGHT, IconSize::SIZE_REGULAR),
                 $inBackend
             );
 
-            return $inBackend
-                ? $button
-                : new Link(
+            return !$inBackend && $link
+                ? new Link(
                     LinkVariant::VARIANT_REGULAR,
                     $link,
                     $button
-                );
+                )
+                : $button;
         }
 
         return null;
@@ -81,7 +81,7 @@ final class LinkedButtonFactory extends AbstractComponentPresentationObjectFacto
                         $this->uriService->getNodeUri($node),
                         $link->title,
                         $link->target ?: LinkTarget::TARGET_SELF->value,
-                        $link->rel ?: LinkTarget::TARGET_BLANK->getRel()
+                        $link->rel ?: []
                     )
                     : null;
             default:
