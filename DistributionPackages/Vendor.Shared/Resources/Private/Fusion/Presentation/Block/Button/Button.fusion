@@ -11,34 +11,27 @@ prototype(Vendor.Shared:Block.Button) < prototype(PackageFactory.AtomicFusion.Pr
         <span
             class={[
                 "[Block.Button (" + presentationObject.variant.value + ")]",
-                "",
-                (presentationObject.variant.equals("solid") &&
-                    "")
+                "inline-flex items-center min-w-touch min-h-touch",
+                "text-[blue]"
             ]}
         >
             <Neos.Fusion:Tag
                 tagName={presentationObject.inBackend ? 'div' : 'button'}
-                attributes.class=""
+                attributes.class="w-full text-left"
                 attributes.type='submit'
                 attributes.type.@if.isSumbitButton={presentationObject.type.equals('submit') && !presentationObject.inBackend}
             >
                 <div
                     class={[
-                        "",
-                        presentationObject.variant.equals("solid") && ""
+                        "flex gap-3 items-center justify-between"
                     ]}
                 >
-                    <span
-                        class={[
-                            (presentationObject.icon) && ""
-                        ]}
-                    >
+                    <span>
                         <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />
                     </span>
                     <span
                         class={[
-                            "",
-                            presentationObject.variant.equals("solid") && ""
+                            "flex-shrink-0"
                         ]}
                         @if.1={presentationObject.icon}
                     >

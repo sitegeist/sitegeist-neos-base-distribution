@@ -1,3 +1,6 @@
+const MIN_TOUCH = '48px';
+const MAX_CONTENT_WIDTH = '1000px';
+
 module.exports = {
 	content: [
 		'./Resources/Private/Fusion/**/*',
@@ -31,7 +34,17 @@ module.exports = {
 				contrast: '#000'
 			},
 		},
-		extend: {},
+		extend: {
+			maxWidth: {
+				'content-full': `${MAX_CONTENT_WIDTH}`
+			},
+			minWidth: {
+				touch: MIN_TOUCH,
+			},
+			minHeight: {
+				touch: MIN_TOUCH,
+			},
+		},
 	},
 	variants: {
 		extend: {},

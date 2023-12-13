@@ -11,7 +11,7 @@ prototype(Vendor.Shared:Layout.ContentContainer) < prototype(PackageFactory.Atom
         <div
             class={[
                 "[Layout.ContentContainer (" + presentationObject.variant.value + ")]",
-                presentationObject.variant.equals('regular') && "p-5 w-full mx-auto"
+                presentationObject.variant.equals('regular') && "p-5 w-full mx-auto max-w-content-full"
             ]}
         >
             <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />

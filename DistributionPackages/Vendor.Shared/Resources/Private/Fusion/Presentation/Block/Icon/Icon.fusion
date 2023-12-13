@@ -11,7 +11,7 @@ prototype(Vendor.Shared:Block.Icon) < prototype(PackageFactory.AtomicFusion.Pres
         collection = ${presentationObject.collection.value}
         icon = ${presentationObject.name.value}
         class = Neos.Fusion:Join {
-            size_1 = ""
+            size_1 = "w-[1em] h-[1em]"
             size_1.@if.1 = ${presentationObject.size.equals('regular')}
         }
         style = null
