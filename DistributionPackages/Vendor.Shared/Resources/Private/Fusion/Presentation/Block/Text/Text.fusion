@@ -11,12 +11,10 @@ prototype(Vendor.Shared:Block.Text) < prototype(PackageFactory.AtomicFusion.Pres
         <div
             class={[
                 "[Block.Text (" + presentationObject.columns.value + ")]",
-                presentationObject.columns.equals('oneColumn') && "",
-                presentationObject.columns.equals('twoColumns') && ""
+                presentationObject.columns.equals('twoColumns') && "sm:columns-2"
             ]}
         >
-            <div
-            >
+            <div>
                 <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />
             </div>
         </div>

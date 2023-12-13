@@ -14,19 +14,20 @@ prototype(Vendor.Shared:Block.Headline) < prototype(PackageFactory.AtomicFusion.
             name = ${"[Block.Headline (" +
                 presentationObject.type.value +
                 "|" + presentationObject.variant.value +
-                ")] "
+                ")] " +
+                "w-full"
             }
 
-            h1 = ""
+            h1 = "text-2xl font-bold"
             h1.@if.1 = ${presentationObject.type.equals('h1')}
 
-            h2 = ""
+            h2 = "text-2xl font-bold"
             h2.@if.1 = ${presentationObject.type.equals('h2')}
 
-            h3 = ""
+            h3 = "text-xl font-bold"
             h3.@if.1 = ${presentationObject.type.equals('h3')}
 
-            div = ""
+            div = "text-2xl font-bold"
             div.@if.1 = ${presentationObject.type.equals('div')}
 
             uppercase = "uppercase"

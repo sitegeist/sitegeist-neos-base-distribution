@@ -11,7 +11,8 @@ prototype(Vendor.Shared:Layout.Stack) < prototype(PackageFactory.AtomicFusion.Pr
         <div
             class={[
                 "[Layout.Stack (" + presentationObject.variant.value + ")]",
-                "flex"
+                "flex",
+                presentationObject.variant.equals('regular') && "flex-col"
             ]}
         >
             <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />
