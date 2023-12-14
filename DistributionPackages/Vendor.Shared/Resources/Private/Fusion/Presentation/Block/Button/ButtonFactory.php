@@ -14,6 +14,7 @@ use PackageFactory\AtomicFusion\PresentationObjects\Fusion\AbstractComponentPres
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\SlotInterface;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Value;
 use Sitegeist\Monocle\PresentationObjects\Domain\StyleguideCaseFactoryInterface;
+use Vendor\Shared\Presentation\Block\Icon\IconColor;
 use Vendor\Shared\Presentation\Block\Icon\IconName;
 use Vendor\Shared\Presentation\Block\Icon\IconSize;
 
@@ -47,7 +48,7 @@ final class ButtonFactory extends AbstractComponentPresentationObjectFactory imp
             ButtonType::TYPE_REGULAR,
             ButtonColor::COLOR_BRAND,
             Value::fromString('Button Text'),
-            Icon::specifiedWith(IconName::NAME_ARROW_RIGHT, IconSize::SIZE_REGULAR),
+            Icon::specifiedWith(IconName::NAME_ARROW_RIGHT, IconSize::SIZE_REGULAR, IconColor::COLOR_DEFAULT),
             false
         );
     }

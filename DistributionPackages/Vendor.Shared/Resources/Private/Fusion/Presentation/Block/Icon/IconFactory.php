@@ -16,11 +16,19 @@ final class IconFactory extends AbstractComponentPresentationObjectFactory imple
 {
     public function getDefaultCase(): SlotInterface
     {
-        return Icon::specifiedWith(IconName::NAME_ARROW_RIGHT, IconSize::SIZE_REGULAR);
+        return Icon::specifiedWith(
+            IconName::NAME_ARROW_RIGHT,
+            IconSize::SIZE_REGULAR,
+            IconColor::COLOR_DEFAULT
+        );
     }
 
     public function getUseCases(): \Traversable
     {
-        yield 'Arrow Right' => Icon::specifiedWith(IconName::NAME_ARROW_RIGHT, IconSize::SIZE_REGULAR);
+        yield 'Arrow Right' => Icon::specifiedWith(
+            IconName::NAME_ARROW_RIGHT,
+            IconSize::SIZE_REGULAR,
+            IconColor::COLOR_DEFAULT
+        );
     }
 }

@@ -17,6 +17,7 @@ final class Icon extends AbstractComponentPresentationObject
     public function __construct(
         public readonly IconName $name,
         public readonly IconSize $size,
+        public readonly IconColor $color,
         public readonly IconCollection $collection
     ) {
     }
@@ -24,12 +25,14 @@ final class Icon extends AbstractComponentPresentationObject
     public static function specifiedWith(
         IconName $iconName,
         IconSize $iconSize,
+        IconColor $iconColor,
         IconCollection $iconCollection = IconCollection::COLLECTION_SHARED
 
     ): self {
         return new self(
             $iconName,
             $iconSize,
+            $iconColor,
             $iconCollection
         );
     }

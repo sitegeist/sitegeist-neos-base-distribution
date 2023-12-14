@@ -21,6 +21,7 @@ use Vendor\Shared\Presentation\Block\Button\ButtonColor;
 use Vendor\Shared\Presentation\Block\Button\ButtonType;
 use Vendor\Shared\Presentation\Block\Button\ButtonVariant;
 use Vendor\Shared\Presentation\Block\Icon\Icon;
+use Vendor\Shared\Presentation\Block\Icon\IconColor;
 use Vendor\Shared\Presentation\Block\Icon\IconName;
 use Vendor\Shared\Presentation\Block\Icon\IconSize;
 use Vendor\Shared\Presentation\Block\Link\Link;
@@ -45,7 +46,11 @@ final class LinkedButtonFactory extends AbstractComponentPresentationObjectFacto
                 ButtonType::TYPE_REGULAR,
                 ButtonColor::COLOR_BRAND,
                 Value::fromString($link?->title ?: ''),
-                Icon::specifiedWith(IconName::NAME_ARROW_RIGHT, IconSize::SIZE_REGULAR),
+                Icon::specifiedWith(
+                    IconName::NAME_ARROW_RIGHT,
+                    IconSize::SIZE_REGULAR,
+                    IconColor::COLOR_DEFAULT
+                ),
                 $inBackend
             );
 
