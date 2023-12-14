@@ -12,7 +12,7 @@ prototype(Vendor.Shared:Layout.ContentContainer) < prototype(PackageFactory.Atom
             class={[
                 "[Layout.ContentContainer (" + presentationObject.variant.value + ")]",
                 presentationObject.variant.equals('regular') && "p-5 w-full mx-auto max-w-content-full",
-                presentationObject.variant.equals('reverseOrder') && "order-first sm:order-last"
+                presentationObject.variant.equals('reverseOrder') && "order-first sm:order-0"
             ]}
         >
             <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />
