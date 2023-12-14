@@ -126,7 +126,9 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
         $imageSource = $this->imageSourceFactory->tryFromImageMixin($contentNode, $inBackend);
         $layout = ImageWithTextLayout::from($contentNode->getProperty('layout'));
         $imageContent = new ContentContainer(
-            ContentContainerVariant::VARIANT_NONE,
+            $alignment === ImageWithTextAlignment::VARIANT_IMAGEFIRST
+                ? ContentContainerVariant::VARIANT_NONE
+                : ContentContainerVariant::VARIANT_REVERSE_ORDER,
             Collection::fromIterable(
                 array_filter([
                     $imageSource
