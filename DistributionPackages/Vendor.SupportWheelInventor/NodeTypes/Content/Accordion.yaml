@@ -1,0 +1,26 @@
+'Vendor.SupportWheelInventor:Content.Accordion':
+  label: "${q(node).property('headline') || q(node).property('text') || node.nodeType.label}"
+  superTypes:
+    'Vendor.SupportWheelInventor:Content': true
+    'Neos.Neos:ContentCollection': true
+    'Vendor.Shared:Mixin.Headline': true
+  ui:
+    label: 'Akkordeon'
+    icon: 'list'
+    inspector:
+      groups:
+        layout:
+          label: 'Layout'
+          icon: 'palette'
+          position: 40
+  constraints:
+    nodeTypes:
+      '*': false
+      'Vendor.SupportWheelInventor:Content.AccordionItem': true
+  options:
+    template:
+      childNodes:
+        accordion1:
+          type: 'Vendor.SupportWheelInventor:Content.AccordionItem'
+        accordion2:
+          type: 'Vendor.SupportWheelInventor:Content.AccordionItem'
