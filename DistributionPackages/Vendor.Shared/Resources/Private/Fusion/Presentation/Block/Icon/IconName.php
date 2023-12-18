@@ -16,4 +16,6 @@ enum IconName: string implements ProtectedContextAwareInterface
     use StringComponentVariant;
 
     case NAME_ARROW_RIGHT = 'arrow_right';
+    case NAME_DASH = 'dash';
+    case NAME_PLUS = 'plus';
 }

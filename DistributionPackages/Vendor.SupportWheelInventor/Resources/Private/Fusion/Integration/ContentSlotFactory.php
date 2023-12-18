@@ -19,6 +19,7 @@ use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Content;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Editable;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\SlotInterface;
 use Vendor\Shared\Integration\ImageSourceFactory;
+use Vendor\Shared\Presentation\Block\AccordionItem\AccordionItem;
 use Vendor\Shared\Presentation\Block\Figure\Figure;
 use Vendor\Shared\Presentation\Block\Figure\FigureAspectRatio;
 use Vendor\Shared\Presentation\Block\Figure\FigureObjectFit;
@@ -27,6 +28,10 @@ use Vendor\Shared\Presentation\Block\Figure\FigureSize;
 use Vendor\Shared\Presentation\Block\Headline\Headline;
 use Vendor\Shared\Presentation\Block\Headline\HeadlineType;
 use Vendor\Shared\Presentation\Block\Headline\HeadlineVariant;
+use Vendor\Shared\Presentation\Block\Icon\Icon;
+use Vendor\Shared\Presentation\Block\Icon\IconColor;
+use Vendor\Shared\Presentation\Block\Icon\IconName;
+use Vendor\Shared\Presentation\Block\Icon\IconSize;
 use Vendor\Shared\Presentation\Block\Text\Text;
 use Vendor\Shared\Presentation\Block\Text\TextColumns;
 use Vendor\Shared\Presentation\ImageWithTextAlignment;
@@ -67,6 +72,10 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
                 => $this->forImageWithTextNode($contentNode, $subgraph, $inBackend),
             'Vendor.SupportWheelInventor:Content.Text'
                 => $this->forTextNode($contentNode, $subgraph, $inBackend),
+            'Vendor.SupportWheelInventor:Content.Accordion'
+                => $this->forAccordionNode($contentNode, $subgraph, $inBackend),
+            'Vendor.SupportWheelInventor:Content.AccordionItem'
+                => $this->forAccordionItemNode($contentNode, $subgraph, $inBackend),
             default => throw new \InvalidArgumentException(
                 'Don\'t know how to render nodes of type ' . $contentNode->getNodeTypeName(),
                 1664205952
@@ -296,6 +305,69 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
                     $this->linkedButtonFactory->tryForLinkMixin($contentNode, $subgraph, $inBackend),
                 ]))
             )
+        );
+    }
+
+    public function forAccordionNode(
+        Node $accordionNode,
+        ContentContext $subgraph,
+        bool $inBackend
+    ): SlotInterface
+    {
+        return new ContentContainer(
+            ContentContainerVariant::VARIANT_REGULAR,
+            new Stack(
+                StackVariant::VARIANT_SPACE_Y_4,
+                Collection::fromSlots(... array_filter([
+                    $inBackend || $accordionNode->getProperty('headline')
+                        ? new Headline(
+                            HeadlineVariant::VARIANT_REGULAR,
+                            HeadlineType::TYPE_H3,
+                            Editable::fromNodeProperty($accordionNode, 'headline')
+                        )
+                        : null,
+                    Collection::fromNodes(
+                        $accordionNode->findChildNodes(),
+                        function (Node $accordionItem): Content {
+                            return Content::fromNode($accordionItem, 'Vendor.SupportWheelInventor:ContentSlot');
+                        }
+                    )
+                ]))
+            )
+        );
+
+    }
+
+    public function forAccordionItemNode(
+        Node $accordionItemNode,
+        ContentContext $subgraph,
+        bool $inBackend
+    ): SlotInterface
+    {
+        return new AccordionItem(
+            Editable::fromNodeProperty($accordionItemNode, 'headline'),
+            new Stack(
+                StackVariant::VARIANT_REGULAR,
+                Collection::fromSlots(...array_filter([
+                    new Text(
+                        TextColumns::from($accordionItemNode->getProperty('columns') ?: 'oneColumn'),
+                        Editable::fromNodeProperty($accordionItemNode, 'text')
+                    ),
+                    $this->linkedButtonFactory->tryForLinkMixin($accordionItemNode, $subgraph, $inBackend)
+                ]))
+            ),
+            Icon::specifiedWith(
+                IconName::NAME_DASH,
+                IconSize::SIZE_REGULAR,
+                IconColor::COLOR_DEFAULT
+            ),
+            Icon::specifiedWith(
+                IconName::NAME_PLUS,
+                IconSize::SIZE_REGULAR,
+                IconColor::COLOR_DEFAULT
+            ),
+            $accordionItemNode->getProperty('isAccordionOpen'),
+            $inBackend
         );
     }
 }

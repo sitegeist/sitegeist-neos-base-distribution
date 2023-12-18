@@ -1,0 +1,56 @@
+prototype(Vendor.Shared:Block.AccordionItem) < prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    @presentationObjectInterface = 'Vendor\\Shared\\Presentation\\Block\\AccordionItem\\AccordionItem'
+
+    @styleguide {
+        title = 'AccordionItem'
+
+        @caseFactory = 'Vendor\\Shared\\Presentation\\Block\\AccordionItem\\AccordionItemFactory'
+    }
+
+    renderer = afx`
+        <div
+            class={[
+                "[Block.AccordionItem]",
+                "bg-brand-grey w-full"
+            ]}
+        >
+            <Neos.Fusion:Tag
+                tagName={presentationObject.inBackend ? 'div' : 'details'}
+                attributes.class={[
+                    "[&_summary]:open:bg-[grey]",
+                    "[&_.accordionIconMinus]:open:flex",
+                    "[&_.accordionIconPlus]:open:hidden"
+                ]}
+                attributes.open={["open"]}
+                attributes.open.@if.1={presentationObject.isOpen}
+
+            >
+                <summary class={[
+                    "flex justify-between items-center",
+                    "list-none px-4 pt-4 pb-4 cursor-pointer"
+                ]}>
+                    <div class="text-lg font-canaro-medium">
+                        <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.header} />
+                    </div>
+                    <div>
+                        <div class="accordionIconPlus pb-1 flex">
+                            <Vendor.Shared:Block.Icon
+                                presentationObject={presentationObject.plusIcon}
+                            />
+                        </div>
+                        <div class="accordionIconMinus pb-2 hidden">
+                            <Vendor.Shared:Block.Icon
+                                presentationObject={presentationObject.dashIcon}
+                            />
+                        </div>
+                    </div>
+                </summary>
+                <section
+                    class="p-4"
+                >
+                    <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />
+                </section>
+            </Neos.Fusion:Tag>
+        </div>
+    `
+}
