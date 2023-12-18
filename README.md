@@ -10,6 +10,7 @@ composer create-project sitegeist/neos-base-distribution customer-folder
 
 Migrate database and add Admin user
 ```sh
+ddev flow cr:setup default
 ddev flow doctrine:migrate
 ddev flow user:create --roles Administrator admin admin Admin User
 ```
