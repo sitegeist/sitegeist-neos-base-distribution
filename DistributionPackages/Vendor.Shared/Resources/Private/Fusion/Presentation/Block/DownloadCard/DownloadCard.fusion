@@ -1,0 +1,60 @@
+prototype(Vendor.Shared:Block.DownloadCard) < prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    @presentationObjectInterface = 'Vendor\\Shared\\Presentation\\Block\\DownloadCard\\DownloadCard'
+
+    @styleguide {
+        title = 'DownloadCard'
+        @caseFactory = 'Vendor\\Shared\\Presentation\\Block\\DownloadCard\\DownloadCardFactory'
+    }
+
+    renderer = afx`
+        <div class={[
+            "[Block.DownloadCard]",
+            "p-space24 flex flex-col justify-between h-full space-y-space24"
+        ]}>
+            <div class={[
+                "flex gap-space24 h-full"
+            ]}>
+                <div class="w-1/4 flex items-start flex-shrink-0 h-full">
+                    <div class="shadow-md">
+                        <PackageFactory.AtomicFusion.PresentationObjects:Slot
+                            presentationObject={presentationObject.media}
+                            @if.1={presentationObject.media}
+                        />
+                    </div>
+                </div>
+                <div class="flex flex-col justify-between h-full w-full">
+                    <div class="h-full flex flex-col justify-between mb-2">
+                        <div class="line-clamp-2">
+                            <Vendor.Shared:Block.Headline
+                                presentationObject={presentationObject.headline}
+                                @if.1={presentationObject.headline}
+                            />
+                        </div>
+                        <div class="flex justify-between font-canaro-light -mb-4">
+                            <div>
+                                <PackageFactory.AtomicFusion.PresentationObjects:Slot
+                                    presentationObject={presentationObject.primaryMetaHeadline}
+                                    @if.1={presentationObject.primaryMetaHeadline}
+                                />
+                            </div>
+                            <div>
+                                <PackageFactory.AtomicFusion.PresentationObjects:Slot
+                                    presentationObject={presentationObject.secondaryMetaHeadline}
+                                    @if.1={presentationObject.secondaryMetaHeadline}
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-brand-lightBlue">
+                <PackageFactory.AtomicFusion.PresentationObjects:Slot
+                    presentationObject={presentationObject.link}
+                    @if.1={presentationObject.link}
+                />
+            </div>
+        </div>
+    `
+}
+
+

@@ -1,0 +1,15 @@
+prototype(Vendor.SupportWheelInventor:CacheSegment.DownloadList) < prototype(PackageFactory.AtomicFusion.PresentationObjects:CacheSegment) {
+    @cache {
+        entryIdentifier {
+            node = ${node}
+        }
+        entryTags {
+            // whenever the node changes (eg: when tags or asset collection property changes) the list may change
+            node = ${Neos.Caching.nodeTag(node)}
+            // whenever an asset changes, the list may change
+            contact = 'Vendor.SupportWheelInventor:Asset'
+            // whenever the homepage changes (adoptedAssetCollections property), the list may change
+            site = ${Neos.Caching.nodeTag(site)}
+        }
+    }
+}

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the Nordmann.Shared package.
+ * This file is part of the Vendor.Shared package.
  */
 
 declare(strict_types=1);

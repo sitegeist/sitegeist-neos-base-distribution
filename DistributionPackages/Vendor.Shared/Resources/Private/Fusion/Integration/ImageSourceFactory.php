@@ -17,6 +17,7 @@ use Neos\Media\Domain\Model\ImageInterface;
 use Neos\Media\Domain\Model\ImageVariant;
 use Neos\Media\Domain\Model\ThumbnailConfiguration;
 use Neos\Media\Domain\Service\ThumbnailService;
+use Neos\Media\Exception\ThumbnailServiceException;
 use PackageFactory\AtomicFusion\PresentationObjects\Fusion\UriServiceInterface;
 use Sitegeist\Kaleidoscope\Domain\AssetImageSource;
 use Sitegeist\Kaleidoscope\Domain\DummyImageSource;
@@ -109,21 +110,26 @@ final class ImageSourceFactory
         );
     }
 
-    public function tryForDocument(Document $document, ?string $alt = null, ?string $title = null): ?ImageSourceInterface
-    {
-        $thumbnail = $this->thumbnailService->getThumbnail(
-            $document,
-            new ThumbnailConfiguration(679, 679, 960, 960)
-        );
-        if ($thumbnail) {
-            return new UriImageSource(
-                $this->thumbnailService->getUriForThumbnail($thumbnail),
-                $title ?: $document->getTitle(),
-                $alt ?: $document->getCaption()
+    public function tryForDocument(
+        Document $document,
+        ?string $alt = null,
+        ?string $title = null
+    ): ?ImageSourceInterface {
+        try {
+            $thumbnail = $this->thumbnailService->getThumbnail(
+                $document,
+                $this->thumbnailService->getThumbnailConfigurationForPreset('pdf')
             );
+        } catch (\Exception $e) {
+            $thumbnail = null;
         }
-
-        return null;
+        return $thumbnail
+            ? new UriImageSource(
+            $this->thumbnailService->getUriForThumbnail($thumbnail),
+            $title ?: $document->getTitle(),
+            $alt ?: $document->getCaption()
+            )
+            : null;
     }
 
     public static function createDummyImage(

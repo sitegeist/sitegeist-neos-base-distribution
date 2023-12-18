@@ -9,9 +9,13 @@ declare(strict_types=1);
 namespace Vendor\SupportWheelInventor\Integration;
 
 use Neos\ContentRepository\Domain\Model\Node;
+use Neos\Media\Domain\Model\Document;
+use Neos\Media\Domain\Repository\DocumentRepository;
 use Neos\Neos\Domain\Service\ContentContext;
 use PackageFactory\AtomicFusion\PresentationObjects\Fusion\AbstractComponentPresentationObjectFactory;
+use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\CacheSegment;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Collection;
+use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Content;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Editable;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\SlotInterface;
 use Vendor\Shared\Integration\ImageSourceFactory;
@@ -39,6 +43,8 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
     public function __construct(
         private readonly LinkedButtonFactory $linkedButtonFactory,
         private readonly ImageSourceFactory $imageSourceFactory,
+        private readonly DocumentRepository $documentRepository,
+        private readonly DownloadCardFactory $downloadCardFactory,
     ) {
     }
     public function forContentNode(
@@ -49,6 +55,12 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
         bool $inBackend
     ): SlotInterface {
         return match ((string) $contentNode->getNodeTypeName()) {
+            'Vendor.SupportWheelInventor:Content.Download'
+                => $this->forDownloadNode($contentNode, $inBackend),
+            'Vendor.SupportWheelInventor:Content.DownloadList'
+                => $this->forDownloadListNode($contentNode, $subgraph, $inBackend),
+            'Vendor.SupportWheelInventor:Content.Downloads'
+                => $this->forDownloadsNode($contentNode, $subgraph, $inBackend),
             'Vendor.SupportWheelInventor:Content.Image'
                 => $this->forImageNode($contentNode, $subgraph, $inBackend),
             'Vendor.SupportWheelInventor:Content.ImageWithText'
@@ -60,6 +72,110 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
                 1664205952
             )
         };
+    }
+
+    public function forDownloadListNode(
+        Node $contentNode,
+        ContentContext $subgraph,
+        bool $inBackend
+    ): SlotInterface {
+        $query = $this->documentRepository->createQuery();
+        $constraints = [];
+        $assetCollectionIds = $contentNode->getProperty('assetCollections');
+        if ($assetCollectionIds) {
+            $constraints[] = $query->contains('assetCollections', $assetCollectionIds);
+        }
+        $tagIds = $contentNode->getProperty('tags');
+        if ($tagIds) {
+            $constraints[] = $query->contains('tags', $tagIds);
+        }
+
+        /** @var array<Document> $documents */
+        $documents = $constraints
+            ? $query->matching(
+                $query->logicalAnd(...$constraints)
+            )->execute()->toArray()
+            : [];
+
+        $umlautSearch = ['Ä','ä','Ö','ö','Ü','ü','ß'];
+        $umlautReplace = ['A','a','O','o','U','u','ss'];
+
+        uasort(
+            $documents,
+            fn (Document $documentA, Document $documentB)
+            =>
+                str_replace($umlautSearch, $umlautReplace, $documentA->getTitle())
+                <=>
+                str_replace($umlautSearch, $umlautReplace, $documentB->getTitle())
+        );
+
+        return new ContentContainer(
+            ContentContainerVariant::VARIANT_REGULAR,
+            new Stack(
+                StackVariant::VARIANT_REGULAR,
+                Collection::fromSlots(... array_filter([
+                    $contentNode->getProperty('headline') || $inBackend
+                        ? new Headline(
+                            HeadlineVariant::VARIANT_REGULAR,
+                            HeadlineType::TYPE_H2,
+                            Editable::fromNodeProperty($contentNode, 'headline')
+                        )
+                        : null,
+                    new CacheSegment(
+                        new Grid(
+                            GridVariant::VARIANT_REGULAR,
+                            Collection::fromIterable(
+                                $documents,
+                                fn(Document $asset): SlotInterface
+                                => new ContentContainer(
+                                    ContentContainerVariant::VARIANT_REGULAR,
+                                    $this->downloadCardFactory->forAsset($asset, $inBackend, null)
+                                )
+                            )
+                        ),
+                        'Vendor.SupportWheelInventor:CacheSegment.DownloadList'
+                    )
+                ]))
+            )
+        );
+    }
+
+    public function forDownloadsNode(
+        Node $contentNode,
+        ContentContext $subgraph,
+        bool $inBackend
+    ): SlotInterface {
+        return new ContentContainer(
+            ContentContainerVariant::VARIANT_REGULAR,
+            new Stack(
+                StackVariant::VARIANT_REGULAR,
+                Collection::fromSlots(... array_filter([
+                    $contentNode->getProperty('headline') || $inBackend
+                        ? new Headline(
+                            HeadlineVariant::VARIANT_REGULAR,
+                            HeadlineType::TYPE_H2,
+                            Editable::fromNodeProperty($contentNode, 'headline')
+                        )
+                        : null,
+                    new Grid(
+                        GridVariant::VARIANT_REGULAR,
+                        Collection::fromNodes(
+                            $contentNode->findChildNodes(),
+                            fn (Node $downloadNode): Content
+                                => Content::fromNode($downloadNode, 'Vendor.SupportWheelInventor:ContentSlot')
+                        )
+                    )
+                ]))
+            )
+        );
+    }
+
+    public function forDownloadNode(Node $downloadNode, bool $inBackend): SlotInterface
+    {
+        return new ContentContainer(
+            ContentContainerVariant::VARIANT_REGULAR,
+            $this->downloadCardFactory->forDownloadNode($downloadNode, $inBackend)
+        );
     }
 
     public function forImageNode(

@@ -1,0 +1,42 @@
+'Vendor.SupportWheelInventor:Content.DownloadList':
+  label: "${node.nodeType.label}"
+  superTypes:
+    'Vendor.SupportWheelInventor:Content': true
+    'Vendor.Shared:Mixin.Headline': true
+
+  ui:
+    label: 'Download-Liste'
+    icon: 'download'
+    inspector:
+      groups:
+        downloads:
+          label: 'Downloads'
+          icon: 'download'
+
+  properties:
+    assetCollections:
+      type: array
+      ui:
+        label: 'Sammlungen'
+        reloadIfChanged: true
+        inspector:
+          group: downloads
+          editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            multiple: true
+            allowEmpty: true
+            placeholder: 'Sammlungen wählen'
+            dataSourceIdentifier: 'vendor-shared-assetcollections'
+    tags:
+      type: array
+      ui:
+        label: 'Tags'
+        reloadIfChanged: true
+        inspector:
+          group: downloads
+          editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            multiple: true
+            allowEmpty: true
+            placeholder: 'Tags wählen'
+            dataSourceIdentifier: 'vendor-shared-tags'
