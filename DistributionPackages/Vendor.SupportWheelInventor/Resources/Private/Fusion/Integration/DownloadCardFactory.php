@@ -72,7 +72,7 @@ final class DownloadCardFactory extends AbstractComponentPresentationObjectFacto
     {
         $assetMedia = ($asset instanceof Document) ? $this->getMediaForDocument($asset) : null;
         $button = new Button(
-            ButtonVariant::VARIANT_SOLID,
+            ButtonVariant::VARIANT_DOWNLOAD,
             ButtonType::TYPE_REGULAR,
             ButtonColor::COLOR_BRAND,
             Value::fromString('Download'),
@@ -95,7 +95,8 @@ final class DownloadCardFactory extends AbstractComponentPresentationObjectFacto
                 : null,
             $asset instanceof Document
                 ? ($inBackend
-                    ? new Link(
+                    ? $button
+                    : new Link(
                         LinkVariant::VARIANT_REGULAR,
                         ArchaeopteryxLink::create(
                             $this->uriService->getAssetUri($asset),
@@ -105,7 +106,6 @@ final class DownloadCardFactory extends AbstractComponentPresentationObjectFacto
                         ),
                         $button,
                     )
-                    : $button
                 )
                 : null
         );

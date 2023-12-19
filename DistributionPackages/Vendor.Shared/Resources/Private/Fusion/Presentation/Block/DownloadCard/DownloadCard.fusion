@@ -9,13 +9,13 @@ prototype(Vendor.Shared:Block.DownloadCard) < prototype(PackageFactory.AtomicFus
     renderer = afx`
         <div class={[
             "[Block.DownloadCard]",
-            "p-space24 flex flex-col justify-between h-full space-y-space24"
+            "p-4 flex flex-col justify-between h-full space-y-4 bg-brand-grey"
         ]}>
             <div class={[
-                "flex gap-space24 h-full"
+                "flex gap-4 h-full"
             ]}>
                 <div class="w-1/4 flex items-start flex-shrink-0 h-full">
-                    <div class="shadow-md">
+                    <div class="shadow-md h-full w-full">
                         <PackageFactory.AtomicFusion.PresentationObjects:Slot
                             presentationObject={presentationObject.media}
                             @if.1={presentationObject.media}
@@ -30,7 +30,7 @@ prototype(Vendor.Shared:Block.DownloadCard) < prototype(PackageFactory.AtomicFus
                                 @if.1={presentationObject.headline}
                             />
                         </div>
-                        <div class="flex justify-between font-canaro-light -mb-4">
+                        <div class="flex justify-between -mb-4">
                             <div>
                                 <PackageFactory.AtomicFusion.PresentationObjects:Slot
                                     presentationObject={presentationObject.primaryMetaHeadline}
@@ -47,7 +47,7 @@ prototype(Vendor.Shared:Block.DownloadCard) < prototype(PackageFactory.AtomicFus
                     </div>
                 </div>
             </div>
-            <div class="text-brand-lightBlue">
+            <div>
                 <PackageFactory.AtomicFusion.PresentationObjects:Slot
                     presentationObject={presentationObject.link}
                     @if.1={presentationObject.link}

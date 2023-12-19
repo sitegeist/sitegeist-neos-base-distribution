@@ -14,5 +14,7 @@ use PackageFactory\AtomicFusion\PresentationObjects\Fusion\StringComponentVarian
 enum ButtonVariant: string implements ProtectedContextAwareInterface
 {
     use StringComponentVariant;
+    case VARIANT_REGULAR = 'regular';
     case VARIANT_SOLID = 'solid';
+    case VARIANT_DOWNLOAD = 'download';
 }

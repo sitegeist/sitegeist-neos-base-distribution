@@ -12,7 +12,10 @@ prototype(Vendor.Shared:Block.Button) < prototype(PackageFactory.AtomicFusion.Pr
             class={[
                 "[Block.Button (" + presentationObject.variant.value + ")]",
                 "inline-flex items-center min-w-touch min-h-touch",
-                "text-[blue]"
+                presentationObject.variant.equals("regular") && "text-[blue]",
+                presentationObject.variant.equals("solid") && "text-[blue]",
+                presentationObject.variant.equals("download") && "bg-[grey] px-4 w-full"
+
             ]}
         >
             <Neos.Fusion:Tag

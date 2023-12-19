@@ -38,6 +38,7 @@ module.exports = {
 			gridTemplateColumns: {
 				'2-33-66': '1fr 2fr',
 				'2-66-33': '2fr 1fr',
+				'3-COL': '1fr 1fr 1fr',
 			},
 			maxWidth: {
 				'content-full': `${MAX_CONTENT_WIDTH}`

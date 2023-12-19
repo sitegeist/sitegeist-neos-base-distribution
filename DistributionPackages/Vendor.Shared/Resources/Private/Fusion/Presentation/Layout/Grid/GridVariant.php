@@ -20,4 +20,5 @@ enum GridVariant: string implements ProtectedContextAwareInterface
     case VARIANT_66_33 = '66-33';
     case VARIANT_33_66 = '33-66';
     case VARIANT_75_25 = '75-25';
+    case VARIANT_3_COL_GAP = '3-COL-GAP';
 }

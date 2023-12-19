@@ -27,7 +27,7 @@ prototype(Vendor.Shared:Block.Headline) < prototype(PackageFactory.AtomicFusion.
             h3 = "text-xl font-bold"
             h3.@if.1 = ${presentationObject.type.equals('h3')}
 
-            div = "text-2xl font-bold"
+            div = "text-md font-bold"
             div.@if.1 = ${presentationObject.type.equals('div')}
 
             uppercase = "uppercase"

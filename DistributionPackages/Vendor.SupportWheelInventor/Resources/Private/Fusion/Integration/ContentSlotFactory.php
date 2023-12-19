@@ -122,29 +122,32 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
             ContentContainerVariant::VARIANT_REGULAR,
             new Stack(
                 StackVariant::VARIANT_REGULAR,
-                Collection::fromSlots(... array_filter([
-                    $contentNode->getProperty('headline') || $inBackend
-                        ? new Headline(
+                new Stack(
+                    StackVariant::VARIANT_SPACE_Y_4,
+                    Collection::fromSlots(... array_filter([
+                        $contentNode->getProperty('headline') || $inBackend
+                            ? new Headline(
                             HeadlineVariant::VARIANT_REGULAR,
                             HeadlineType::TYPE_H2,
                             Editable::fromNodeProperty($contentNode, 'headline')
                         )
-                        : null,
-                    new CacheSegment(
-                        new Grid(
-                            GridVariant::VARIANT_REGULAR,
-                            Collection::fromIterable(
-                                $documents,
-                                fn(Document $asset): SlotInterface
-                                => new ContentContainer(
-                                    ContentContainerVariant::VARIANT_REGULAR,
-                                    $this->downloadCardFactory->forAsset($asset, $inBackend, null)
+                            : null,
+                        new CacheSegment(
+                            new Grid(
+                                GridVariant::VARIANT_3_COL_GAP,
+                                Collection::fromIterable(
+                                    $documents,
+                                    fn(Document $asset): SlotInterface
+                                    => new ContentContainer(
+                                        ContentContainerVariant::VARIANT_NONE,
+                                        $this->downloadCardFactory->forAsset($asset, $inBackend, null)
+                                    )
                                 )
-                            )
-                        ),
-                        'Vendor.SupportWheelInventor:CacheSegment.DownloadList'
-                    )
-                ]))
+                            ),
+                            'Vendor.SupportWheelInventor:CacheSegment.DownloadList'
+                        )
+                    ]))
+                )
             )
         );
     }
@@ -157,7 +160,7 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
         return new ContentContainer(
             ContentContainerVariant::VARIANT_REGULAR,
             new Stack(
-                StackVariant::VARIANT_REGULAR,
+                StackVariant::VARIANT_SPACE_Y_4,
                 Collection::fromSlots(... array_filter([
                     $contentNode->getProperty('headline') || $inBackend
                         ? new Headline(
@@ -167,7 +170,7 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
                         )
                         : null,
                     new Grid(
-                        GridVariant::VARIANT_REGULAR,
+                        GridVariant::VARIANT_3_COL_GAP,
                         Collection::fromNodes(
                             $contentNode->findChildNodes(),
                             fn (Node $downloadNode): Content
@@ -182,7 +185,7 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
     public function forDownloadNode(Node $downloadNode, bool $inBackend): SlotInterface
     {
         return new ContentContainer(
-            ContentContainerVariant::VARIANT_REGULAR,
+            ContentContainerVariant::VARIANT_NONE,
             $this->downloadCardFactory->forDownloadNode($downloadNode, $inBackend)
         );
     }
