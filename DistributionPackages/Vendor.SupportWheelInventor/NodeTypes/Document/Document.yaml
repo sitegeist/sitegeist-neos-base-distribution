@@ -2,6 +2,7 @@
   abstract: true
   superTypes:
     'Neos.Neos:Document': true
+    'Vendor.Shared:Mixin.Preview': true
 
   constraints:
     nodeTypes:

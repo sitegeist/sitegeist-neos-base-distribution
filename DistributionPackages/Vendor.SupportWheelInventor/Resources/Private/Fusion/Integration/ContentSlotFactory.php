@@ -8,7 +8,9 @@ declare(strict_types=1);
 
 namespace Vendor\SupportWheelInventor\Integration;
 
+use Neos\Flow\Annotations as Flow;
 use Neos\ContentRepository\Domain\Model\Node;
+use Neos\ContentRepository\Domain\Projection\Content\TraversableNodes;
 use Neos\Media\Domain\Model\Document;
 use Neos\Media\Domain\Repository\DocumentRepository;
 use Neos\Neos\Domain\Service\ContentContext;
@@ -18,8 +20,14 @@ use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Collection
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Content;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Editable;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\SlotInterface;
+use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Value;
+use Sitegeist\Archaeopteryx\Link as ArchaeopteryxLink;
 use Vendor\Shared\Integration\ImageSourceFactory;
 use Vendor\Shared\Presentation\Block\AccordionItem\AccordionItem;
+use Vendor\Shared\Presentation\Block\Button\Button;
+use Vendor\Shared\Presentation\Block\Button\ButtonColor;
+use Vendor\Shared\Presentation\Block\Button\ButtonType;
+use Vendor\Shared\Presentation\Block\Button\ButtonVariant;
 use Vendor\Shared\Presentation\Block\Figure\Figure;
 use Vendor\Shared\Presentation\Block\Figure\FigureAspectRatio;
 use Vendor\Shared\Presentation\Block\Figure\FigureObjectFit;
@@ -32,8 +40,13 @@ use Vendor\Shared\Presentation\Block\Icon\Icon;
 use Vendor\Shared\Presentation\Block\Icon\IconColor;
 use Vendor\Shared\Presentation\Block\Icon\IconName;
 use Vendor\Shared\Presentation\Block\Icon\IconSize;
+use Vendor\Shared\Presentation\Block\Link\Link;
+use Vendor\Shared\Presentation\Block\Link\LinkTarget;
+use Vendor\Shared\Presentation\Block\Link\LinkVariant;
 use Vendor\Shared\Presentation\Block\Text\Text;
 use Vendor\Shared\Presentation\Block\Text\TextColumns;
+use Vendor\Shared\Presentation\Block\VerticalCard\VerticalCard;
+use Vendor\Shared\Presentation\Block\VerticalCard\VerticalCardVariant;
 use Vendor\Shared\Presentation\ImageWithTextAlignment;
 use Vendor\Shared\Presentation\ImageWithTextLayout;
 use Vendor\Shared\Presentation\Layout\ContentContainer\ContentContainer;
@@ -42,9 +55,13 @@ use Vendor\Shared\Presentation\Layout\Grid\Grid;
 use Vendor\Shared\Presentation\Layout\Grid\GridVariant;
 use Vendor\Shared\Presentation\Layout\Stack\Stack;
 use Vendor\Shared\Presentation\Layout\Stack\StackVariant;
+use Vendor\Shared\Presentation\Block\Figure\FigureFactory;
 
 final class ContentSlotFactory extends AbstractComponentPresentationObjectFactory
 {
+    #[Flow\Inject]
+    protected FigureFactory $figureFactory;
+
     public function __construct(
         private readonly LinkedButtonFactory $linkedButtonFactory,
         private readonly ImageSourceFactory $imageSourceFactory,
@@ -76,6 +93,8 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
                 => $this->forAccordionNode($contentNode, $subgraph, $inBackend),
             'Vendor.SupportWheelInventor:Content.AccordionItem'
                 => $this->forAccordionItemNode($contentNode, $subgraph, $inBackend),
+            'Vendor.SupportWheelInventor:Content.TileNavigation'
+                => $this->forTileNavigationNode($contentNode, $inBackend),
             default => throw new \InvalidArgumentException(
                 'Don\'t know how to render nodes of type ' . $contentNode->getNodeTypeName(),
                 1664205952
@@ -371,6 +390,79 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
             ),
             $accordionItemNode->getProperty('isAccordionOpen'),
             $inBackend
+        );
+    }
+
+    public function forTileNavigationNode(
+        Node $tileNavigationNode,
+        bool $inBackend
+    ): SlotInterface
+    {
+        return new ContentContainer(
+            ContentContainerVariant::VARIANT_REGULAR,
+            new Stack(
+                StackVariant::VARIANT_SPACE_Y_4,
+                Collection::fromSlots(... array_filter([
+                    $inBackend || $tileNavigationNode->getProperty('headline')
+                        ? new Headline(
+                            HeadlineVariant::VARIANT_REGULAR,
+                            HeadlineType::TYPE_H3,
+                            Editable::fromNodeProperty($tileNavigationNode, 'headline')
+                        )
+                        : null,
+                    new Grid(
+                        GridVariant::VARIANT_3_COL_GAP,
+                        Collection::fromNodes(
+                            TraversableNodes::fromArray(
+                                $tileNavigationNode->getProperty('documents') ?: []
+                            ),
+                            fn (Node $documentNode)
+                            => new Link(
+                                LinkVariant::VARIANT_REGULAR,
+                                ArchaeopteryxLink::create(
+                                    $this->uriService->getNodeUri($documentNode),
+                                    $documentNode->getLabel(),
+                                    LinkTarget::TARGET_BLANK->value,
+                                    ['noopener', 'nofollow'],
+                                ),
+                                new VerticalCard(
+                                    VerticalCardVariant::VARIANT_REGULAR,
+                                    $this->figureFactory->forNavigationCard(
+                                        $documentNode
+                                    ),
+                                    new Headline(
+                                        HeadlineVariant::VARIANT_REGULAR,
+                                        HeadlineType::TYPE_DIV,
+                                        Value::fromString(
+                                            $documentNode->getProperty('previewHeadline')
+                                                ?: $documentNode->getLabel()
+                                        )
+                                    ),
+                                    new Text(
+                                        TextColumns::COLUMNS_ONE_COLUMN,
+                                        Value::fromString(
+                                            $documentNode->getProperty('previewText')
+                                                ?: ($documentNode->getProperty('abstract') ?: '')
+                                        )
+                                    ),
+                                    new Button(
+                                        ButtonVariant::VARIANT_SOLID,
+                                        ButtonType::TYPE_REGULAR,
+                                        ButtonColor::COLOR_BRAND,
+                                        Value::fromString('mehr erfahren'),
+                                        Icon::specifiedWith(
+                                            IconName::NAME_ARROW_RIGHT,
+                                            IconSize::SIZE_REGULAR,
+                                            IconColor::COLOR_DEFAULT
+                                        ),
+                                        $inBackend
+                                    ),
+                                )
+                            )
+                        )
+                    )
+                ]))
+            )
         );
     }
 }
