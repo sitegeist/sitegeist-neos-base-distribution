@@ -49,6 +49,9 @@ module.exports = {
 			minHeight: {
 				touch: MIN_TOUCH,
 			},
+			padding: {
+				'ratio-4-3': 'calc(3 * 100% / 4)',
+			}
 		},
 	},
 	variants: {
