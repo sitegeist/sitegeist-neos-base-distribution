@@ -410,56 +410,59 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
                             Editable::fromNodeProperty($tileNavigationNode, 'headline')
                         )
                         : null,
-                    new Grid(
-                        GridVariant::VARIANT_3_COL_GAP,
-                        Collection::fromNodes(
-                            TraversableNodes::fromArray(
-                                $tileNavigationNode->getProperty('documents') ?: []
-                            ),
-                            fn (Node $documentNode)
-                            => new Link(
-                                LinkVariant::VARIANT_REGULAR,
-                                ArchaeopteryxLink::create(
-                                    $this->uriService->getNodeUri($documentNode),
-                                    $documentNode->getLabel(),
-                                    LinkTarget::TARGET_BLANK->value,
-                                    ['noopener', 'nofollow'],
+                    new CacheSegment(
+                        new Grid(
+                            GridVariant::VARIANT_3_COL_GAP,
+                            Collection::fromNodes(
+                                TraversableNodes::fromArray(
+                                    $tileNavigationNode->getProperty('documents') ?: []
                                 ),
-                                new VerticalCard(
-                                    VerticalCardVariant::VARIANT_REGULAR,
-                                    $this->figureFactory->forNavigationCard(
-                                        $documentNode
+                                fn (Node $documentNode)
+                                => new Link(
+                                    LinkVariant::VARIANT_REGULAR,
+                                    ArchaeopteryxLink::create(
+                                        $this->uriService->getNodeUri($documentNode),
+                                        $documentNode->getLabel(),
+                                        LinkTarget::TARGET_BLANK->value,
+                                        ['noopener', 'nofollow'],
                                     ),
-                                    new Headline(
-                                        HeadlineVariant::VARIANT_REGULAR,
-                                        HeadlineType::TYPE_DIV,
-                                        Value::fromString(
-                                            $documentNode->getProperty('previewHeadline')
-                                                ?: $documentNode->getLabel()
-                                        )
-                                    ),
-                                    new Text(
-                                        TextColumns::COLUMNS_ONE_COLUMN,
-                                        Value::fromString(
-                                            $documentNode->getProperty('previewText')
-                                                ?: ($documentNode->getProperty('abstract') ?: '')
-                                        )
-                                    ),
-                                    new Button(
-                                        ButtonVariant::VARIANT_SOLID,
-                                        ButtonType::TYPE_REGULAR,
-                                        ButtonColor::COLOR_BRAND,
-                                        Value::fromString('mehr erfahren'),
-                                        Icon::specifiedWith(
-                                            IconName::NAME_ARROW_RIGHT,
-                                            IconSize::SIZE_REGULAR,
-                                            IconColor::COLOR_DEFAULT
+                                    new VerticalCard(
+                                        VerticalCardVariant::VARIANT_REGULAR,
+                                        $this->figureFactory->forNavigationCard(
+                                            $documentNode
                                         ),
-                                        $inBackend
-                                    ),
+                                        new Headline(
+                                            HeadlineVariant::VARIANT_REGULAR,
+                                            HeadlineType::TYPE_DIV,
+                                            Value::fromString(
+                                                $documentNode->getProperty('previewHeadline')
+                                                    ?: $documentNode->getLabel()
+                                            )
+                                        ),
+                                        new Text(
+                                            TextColumns::COLUMNS_ONE_COLUMN,
+                                            Value::fromString(
+                                                $documentNode->getProperty('previewText')
+                                                    ?: ($documentNode->getProperty('abstract') ?: '')
+                                            )
+                                        ),
+                                        new Button(
+                                            ButtonVariant::VARIANT_SOLID,
+                                            ButtonType::TYPE_REGULAR,
+                                            ButtonColor::COLOR_BRAND,
+                                            Value::fromString('mehr erfahren'),
+                                            Icon::specifiedWith(
+                                                IconName::NAME_ARROW_RIGHT,
+                                                IconSize::SIZE_REGULAR,
+                                                IconColor::COLOR_DEFAULT
+                                            ),
+                                            $inBackend
+                                        ),
+                                    )
                                 )
                             )
-                        )
+                        ),
+                        'Vendor.SupportWheelInventor:CacheSegment.TileNavigation'
                     )
                 ]))
             )

@@ -1,0 +1,14 @@
+prototype(Vendor.SupportWheelInventor:CacheSegment.TileNavigation) < prototype(PackageFactory.AtomicFusion.PresentationObjects:CacheSegment) {
+    @cache {
+        entryIdentifier {
+            node = ${node}
+        }
+        entryTags {
+            // whenever the node intself changes the tile navigation may change
+            1 = ${Neos.Caching.nodeTag(node)}
+            // whenever any document changes, the tile navigation may change
+            2 = ${Neos.Caching.nodeTypeTag('Vendor.SupportWheelInventor:Document')}
+
+        }
+    }
+}
