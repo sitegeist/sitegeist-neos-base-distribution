@@ -24,3 +24,4 @@
           'Vendor.SupportWheelInventor:Content.Text': true
           'Vendor.SupportWheelInventor:Content.Accordion': true
           'Vendor.SupportWheelInventor:Content.TileNavigation': true
+          'Vendor.SupportWheelInventor:Content.AnchorNavigation': true

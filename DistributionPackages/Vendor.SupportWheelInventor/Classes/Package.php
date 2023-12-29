@@ -8,11 +8,13 @@ declare(strict_types=1);
 
 namespace Vendor\SupportWheelInventor;
 
+use Neos\ContentRepository\Domain\Model\Workspace;
 use Neos\Flow\Core\Booting\Sequence;
 use Neos\Flow\Core\Booting\Step;
 use Neos\Flow\Core\Bootstrap;
 use Neos\Flow\Package\Package as BasePackage;
 use Neos\Media\Domain\Service\AssetService;
+use Vendor\SupportWheelInventor\Application\PublishWatch;
 use Vendor\SupportWheelInventor\Infrastructure\AssetContentCacheManager;
 
 class Package extends BasePackage
@@ -29,6 +31,13 @@ class Package extends BasePackage
                     $package->registerAssetCacheSlots($bootstrap);
                 }
             }
+        );
+
+        $dispatcher->connect(
+            Workspace::class,
+            'beforeNodePublishing',
+            PublishWatch::class,
+            'watchForRedundantContentElementIdentifier'
         );
     }
 

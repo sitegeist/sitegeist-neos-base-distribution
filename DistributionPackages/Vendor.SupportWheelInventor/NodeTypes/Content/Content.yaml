@@ -2,3 +2,21 @@
   abstract: true
   superTypes:
     'Neos.Neos:Content': true
+  ui:
+    inspector:
+      groups:
+        anchor:
+          label: 'Anchor'
+          icon: 'anchor'
+          position: start 0
+
+  properties:
+    _nodeType: { }
+
+    anchorID:
+      type: string
+      ui:
+        label: 'Anchor'
+        reloadIfChanged: true
+        inspector:
+          group: 'anchor'

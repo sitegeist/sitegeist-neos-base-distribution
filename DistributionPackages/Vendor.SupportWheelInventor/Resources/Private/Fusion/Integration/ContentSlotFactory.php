@@ -8,6 +8,7 @@ declare(strict_types=1);
 
 namespace Vendor\SupportWheelInventor\Integration;
 
+use GuzzleHttp\Psr7\Uri;
 use Neos\Flow\Annotations as Flow;
 use Neos\ContentRepository\Domain\Model\Node;
 use Neos\ContentRepository\Domain\Projection\Content\TraversableNodes;
@@ -53,6 +54,10 @@ use Vendor\Shared\Presentation\Layout\ContentContainer\ContentContainer;
 use Vendor\Shared\Presentation\Layout\ContentContainer\ContentContainerVariant;
 use Vendor\Shared\Presentation\Layout\Grid\Grid;
 use Vendor\Shared\Presentation\Layout\Grid\GridVariant;
+use Vendor\Shared\Presentation\Layout\Row\Row;
+use Vendor\Shared\Presentation\Layout\Row\RowAlignment;
+use Vendor\Shared\Presentation\Layout\Row\RowJustification;
+use Vendor\Shared\Presentation\Layout\Row\RowVariant;
 use Vendor\Shared\Presentation\Layout\Stack\Stack;
 use Vendor\Shared\Presentation\Layout\Stack\StackVariant;
 use Vendor\Shared\Presentation\Block\Figure\FigureFactory;
@@ -95,6 +100,10 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
                 => $this->forAccordionItemNode($contentNode, $subgraph, $inBackend),
             'Vendor.SupportWheelInventor:Content.TileNavigation'
                 => $this->forTileNavigationNode($contentNode, $inBackend),
+            'Vendor.SupportWheelInventor:Content.AnchorNavigation'
+                => $this->forAnchorNavigationNode($contentNode),
+            'Vendor.SupportWheelInventor:Content.Anchor'
+                => $this->forAnchorNode($contentNode, $inBackend),
             default => throw new \InvalidArgumentException(
                 'Don\'t know how to render nodes of type ' . $contentNode->getNodeTypeName(),
                 1664205952
@@ -465,6 +474,47 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
                         'Vendor.SupportWheelInventor:CacheSegment.TileNavigation'
                     )
                 ]))
+            )
+        );
+    }
+
+    public function forAnchorNavigationNode(Node $AnchorNavigationNode): SlotInterface
+    {
+        return new ContentContainer(
+            ContentContainerVariant::VARIANT_REGULAR,
+            new Row(
+                RowVariant::VARIANT_REGULAR,
+                RowJustification::JUSTIFY_CENTER,
+                RowAlignment::ALIGN_ITEMS_CENTER,
+                Collection::fromNodes(
+                    $AnchorNavigationNode->findChildNodes(),
+                    fn(Node $anchor): Content
+                    => Content::fromNode($anchor, 'Vendor.SupportWheelInventor:ContentSlot')
+                )
+            )
+        );
+    }
+
+    public function forAnchorNode(Node $AnchorNode, bool $inBackend): SlotInterface
+    {
+        return new ContentContainer(
+            ContentContainerVariant::VARIANT_NONE,
+            new Link(
+                LinkVariant::VARIANT_REGULAR,
+                ArchaeopteryxLink::create(
+                    new Uri('#' . $AnchorNode->getProperty('targetIdentifier')),
+                    $AnchorNode->getProperty('anchorTitle') ?: '',
+                    LinkTarget::TARGET_SELF->value,
+                    ['noopener', 'nofollow'],
+                ),
+                new Button(
+                    ButtonVariant::VARIANT_REGULAR,
+                    ButtonType::TYPE_REGULAR,
+                    ButtonColor::COLOR_BRAND,
+                    Editable::fromNodeProperty($AnchorNode, 'title'),
+                    null,
+                    $inBackend
+                )
             )
         );
     }

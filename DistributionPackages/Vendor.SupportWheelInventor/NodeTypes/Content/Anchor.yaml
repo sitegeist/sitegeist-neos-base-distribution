@@ -1,0 +1,36 @@
+'Vendor.SupportWheelInventor:Content.Anchor':
+  label: "${q(node).property('anchorTitle') || node.nodeType.label}"
+  superTypes:
+    'Vendor.SupportWheelInventor:Content': true
+    'Vendor.Shared:Mixin.IDLess': true
+
+  ui:
+    label: 'Anchor'
+    icon: 'anchor'
+    ui:
+      inspector:
+        groups:
+          anchor:
+            label: 'Anchor'
+            icon: 'anchor'
+            position: start 0
+
+  properties:
+    targetIdentifier:
+      type: string
+      ui:
+        label: 'Target Identifier'
+        inspector:
+          group: anchor
+          editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
+          editorOptions:
+            placeholder: 'Select Anchor'
+            dataSourceIdentifier: 'available-anchors'
+    title:
+      type: string
+      ui:
+        inline:
+          editorOptions:
+            placeholder: 'Bitte Titel eingeben'
+      options:
+        preset: 'rte.plain'
