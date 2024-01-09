@@ -17,6 +17,12 @@
                 locked:
                   width: 1
                   height: 1
+      validation: ~
+    image__alt:
+      validation: ~
+    image__title:
+      validation: ~
+
     spokenByCharacter__name:
       options:
         preset: 'rte.plain'
