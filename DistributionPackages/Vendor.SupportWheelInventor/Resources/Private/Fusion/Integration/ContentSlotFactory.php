@@ -12,6 +12,7 @@ use GuzzleHttp\Psr7\Uri;
 use Neos\Flow\Annotations as Flow;
 use Neos\ContentRepository\Domain\Model\Node;
 use Neos\ContentRepository\Domain\Projection\Content\TraversableNodes;
+use Neos\Media\Domain\Model\Asset;
 use Neos\Media\Domain\Model\Document;
 use Neos\Media\Domain\Repository\DocumentRepository;
 use Neos\Neos\Domain\Service\ContentContext;
@@ -23,6 +24,7 @@ use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Editable;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\SlotInterface;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Value;
 use Sitegeist\Archaeopteryx\Link as ArchaeopteryxLink;
+use Sitegeist\Kaleidoscope\Domain\ImageSourceInterface;
 use Vendor\Shared\Integration\ImageSourceFactory;
 use Vendor\Shared\Presentation\Block\AccordionItem\AccordionItem;
 use Vendor\Shared\Presentation\Block\Button\Button;
@@ -44,6 +46,7 @@ use Vendor\Shared\Presentation\Block\Icon\IconSize;
 use Vendor\Shared\Presentation\Block\Link\Link;
 use Vendor\Shared\Presentation\Block\Link\LinkTarget;
 use Vendor\Shared\Presentation\Block\Link\LinkVariant;
+use Vendor\Shared\Presentation\Block\QuotationCard\QuotationCard;
 use Vendor\Shared\Presentation\Block\Text\Text;
 use Vendor\Shared\Presentation\Block\Text\TextColumns;
 use Vendor\Shared\Presentation\Block\VerticalCard\VerticalCard;
@@ -94,6 +97,8 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
                 => $this->forImageWithTextNode($contentNode, $subgraph, $inBackend),
             'Vendor.SupportWheelInventor:Content.Text'
                 => $this->forTextNode($contentNode, $subgraph, $inBackend),
+            'Vendor.SupportWheelInventor:Content.Quotation'
+                => $this->forQuotationNode($contentNode, $subgraph, $inBackend),
             'Vendor.SupportWheelInventor:Content.Accordion'
                 => $this->forAccordionNode($contentNode, $subgraph, $inBackend),
             'Vendor.SupportWheelInventor:Content.AccordionItem'
@@ -308,6 +313,42 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
                 $alignment === ImageWithTextAlignment::VARIANT_IMAGEFIRST
                     ? Collection::fromIterable([$imageContent, $textContent])
                     : Collection::fromIterable([$textContent, $imageContent])
+            )
+        );
+    }
+
+    public function forQuotationNode(
+        Node $contentNode,
+        ContentContext $subgraph,
+        bool $inBackend
+    ): SlotInterface {
+        $image = $contentNode->getProperty('image');
+        $imageSource = $this->imageSourceFactory->tryFromImageMixin($contentNode, $inBackend);
+        $figure = $imageSource instanceof ImageSourceInterface
+            ? new Figure(
+                $imageSource,
+                true,
+                FigureSize::SIZE_THIRD_HALF_FULL,
+                FigureObjectFit::FIT_COVER,
+                FigureObjectPosition::POSITION_TOP,
+                FigureAspectRatio::RATIO_1X1,
+            )
+            : null;
+
+        return new ContentContainer(
+            ContentContainerVariant::VARIANT_REGULAR,
+            new QuotationCard(
+                $this->uriService->getResourceUri('Vendor.SupportWheelInventor', 'Images/quotation.svg'),
+                $figure,
+                Editable::fromNodeProperty($contentNode, 'spokenByCharacter__name'),
+                Editable::fromNodeProperty($contentNode, 'spokenByCharacter__jobTitle'),
+                Editable::fromNodeProperty($contentNode, 'text'),
+                $image instanceof Asset && $image->getCopyrightNotice()
+                    ? new Text(
+                        TextColumns::COLUMNS_ONE_COLUMN,
+                        Value::fromString("© " . $image->getCopyrightNotice()),
+                    )
+                    : null
             )
         );
     }

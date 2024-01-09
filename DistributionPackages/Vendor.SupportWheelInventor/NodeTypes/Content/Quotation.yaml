@@ -1,0 +1,34 @@
+'Vendor.SupportWheelInventor:Content.Quotation':
+  superTypes:
+    'Vendor.SupportWheelInventor:Content': true
+    'Vendor.Shared:Mixin.Image': true
+    'Vendor.Shared:Mixin.Text': true
+  ui:
+    icon: comment-alt
+    label: 'Zitat'
+  properties:
+    image:
+      ui:
+        inspector:
+          editorOptions:
+            crop:
+              aspectRatio:
+                forceCrop: true
+                locked:
+                  width: 1
+                  height: 1
+    spokenByCharacter__name:
+      options:
+        preset: 'rte.plain'
+      ui:
+        inline:
+          editorOptions:
+            placeholder: 'Bitte Name eingeben'
+    spokenByCharacter__jobTitle:
+      options:
+        preset: 'rte.plain'
+      ui:
+        inline:
+          editorOptions:
+            placeholder: 'Bitte Jobbezeichnung eingeben'
+

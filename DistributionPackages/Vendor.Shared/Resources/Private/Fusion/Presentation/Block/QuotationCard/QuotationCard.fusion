@@ -1,0 +1,68 @@
+prototype(Vendor.Shared:Block.QuotationCard) < prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    @presentationObjectInterface = 'Vendor\\Shared\\Presentation\\Block\\QuotationCard\\QuotationCard'
+
+    @styleguide {
+        title = 'QuotationCard'
+        @caseFactory = 'Vendor\\Shared\\Presentation\\Block\\QuotationCard\\QuotationCardFactory'
+    }
+
+    renderer = afx`
+        <div class={[
+            "[Layout.Card.QuotationCard]",
+            "relative w-full h-auto p-md bg-light text-light-contrast overflow-hidden",
+            "border-2 border-dashed border-brand roundedBottomLeft",
+            "grid grid-cols-1 gap-y-sm gap-x-[80px] sm:grid-cols-2-max-1fr items-center",
+            "keen-slider__slide"
+        ]}>
+            <div class="flex items-center justify-center">
+                <div class="w-48 h-48 sm:w-64 sm:h-64 rounded-full overflow-hidden">
+                    <PackageFactory.AtomicFusion.PresentationObjects:Slot
+                        @if.1={presentationObject.media}
+                        presentationObject={presentationObject.media}
+                    />
+                </div>
+            </div>
+            <div class="flex flex-col justify-center sm:justify-start sm:py-[20px]">
+                <div class="relative">
+                    <p class="float-left">
+                        <img
+                            class="mt-[-15px] w-[20px] h-[20px] ml-0 mr-xs mb-xs float-left sm:m-0 sm:absolute sm:left-[-60px] sm:top-[-20px] sm:w-[40px] sm:h-[40px]"
+                            src={presentationObject.quotationImageUri}
+                            alt="Zitat"
+                        />
+                    </p>
+                    <div class="prose sm:prose-lg text-center sm:text-left">
+                        <PackageFactory.AtomicFusion.PresentationObjects:Slot
+                            @if.1={presentationObject.supportingText}
+                            presentationObject={presentationObject.supportingText}
+                        />
+                    </div>
+                </div>
+
+                <div class="flex flex-col prose mt-sm items-center sm:items-start">
+                    <span class="font-bold">
+                        <PackageFactory.AtomicFusion.PresentationObjects:Slot
+                            @if.1={presentationObject.header}
+                            presentationObject={presentationObject.header}
+                        />
+                    </span>
+                    <span class="text-sm">
+                        <PackageFactory.AtomicFusion.PresentationObjects:Slot
+                            @if.1={presentationObject.subheader}
+                            presentationObject={presentationObject.subheader}
+                        />
+                    </span>
+                </div>
+
+                <div
+                    @if.1={presentationObject.additionalContent}
+                    class="mt-sm"
+                >
+                    <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.additionalContent}/>
+                </div>
+            </div>
+        </div>
+    `
+}
+
+
