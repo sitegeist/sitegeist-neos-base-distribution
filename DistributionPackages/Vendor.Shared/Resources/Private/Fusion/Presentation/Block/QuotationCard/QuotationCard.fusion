@@ -9,12 +9,14 @@ prototype(Vendor.Shared:Block.QuotationCard) < prototype(PackageFactory.AtomicFu
     renderer = afx`
         <div class={[
             "[Layout.Card.QuotationCard]",
-            "relative w-full h-auto p-md bg-light text-light-contrast overflow-hidden",
-            "border-2 border-dashed border-brand roundedBottomLeft",
-            "grid grid-cols-1 gap-y-sm gap-x-[80px] sm:grid-cols-2-max-1fr items-center",
-            "keen-slider__slide"
+            "relative w-full h-auto p-md text-brand-contrast overflow-hidden",
+            "flex flex-col sm:flex-row gap-y-3 gap-x-[80px] sm:grid-cols-2 items-center",
+            !presentationObject.media && 'justify-center'
         ]}>
-            <div class="flex items-center justify-center">
+            <div
+                class="flex items-center justify-center"
+                @if.1={presentationObject.media}
+            >
                 <div class="w-48 h-48 sm:w-64 sm:h-64 rounded-full overflow-hidden">
                     <PackageFactory.AtomicFusion.PresentationObjects:Slot
                         @if.1={presentationObject.media}
@@ -22,7 +24,12 @@ prototype(Vendor.Shared:Block.QuotationCard) < prototype(PackageFactory.AtomicFu
                     />
                 </div>
             </div>
-            <div class="flex flex-col justify-center sm:justify-start sm:py-[20px]">
+            <div
+                class={[
+                    "flex flex-col gap-y-6 justify-center sm:justify-start sm:py-[20px]",
+                    !presentationObject.media && 'sm:px-[80px] pt-3'
+                ]}
+            >
                 <div class="relative">
                     <p class="float-left">
                         <img
@@ -39,7 +46,7 @@ prototype(Vendor.Shared:Block.QuotationCard) < prototype(PackageFactory.AtomicFu
                     </div>
                 </div>
 
-                <div class="flex flex-col prose mt-sm items-center sm:items-start">
+                <div class="flex flex-col prose items-center sm:items-start">
                     <span class="font-bold">
                         <PackageFactory.AtomicFusion.PresentationObjects:Slot
                             @if.1={presentationObject.header}
