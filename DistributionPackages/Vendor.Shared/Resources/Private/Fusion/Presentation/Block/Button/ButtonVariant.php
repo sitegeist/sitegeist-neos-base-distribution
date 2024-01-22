@@ -17,4 +17,5 @@ enum ButtonVariant: string implements ProtectedContextAwareInterface
     case VARIANT_REGULAR = 'regular';
     case VARIANT_SOLID = 'solid';
     case VARIANT_DOWNLOAD = 'download';
+    case VARIANT_PIPE = 'pipe';
 }

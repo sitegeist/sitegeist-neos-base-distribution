@@ -15,9 +15,13 @@ prototype(Vendor.Shared:Block.Link) < prototype(PackageFactory.AtomicFusion.Pres
                 presentationObject.variant.equals("regular") && ""
             ]}
             attributes.href={presentationObject.link.href}
+            attributes.href.@if.isLink={!presentationObject.inBackend}
             attributes.title={presentationObject.link.title}
+            attributes.title.@if.isLink={!presentationObject.inBackend}
             attributes.rel={Array.join(presentationObject.link.rel, ' ')}
+            attributes.rel.@if.isLink={!presentationObject.inBackend}
             attributes.target={presentationObject.link.target}
+            attributes.target.@if.isLink={!presentationObject.inBackend}
         >
             <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />
         </Neos.Fusion:Tag>

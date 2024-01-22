@@ -58,7 +58,8 @@ final class LinkedButtonFactory extends AbstractComponentPresentationObjectFacto
                 ? new Link(
                     LinkVariant::VARIANT_REGULAR,
                     $link,
-                    $button
+                    $button,
+                    $inBackend
                 )
                 : $button;
         }

@@ -20,6 +20,7 @@ final class Link extends AbstractComponentPresentationObject
         public readonly LinkVariant $variant,
         public readonly ArchaeopteryxLink $link,
         public readonly SlotInterface $content,
+        public readonly bool $inBackend
     ) {
     }
 }

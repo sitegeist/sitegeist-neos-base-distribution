@@ -508,7 +508,9 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
                                             ),
                                             $inBackend
                                         ),
-                                    )
+
+                                    ),
+                                    $inBackend
                                 )
                             )
                         ),
@@ -523,10 +525,8 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
     {
         return new ContentContainer(
             ContentContainerVariant::VARIANT_REGULAR,
-            new Row(
-                RowVariant::VARIANT_REGULAR,
-                RowJustification::JUSTIFY_CENTER,
-                RowAlignment::ALIGN_ITEMS_CENTER,
+            new Stack(
+                StackVariant::VARIANT_HORIZONTAL_CENTERED,
                 Collection::fromNodes(
                     $AnchorNavigationNode->findChildNodes(),
                     fn(Node $anchor): Content
@@ -549,13 +549,14 @@ final class ContentSlotFactory extends AbstractComponentPresentationObjectFactor
                     ['noopener', 'nofollow'],
                 ),
                 new Button(
-                    ButtonVariant::VARIANT_REGULAR,
+                    ButtonVariant::VARIANT_PIPE,
                     ButtonType::TYPE_REGULAR,
                     ButtonColor::COLOR_BRAND,
                     Editable::fromNodeProperty($AnchorNode, 'title'),
                     null,
                     $inBackend
-                )
+                ),
+                $inBackend
             )
         );
     }

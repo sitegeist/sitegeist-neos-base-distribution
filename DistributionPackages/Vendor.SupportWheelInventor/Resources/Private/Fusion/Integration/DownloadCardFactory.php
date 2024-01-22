@@ -105,6 +105,7 @@ final class DownloadCardFactory extends AbstractComponentPresentationObjectFacto
                             ['noopener', 'nofollow'],
                         ),
                         $button,
+                        $inBackend
                     )
                 )
                 : null

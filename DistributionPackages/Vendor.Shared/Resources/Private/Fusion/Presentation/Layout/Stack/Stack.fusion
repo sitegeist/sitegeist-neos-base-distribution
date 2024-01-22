@@ -13,7 +13,8 @@ prototype(Vendor.Shared:Layout.Stack) < prototype(PackageFactory.AtomicFusion.Pr
                 "[Layout.Stack (" + presentationObject.variant.value + ")]",
                 "flex",
                 presentationObject.variant.equals('regular') && "flex-col",
-                presentationObject.variant.equals('spaceY4') && "flex-col space-y-4"
+                presentationObject.variant.equals('spaceY4') && "flex-col space-y-4",
+                presentationObject.variant.equals('horizontal_centered') && "flex-row justify-center mx-auto flex-wrap gap-y-6"
             ]}
         >
             <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />

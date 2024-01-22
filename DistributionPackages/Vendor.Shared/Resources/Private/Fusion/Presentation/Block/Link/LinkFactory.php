@@ -35,7 +35,8 @@ final class LinkFactory extends AbstractComponentPresentationObjectFactory imple
             new Text(
                 TextColumns::COLUMNS_ONE_COLUMN,
                 Value::fromString('Neos CMS')
-            )
+            ),
+            false
         );
     }
 
