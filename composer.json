@@ -36,8 +36,6 @@
         "sitegeist/iconoclasm": "^2.0",
         "sitegeist/noderobis": "~1.1",
         "sitegeist/pyranodis": "~1.0",
-        "vendor/site": "*",
-        "vendor/wheelinventor": "*",
         "vendor/supportwheelinventor": "*"
     },
     "require-dev": {

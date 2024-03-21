@@ -1,2 +1,0 @@
-include: ./**/*.fusion
-include: nodetypes://Vendor.Site/**/*.fusion

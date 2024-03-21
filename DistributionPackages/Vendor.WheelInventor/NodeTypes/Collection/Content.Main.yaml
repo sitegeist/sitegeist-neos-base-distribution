@@ -1,8 +1,0 @@
-'Vendor.WheelInventor:Collection.Content.Main':
-  superTypes:
-    'Neos.Neos:ContentCollection': true
-  constraints:
-    nodeTypes:
-      '*': false
-      'Neos.Neos:Document': false
-      'Vendor.WheelInventor:Content.Text': true
