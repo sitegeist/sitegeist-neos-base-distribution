@@ -3,8 +3,8 @@
     "type": "neos-vendor",
     "version": "1.0.0",
     "require": {
-        "neos/neos": "~8.3.0",
-        "neos/neos-ui": "~8.3.0",
+        "neos/neos": "8.3.6",
+        "neos/neos-ui": "8.3.6",
         "neos/seo": "^3.0",
         "neos/redirecthandler-ui": "^2.4",
         "neos/redirecthandler-neosadapter": "^4.3",
@@ -20,8 +20,12 @@
         "sitegeist/kaleidoscope": "^6.5",
         "sitegeist/csvpo": "^1.5",
         "sitegeist/stampede": "^1.5",
-        "sitegeist/archaeopteryx": "^1.0",
-        "sitegeist/iconoclasm": "^2.0"
+        "sitegeist/archaeopteryx": "^1.3",
+        "sitegeist/iconoclasm": "^2.0",
+        "packagefactory/atomicfusion-proptypes": "^2.0",
+        "packagefactory/atomicfusion-classnames": "^1.0",
+        "sitegeist/noderobis": "~1.1",
+        "sitegeist/pyranodis": "~1.0"
     },
     "autoload": {
         "psr-4": {

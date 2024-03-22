@@ -14,28 +14,6 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "require": {
-        "neos/neos": "~8.3.0",
-        "neos/neos-ui": "~8.3.0",
-        "neos/seo": "^3.0",
-        "neos/redirecthandler-ui": "^2.4",
-        "neos/redirecthandler-neosadapter": "^4.3",
-        "neos/redirecthandler-databasestorage": "^5.0",
-
-        "packagefactory/atomicfusion-proptypes": "^2.0",
-        "packagefactory/atomicfusion-classnames": "^1.0",
-
-        "flowpack/nodetemplates": "^1.3",
-
-        "sitegeist/klarschiff": "^3.0",
-        "sitegeist/monocle": "^7.6",
-        "sitegeist/chitchat": "~1.2",
-        "sitegeist/kaleidoscope": "^6.5",
-        "sitegeist/csvpo": "^1.5",
-        "sitegeist/stampede": "^1.5",
-        "sitegeist/archaeopteryx": "dev-feature/inspectorLinkProperty as 1.4.0",
-        "sitegeist/iconoclasm": "^2.0",
-        "sitegeist/noderobis": "~1.1",
-        "sitegeist/pyranodis": "~1.0",
         "vendor/supportwheelinventor": "*"
     },
     "require-dev": {
