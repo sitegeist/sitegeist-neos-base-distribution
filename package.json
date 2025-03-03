@@ -6,6 +6,8 @@
   ],
   "devDependencies": {
     "@hookform/resolvers": "^3.10.0",
+    "@tailwindcss/cli": "^4.0.6",
+    "@tailwindcss/postcss": "^4.0.6",
     "@tanstack/react-query": "^5.61.0",
     "@tanstack/react-query-devtools": "^5.61.0",
     "@types/glob": "^8.1.0",

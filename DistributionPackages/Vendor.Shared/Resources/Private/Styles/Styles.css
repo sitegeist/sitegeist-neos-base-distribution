@@ -1,11 +1,31 @@
 @import 'tailwindcss';
-@config '../../../tailwind.config.js';
-@layer base {
-	*,
-	::after,
-	::before,
-	::backdrop,
-	::file-selector-button {
-		border-color: var(--color-gray-200, currentColor);
-	}
+
+@theme {
+	--min-height-touch: 48px;
+	--max-width-content-full: 1000px;
+
+	--color-brand: #564e58;
+	--color-brand-contrast: #fff;
+	--color-brand-grey: #efefef;
+
+	--color-cta: #ff934f;
+	--color-cta-contrast: #000;
+
+	--color-info: #76bed0;
+	--color-info-contrast: #000;
+
+	--color-error: #f61067;
+	--color-error-contrast: #fff;
+
+	--color-success: #20fc8f;
+	--color-success-contrast: #000;
+
+	--color-warning: #f4e04d;
+	--color-warning-contrast: #000;
+
+	--grid-template-columns-2-33-66: 1fr 2fr;
+	--grid-template-columns-2-66-33: 2fr 1fr;
+	--grid-template-columns-3-COL: 1fr 1fr 1fr;
+
+	--padding-ratio-4-3: calc(3 * 100% / 4);
 }

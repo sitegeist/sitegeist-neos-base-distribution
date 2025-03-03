@@ -14,24 +14,22 @@
     "build:css": "tailwindcss -i ./Resources/Private/Styles/Styles.css -o ./Resources/Public/Build/Styles/main.min.css --minify",
     "watch:css": "tailwindcss -i ./Resources/Private/Styles/Styles.css -o ./Resources/Public/Build/Styles/main.min.css --watch",
     "clean:build": "rm -rf ./Resources/Public/Build/*",
-    "lint": "eslint Resources/Private/**/*.ts"
+    "lint": "eslint Resources/Private/**/*.{ts,tsx}"
   },
   "dependencies": {
     "classnames": "^2.3.1",
     "final-form": "^4.20.2",
     "final-form-focus": "^1.1.2",
     "keen-slider": "^5.5.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-final-form": "^6.5.3",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-final-form": "^6.5.9",
     "rxjs": "^7.3.0"
   },
   "devDependencies": {
-    "@tailwindcss/cli": "^4.0.6",
-    "@tailwindcss/postcss": "^4.0.6",
     "@types/classnames": "^2.3.1",
-    "@types/react": "^17.0.34",
-    "@types/react-dom": "^17.0.11",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
     "vite": "^6.1.0"
   }
 }
