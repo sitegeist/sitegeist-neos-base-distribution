@@ -14,7 +14,7 @@
     "build:css": "tailwindcss -i ./Resources/Private/Styles/Styles.css -o ./Resources/Public/Build/Styles/main.min.css --minify",
     "watch:css": "tailwindcss -i ./Resources/Private/Styles/Styles.css -o ./Resources/Public/Build/Styles/main.min.css --watch",
     "clean:build": "rm -rf ./Resources/Public/Build/*",
-    "lint": "eslint 'Resources/Private/**/*.{ts,tsx}'"
+    "lint": "eslint Resources/Private/**/*.ts"
   },
   "dependencies": {
     "classnames": "^2.3.1",
