@@ -3,14 +3,13 @@
   "version": "1.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "concurrently 'yarn build:js' 'yarn build:css'",
+    "build": "yarn build:js & yarn build:css",
     "build:js": "webpack --mode production",
-    "build:css": "TAILWIND_MODE=build NODE_ENV=production postcss Resources/Private/Styles/styles.css -o Resources/Public/Build/Styles/main.min.css",
-    "watch": "concurrently 'yarn watch:js' 'yarn watch:css'",
+    "build:css": "NODE_ENV=production tailwindcss -i Resources/Private/Styles/styles.css -o Resources/Public/Build/Styles/main.min.css --minify",
+    "watch": "yarn watch:js & yarn watch:css",
     "watch:js": "webpack -w --mode development",
-    "watch:css": "TAILWIND_MODE=watch NODE_ENV=development postcss -w Resources/Private/Styles/styles.css -o Resources/Public/Build/Styles/main.min.css",
-    "lint": "eslint './Resources/Private/**/*.ts'",
-    "test": "echo \"Error: no test specified\""
+    "watch:css": "NODE_ENV=development tailwindcss -i Resources/Private/Styles/styles.css -o Resources/Public/Build/Styles/main.min.css --watch",
+    "lint": "eslint 'Resources/Private/**/*.{ts,tsx}'"
   },
   "dependencies": {
     "classnames": "^2.3.1",

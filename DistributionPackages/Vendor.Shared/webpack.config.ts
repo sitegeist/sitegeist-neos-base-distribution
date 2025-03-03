@@ -1,6 +1,6 @@
 import * as webpack from 'webpack';
 import path from 'path';
-import glob from 'glob';
+import {glob} from 'glob';
 
 import packageJson from './package.json';
 import composerJson from './composer.json';
@@ -24,7 +24,7 @@ const shared = [
 	)
 ];
 
-export function buildCommonConfig(): webpack.Configuration {
+export function buildCommonConfig(composerJson: ComposerJson): webpack.Configuration {
 	return {
 		stats: 'minimal',
 
@@ -35,7 +35,8 @@ export function buildCommonConfig(): webpack.Configuration {
 		},
 
 		resolve: {
-			extensions: ['.ts', '.tsx', '.js', '.json']
+			extensions: ['.ts', '.tsx', '.js', '.json'],
+			preferRelative: true
 		},
 
 		module: {
@@ -49,7 +50,11 @@ export function buildCommonConfig(): webpack.Configuration {
 				{
 					test: /\.tsx?$/,
 					use: [{
-						loader: 'ts-loader'
+						loader: 'esbuild-loader',
+						options: {
+							loader: 'tsx',
+							target: 'es2015'
+						}
 					}]
 				},
 			]
@@ -67,8 +72,8 @@ export function buildCommonConfig(): webpack.Configuration {
 	};
 }
 
-export function buildRuntimeConfig() {
-	const common = buildCommonConfig();
+export function buildRuntimeConfig(composerJson: ComposerJson) {
+	const common = buildCommonConfig(composerJson);
 
 	return {
 		...common,
@@ -84,7 +89,7 @@ export function buildRuntimeConfig() {
 }
 
 export function buildComponentsConfig(composerJson: ComposerJson, entry?: string) {
-	const common = buildCommonConfig();
+	const common = buildCommonConfig(composerJson);
 	const foo = glob.sync('./Resources/Private/**/Root.ts');
 	const components = glob.sync('./Resources/Private/Fusion/Presentation/**/*.entry.ts');
 
@@ -112,6 +117,6 @@ export function buildComponentsConfig(composerJson: ComposerJson, entry?: string
 }
 
 export default [
-	buildRuntimeConfig(),
+	buildRuntimeConfig(composerJson),
 	buildComponentsConfig(composerJson)
 ];
