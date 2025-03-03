@@ -6,20 +6,26 @@ prototype(Vendor.Shared:Block.SiteHeader) < prototype(PackageFactory.AtomicFusio
     }
 
     renderer = afx`
-        <div class="[Block.SiteHeader] bg-brand-grey w-full relative">
-            <div class={[
-                    "flex justify-between w-full max-w-content-full mx-auto p-[20px] min-h-touch items-center"
-                ]}
-            >
+        <div class="[Block.SiteHeader] group bg-brand-grey w-full sticky flex flex-col max-h-20 overflow-hidden transition-[max-height] duration-500 ease-in-out data-open:max-h-[100dvh] data-open:sticky data-open:top-0" data-site-header>
+            <div class="flex justify-between w-full max-w-content-full mx-auto p-[20px] min-h-touch items-center shrink-0">
                 <div>
                     <Vendor.Shared:Block.Link presentationObject={presentationObject.homeLink}/>
                 </div>
 
                 <div class="flex items-center justify-end w-full h-full z-50">
+
+                    <button class="relative flex h-8 w-8 items-center justify-center shrink-0 lg:hidden" data-menu-button>
+                        <span class="relative block h-[80%] w-full">
+                            <span class="absolute block bg-cta-contrast w-full origin-center transition-all duration-500 h-1 w-full top-0 group-data-open:top-1/2 group-data-open:-translate-y-1/2 group-data-open:rotate-45"></span>
+                            <span class="absolute block bg-cta-contrast w-full origin-center transition-all duration-500 h-1 w-full top-1/2 -translate-y-1/2 group-data-open:scale-x-0"></span>
+                            <span class="absolute block bg-cta-contrast w-full origin-center transition-all duration-500 h-1 w-full top-full -translate-y-full group-data-open:top-1/2 group-data-open:-translate-y-1/2 group-data-open:-rotate-45"></span>
+                        </span>
+                    </button>
+
                     <ul
                         class={[
                             "text-lg space-x-[48px]",
-                            "hidden sm:flex items-center w-full h-full justify-end"
+                            "hidden lg:flex items-center w-full h-full justify-end"
                         ]}
                     >
                         <Neos.Fusion:Loop items={presentationObject.mainNavigationItems} itemName="mainNavigationItem">
@@ -80,6 +86,9 @@ prototype(Vendor.Shared:Block.SiteHeader) < prototype(PackageFactory.AtomicFusio
                         </Neos.Fusion:Loop>
                     </ul>
                 </div>
+            </div>
+            <div class="bg-warning w-full max-h-0 overflow-y-auto overflow-x-hidden grow-1 transition-[max-height] duration-500 ease-in-out group-data-open:max-h-full" data-off-canvas-menu>
+
             </div>
         </div>
     `

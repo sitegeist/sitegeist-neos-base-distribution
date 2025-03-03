@@ -14,7 +14,7 @@ prototype(Vendor.Shared:Block.DownloadCard) < prototype(PackageFactory.AtomicFus
             <div class={[
                 "flex gap-4 h-full"
             ]}>
-                <div class="w-1/4 flex items-start flex-shrink-0 h-full">
+                <div class="w-1/4 flex items-start shrink-0 h-full">
                     <div class="shadow-md h-full w-full">
                         <PackageFactory.AtomicFusion.PresentationObjects:Slot
                             presentationObject={presentationObject.media}

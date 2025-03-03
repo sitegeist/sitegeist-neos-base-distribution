@@ -1,69 +1,61 @@
-type ComponentFn = (_el: HTMLElement) => any;
+// type ComponentFn = (_el: HTMLElement) => any;
 
 const scriptCache = new Map<string, Promise<boolean>>();
 
+window.componentFn = {};
+
 async function dynamicScript(src: string): Promise<boolean> {
-	if (!scriptCache.has(src)) {
-		const promise = new Promise<boolean>(resolve => {
-			const script = document.createElement("script");
+	if (scriptCache.has(src)) return scriptCache.get(src)!;
 
-			script.src = src;
-			script.type = "text/javascript";
-			script.async = true;
+	const promise = new Promise<boolean>((resolve) => {
+		const script = document.createElement("script");
 
-			document.head.appendChild(script);
+		script.src = src + "?cb=" + BUILD_DATE;
+		script.type = "module";
+		script.async = true;
 
-			script.onload = () => {
-				resolve(true);
-				document.head.removeChild(script);
-			};
+		document.head.appendChild(script);
 
-			script.onerror = () => {
-				console.error(`Dynamic Script Error: ${src}`);
-				resolve(false);
-				document.head.removeChild(script);
-			};
-		});
+		script.onload = () => {
+			resolve(true);
+			document.head.removeChild(script);
+		};
 
-		scriptCache.set(src, promise);
+		script.onerror = () => {
+			console.error(`Dynamic Script Error: ${src}`);
+			resolve(false);
+			document.head.removeChild(script);
+		};
+	});
 
-		return promise;
-	}
-
-	return scriptCache.get(src) ?? false;
+	scriptCache.set(src, promise);
+	return promise;
 }
 
-async function loadComponent(identifier: string): Promise<null | ComponentFn> {
-	const [packageName, componentName] = identifier.split(":");
-	const src = `/_Resources/Static/Packages/${packageName}/Build/JavaScript/components.js`;
+async function loadComponent(packageName: string, componentName: string): Promise<any> {
+	const scriptUrl = `/_Resources/Static/Packages/${packageName}/Build/JavaScript/components/${componentName}.js`;
 
-	if (await dynamicScript(src)) {
-		/* eslint-disable */
-		// @ts-expect-error
-		await ((__webpack_init_sharing__ as any)('default') as Promise<any>);
-		const container = window[packageName.replace(/\./g, '_') as any] as any;
+	const script = await dynamicScript(scriptUrl);
 
-		// @ts-expect-error
-		await container.init((__webpack_share_scopes__ as any).default);
-		const factory = await container.get(`components/${componentName}`);
-
-		const {default: componentFn} = factory();
-		return componentFn;
-		/* eslint-enable */
+	if (!script) {
+		throw new Error(`Failed to load component: ${packageName}: ${componentName}`);
 	}
 
-	return null;
+	return script;
 }
 
-document.querySelectorAll("[data-esm]").forEach(async el => {
+document.querySelectorAll("[data-esm]").forEach(async (el) => {
 	if (el instanceof HTMLElement) {
-		const {esm} = el.dataset;
+		const { esm } = el.dataset;
 
-		if (esm) {
-			const componentFn = await loadComponent(esm);
-			if (componentFn) {
-				componentFn(el);
-			}
+		if (!esm) return;
+
+		const [packageName, componentName] = esm.split(":");
+		await loadComponent(packageName, componentName);
+
+		const componentFn = window.componentFn[componentName];
+		if (componentFn) {
+			componentFn(el);
 		}
 	}
 });

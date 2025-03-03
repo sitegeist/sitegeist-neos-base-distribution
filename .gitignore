@@ -39,6 +39,7 @@ DistributionPackages/*/Resources/Public/Build/Styles/
 
 .idea
 .vscode
+.yarn/install-state.gz
 
 custom.makefile
 docker-compose.override.y*ml
