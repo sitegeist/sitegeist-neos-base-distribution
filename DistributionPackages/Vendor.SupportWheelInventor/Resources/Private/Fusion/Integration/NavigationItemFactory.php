@@ -1,9 +1,5 @@
 <?php
 
-/*
- * This file is part of the Nordmann.Shared package.
- */
-
 declare(strict_types=1);
 
 namespace Vendor\SupportWheelInventor\Integration;
@@ -21,13 +17,13 @@ final class NavigationItemFactory extends AbstractComponentPresentationObjectFac
     public const MAX_ITEMS_PER_COLUMN = 6;
 
     /**
-     * @return array<int,NavigationItems>|null
+     * @return NavigationItems|null
      */
     public function forNavigationNode(
         TraversableNodeInterface $rootNode,
         TraversableNodeInterface $currentDocumentNode,
         int $currentLevel
-    ): ?array {
+    ): ?NavigationItems {
         if ($currentLevel <= self::MAX_NAVIGATION_DEPTH) {
             $childNodes = array_filter(
                 array_map(
@@ -42,13 +38,13 @@ final class NavigationItemFactory extends AbstractComponentPresentationObjectFac
                         }
                         try {
                             return new NavigationItem(
-                                $this->uriService->getNodeUri($node),
-                                Value::fromString($node->getLabel()),
-                                \mb_strpos(
+                                uri: $this->uriService->getNodeUri($node),
+                                label: Value::fromString($node->getLabel()),
+                                isActive: \mb_strpos(
                                     (string)$currentDocumentNode->findNodePath(),
                                     (string)$node->findNodePath()
                                 ) === 0,
-                                $this->forNavigationNode(
+                                items: $this->forNavigationNode(
                                     $node,
                                     $currentDocumentNode,
                                     ++$currentLevel
@@ -65,15 +61,7 @@ final class NavigationItemFactory extends AbstractComponentPresentationObjectFac
                 )
             );
 
-            if ($currentLevel > 1) {
-                return array_map(
-                    fn (array $columnItems): NavigationItems
-                    => new NavigationItems(...$columnItems),
-                    array_chunk($childNodes, self::MAX_ITEMS_PER_COLUMN)
-                );
-            }
-
-            return [new NavigationItems(... $childNodes)];
+            return new NavigationItems(...$childNodes);
         }
         return null;
     }

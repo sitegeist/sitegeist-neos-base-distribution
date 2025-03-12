@@ -39,4 +39,9 @@ final class NavigationItems implements \IteratorAggregate, \Countable
     {
         return count($this->navigationItems);
     }
+
+    public function getHasItems(): bool
+    {
+        return count($this->navigationItems) > 0;
+    }
 }

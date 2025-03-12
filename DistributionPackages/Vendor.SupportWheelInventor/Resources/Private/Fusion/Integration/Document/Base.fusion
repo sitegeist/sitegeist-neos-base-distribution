@@ -5,7 +5,7 @@ prototype(Vendor.SupportWheelInventor:Document.Base) < prototype(Neos.Fusion:Com
 
     renderer = Neos.Neos:Page {
         head {
-            metaViewport = '<meta name="viewport" content="width=device-width">'
+            metaViewport = '<meta name="viewport" content="width=device-width, initial-scale=1">'
             stylesheets = Vendor.Shared:Resource.StyleSheets
 
             titleTag {

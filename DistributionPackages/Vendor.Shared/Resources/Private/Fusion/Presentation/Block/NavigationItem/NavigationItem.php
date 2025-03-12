@@ -16,14 +16,11 @@ use Psr\Http\Message\UriInterface;
 #[Flow\Proxy(false)]
 final class NavigationItem extends AbstractComponentPresentationObject
 {
-    /**
-     * @param array<int,NavigationItems>|null $subItems
-     */
     public function __construct(
         public readonly UriInterface $uri,
         public readonly StringLike $label,
         public readonly bool $isActive,
-        public readonly ?array $subItems,
+        public readonly ?NavigationItems $items,
     ) {
     }
 }

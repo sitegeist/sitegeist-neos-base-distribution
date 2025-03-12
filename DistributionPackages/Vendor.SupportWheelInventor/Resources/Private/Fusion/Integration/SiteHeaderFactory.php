@@ -15,6 +15,7 @@ use Sitegeist\Archaeopteryx\Link as ArchaeopteryxLink;
 use Vendor\Shared\Presentation\Block\Link\Link;
 use Vendor\Shared\Presentation\Block\Link\LinkTarget;
 use Vendor\Shared\Presentation\Block\Link\LinkVariant;
+use Vendor\Shared\Presentation\Block\MainNavigation\MainNavigation;
 use Vendor\Shared\Presentation\Block\SiteHeader\SiteHeader;
 
 final class SiteHeaderFactory extends AbstractComponentPresentationObjectFactory
@@ -30,7 +31,7 @@ final class SiteHeaderFactory extends AbstractComponentPresentationObjectFactory
         bool $inBackend
     ): SiteHeader {
         return new SiteHeader(
-            new Link(
+            homeLink: new Link(
                 LinkVariant::VARIANT_REGULAR,
                 ArchaeopteryxLink::create(
                     $this->uriService->getNodeUri($site),
@@ -41,11 +42,13 @@ final class SiteHeaderFactory extends AbstractComponentPresentationObjectFactory
                 Value::fromString('Home'),
                 $inBackend
             ),
-            $this->navigationItemFactory->forNavigationNode(
-                $site,
-                $documentNode,
-                1
-            )[0] ?? null,
+            mainNavigation: new MainNavigation(
+                items: $this->navigationItemFactory->forNavigationNode(
+                    $site,
+                    $documentNode,
+                    1
+                ) ?? null
+            ),
         );
     }
 }
