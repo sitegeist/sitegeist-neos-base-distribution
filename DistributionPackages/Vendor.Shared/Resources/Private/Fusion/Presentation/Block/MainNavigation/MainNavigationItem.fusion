@@ -17,10 +17,7 @@ prototype(Vendor.Shared:Block.MainNavigation.MainNavigationItem) < prototype(Pac
             <div class="flex items-center justify-between">
                 <a
                     href={presentationObject.uri}
-                    class={[
-                        "py-2 px-4 block font-bold",
-                        presentationObject.isActive && "text-highlight"
-                    ]}
+                    class="py-2 px-4 block font-bold"
                 >
                     {presentationObject.label}
                 </a>
@@ -46,10 +43,7 @@ prototype(Vendor.Shared:Block.MainNavigation.MainNavigationItem) < prototype(Pac
                     <Neos.Fusion:Loop items={presentationObject.items}>
                         <a
                             href={item.uri}
-                            class={[
-                                "block px-4 py-2 text-gray-700 hover:bg-gray-200",
-                                item.isActive && "text-highlight"
-                            ]}
+                            class="block px-4 py-2 text-gray-700 hover:bg-gray-200"
                         >
                             {item.label}
                         </a>
@@ -71,10 +65,7 @@ prototype(Vendor.Shared:Block.MainNavigation.MainNavigationItem) < prototype(Pac
                     <Neos.Fusion:Loop items={presentationObject.items}>
                         <a
                             href={item.uri}
-                            class={[
-                                "block px-8 py-2 text-gray-700",
-                                item.isActive && "text-highlight"
-                            ]}
+                            class="block px-8 py-2 text-gray-700"
                         >
                             {item.label}
                         </a>

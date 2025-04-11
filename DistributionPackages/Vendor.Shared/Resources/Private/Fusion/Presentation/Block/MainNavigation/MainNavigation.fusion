@@ -17,16 +17,18 @@ prototype(Vendor.Shared:Block.MainNavigation) < prototype(PackageFactory.AtomicF
                     ]}
                     data-offcanvas-menu
                 >
-                    <ul class={[
-                        "list-none p-10 w-dvw flex flex-col gap-5 overflow-y-auto max-h-full overflow-x-hidden",
-                        "md:w-80 lg:flex-row lg:p-0 lg:h-full lg:w-full lg:overflow-auto"
-                    ]}>
-                        <Neos.Fusion:Loop items={presentationObject.items}>
-                            <Vendor.Shared:Block.MainNavigation.MainNavigationItem
-                                presentationObject={item}
-                            />
-                        </Neos.Fusion:Loop>
-                    </ul>
+                    <div class="lg:contents overflow-y-auto max-h-full overflow-x-hidden">
+                        <ul class={[
+                            "list-none p-10 w-dvw flex flex-col gap-5",
+                            "md:w-80 lg:flex-row lg:p-0 lg:h-full lg:w-full"
+                        ]}>
+                            <Neos.Fusion:Loop items={presentationObject.items}>
+                                <Vendor.Shared:Block.MainNavigation.MainNavigationItem
+                                    presentationObject={item}
+                                />
+                            </Neos.Fusion:Loop>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
