@@ -6,9 +6,23 @@ prototype(Vendor.Shared:Block.SiteHeader) < prototype(PackageFactory.AtomicFusio
     }
 
     renderer = afx`
-        <div class="bg-brand-grey w-full ">
-            <div class="w-full max-w-content-full mx-auto p-5">
-                [Site Header]
+        <div class="[Block.SiteHeader] group/SiteHeader fixed w-full top-0 flex flex-col z-50 bg-brand-grey">
+            <div
+                class={[
+                    "flex justify-between w-full max-w-content-full mx-auto h-header px-5 min-h-touch items-center",
+                    "shrink-0 transition-all duration-300",
+                    "group-data-scrolled/SiteHeader:h-header-scrolled"
+                ]}
+            >
+                <div>
+                    <Vendor.Shared:Block.Link presentationObject={presentationObject.homeLink}/>
+                </div>
+
+                <div class="lg:hidden flex items-center justify-end w-full h-full z-50">
+                    <Vendor.Shared:Block.MenuButton/>
+                </div>
+
+                <Vendor.Shared:Block.MainNavigation presentationObject={presentationObject.mainNavigation} />
             </div>
         </div>
     `

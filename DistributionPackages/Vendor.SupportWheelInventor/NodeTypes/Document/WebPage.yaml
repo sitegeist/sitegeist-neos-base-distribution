@@ -1,6 +1,7 @@
 'Vendor.SupportWheelInventor:Document.WebPage':
   superTypes:
     'Vendor.SupportWheelInventor:Document': true
+    'Vendor.SupportWheelInventor:Tag.MainNavigationElement': true
   ui:
     icon: file
     label: 'Web Page'

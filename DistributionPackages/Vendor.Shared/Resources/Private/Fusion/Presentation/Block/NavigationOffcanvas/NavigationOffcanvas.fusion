@@ -1,0 +1,15 @@
+prototype(Vendor.Shared:Block.NavigationOffcanvas) < prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    @presentationObjectInterface = 'Vendor\\Shared\\Presentation\\Block\\NavigationOffcanvas\\NavigationOffcanvas'
+
+    @styleguide {
+        title = 'Navigation Offcanvas'
+    }
+
+    renderer = afx`
+        <div class="absolute top-0 right-0 h-dvh max-w-dvw bg-warning overflow-y-auto overflow-x-hidden transition-transform duration-500 ease-in-out translate-x-full data-open:translate-x-0" data-off-canvas-menu>
+            <div class="p-20">
+                <p>Test</p>
+            </div>
+        </div>
+    `
+}

@@ -11,21 +11,14 @@ indent_size = 4
 [*.{yaml,yml,yaml.example}]
 indent_size = 2
 
-[{package.json,lerna.json,.babelrc,.eslintrc,.stylelintrc}]
+[{package.json,lerna.json,.eslintrc}]
 indent_size = 2
 
-[*.{css,js,ts}]
+[*.{css,js,ts,tsx}]
 indent_style = tab
 
 [Makefile]
 indent_style = tab
 
-[*.makefile]
-indent_style = tab
-
 [*.md]
 trim_trailing_whitespace = false
-
-[*.yaml.example]
-indent_size = 2
-

@@ -19,7 +19,9 @@
 #                                VARIABLES                                    #
 ###############################################################################
 SHELL=/bin/bash
-
+GREEN=\033[0;32m
+RED=\033[0;31m
+NC=\033[0m
 ###############################################################################
 #                                  README                                     #
 ###############################################################################
@@ -125,6 +127,8 @@ watch::
 #                                  DDEV                                     #
 ###############################################################################
 up::
+	@$(MAKE) -s init-submodule
+	@$(MAKE) -s update-submodule
 	@ddev start
 
 down::
@@ -138,6 +142,14 @@ restart::
 
 logs::
 	@ddev logs -f
+
+init-submodules::
+	@if [[ -z $$(find sitegeist-neos-base-distribution -mindepth 1 -maxdepth 1) ]]; then echo "${GREEN}initializing submodule ...${NC}" && \
+		git submodule init;fi
+
+update-submodule::
+	git submodule update --remote
+	cd sitegeist-neos-base-distribution && git checkout supportWheelInventor-basicContentElements
 
 ###############################################################################
 #                                  SSH                                        #

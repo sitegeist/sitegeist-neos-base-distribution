@@ -1,0 +1,54 @@
+'Vendor.Shared:Mixin.Social':
+  abstract: true
+
+  ui:
+    icon: icon-globe
+    label: 'Startseite'
+    inspector:
+      groups:
+        social:
+          tab: 'footer'
+          label: 'Soziale Medien'
+          icon: 'share-alt'
+
+  properties:
+    social__facebookUri:
+      type: string
+      ui:
+        label: 'Facebook'
+        reloadIfChanged: true
+        inspector:
+          group: 'social'
+          editor: 'Neos.Neos/Inspector/Editors/LinkEditor'
+    social__instagramUri:
+      type: string
+      ui:
+        label: 'Instagram'
+        reloadIfChanged: true
+        inspector:
+          group: 'social'
+          editor: 'Neos.Neos/Inspector/Editors/LinkEditor'
+    social__xingUri:
+      type: string
+      ui:
+        label: 'Xing'
+        reloadIfChanged: true
+        inspector:
+          group: 'social'
+          editor: 'Neos.Neos/Inspector/Editors/LinkEditor'
+    social__xUri:
+      type: string
+      ui:
+        label: 'X'
+        reloadIfChanged: true
+        inspector:
+          group: 'social'
+          editor: 'Neos.Neos/Inspector/Editors/LinkEditor'
+    social__linkedinUri:
+      type: string
+      ui:
+        label: 'Linkedin'
+        reloadIfChanged: true
+        inspector:
+          group: 'social'
+          editor: 'Neos.Neos/Inspector/Editors/LinkEditor'

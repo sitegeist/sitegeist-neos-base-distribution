@@ -1,9 +1,16 @@
 'Vendor.SupportWheelInventor:Document.HomePage':
   superTypes:
     'Vendor.SupportWheelInventor:Document': true
+    'Vendor.Shared:Mixin.Social': true
+    'Vendor.Shared:Mixin.Footer': true
   ui:
     icon: globe
     label: 'Homepage'
+    inspector:
+      tabs:
+        footer:
+          label: Footer
+          icon: 'shoe-prints'
 
   constraints:
     nodeTypes:

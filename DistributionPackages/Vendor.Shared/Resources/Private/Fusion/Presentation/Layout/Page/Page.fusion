@@ -10,14 +10,9 @@ prototype(Vendor.Shared:Layout.Page) < prototype(PackageFactory.AtomicFusion.Pre
     }
 
     renderer = afx`
-        <div
-            class={[
-                "[Layout.Page]"
-            ]}
-            style="hyphens:auto;word-break:normal;"
-        >
+        <div class="[Layout.Page] hyphens-auto break-normal">
             <Neos.Fusion:Renderer renderPath="/siteHeader" />
-            <main class="">
+            <main class="pt-header">
                 <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />
             </main>
             <Neos.Fusion:Renderer renderPath="/siteFooter" />
