@@ -1,0 +1,22 @@
+from "./TextColumns.cpx" import { TextColumns }
+
+export component Text {
+
+    columns: TextColumns
+    content: slot
+
+    render
+        <div
+            class={[
+                "[Block.Text ({columns})]",
+                match (columns) {
+                    TextColumns.COLUMNS_TWO_COLUMNS -> "sm:columns-2",
+                    default -> "",
+                },
+            ]}
+        >
+            <div>
+                {content}
+            </div>
+        </div>
+}

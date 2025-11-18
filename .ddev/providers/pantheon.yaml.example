@@ -8,12 +8,18 @@
 # 1. Get your Pantheon.io machine token:
 #    a. Login to your Pantheon Dashboard, and [Generate a Machine Token](https://pantheon.io/docs/machine-tokens/) for ddev to use.
 #    b. Add the API token to the `web_environment` section in your global ddev configuration at ~/.ddev/global_config.yaml
-#
 #    ```yaml
 #    web_environment:
 #        - TERMINUS_MACHINE_TOKEN=abcdeyourtoken
 #    ```
 #    You can also do this with `ddev config global --web-environment-add="TERMINUS_MACHINE_TOKEN=abcdeyourtoken"`.
+#
+#    To use multiple API tokens for different projects, add them to your per-project configuration
+#    using the .ddev/config.local.yaml file instead. This file is gitignored by default.
+#    ```yaml
+#    web_environment:
+#        - TERMINUS_MACHINE_TOKEN=abcdeyourtoken
+#    ```
 #
 # 2. Choose a Pantheon site and environment you want to use with ddev. You can usually use the site name, but in some environments you may need the site uuid, which is the long 3rd component of your site dashboard URL. So if the site dashboard is at <https://dashboard.pantheon.io/sites/009a2cda-2c22-4eee-8f9d-96f017321555#dev/>, the site ID is 009a2cda-2c22-4eee-8f9d-96f017321555.
 #
@@ -56,7 +62,6 @@ db_pull_command:
   command: |
     set -x   # You can enable bash debugging output by uncommenting
     set -eu -o pipefail
-    ls /var/www/html/.ddev >/dev/null # This just refreshes stale NFS if possible
     pushd /var/www/html/.ddev/.downloads >/dev/null
     terminus backup:get ${project} --element=db --to=db.sql.gz
 
@@ -64,7 +69,6 @@ files_pull_command:
   command: |
     set -x   # You can enable bash debugging output by uncommenting
     set -eu -o pipefail
-    ls /var/www/html/.ddev >/dev/null # This just refreshes stale NFS if possible
     pushd /var/www/html/.ddev/.downloads >/dev/null;
     terminus backup:get ${project} --element=files --to=files.tgz
     mkdir -p files && tar --strip-components=1 -C files -zxf files.tgz
@@ -75,7 +79,6 @@ db_push_command:
     set -x   # You can enable bash debugging output by uncommenting
     ssh-add -l >/dev/null || ( echo "Please 'ddev auth ssh' before running this command." && exit 1 )
     set -eu -o pipefail
-    ls /var/www/html/.ddev >/dev/null # This just refreshes stale NFS if possible
     pushd /var/www/html/.ddev/.downloads >/dev/null;
     terminus remote:drush ${project} -- sql-drop -y
     gzip -dc db.sql.gz | terminus remote:drush ${project} -- sql-cli

@@ -5,12 +5,9 @@ declare(strict_types=1);
 namespace Vendor\Shared\Presentation\Layout\Grid;
 
 use Neos\Eel\ProtectedContextAwareInterface;
-use PackageFactory\AtomicFusion\PresentationObjects\Fusion\StringComponentVariant;
 
-enum GridVariant: string implements ProtectedContextAwareInterface
+enum GridVariant: string
 {
-    use StringComponentVariant;
-
     case VARIANT_REGULAR = 'regular';
     case VARIANT_50_50 = '50-50';
     case VARIANT_66_33 = '66-33';

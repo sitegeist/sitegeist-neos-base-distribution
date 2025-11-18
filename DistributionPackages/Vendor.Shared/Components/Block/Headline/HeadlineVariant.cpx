@@ -1,0 +1,4 @@
+export enum HeadlineVariant {
+    VARIANT_REGULAR("regular")
+    VARIANT_UPPERCASE("uppercase")
+}

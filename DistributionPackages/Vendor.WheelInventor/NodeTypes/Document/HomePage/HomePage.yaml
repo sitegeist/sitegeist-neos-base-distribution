@@ -1,0 +1,36 @@
+'Vendor.WheelInventor:Document.HomePage':
+  superTypes:
+    'Neos.Neos:Site': true
+    'Vendor.WheelInventor:Document': true
+    'Vendor.Shared:Mixin.Social': true
+    'Vendor.Shared:Mixin.Footer': true
+  ui:
+    icon: globe
+    label: 'Homepage'
+    inspector:
+      tabs:
+        footer:
+          label: Footer
+          icon: 'shoe-prints'
+
+  constraints:
+    nodeTypes:
+      'Vendor.WheelInventor:Document.WebPage': true
+      'Vendor.WheelInventor:Document.Shortcut': true
+  childNodes:
+    notfound:
+      type: 'Vendor.WheelInventor:Document.Error.404'
+    main:
+      type: 'Neos.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          '*': false
+          'Vendor.WheelInventor:Content.Downloads': true
+          'Vendor.WheelInventor:Content.DownloadList': true
+          'Vendor.WheelInventor:Content.Image': true
+          'Vendor.WheelInventor:Content.ImageWithText': true
+          'Vendor.WheelInventor:Content.Quotation': true
+          'Vendor.WheelInventor:Content.Text': true
+          'Vendor.WheelInventor:Content.Accordion': true
+          'Vendor.WheelInventor:Content.TileNavigation': true
+          'Vendor.WheelInventor:Content.AnchorNavigation': true

@@ -1,0 +1,20 @@
+from "../Headline/Headline.cpx" import { Headline }
+from "../Text/Text.cpx" import { Text }
+
+export component TextWithHeadline {
+
+    headline: Headline
+    text: Text
+
+    render
+        <div
+            class={[
+                "[Block.TextWithHeadline]"
+            ]}
+        >
+            <div>
+                {headline}
+                {text}
+            </div>
+        </div>
+}

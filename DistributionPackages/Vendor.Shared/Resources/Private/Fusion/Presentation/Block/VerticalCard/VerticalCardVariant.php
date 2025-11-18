@@ -9,11 +9,8 @@ declare(strict_types=1);
 namespace Vendor\Shared\Presentation\Block\VerticalCard;
 
 use Neos\Eel\ProtectedContextAwareInterface;
-use PackageFactory\AtomicFusion\PresentationObjects\Fusion\StringComponentVariant;
 
-enum VerticalCardVariant: string implements ProtectedContextAwareInterface
+enum VerticalCardVariant: string
 {
-    use StringComponentVariant;
-
     case VARIANT_REGULAR = 'regular';
 }

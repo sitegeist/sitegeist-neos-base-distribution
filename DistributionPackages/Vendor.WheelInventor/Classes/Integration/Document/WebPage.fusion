@@ -1,0 +1,7 @@
+prototype(Vendor.WheelInventor:Document.WebPage) < prototype(Neos.Fusion:Component) {
+    renderer = Vendor.WheelInventor:Document.Base {
+        body = Vendor.Shared:Layout.Page {
+            presentationObject = ${WheelInventor.Page.forWebPage(documentNode, Neos.Node.subgraphForNode(documentNode), renderingMode.isEdit)}
+        }
+    }
+}

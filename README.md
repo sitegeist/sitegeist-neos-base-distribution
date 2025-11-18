@@ -42,7 +42,7 @@ ddev flow package:adopt Vendor.WheelInventor __your_site_package_key__
 or:
 
 ```sh
-ddev flow package:adopt Vendor.SupportWheelInventor __your_site_package_key__
+ddev flow package:adopt Vendor.WheelInventor __your_site_package_key__
 ddev flow package:adopt Vendor.Shared __your_shared_package_key__
 ```
 

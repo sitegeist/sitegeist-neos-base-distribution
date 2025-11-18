@@ -1,0 +1,4 @@
+export enum TextColumns {
+    COLUMNS_ONE_COLUMN("oneColumn")
+    COLUMNS_TWO_COLUMNS("twoColumns")
+}

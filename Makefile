@@ -127,8 +127,6 @@ watch::
 #                                  DDEV                                     #
 ###############################################################################
 up::
-	@$(MAKE) -s init-submodule
-	@$(MAKE) -s update-submodule
 	@ddev start
 
 down::

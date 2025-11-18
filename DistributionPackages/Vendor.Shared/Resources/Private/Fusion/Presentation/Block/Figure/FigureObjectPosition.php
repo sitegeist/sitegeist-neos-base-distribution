@@ -5,12 +5,9 @@ declare(strict_types=1);
 namespace Vendor\Shared\Presentation\Block\Figure;
 
 use Neos\Eel\ProtectedContextAwareInterface;
-use PackageFactory\AtomicFusion\PresentationObjects\Fusion\StringComponentVariant;
 
-enum FigureObjectPosition: string implements ProtectedContextAwareInterface
+enum FigureObjectPosition: string
 {
-    use StringComponentVariant;
-
     case POSITION_CENTER = 'center';
     case POSITION_LEFT = 'left';
     case POSITION_RIGHT = 'right';

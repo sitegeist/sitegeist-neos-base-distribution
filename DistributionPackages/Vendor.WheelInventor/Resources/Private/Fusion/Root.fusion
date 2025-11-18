@@ -1,0 +1,9 @@
+include: ./**/*.fusion
+
+siteHeader = Vendor.Shared:Block.SiteHeader {
+    presentationObject = ${WheelInventor.SiteHeader.forDocumentNode(documentNode, site, node.context.inBackend)}
+}
+
+siteFooter = Vendor.Shared:Block.SiteFooter {
+    presentationObject = ${WheelInventor.SiteFooter.forSite(site, node.context.inBackend)}
+}

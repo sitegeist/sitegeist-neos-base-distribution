@@ -15,6 +15,7 @@
     "prefer-stable": true,
     "require": {
         "neos/neos": "^9.0",
+        "neos/contentgraph-doctrinedbaladapter": "^9.0",
         "neos/neos-ui": "^9.0",
         "neos/seo": "^4.1",
         "neos/redirecthandler": "^6.0",
@@ -22,20 +23,21 @@
         "neos/redirecthandler-neosadapter": "^5.0",
         "neos/redirecthandler-ui": "^3.0",
 
-        "packagefactory/atomicfusion-classnames": "dev-neos9",
+        "flowpack/nodetemplates": "^3.0",
 
-        "flowpack/nodetemplates": "dev-neos9",
+        "packagefactory/neos-componentview": "^1.0",
 
-        "sitegeist/klarschiff": "dev-neos9",
-        "sitegeist/monocle": "^7.10",
-        "sitegeist/chitchat": "dev-neos9",
-        "sitegeist/kaleidoscope": "dev-neos9",
+        "sitegeist/archaeopteryx": "^2.0",
         "sitegeist/csvpo": "^2.0",
-        "sitegeist/stampede": "dev-neos9",
-        "sitegeist/archaeopteryx": "dev-neos9",
-        "sitegeist/iconoclasm": "dev-neos9",
+        "sitegeist/iconoclasm": "^2.1",
+        "sitegeist/inspectorgadget": "^3.0",
+        "sitegeist/kaleidoscope": "^7.0",
+        "sitegeist/klarschiff": "^3.0",
+        "sitegeist/monocle": "^7.10",
+        "sitegeist/schemeonyou": "^2.0",
+        "sitegeist/stampede": "^2.0",
 
-        "vendor/supportwheelinventor": "*"
+        "vendor/wheelinventor": "*"
     },
     "require-dev": {
         "neos/buildessentials": "^9.0",
@@ -45,11 +47,13 @@
         "phpunit/phpunit": "^10.0",
         "symfony/css-selector": "~2.0",
         "neos/behat": "^9.0",
+        "neos/contentrepository-testsuite": "^9.0",
+        "neos/contentrepositoryregistry-testsuite": "^9.0",
         "behat/behat": "^3.0",
         "deployer/deployer": "^7.0",
         "editorconfig-checker/editorconfig-checker": "^10.0",
-        "sitegeist/magicwand": "dev-neos9",
-        "sitegeist/chantalle": "dev-neos9"
+        "sitegeist/magicwand": "^4.4",
+        "sitegeist/chantalle": "^2.0"
     },
     "suggest": {
         "ext-pdo_sqlite": "For running functional tests out-of-the-box this is required"
@@ -60,6 +64,7 @@
         "post-package-update": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
         "post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
         "post-create-project-cmd": "ddev config --project-name=`basename \"$PWD\"`",
+        "build:cpx": "./flow components:build 'Vendor.Shared,Vendor.WheelInventor'",
         "flush": [
             "./flow flow:cache:flush --force",
             "./flow flow:package:rescan",

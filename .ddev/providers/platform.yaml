@@ -18,6 +18,13 @@
 #    ```
 #    You can also do this with `ddev config global --web-environment-add="PLATFORMSH_CLI_TOKEN=abcdeyourtoken"`.
 #
+#    To use multiple API tokens for different projects, add them to your per-project configuration
+#    using the .ddev/config.local.yaml file instead. This file is gitignored by default.
+#    ```yaml
+#    web_environment:
+#        - PLATFORMSH_CLI_TOKEN=abcdeyourtoken
+#    ```
+#
 # 3. Add PLATFORM_PROJECT and PLATFORM_ENVIRONMENT and optional PLATFORM_APP (only if your environment contains more than one app) variables to your project `.ddev/config.yaml` or a `.ddev/config.platform.yaml`
 #    ```yaml
 #    web_environment:
@@ -54,7 +61,6 @@ db_pull_command:
     # set -x   # You can enable bash debugging output by uncommenting
     set -eu -o pipefail
     export PLATFORMSH_CLI_NO_INTERACTION=1
-    ls /var/www/html/.ddev >/dev/null # This just refreshes stale NFS if possible
     # /tmp/db_relationships.yaml is the full yaml output of the database relationships
     db_relationships_file=/tmp/db_relationships.yaml
     PLATFORM_RELATIONSHIPS="" platform relationships -y  -e "${PLATFORM_ENVIRONMENT}" ${PLATFORM_APP:+"--app=${PLATFORM_APP}"} | yq 'with_entries(select(.[][].type == "mariadb:*" or .[][].type == "*mysql:*" or .[][].type == "postgresql:*")) ' >${db_relationships_file}
@@ -94,7 +100,6 @@ db_push_command:
     # set -x   # You can enable bash debugging output by uncommenting
     set -eu -o pipefail
     export PLATFORMSH_CLI_NO_INTERACTION=1
-    ls /var/www/html/.ddev >/dev/null # This just refreshes stale NFS if possible
     pushd /var/www/html/.ddev/.downloads >/dev/null;
     if [ "${PLATFORM_PRIMARY_RELATIONSHIP:-}" != "" ] ; then
       rel="--relationship ${PLATFORM_PRIMARY_RELATIONSHIP}"

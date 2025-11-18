@@ -1,0 +1,5 @@
+export enum HeadlineSize {
+    SIZE_MD("md")
+    SIZE_XL("xl")
+    SIZE_2XL("2xl")
+}

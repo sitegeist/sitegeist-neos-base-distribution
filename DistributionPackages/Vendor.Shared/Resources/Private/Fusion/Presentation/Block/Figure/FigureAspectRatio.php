@@ -5,12 +5,9 @@ declare(strict_types=1);
 namespace Vendor\Shared\Presentation\Block\Figure;
 
 use Neos\Eel\ProtectedContextAwareInterface;
-use PackageFactory\AtomicFusion\PresentationObjects\Fusion\StringComponentVariant;
 
-enum FigureAspectRatio: string implements ProtectedContextAwareInterface
+enum FigureAspectRatio: string
 {
-    use StringComponentVariant;
-
     case RATIO_1X1 = '1x1';
     case RATIO_2X1 = '2x1';
     case RATIO_4X3 = '4x3';
