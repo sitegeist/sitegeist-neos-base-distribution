@@ -1,0 +1,30 @@
+prototype(Vendor.Shared:Layout.Row) < prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    @presentationObjectInterface = 'Vendor\\Shared\\Presentation\\Layout\\Row\\Row'
+
+    @styleguide {
+        title = 'Row'
+
+        @caseFactory = 'Vendor\\Shared\\Presentation\\Layout\\Row\\RowFactory'
+    }
+
+    renderer = afx`
+        <div
+            class={[
+                "[Layout.Row (" + presentationObject.variant.value + ")]",
+                "flex flex-wrap w-full",
+                (presentationObject.justification.equals('start')) && "justify-start",
+                (presentationObject.justification.equals('end')) && "justify-end",
+                (presentationObject.justification.equals('center')) && "justify-center",
+                (presentationObject.justification.equals('between')) && "justify-between",
+                (presentationObject.justification.equals('around')) && "justify-around",
+                (presentationObject.justification.equals('evenly')) && "justify-evenly",
+                (presentationObject.alignment.equals('start')) && "items-start",
+                (presentationObject.alignment.equals('end')) && "items-end",
+                (presentationObject.alignment.equals('stretch')) && "items-stretch",
+                (presentationObject.alignment.equals('center')) && "items-center"
+            ]}
+        >
+            <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />
+        </div>
+    `
+}

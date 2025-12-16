@@ -1,0 +1,24 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "sourceMap": true,
+        "resolveJsonModule": true,
+        "esModuleInterop": true,
+        "module": "CommonJS",
+        "target": "ESNext",
+        "jsx": "react",
+        "moduleResolution": "node",
+        "experimentalDecorators": true,
+        "downlevelIteration": true,
+        "lib": [
+            "ESNext",
+            "DOM"
+        ],
+        "baseUrl": "."
+    },
+    "exclude": [
+        "node_modules",
+        "Resources/Public",
+        "Neos.Ui"
+    ]
+}

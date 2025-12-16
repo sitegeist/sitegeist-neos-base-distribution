@@ -1,0 +1,23 @@
+'Vendor.SupportWheelInventor:Content.Downloads':
+  label: "${node.nodeType.label}"
+  superTypes:
+    'Vendor.SupportWheelInventor:Content': true
+    'Neos.Neos:ContentCollection': true
+    'Vendor.Shared:Mixin.Headline': true
+
+  ui:
+    label: 'Einzeldownloads'
+    icon: 'download'
+
+  constraints:
+    nodeTypes:
+      '*': false
+      'Vendor.SupportWheelInventor:Content.Download': true
+
+  options:
+    template:
+      childNodes:
+        download-1:
+          type: 'Vendor.SupportWheelInventor:Content.Download'
+        download-2:
+          type: 'Vendor.SupportWheelInventor:Content.Download'

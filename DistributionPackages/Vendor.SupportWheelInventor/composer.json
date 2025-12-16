@@ -8,6 +8,7 @@
     "autoload": {
         "psr-4": {
             "Vendor\\SupportWheelInventor\\": "Classes/",
+            "Vendor\\SupportWheelInventor\\NodeTypes\\": "NodeTypes/",
             "Vendor\\SupportWheelInventor\\Presentation\\": "Resources/Private/Fusion/Presentation/",
             "Vendor\\SupportWheelInventor\\Integration\\": "Resources/Private/Fusion/Integration/"
         }

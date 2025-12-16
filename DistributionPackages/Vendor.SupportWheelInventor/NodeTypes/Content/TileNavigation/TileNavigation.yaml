@@ -1,0 +1,23 @@
+'Vendor.SupportWheelInventor:Content.TileNavigation':
+  label: "${node.nodeType.label}"
+  superTypes:
+    'Vendor.SupportWheelInventor:Content': true
+    'Vendor.Shared:Mixin.Headline': true
+  ui:
+    label: 'Kachelnavigation'
+    icon: 'th-large'
+    inspector:
+      groups:
+        elements:
+          label: 'Elemente'
+          icon: 'th-large'
+
+  properties:
+    documents:
+      type: references
+      ui:
+        label: 'Seiten'
+        reloadIfChanged: true
+        inspector:
+          group: 'elements'
+

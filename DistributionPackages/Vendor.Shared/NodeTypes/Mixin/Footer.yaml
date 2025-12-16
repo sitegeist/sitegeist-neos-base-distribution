@@ -1,0 +1,52 @@
+'Vendor.Shared:Mixin.Footer':
+  abstract: true
+  ui:
+    inspector:
+      groups:
+        footerLinks:
+          tab: footer
+          label: 'Verlinkungen'
+          icon: 'link'
+
+  properties:
+    primaryMenuTitle:
+      type: string
+      ui:
+        label: 'Titel Footer-Navigation - Teil 1'
+        inspector:
+          group: 'footerLinks'
+          position: 10
+    secondaryMenuTitle:
+      type: string
+      ui:
+        label: 'Titel Footer-Navigation - Teil 2'
+        inspector:
+          group: 'footerLinks'
+          position: 20
+    thirdMenuTitle:
+      type: string
+      ui:
+        label: 'Titel Footer-Navigation - Teil 3'
+        inspector:
+          group: 'footerLinks'
+          position: 30
+
+  references:
+    primaryMenu:
+      ui:
+        label: 'Footer-Navigation - Teil 1'
+        inspector:
+          group: 'footerLinks'
+          position: 12
+    secondaryMenu:
+      ui:
+        label: 'Footer-Navigation - Teil 2'
+        inspector:
+          group: 'footerLinks'
+          position: 22
+    thirdMenu:
+      ui:
+        label: 'Footer-Navigation - Teil 3'
+        inspector:
+          group: 'footerLinks'
+          position: 32

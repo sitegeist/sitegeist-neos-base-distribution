@@ -1,0 +1,7 @@
+Neos:
+  Media:
+    thumbnailPresets:
+      'pdf':
+        width: 660px
+        height: 880px
+        allowCropping: true

@@ -1,0 +1,45 @@
+prototype(Vendor.Shared:Block.VerticalCard) < prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    @presentationObjectInterface = 'Vendor\\Shared\\Presentation\\Block\\VerticalCard\\VerticalCard'
+
+    @styleguide {
+        title = 'VerticalCard'
+        @caseFactory = 'Vendor\\Shared\\Presentation\\Block\\VerticalCard\\VerticalCardFactory'
+    }
+
+    renderer = afx`
+        <div class={[
+            "[Block.VerticalCard (" + presentationObject.variant.value + ")]",
+            "flex flex-col w-full h-full relative",
+            "bg-brand-grey"
+        ]}>
+            <div
+                @if.1={presentationObject.figure}
+                class="relative w-full h-0 pt-ratio-4-3 mb-xs"
+            >
+                <div class="absolute inset-0">
+                    <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.figure}  />
+                </div>
+            </div>
+
+            <div class={[
+                "flex flex-col justify-between p-4 h-full",
+                presentationObject.variant.equals("regular") && "bg-brand-grey"
+            ]}>
+                <div class="flex flex-col space-y-4 mb-xs h-full">
+                    <div @if.1={presentationObject.headline}>
+                        <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.headline} />
+                    </div>
+                    <div @if.1={presentationObject.text}>
+                        <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.text} />
+                    </div>
+                </div>
+
+                <div @if.1={presentationObject.button} class="[&_svg]:text-brand-blueLight">
+                    <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.button} />
+                </div>
+            </div>
+        </div>
+    `
+}
+
+

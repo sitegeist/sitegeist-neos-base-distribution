@@ -1,0 +1,13 @@
+'Vendor.Shared:Mixin.Subheadline':
+  abstract: true
+  properties:
+    subheadline:
+      options:
+        preset: 'rte.plain'
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Bitte Unterüberschrift eingeben'
+#      search:
+#        fulltextExtractor: ${Indexing.extractInto('h3', value)}

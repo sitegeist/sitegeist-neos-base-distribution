@@ -1,0 +1,35 @@
+{
+  "name": "@vendor/shared",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "build": "yarn clean:build && yarn build:all",
+    "watch": "yarn watch:css & yarn watch:js",
+    "build:all": "yarn build:js & yarn build:css",
+    "build:js": "yarn build:root-js & yarn build:components-js",
+    "build:root-js": "vite build -c vite.config.ts",
+    "build:components-js": "vite build -c vite.components.config",
+    "watch:js": "vite build -c vite.components.config --watch",
+    "build:css": "tailwindcss -i ./Resources/Private/Styles/Styles.css -o ./Resources/Public/Build/Styles/main.min.css --minify",
+    "watch:css": "tailwindcss -i ./Resources/Private/Styles/Styles.css -o ./Resources/Public/Build/Styles/main.min.css --watch",
+    "clean:build": "rm -rf ./Resources/Public/Build/*",
+    "lint": "eslint Resources/Private/**/*.{ts,tsx}"
+  },
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "final-form": "^4.20.2",
+    "final-form-focus": "^1.1.2",
+    "keen-slider": "^5.5.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-final-form": "^6.5.9",
+    "rxjs": "^7.3.0"
+  },
+  "devDependencies": {
+    "@types/classnames": "^2.3.1",
+    "@types/react": "^18.3.18",
+    "@types/react-dom": "^18.3.5",
+    "vite": "^6.1.0"
+  }
+}

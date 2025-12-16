@@ -1,7 +1,13 @@
 Neos:
   Fusion:
     defaultContext:
+      # document renderers
+      SupportWheelInventor.HomePage: Vendor\SupportWheelInventor\NodeTypes\Document\HomePage\HomePageRenderer
+      SupportWheelInventor.NotFoundPage: Vendor\SupportWheelInventor\NodeTypes\Document\NotFoundPage\NotFoundPageRenderer
+      SupportWheelInventor.WebPage: Vendor\SupportWheelInventor\NodeTypes\Document\NotFoundPage\WebPageRenderer
+
+      # content renderers
+
       SupportWheelInventor.ContentSlot: Vendor\SupportWheelInventor\Integration\ContentSlotFactory
-      SupportWheelInventor.Page: Vendor\SupportWheelInventor\Integration\PageFactory
       SupportWheelInventor.SiteHeader: Vendor\SupportWheelInventor\Integration\SiteHeaderFactory
       SupportWheelInventor.SiteFooter: Vendor\SupportWheelInventor\Integration\SiteFooterFactory

@@ -1,0 +1,13 @@
+'Vendor.Shared:Mixin.Headline':
+  abstract: true
+  properties:
+    headline:
+      options:
+        preset: 'rte.plain'
+      ui:
+        inlineEditable: true
+        inline:
+          editorOptions:
+            placeholder: 'Bitte Überschrift eingeben'
+#      search:
+#        fulltextExtractor: ${Indexing.extractInto('h2', value)}

@@ -1,0 +1,6 @@
+'Vendor.Shared:Mixin.IDLess':
+  abstract: true
+
+  properties:
+    anchorID:
+      ui: ~

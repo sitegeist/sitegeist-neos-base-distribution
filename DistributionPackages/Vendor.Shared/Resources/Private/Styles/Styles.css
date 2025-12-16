@@ -1,0 +1,67 @@
+@import 'tailwindcss';
+
+@theme {
+	--min-height-touch: 48px;
+	--max-width-content-full: 1000px;
+	--spacing-header: 100px;
+	--spacing-header-scrolled: 60px;
+
+	--color-brand: #564e58;
+	--color-brand-contrast: #fff;
+	--color-brand-grey: #efefef;
+
+	--color-cta: #ff934f;
+	--color-cta-contrast: #000;
+
+	--color-highlight: #179fff;
+
+	--color-info: #76bed0;
+	--color-info-contrast: #000;
+
+	--color-error: #f61067;
+	--color-error-contrast: #fff;
+
+	--color-success: #20fc8f;
+	--color-success-contrast: #000;
+
+	--color-warning: #f4e04d;
+	--color-warning-contrast: #000;
+
+	--grid-template-columns-2-33-66: 1fr 2fr;
+	--grid-template-columns-2-66-33: 2fr 1fr;
+	--grid-template-columns-3-COL: 1fr 1fr 1fr;
+
+	--padding-ratio-4-3: calc(3 * 100% / 4);
+
+	--animate-fade-in: fade-in 0.5s forwards;
+	--animate-fade-out: fade-out 0.5s forwards;
+
+	@keyframes fade-in {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 0.5;
+		}
+	}
+
+	@keyframes fade-out {
+		0% {
+			opacity: 0.5;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+}
+
+@layer components {
+	.backdrop {
+		@apply absolute top-0 right-0 h-dvh w-full bg-black z-5;
+		@apply transition-opacity duration-500 ease-in-out opacity-0;
+		@apply animate-fade-in;
+		@apply lg:hidden;
+	}
+}
+
+

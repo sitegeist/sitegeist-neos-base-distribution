@@ -1,0 +1,41 @@
+prototype(Vendor.Shared:Block.Headline) < prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    @presentationObjectInterface = 'Vendor\\Shared\\Presentation\\Block\\Headline\\Headline'
+
+    @styleguide {
+        title = 'Headline'
+
+        @caseFactory = 'Vendor\\Shared\\Presentation\\Block\\Headline\\HeadlineFactory'
+    }
+
+    renderer = Neos.Fusion:Tag {
+        tagName = ${presentationObject.type.value}
+
+        attributes.class = Neos.Fusion:DataStructure {
+            name = ${"[Block.Headline (" +
+                presentationObject.type.value +
+                "|" + presentationObject.variant.value +
+                ")] " +
+                "w-full"
+            }
+
+            h1 = "text-2xl font-bold"
+            h1.@if.1 = ${presentationObject.type.equals('h1')}
+
+            h2 = "text-2xl font-bold"
+            h2.@if.1 = ${presentationObject.type.equals('h2')}
+
+            h3 = "text-xl font-bold"
+            h3.@if.1 = ${presentationObject.type.equals('h3')}
+
+            div = "text-md font-bold"
+            div.@if.1 = ${presentationObject.type.equals('div')}
+
+            uppercase = "uppercase"
+            uppercase.@if.1 = ${presentationObject.variant.equals('uppercase')}
+        }
+
+        content = PackageFactory.AtomicFusion.PresentationObjects:Slot {
+            presentationObject = ${presentationObject.content}
+        }
+    }
+}

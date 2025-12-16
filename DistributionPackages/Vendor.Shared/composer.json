@@ -3,25 +3,32 @@
     "type": "neos-vendor",
     "version": "1.0.0",
     "require": {
-        "neos/neos": "~8.3.0",
-        "neos/neos-ui": "~8.3.0",
-        "neos/seo": "^3.0",
-        "neos/redirecthandler-ui": "^2.4",
-        "neos/redirecthandler-neosadapter": "^4.3",
-        "neos/redirecthandler-databasestorage": "^5.0",
+        "neos/neos": "~9.0.0",
+        "neos/neos-ui": "~9.0.0",
+        "neos/contentgraph-doctrinedbaladapter": "^9.0.0",
+        "neos/redirecthandler": "^6.0",
+        "neos/redirecthandler-databasestorage": "*",
+        "neos/redirecthandler-neosadapter": "5.0.4",
+        "neos/redirecthandler-ui": "^3.0",
+        "neos/seo": "^4.1",
+        "neos/symfonymailer": "^1.0",
 
-        "packagefactory/atomicfusion-presentationobjects": "4.0.x-dev",
+        "packagefactory/atomicfusion-presentationobjects": "^5.0",
 
-        "flowpack/nodetemplates": "^1.3",
+        "flowpack/nodetemplates": "^3.0",
 
+        "packagefactory/atomicfusion-classnames": "^1.0",
+
+        "sitegeist/archaeopteryx": "^2.0",
+        "sitegeist/csvpo": "^2.0",
+        "sitegeist/iconoclasm": "^2.1",
+        "sitegeist/inspectorgadget": "^3.0",
+        "sitegeist/kaleidoscope": "^7.0.1",
         "sitegeist/klarschiff": "^3.0",
-        "sitegeist/monocle": "^7.6",
-        "sitegeist/monocle-presentationobjects": "*",
-        "sitegeist/kaleidoscope": "^6.5",
-        "sitegeist/csvpo": "^1.5",
-        "sitegeist/stampede": "^1.5",
-        "sitegeist/archaeopteryx": "^1.0",
-        "sitegeist/iconoclasm": "^2.0"
+        "sitegeist/monocle": "^7.10",
+        "sitegeist/monocle-presentationobjects": "^2.0",
+        "sitegeist/schemeonyou": "^2.0",
+        "sitegeist/stampede": "^2.0"
     },
     "autoload": {
         "psr-4": {

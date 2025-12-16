@@ -1,0 +1,24 @@
+prototype(Vendor.Shared:Layout.Grid) < prototype(PackageFactory.AtomicFusion.PresentationObjects:PresentationObjectComponent) {
+    @presentationObjectInterface = 'Vendor\\Shared\\Presentation\\Layout\\Grid\\Grid'
+
+    @styleguide {
+        title = 'Grid'
+
+        @caseFactory = 'Vendor\\Shared\\Presentation\\Layout\\Grid\\GridFactory'
+    }
+
+    renderer = afx`
+        <div
+            class={[
+                "[Layout.Grid (" + presentationObject.variant.value + ")]",
+                "grid grid-cols-1 ",
+                (presentationObject.variant.equals('50-50')) && "w-full sm:grid-cols-2 gap-4 md:gap-4",
+                (presentationObject.variant.equals('33-66')) && "w-full sm:grid-cols-2-33-66 gap-4",
+                (presentationObject.variant.equals('66-33')) && "w-full sm:grid-cols-2-66-33 gap-4",
+                (presentationObject.variant.equals('3-COL-GAP')) && "w-full sm:grid-cols-2 md:grid-cols-3-COL gap-4"
+            ]}
+        >
+            <PackageFactory.AtomicFusion.PresentationObjects:Slot presentationObject={presentationObject.content} />
+        </div>
+    `
+}

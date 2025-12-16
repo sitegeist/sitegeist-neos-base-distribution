@@ -1,29 +1,29 @@
-name: sitegeist-neos-base-distribution
+name: sitegeist-neos-base-distribution-dev
 type: php
 docroot: Web
-php_version: "8.1"
+php_version: "8.2"
 webserver_type: nginx-fpm
 router_http_port: "80"
 router_https_port: "443"
 xdebug_enabled: false
 additional_hostnames: []
 additional_fqdns: []
-mariadb_version: "10.4"
-mysql_version: ""
-nfs_mount_enabled: false
-mutagen_enabled: false
+database:
+  type: mariadb
+  version: "10.11"
 hooks:
+  post-composer:
+    - exec: ./flow flow:package:rescan
   post-start:
-  - exec: sudo echo alias ll=\"ls -lhA\" >> ~/.bashrc
-omit_containers: []
+    - exec: sudo echo alias ll=\"ls -lhA\" >> ~/.bashrc
+webimage_extra_packages: [poppler-utils]
 use_dns_when_possible: true
+timezone: Europe/Berlin
 composer_version: "2"
 web_environment:
   - FLOW_CONTEXT=Development/ddev
   - FLOW_REWRITEURLS=1
-  - FLOW_PATH_TEMPORARY_BASE=/tmp/neos
-  - FLOW_ROOTPATH=/var/www/html
-nodejs_version: "16"
+corepack_enable: false
 
 # Key features of ddev's config.yaml:
 

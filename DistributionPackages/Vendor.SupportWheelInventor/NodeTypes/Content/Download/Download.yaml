@@ -1,0 +1,38 @@
+'Vendor.SupportWheelInventor:Content.Download':
+  superTypes:
+    'Vendor.SupportWheelInventor:Content': true
+    'Vendor.Shared:Mixin.Image': true
+
+  ui:
+    label: 'Download'
+    icon: file-download
+    inspector:
+      groups:
+        asset:
+          label: 'Datei'
+          icon: file
+  properties:
+    image:
+      validation: ~
+    image__alt:
+      validation: ~
+    image__title:
+      validation: ~
+    title:
+      options:
+        preset: 'rte.plain'
+      ui:
+        inline:
+          editorOptions:
+            placeholder: 'Bitte Titel eingeben'
+    asset:
+      type: 'Neos\Media\Domain\Model\Asset'
+      ui:
+        label: 'Datei'
+        reloadIfChanged: true
+        inspector:
+          group: asset
+          editorOptions:
+            constraints:
+              mediaTypes:
+                - 'application/pdf'

@@ -1,9 +1,5 @@
 <?php
 
-/*
- * This file is part of the Vendor.Shared package.
- */
-
 declare(strict_types=1);
 
 namespace Vendor\Shared\Presentation\Layout\Page;
@@ -13,10 +9,10 @@ use PackageFactory\AtomicFusion\PresentationObjects\Fusion\AbstractComponentPres
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\SlotInterface;
 
 #[Flow\Proxy(false)]
-final class Page extends AbstractComponentPresentationObject
+final readonly class Page extends AbstractComponentPresentationObject
 {
     public function __construct(
-        public readonly SlotInterface $content
+        public SlotInterface $content
     ) {
     }
 }

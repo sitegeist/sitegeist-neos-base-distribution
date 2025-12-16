@@ -1,0 +1,6 @@
+Sitegeist:
+  Stampede:
+    collections:
+      'shared':
+        label: 'Shared Collection'
+        path: resource://Vendor.Shared/Private/Icons
