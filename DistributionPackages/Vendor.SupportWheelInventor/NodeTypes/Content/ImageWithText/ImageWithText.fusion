@@ -1,0 +1,5 @@
+prototype(Vendor.SupportWheelInventor:Content.ImageWithText) < prototype(Neos.Neos:ContentComponent) {
+    renderer = PackageFactory.AtomicFusion.PresentationObjects:Slot {
+        presentationObject = ${SupportWheelInventor.ImageWithText.renderContent(node, documentNode, site, Neos.Node.subgraphForNode(documentNode), renderingMode.isEdit)}
+    }
+}

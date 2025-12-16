@@ -12,9 +12,8 @@
           label: 'Elemente'
           icon: 'th-large'
 
-  properties:
+  references:
     documents:
-      type: references
       ui:
         label: 'Seiten'
         reloadIfChanged: true

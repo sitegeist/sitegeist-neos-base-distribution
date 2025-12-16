@@ -2,26 +2,32 @@
 
 declare(strict_types=1);
 
-namespace Vendor\SupportWheelInventor\NodeTypes\Content\Accordion;
+namespace Vendor\SupportWheelInventor\NodeTypes\Content\Text;
 
 use Neos\ContentRepository\Core\Projection\ContentGraph\ContentSubgraphInterface;
-use Neos\ContentRepository\Core\Projection\ContentGraph\Filter\FindChildNodesFilter;
 use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
 use PackageFactory\AtomicFusion\PresentationObjects\Fusion\AbstractComponentPresentationObjectFactory;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Collection;
-use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Content;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Editable;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\SlotInterface;
 use Vendor\Shared\Presentation\Block\Headline\Headline;
 use Vendor\Shared\Presentation\Block\Headline\HeadlineType;
 use Vendor\Shared\Presentation\Block\Headline\HeadlineVariant;
+use Vendor\Shared\Presentation\Block\Text\Text;
+use Vendor\Shared\Presentation\Block\Text\TextColumns;
 use Vendor\Shared\Presentation\Layout\ContentContainer\ContentContainer;
 use Vendor\Shared\Presentation\Layout\ContentContainer\ContentContainerVariant;
 use Vendor\Shared\Presentation\Layout\Stack\Stack;
 use Vendor\Shared\Presentation\Layout\Stack\StackVariant;
+use Vendor\SupportWheelInventor\Integration\LinkedButtonFactory;
 
-final class AccordionRenderer extends AbstractComponentPresentationObjectFactory
+final class TextRenderer extends AbstractComponentPresentationObjectFactory
 {
+    public function __construct(
+        private readonly LinkedButtonFactory $linkedButtonFactory,
+    ) {
+    }
+
     public function renderAsContent(
         Node $contentNode,
         Node $documentNode,
@@ -32,21 +38,23 @@ final class AccordionRenderer extends AbstractComponentPresentationObjectFactory
         return new ContentContainer(
             ContentContainerVariant::VARIANT_REGULAR,
             new Stack(
-                StackVariant::VARIANT_SPACE_Y_4,
+                StackVariant::VARIANT_REGULAR,
                 Collection::fromSlots(... array_filter([
-                    $inBackend || $contentNode->getProperty('headline')
+                    $contentNode->getProperty('headline') || $inBackend
                         ? new Headline(
                             HeadlineVariant::VARIANT_REGULAR,
-                            HeadlineType::TYPE_H3,
+                            HeadlineType::TYPE_H2,
                             Editable::fromNodeProperty($contentNode, 'headline')
                         )
                         : null,
-                    Collection::fromNodes(
-                        $subgraph->findChildNodes($contentNode->aggregateId, FindChildNodesFilter::create()),
-                        function (Node $accordionItem): Content {
-                            return Content::fromNode($accordionItem, 'Vendor.SupportWheelInventor:ContentSlot');
-                        }
-                    )
+                    new Text(
+                        TextColumns::from(
+                            self::getStringValue($contentNode, 'columns')
+                                ?: TextColumns::COLUMNS_ONE_COLUMN->value
+                        ),
+                        Editable::fromNodeProperty($contentNode, 'text')
+                    ),
+                    $this->linkedButtonFactory->tryForLinkMixin($contentNode, $subgraph, $inBackend),
                 ]))
             )
         );

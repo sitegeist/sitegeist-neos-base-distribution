@@ -4,10 +4,20 @@ Neos:
       # document renderers
       SupportWheelInventor.HomePage: Vendor\SupportWheelInventor\NodeTypes\Document\HomePage\HomePageRenderer
       SupportWheelInventor.NotFoundPage: Vendor\SupportWheelInventor\NodeTypes\Document\NotFoundPage\NotFoundPageRenderer
-      SupportWheelInventor.WebPage: Vendor\SupportWheelInventor\NodeTypes\Document\NotFoundPage\WebPageRenderer
+      SupportWheelInventor.WebPage: Vendor\SupportWheelInventor\NodeTypes\Document\WebPage\WebPageRenderer
 
       # content renderers
+      SupportWheelInventor.Accordion: Vendor\SupportWheelInventor\NodeTypes\Content\Accordion\AccordionRenderer
+      SupportWheelInventor.AccordionItem: Vendor\SupportWheelInventor\NodeTypes\Content\AccordionItem\AccordionItemRenderer
+      SupportWheelInventor.AnchorNavigation: Vendor\SupportWheelInventor\NodeTypes\Content\AnchorNavigation\AnchorNavigationRenderer
+      SupportWheelInventor.Download: Vendor\SupportWheelInventor\NodeTypes\Content\Download\DownloadRenderer
+      SupportWheelInventor.DownloadList: Vendor\SupportWheelInventor\NodeTypes\Content\DownloadList\DownloadListRenderer
+      SupportWheelInventor.Downloads: Vendor\SupportWheelInventor\NodeTypes\Content\Downloads\DownloadsRenderer
+      SupportWheelInventor.Image: Vendor\SupportWheelInventor\NodeTypes\Content\Image\ImageRenderer
+      SupportWheelInventor.ImageWithText: Vendor\SupportWheelInventor\NodeTypes\Content\ImageWithText\ImageWithTextRenderer
+      SupportWheelInventor.Quotation: Vendor\SupportWheelInventor\NodeTypes\Content\Quotation\QuotationRenderer
+      SupportWheelInventor.Text: Vendor\SupportWheelInventor\NodeTypes\Content\Text\TextRenderer
+      SupportWheelInventor.TileNavigation: Vendor\SupportWheelInventor\NodeTypes\Content\TileNavigation\TileNavigationRenderer
 
-      SupportWheelInventor.ContentSlot: Vendor\SupportWheelInventor\Integration\ContentSlotFactory
       SupportWheelInventor.SiteHeader: Vendor\SupportWheelInventor\Integration\SiteHeaderFactory
       SupportWheelInventor.SiteFooter: Vendor\SupportWheelInventor\Integration\SiteFooterFactory

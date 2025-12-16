@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace AccordionItem;
+namespace Vendor\SupportWheelInventor\NodeTypes\Content\AccordionItem;
 
 use Neos\ContentRepository\Core\Projection\ContentGraph\ContentSubgraphInterface;
 use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
@@ -30,6 +30,8 @@ final class AccordionItemRenderer extends AbstractComponentPresentationObjectFac
 
     public function renderAsContent(
         Node $contentNode,
+        Node $documentNode,
+        Node $siteNode,
         ContentSubgraphInterface $subgraph,
         bool $inBackend,
     ): SlotInterface {

@@ -5824,6 +5824,51 @@
             "time": "2025-06-13T08:59:26+00:00"
         },
         {
+            "name": "neos/setup",
+            "version": "6.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/neos/setup.git",
+                "reference": "1474ca573c49885105b2c58ecd7f72c371ac9d0a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/neos/setup/zipball/1474ca573c49885105b2c58ecd7f72c371ac9d0a",
+                "reference": "1474ca573c49885105b2c58ecd7f72c371ac9d0a",
+                "shasum": ""
+            },
+            "require": {
+                "neos/flow": "~8.0.12 || ~8.1.8 || ~8.2.6 || ~8.3.4 || ^8.4 || ^9.0",
+                "php": "^8.0"
+            },
+            "replace": {
+                "neos/cli-setup": "*",
+                "typo3/setup": "self.version"
+            },
+            "type": "neos-package",
+            "autoload": {
+                "psr-4": {
+                    "Neos\\Setup\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "An extensible setup tool for Neos Flow based applications",
+            "support": {
+                "issues": "https://github.com/neos/setup/issues",
+                "source": "https://github.com/neos/setup/tree/6.1.0"
+            },
+            "funding": [
+                {
+                    "url": "https://shop.neos.io/neosfunding/",
+                    "type": "custom"
+                }
+            ],
+            "time": "2025-11-09T11:36:47+00:00"
+        },
+        {
             "name": "neos/symfonymailer",
             "version": "1.0.1",
             "source": {
@@ -10439,7 +10484,7 @@
             "dist": {
                 "type": "path",
                 "url": "./DistributionPackages/Vendor.Shared",
-                "reference": "e0526c56e236814f3cd69c6584da25479c30b24e"
+                "reference": "2263d163cfbee4e41930ab27ef6ee40ee2979478"
             },
             "require": {
                 "flowpack/nodetemplates": "^3.0",
@@ -10451,6 +10496,7 @@
                 "neos/redirecthandler-neosadapter": "5.0.4",
                 "neos/redirecthandler-ui": "^3.0",
                 "neos/seo": "^4.1",
+                "neos/setup": "^6.0",
                 "neos/symfonymailer": "^1.0",
                 "packagefactory/atomicfusion-classnames": "^1.0",
                 "packagefactory/atomicfusion-presentationobjects": "^5.0",

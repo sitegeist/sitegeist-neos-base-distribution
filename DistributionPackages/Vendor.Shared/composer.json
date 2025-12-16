@@ -12,6 +12,7 @@
         "neos/redirecthandler-ui": "^3.0",
         "neos/seo": "^4.1",
         "neos/symfonymailer": "^1.0",
+        "neos/setup": "^6.0",
 
         "packagefactory/atomicfusion-presentationobjects": "^5.0",
 

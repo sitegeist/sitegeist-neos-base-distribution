@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\SupportWheelInventor\NodeTypes\Content\Accordion;
+namespace Vendor\SupportWheelInventor\NodeTypes\Content\Downloads;
 
 use Neos\ContentRepository\Core\Projection\ContentGraph\ContentSubgraphInterface;
 use Neos\ContentRepository\Core\Projection\ContentGraph\Filter\FindChildNodesFilter;
@@ -17,10 +17,12 @@ use Vendor\Shared\Presentation\Block\Headline\HeadlineType;
 use Vendor\Shared\Presentation\Block\Headline\HeadlineVariant;
 use Vendor\Shared\Presentation\Layout\ContentContainer\ContentContainer;
 use Vendor\Shared\Presentation\Layout\ContentContainer\ContentContainerVariant;
+use Vendor\Shared\Presentation\Layout\Grid\Grid;
+use Vendor\Shared\Presentation\Layout\Grid\GridVariant;
 use Vendor\Shared\Presentation\Layout\Stack\Stack;
 use Vendor\Shared\Presentation\Layout\Stack\StackVariant;
 
-final class AccordionRenderer extends AbstractComponentPresentationObjectFactory
+final class DownloadsRenderer extends AbstractComponentPresentationObjectFactory
 {
     public function renderAsContent(
         Node $contentNode,
@@ -34,18 +36,20 @@ final class AccordionRenderer extends AbstractComponentPresentationObjectFactory
             new Stack(
                 StackVariant::VARIANT_SPACE_Y_4,
                 Collection::fromSlots(... array_filter([
-                    $inBackend || $contentNode->getProperty('headline')
+                    self::getStringValue($contentNode, 'headline') || $inBackend
                         ? new Headline(
                             HeadlineVariant::VARIANT_REGULAR,
-                            HeadlineType::TYPE_H3,
+                            HeadlineType::TYPE_H2,
                             Editable::fromNodeProperty($contentNode, 'headline')
                         )
                         : null,
-                    Collection::fromNodes(
-                        $subgraph->findChildNodes($contentNode->aggregateId, FindChildNodesFilter::create()),
-                        function (Node $accordionItem): Content {
-                            return Content::fromNode($accordionItem, 'Vendor.SupportWheelInventor:ContentSlot');
-                        }
+                    new Grid(
+                        GridVariant::VARIANT_3_COL_GAP,
+                        Collection::fromNodes(
+                            $subgraph->findChildNodes($contentNode->aggregateId, FindChildNodesFilter::create()),
+                            fn (Node $downloadNode): Content
+                                => Content::fromNode($downloadNode, 'Vendor.SupportWheelInventor:ContentSlot')
+                        )
                     )
                 ]))
             )
