@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Vendor\Shared\Components\Block\MenuButton;
 
-use PackageFactory\PHPComponentEngine as _;
+use PackageFactory\ComponentEngine as _;
 
 #[\Neos\Flow\Annotations\Proxy(false)]
 final readonly class MenuButton implements _\ComponentInterface

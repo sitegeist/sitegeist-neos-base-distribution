@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Vendor\Shared\Components\Block\TextWithHeadline;
 
-use PackageFactory\PHPComponentEngine as _;
+use PackageFactory\ComponentEngine as _;
 use Vendor\Shared\Components\Block\Headline\Headline;
 use Vendor\Shared\Components\Block\Text\Text;
 

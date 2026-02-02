@@ -1460,6 +1460,12 @@ __metadata:
   languageName: node
   linkType: hard
 
+"Vendor.Site-6d898d@workspace:DistributionPackages/Vendor.Site":
+  version: 0.0.0-use.local
+  resolution: "Vendor.Site-6d898d@workspace:DistributionPackages/Vendor.Site"
+  languageName: unknown
+  linkType: soft
+
 "abbrev@npm:^3.0.0":
   version: 3.0.0
   resolution: "abbrev@npm:3.0.0"

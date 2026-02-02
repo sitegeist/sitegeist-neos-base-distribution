@@ -1,0 +1,16 @@
+export component PageBody {
+
+    content: slot
+
+    render
+        <body>
+            <header>
+                Header
+                <nav>Navigation</nav>
+            </header>
+            <main>
+                {content}
+            </main>
+            <footer>footer</footer>
+        </body>
+}

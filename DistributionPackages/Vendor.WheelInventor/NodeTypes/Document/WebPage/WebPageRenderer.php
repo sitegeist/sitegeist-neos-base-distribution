@@ -4,19 +4,34 @@ declare(strict_types=1);
 
 namespace Vendor\WheelInventor\NodeTypes\Document\WebPage;
 
+use Neos\ContentRepository\Core\SharedModel\Node\NodeName;
 use Neos\Flow\Annotations as Flow;
+use PackageFactory\Neos\ComponentEngine\Integration\ContentRenderer;
 use PackageFactory\Neos\ComponentEngine\Integration\DocumentNodeRendererInterface;
-use Vendor\Shared\Components\Block\Text\Text;
-use Vendor\Shared\Components\Block\Text\TextColumns;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
+use PackageFactory\ComponentEngine\ComponentCollection;
+use Vendor\Shared\Components\Layout\PageBody\PageBody;
+use Vendor\WheelInventor\Integration\BaseFactory;
+use Vendor\WheelInventor\Integration\Base;
 
 final class WebPageRenderer implements DocumentNodeRendererInterface
 {
+    public function __construct(
+        private BaseFactory $baseFactory,
+        private ContentRenderer $contentRenderer
+    ) {
+    }
 
-    public function renderAsDocument(NeosContext $context): Text {
-        return Text::create(
-            TextColumns::COLUMNS_ONE_COLUMN,
-            $context->nodes->getStringValue($context->node, 'title')
+    public function renderAsDocument(NeosContext $context): Base {
+        return $this->baseFactory->createWithContent(
+            $context,
+            PageBody::create(
+                ComponentCollection::list(
+                    $this->contentRenderer->forContentCollectionChildNode(
+                        $context->documentNode, NodeName::fromString('main'), $context
+                    ),
+                )
+            )
         );
     }
 }

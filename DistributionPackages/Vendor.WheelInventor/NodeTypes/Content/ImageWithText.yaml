@@ -39,17 +39,3 @@
         inspector:
           group: 'layout'
           editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
-
-  postprocessors:
-    alignment:
-      postprocessor: PackageFactory\AtomicFusion\PresentationObjects\Application\EnumProvider
-      postprocessorOptions:
-        enumName: Vendor\Shared\Presentation\ImageWithTextAlignment
-        propertyNames:
-          - alignment
-    layout:
-      postprocessor: PackageFactory\AtomicFusion\PresentationObjects\Application\EnumProvider
-      postprocessorOptions:
-        enumName: Vendor\Shared\Presentation\ImageWithTextLayout
-        propertyNames:
-          - layout

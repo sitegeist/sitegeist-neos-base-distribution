@@ -64,7 +64,7 @@
         "post-package-update": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
         "post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
         "post-create-project-cmd": "ddev config --project-name=`basename \"$PWD\"`",
-        "build:cpx": "./flow components:build 'Vendor.Shared,Vendor.WheelInventor'",
+        "build:cpx": "./flow components:build 'Vendor.Shared'",
         "flush": [
             "./flow flow:cache:flush --force",
             "./flow flow:package:rescan",

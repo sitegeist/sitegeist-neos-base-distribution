@@ -1,0 +1,9 @@
+export component ContentContainer {
+
+    content: slot
+
+    render
+        <div>
+            {content}
+        </div>
+}

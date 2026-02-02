@@ -1,0 +1,9 @@
+export component Grid {
+
+    content: slot
+
+    render
+        <div>
+            {content}
+        </div>
+}
