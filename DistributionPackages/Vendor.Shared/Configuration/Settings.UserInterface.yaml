@@ -3,10 +3,13 @@ Neos:
     userInterface:
       navigateComponent:
         nodeTree:
-          loadingDepth: 1
+          loadingDepth: 2
         structureTree:
-          loadingDepth: 1
+          loadingDepth: 2
     nodeTypes:
       groups:
         structure: ~
         plugins: ~
+
+    Ui:
+      nextVersionPreviewBehavior: false

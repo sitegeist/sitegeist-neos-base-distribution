@@ -1,4 +1,5 @@
 from "./TextColumns.cpx" import { TextColumns }
+from "../../Layout/Grid/Grid.cpx" import { Grid }
 
 export component Text {
 
@@ -6,17 +7,19 @@ export component Text {
     content: slot
 
     render
-        <div
-            class={[
-                "[Block.Text ({columns})]",
-                match (columns) {
-                    TextColumns.COLUMNS_TWO_COLUMNS -> "sm:columns-2",
-                    default -> "",
-                },
-            ]}
-        >
-            <div>
+        <Grid>
+            <div
+                data-component="Text"
+                class={[
+                    "[Block.Text ({columns})]",
+                    "col-span-full",
+                    match (columns) {
+                        TextColumns.COLUMNS_TWO_COLUMNS -> "sm:columns-2",
+                        default -> "",
+                    },
+                ]}
+            >
                 {content}
             </div>
-        </div>
+        </Grid>
 }

@@ -1,5 +1,4 @@
 'Vendor.WheelInventor:Content.Text':
-  label: "${q(node).property('headline') || node.nodeType.label}"
   superTypes:
     'Vendor.WheelInventor:Content': true
     'Vendor.Shared:Mixin.Headline': true

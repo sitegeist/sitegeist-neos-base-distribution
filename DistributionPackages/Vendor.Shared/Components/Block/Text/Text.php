@@ -6,13 +6,13 @@ namespace Vendor\Shared\Components\Block\Text;
 
 use PackageFactory\ComponentEngine as _;
 use Vendor\Shared\Components\Block\Text\TextColumns;
+use Vendor\Shared\Components\Layout\Grid\Grid;
 
 #[\Neos\Flow\Annotations\Proxy(false)]
 final readonly class Text implements _\ComponentInterface
 {
     private function __construct(
-        private TextColumns $columns,
-        private ?_\ComponentInterface $content,
+        private Grid $_98_Grid,
     ) {
     }
 
@@ -21,13 +21,18 @@ final readonly class Text implements _\ComponentInterface
         _\ComponentInterface|string|null $content,
     ): self {
         return new self(
-            columns: $columns,
-            content: is_string($content) ? _\StringComponent::fromString($content) : $content,
+            _98_Grid: Grid::create(
+                content: _\SlotComponent::list(
+                    '<div data-component="Text" class="' . _\Util::joinAttributeValues(['[Block.Text (' . _\Util::escapeAttributeValue($columns->value) . ')]', 'col-span-full', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:columns-2', default => '' }]) . '">',
+                    (($temp = $content) === null ? null : $temp),
+                    '</div>'
+                ),
+            ),
         );
     }
 
     public function render(): string
     {
-        return '<div' .  (($temp = _\Util::joinAttributeValues(['[Block.Text (' . _\Util::escapeAttributeValue($this->columns->value) . ')]', match ($this->columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:columns-2', default => '' }])) === '' ? '' : ' class="' . $temp . '"') . '><div>' . (($temp = $this->content) === null ? '' : $temp->render()) . '</div></div>';
+        return $this->_98_Grid->render();
     }
 }

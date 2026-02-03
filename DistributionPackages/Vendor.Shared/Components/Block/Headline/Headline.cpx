@@ -10,78 +10,22 @@ export component Headline {
     tag: HeadlineTag
 
     render
-        match (tag) {
-            HeadlineTag.TAG_H1 ->
-                <h1
-                    class={[
-                        "[Block.Headline ({variant}, {size})] w-full",
-                        match (size) {
-                            HeadlineSize.SIZE_MD -> "text-md font-bold",
-                            HeadlineSize.SIZE_XL -> "text-xl font-bold",
-                            HeadlineSize.SIZE_2XL -> "text-2xl font-bold",
-                            default -> "",
-                        },
-                        match (variant) {
-                            HeadlineVariant.VARIANT_UPPERCASE -> "uppercase",
-                            default -> "",
-                        },
-                    ]}
-                >
-                    {content}
-                </h1>,
-            HeadlineTag.TAG_H2 ->
-                <h2
-                    class={[
-                        "[Block.Headline ({variant}, {size})] w-full",
-                        match (size) {
-                            HeadlineSize.SIZE_MD -> "text-md font-bold",
-                            HeadlineSize.SIZE_XL -> "text-xl font-bold",
-                            HeadlineSize.SIZE_2XL -> "text-2xl font-bold",
-                            default -> "",
-                        },
-                        match (variant) {
-                            HeadlineVariant.VARIANT_UPPERCASE -> "uppercase",
-                            default -> "",
-                        },
-                    ]}
-                >
-                    {content}
-                </h2>,
-            HeadlineTag.TAG_H3 ->
-                <h3
-                    class={[
-                        "[Block.Headline ({variant}, {size})] w-full",
-                        match (size) {
-                            HeadlineSize.SIZE_MD -> "text-md font-bold",
-                            HeadlineSize.SIZE_XL -> "text-xl font-bold",
-                            HeadlineSize.SIZE_2XL -> "text-2xl font-bold",
-                            default -> "",
-                        },
-                        match (variant) {
-                            HeadlineVariant.VARIANT_UPPERCASE -> "uppercase",
-                            default -> "",
-                        },
-                    ]}
-                >
-                    {content}
-                </h3>,
-            HeadlineTag.TAG_DIV ->
-                <div
-                    class={[
-                        "[Block.Headline ({variant}, {size})] w-full",
-                        match (size) {
-                            HeadlineSize.SIZE_MD -> "text-md font-bold",
-                            HeadlineSize.SIZE_XL -> "text-xl font-bold",
-                            HeadlineSize.SIZE_2XL -> "text-2xl font-bold",
-                            default -> "",
-                        },
-                        match (variant) {
-                            HeadlineVariant.VARIANT_UPPERCASE -> "uppercase",
-                            default -> "",
-                        },
-                    ]}
-                >
-                    {content}
-                </div>
-        }
+        <element
+            tagName={tag}
+            class={[
+                "[Block.Headline ({variant}, {size})] w-full",
+                match (size) {
+                    HeadlineSize.SIZE_MD -> "text-md font-bold",
+                    HeadlineSize.SIZE_XL -> "text-xl font-bold",
+                    HeadlineSize.SIZE_2XL -> "text-2xl font-bold",
+                    default -> "",
+                },
+                match (variant) {
+                    HeadlineVariant.VARIANT_UPPERCASE -> "uppercase",
+                    default -> "",
+                },
+            ]}
+        >
+            {content}
+        </element>
 }

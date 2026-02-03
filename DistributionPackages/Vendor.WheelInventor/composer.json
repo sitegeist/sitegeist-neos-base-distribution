@@ -1,19 +1,19 @@
 {
-    "name": "vendor/wheelInventor",
-    "type": "neos-site",
-    "require": {
-        "vendor/shared": "*"
-    },
-    "autoload": {
-        "psr-4": {
-            "Vendor\\WheelInventor\\": "Classes/",
-            "Vendor\\WheelInventor\\Components\\": "Components",
-            "Vendor\\WheelInventor\\NodeTypes\\": "NodeTypes"
-        }
-    },
-    "extra": {
-        "neos": {
-            "package-key": "Vendor.WheelInventor"
-        }
-    }
+	"name": "vendor/wheelInventor",
+	"type": "neos-site",
+	"require": {
+		"vendor/shared": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"Vendor\\WheelInventor\\": "Classes/",
+			"Vendor\\WheelInventor\\Components\\": "Components",
+			"Vendor\\WheelInventor\\NodeTypes\\": "NodeTypes"
+		}
+	},
+	"extra": {
+		"neos": {
+			"package-key": "Vendor.WheelInventor"
+		}
+	}
 }

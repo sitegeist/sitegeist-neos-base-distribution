@@ -1,42 +1,42 @@
 {
-    "name": "vendor/shared",
-    "type": "neos-vendor",
-    "require": {
-        "neos/neos": "^9.0",
-        "neos/flow": "^9.0",
-        "neos/neos-ui": "^9.0",
-        "neos/contentgraph-doctrinedbaladapter": "^9.0",
-        "neos/redirecthandler": "^6.0",
-        "neos/redirecthandler-databasestorage": "*",
-        "neos/redirecthandler-neosadapter": "^5.0",
-        "neos/redirecthandler-ui": "^3.0",
-        "neos/seo": "^4.1",
+	"name": "vendor/shared",
+	"type": "neos-vendor",
+	"require": {
+		"neos/neos": "^9.0",
+		"neos/flow": "^9.0",
+		"neos/neos-ui": "^9.0",
+		"neos/contentgraph-doctrinedbaladapter": "^9.0",
+		"neos/redirecthandler": "^6.0",
+		"neos/redirecthandler-databasestorage": "*",
+		"neos/redirecthandler-neosadapter": "^5.0",
+		"neos/redirecthandler-ui": "^3.0",
+		"neos/seo": "^4.1",
 
-        "flowpack/nodetemplates": "^3.0",
+		"flowpack/nodetemplates": "^3.0",
 
-        "packagefactory/neos-componentview": "^1.0",
+		"packagefactory/neos-componentview": "^1.0",
 
-        "sitegeist/archaeopteryx": "^2.0",
-        "sitegeist/csvpo": "^2.0",
-        "sitegeist/iconoclasm": "^2.1",
-        "sitegeist/inspectorgadget": "^3.0",
-        "sitegeist/kaleidoscope": "^7.0",
-        "sitegeist/klarschiff": "^3.0",
-        "sitegeist/monocle": "^7.10",
-        "sitegeist/schemeonyou": "^2.0",
-        "sitegeist/stampede": "^2.0"
-    },
-    "autoload": {
-        "psr-4": {
-            "Vendor\\Shared\\": "Classes/",
-            "Vendor\\Shared\\Components\\": "Components",
-            "Vendor\\Shared\\NodeTypes\\": "NodeTypes",
-            "Vendor\\Shared\\Presentation\\": "Resources/Private/Fusion/Presentation/"
-        }
-    },
-    "extra": {
-        "neos": {
-            "package-key": "Vendor.Shared"
-        }
-    }
+		"sitegeist/archaeopteryx": "^2.0",
+		"sitegeist/csvpo": "^2.0",
+		"sitegeist/iconoclasm": "^2.1",
+		"sitegeist/inspectorgadget": "^3.0",
+		"sitegeist/kaleidoscope": "^7.0",
+		"sitegeist/klarschiff": "^3.0",
+		"sitegeist/monocle": "^7.10",
+		"sitegeist/schemeonyou": "^2.0",
+		"sitegeist/stampede": "^2.0"
+	},
+	"autoload": {
+		"psr-4": {
+			"Vendor\\Shared\\": "Classes/",
+			"Vendor\\Shared\\Components\\": "Components",
+			"Vendor\\Shared\\NodeTypes\\": "NodeTypes",
+			"Vendor\\Shared\\Presentation\\": "Resources/Private/Fusion/Presentation/"
+		}
+	},
+	"extra": {
+		"neos": {
+			"package-key": "Vendor.Shared"
+		}
+	}
 }

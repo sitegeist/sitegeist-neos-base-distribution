@@ -1,106 +1,106 @@
 {
-    "name": "sitegeist/neos-base-distribution",
-    "description": "Sitegeist Neos Base Distribution",
-    "config": {
-        "vendor-dir": "Packages/Libraries",
-        "bin-dir": "bin",
-        "platform": {
-            "php": "8.3"
-        },
-        "allow-plugins": {
-            "neos/composer-plugin": true
-        }
-    },
-    "minimum-stability": "dev",
-    "prefer-stable": true,
-    "require": {
-        "neos/neos": "^9.0",
-        "neos/contentgraph-doctrinedbaladapter": "^9.0",
-        "neos/neos-ui": "^9.0",
-        "neos/seo": "^4.1",
-        "neos/redirecthandler": "^6.0",
-        "neos/redirecthandler-databasestorage": "*",
-        "neos/redirecthandler-neosadapter": "^5.0",
-        "neos/redirecthandler-ui": "^3.0",
+	"name": "sitegeist/neos-base-distribution",
+	"description": "Sitegeist Neos Base Distribution",
+	"config": {
+		"vendor-dir": "Packages/Libraries",
+		"bin-dir": "bin",
+		"platform": {
+			"php": "8.3"
+		},
+		"allow-plugins": {
+			"neos/composer-plugin": true
+		}
+	},
+	"minimum-stability": "dev",
+	"prefer-stable": true,
+	"require": {
+		"neos/neos": "^9.0",
+		"neos/contentgraph-doctrinedbaladapter": "^9.0",
+		"neos/neos-ui": "^9.0",
+		"neos/seo": "^4.1",
+		"neos/redirecthandler": "^6.0",
+		"neos/redirecthandler-databasestorage": "*",
+		"neos/redirecthandler-neosadapter": "^5.0",
+		"neos/redirecthandler-ui": "^3.0",
 
-        "flowpack/nodetemplates": "^3.0",
+		"flowpack/nodetemplates": "^3.0",
 
-        "packagefactory/neos-componentview": "^1.0",
+		"packagefactory/neos-componentview": "^1.0",
 
-        "sitegeist/archaeopteryx": "^2.0",
-        "sitegeist/csvpo": "^2.0",
-        "sitegeist/iconoclasm": "^2.1",
-        "sitegeist/inspectorgadget": "^3.0",
-        "sitegeist/kaleidoscope": "^7.0",
-        "sitegeist/klarschiff": "^3.0",
-        "sitegeist/monocle": "^7.10",
-        "sitegeist/schemeonyou": "^2.0",
-        "sitegeist/stampede": "^2.0",
+		"sitegeist/archaeopteryx": "^2.0",
+		"sitegeist/csvpo": "^2.0",
+		"sitegeist/iconoclasm": "^2.1",
+		"sitegeist/inspectorgadget": "^3.0",
+		"sitegeist/kaleidoscope": "^7.0",
+		"sitegeist/klarschiff": "^3.0",
+		"sitegeist/monocle": "^7.10",
+		"sitegeist/schemeonyou": "^2.0",
+		"sitegeist/stampede": "^2.0",
 
-        "vendor/wheelinventor": "*"
-    },
-    "require-dev": {
-        "neos/buildessentials": "^9.0",
-        "mikey179/vfsstream": "^1.6.10",
-        "squizlabs/php_codesniffer": "^3.7",
-        "phpstan/phpstan": "^1.10",
-        "phpunit/phpunit": "^10.0",
-        "symfony/css-selector": "~2.0",
-        "neos/behat": "^9.0",
-        "neos/contentrepository-testsuite": "^9.0",
-        "neos/contentrepositoryregistry-testsuite": "^9.0",
-        "behat/behat": "^3.0",
-        "deployer/deployer": "^7.0",
-        "editorconfig-checker/editorconfig-checker": "^10.0",
-        "sitegeist/magicwand": "^4.4",
-        "sitegeist/chantalle": "^2.0"
-    },
-    "suggest": {
-        "ext-pdo_sqlite": "For running functional tests out-of-the-box this is required"
-    },
-    "scripts": {
-        "post-update-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
-        "post-install-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
-        "post-package-update": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
-        "post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
-        "post-create-project-cmd": "ddev config --project-name=`basename \"$PWD\"`",
-        "build:cpx": "./flow components:build 'Vendor.Shared'",
-        "flush": [
-            "./flow flow:cache:flush --force",
-            "./flow flow:package:rescan",
-            "./flow doctrine:migrate",
-            "./flow resource:publish"
-        ],
+		"vendor/wheelinventor": "*"
+	},
+	"require-dev": {
+		"neos/buildessentials": "^9.0",
+		"mikey179/vfsstream": "^1.6.10",
+		"squizlabs/php_codesniffer": "^3.7",
+		"phpstan/phpstan": "^1.10",
+		"phpunit/phpunit": "^10.0",
+		"symfony/css-selector": "~2.0",
+		"neos/behat": "^9.0",
+		"neos/contentrepository-testsuite": "^9.0",
+		"neos/contentrepositoryregistry-testsuite": "^9.0",
+		"behat/behat": "^3.0",
+		"deployer/deployer": "^7.0",
+		"editorconfig-checker/editorconfig-checker": "^10.0",
+		"sitegeist/magicwand": "^4.4",
+		"sitegeist/chantalle": "^2.0"
+	},
+	"suggest": {
+		"ext-pdo_sqlite": "For running functional tests out-of-the-box this is required"
+	},
+	"scripts": {
+		"post-update-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+		"post-install-cmd": "Neos\\Flow\\Composer\\InstallerScripts::postUpdateAndInstall",
+		"post-package-update": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
+		"post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
+		"post-create-project-cmd": "ddev config --project-name=`basename \"$PWD\"`",
+		"build:cpx": "./flow components:build 'Vendor.Shared'",
+		"flush": [
+			"./flow flow:cache:flush --force",
+			"./flow flow:package:rescan",
+			"./flow doctrine:migrate",
+			"./flow resource:publish"
+		],
 
-        "cleanup:php": [
-            "rm -rf ./Data/Temporary/*",
-            "rm -rf ./Packages/*",
-            "rm -rf ./bin/*"
-        ],
+		"cleanup:php": [
+			"rm -rf ./Data/Temporary/*",
+			"rm -rf ./Packages/*",
+			"rm -rf ./bin/*"
+		],
 
-        "lint:editorconfig": "ec",
-        "lint:phpcs": "phpcs --colors --standard=PSR12 ./DistributionPackages/*/Classes ./DistributionPackages/*/Resources/Private/Fusion",
-        "lint:phpstan": "phpstan analyse",
-        "lint": [
-            "@lint:phpcs",
-            "@lint:phpstan"
-        ],
+		"lint:editorconfig": "ec",
+		"lint:phpcs": "phpcs --colors --standard=PSR12 ./DistributionPackages/*/Classes ./DistributionPackages/*/Resources/Private/Fusion",
+		"lint:phpstan": "phpstan analyse",
+		"lint": [
+			"@lint:phpcs",
+			"@lint:phpstan"
+		],
 
-        "clone": [
-            "./flow clone:list",
-            "./flow clone:preset"
-        ],
+		"clone": [
+			"./flow clone:list",
+			"./flow clone:preset"
+		],
 
-        "deploy:develop": "dep deploy develop -vv",
-        "deploy:staging": "dep deploy staging -vv",
-        "deploy:master": "dep deploy master -vv",
+		"deploy:develop": "dep deploy develop -vv",
+		"deploy:staging": "dep deploy staging -vv",
+		"deploy:master": "dep deploy master -vv",
 
-        "test": "echo \"No tests yet.\""
-    },
-    "repositories": {
-        "local": {
-            "type": "path",
-            "url": "./DistributionPackages/*"
-        }
-    }
+		"test": "echo \"No tests yet.\""
+	},
+	"repositories": {
+		"local": {
+			"type": "path",
+			"url": "./DistributionPackages/*"
+		}
+	}
 }

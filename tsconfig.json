@@ -1,23 +1,31 @@
 {
-    "compilerOptions": {
-        "strict": true,
-        "sourceMap": true,
-        "esModuleInterop": true,
-        "module": "commonjs",
-        "target": "ESNext",
-        "jsx": "react",
-        "moduleResolution": "node",
-        "downlevelIteration": true,
-        "lib": [
-            "ESNext",
-            "DOM"
-        ]
-    },
-    "include": [
-        "DistributionPackages/**/*"
-    ],
-    "exclude": [
-        "node_modules",
-        "Resources/Public"
-    ]
+	"compilerOptions": {
+		"target": "ESNext",
+		"module": "ESNext",
+		"lib": ["ESNext", "DOM", "DOM.Iterable"],
+
+		"jsx": "react-jsx",
+		"moduleResolution": "bundler",
+
+		"strict": true,
+		"esModuleInterop": true,
+		"resolveJsonModule": true,
+
+		"isolatedModules": true,
+		"skipLibCheck": true,
+		"experimentalDecorators": true,
+
+		"baseUrl": "./",
+
+		"outDir": "dist"
+	},
+	"include": [
+		"DistributionPackages/**/vite.config.ts"
+	],
+	"exclude": [
+		"node_modules",
+		"Build",
+		"Packages",
+		"dist"
+	]
 }

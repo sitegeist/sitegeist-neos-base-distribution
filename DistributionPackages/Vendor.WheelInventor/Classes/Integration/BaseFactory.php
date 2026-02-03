@@ -32,14 +32,14 @@ class BaseFactory
                 ...array_filter([
                     $this->neosStuffFactory->tryGetHeadStuff($context),
                     HtmlResourceFactory::stylesheet(
-                        $this->resourceUriWithCacheBuster('Vendor.Shared', 'main.min.css', $context)
+                        $this->resourceUriWithCacheBuster('Vendor.Shared', 'Build/Styles/main.min.css', $context)
                     ),
                     HtmlResourceFactory::script(
-                        $this->resourceUriWithCacheBuster('Vendor.Shared', 'main.min.js', $context),
+                        $this->resourceUriWithCacheBuster('Vendor.Shared', 'Build/JavaScript/main.min.js', $context),
                         ['defer' => true, 'crossorigin' => 'anonymous']
                     ),
                     HtmlResourceFactory::stylesheet(
-                        $this->resourceUriWithCacheBuster('Vendor.Shared', 'main.min.css', $context),
+                        $this->resourceUriWithCacheBuster('Vendor.Shared', 'Build/Styles/main.min.css', $context),
                         ['rel' => 'preload', 'as' => 'style']
                     ),
                 ])
@@ -54,7 +54,7 @@ class BaseFactory
         NeosContext $context
     ): UriInterface {
         $uri = $context->neos->getStaticResourceUri($packageKey, $relativePathAndFilename);
-        $resourcePath = 'resource://' . $packageKey . '/Public/' . $relativePathAndFilename;
+        $resourcePath = 'resource://' . $packageKey . '/Public/Resources/' . $relativePathAndFilename;
 
         if (file_exists($resourcePath) && !is_dir($resourcePath) && ($fileHash = sha1_file($resourcePath)) !== false) {
             return $uri->withQuery('bust=' . substr($fileHash, 0, 8));

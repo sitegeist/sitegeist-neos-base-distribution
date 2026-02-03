@@ -8,12 +8,19 @@
           icon: 'align-left'
   properties:
     columns:
-      type: string
+      type: Vendor\Shared\Components\Block\Text\TextColumns
       defaultValue: 'oneColumn'
       ui:
-        label: 'Spaltigkeit'
+        label: 'Spalten'
         reloadIfChanged: true
         inspector:
           group: 'textFormatting'
           editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
 
+  postprocessors:
+    layouts:
+      postprocessor: Vendor\Shared\Application\EnumProvider
+      postprocessorOptions:
+        enumName: Vendor\Shared\Components\Block\Text\TextColumns
+        propertyNames:
+          - columns
