@@ -35,7 +35,7 @@ final readonly class Accordion implements _\ComponentInterface
                         content: $headline,
                     ),
                     '</div>',
-                    '<div class="col-span-full">',
+                    '<div data-__neos-insertion-anchor class="col-span-full">',
                     (($temp = $content) === null ? null : $temp),
                     '</div>'
                 ),

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\WheelInventor\NodeTypes\Content\Accordion\Item;
+namespace Vendor\WheelInventor\NodeTypes\Content\AccordionItem;
 
 use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface;

@@ -1,0 +1,29 @@
+from "./ButtonTag.cpx" import { ButtonTag }
+from "./ButtonVariant.cpx" import { ButtonVariant }
+from "../Icon/Icon.cpx" import { Icon }
+
+export component Button {
+
+    content: slot
+    tag: ButtonTag
+    variant: ButtonVariant
+
+    render
+        <element
+            data-component="Button"
+            tagName={tag}
+            class={[
+                "inline-flex gap-16 items-center min-w-touch min-h-touch copy-medium",
+                match (variant) {
+                    ButtonVariant.VARIANT_GHOST -> "hover:text-highlight",
+                    default -> "",
+                },
+            ]}
+        >
+            {content}
+            <Icon
+                icon="arrow_right"
+                class="w-20 h-20"
+            />
+        </element>
+}

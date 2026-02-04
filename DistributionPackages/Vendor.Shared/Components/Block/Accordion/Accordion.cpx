@@ -19,7 +19,7 @@ export component Accordion {
                     content={headline}
                 />
             </div>
-            <div class="col-span-full">
+            <div data-__neos-insertion-anchor class="col-span-full">
                 {content}
             </div>
         </Grid>

@@ -1,0 +1,5 @@
+export enum ButtonTag {
+    TAG_H1("button")
+    TAG_H2("span")
+    TAG_H3("link")
+}

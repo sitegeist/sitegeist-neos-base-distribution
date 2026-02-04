@@ -4,26 +4,35 @@ declare(strict_types=1);
 
 namespace Vendor\WheelInventor\NodeTypes\Content\Accordion;
 
-use PackageFactory\ComponentEngine\ComponentCollection;
 use PackageFactory\ComponentEngine\ComponentInterface;
+use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface;
+use PackageFactory\Neos\ComponentEngine\Integration\ContentRenderer;
+use PackageFactory\Neos\ComponentEngine\Integration\RenderingUseCase;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
 use Vendor\Shared\Components\Block\Accordion\Accordion;
-use Vendor\WheelInventor\NodeTypes\Content\ContentComponentRenderer;
+use Vendor\WheelInventor\Integration\ContentContainerFactory;
 
-final class AccordionRenderer extends ContentComponentRenderer
+final class AccordionRenderer implements ContentNodeRendererInterface
 {
-    protected function renderContent(NeosContext $context): ComponentInterface
+    public function __construct(
+        private readonly ContentRenderer $contentRenderer
+    ) {
+    }
+
+    public function renderAsContent(NeosContext $context): ComponentInterface
     {
-        return Accordion::create(
-            $context->neos->getEditable(
-                $context->node,
-                'headline',
-                true
-            ),
-            $context->neos->getEditable(
-                $context->node,
-                'headline',
-                true
+        return ContentContainerFactory::create(
+            $context->node,
+            Accordion::create(
+                $context->neos->getEditable(
+                    $context->node,
+                    'headline',
+                    true
+                ),
+                $this->contentRenderer->renderContentChildren(
+                    $context,
+                    RenderingUseCase::CONTENT
+                )
             )
         );
     }
