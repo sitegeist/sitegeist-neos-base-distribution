@@ -1,0 +1,48 @@
+from "../../Headline/Headline.cpx" import { Headline }
+from "../../Headline/HeadlineTag.cpx" import { HeadlineTag }
+from "../../Headline/HeadlineSize.cpx" import { HeadlineSize }
+from "../../Headline/HeadlineVariant.cpx" import { HeadlineVariant }
+from "../../Icon/Icon.cpx" import { Icon }
+
+export component AccordionItem {
+
+    headline: slot
+    content: slot
+    initialOpen: boolean
+
+    render
+        <details
+            data-component="AccordionItem"
+            class={[
+                "w-full group/accordion overflow-hidden",
+                "last:border-b-2 last:border-gs-gs40 [&:has(>summary:hover)]:border-b-bb-bb60"
+            ]}
+            open={initialOpen}
+        >
+            <summary 
+                class={[
+                    "w-full py-24 flex justify-between items-center",
+                    "cursor-pointer marker:hidden group/summary",
+                    "border-t-2 border-gs-gs40 hover:border-bb-bb60"
+                ]}
+            >
+                <Headline
+                    tag={HeadlineTag.TAG_H2}
+                    size={HeadlineSize.SIZE_MD}
+                    variant={HeadlineVariant.VARIANT_REGULAR}
+                    content={headline}
+                />
+                <Icon
+                    icon="plus"
+                    class="w-20 h-20 group-open/accordion:hidden"
+                />
+                <Icon
+                    icon="minus"
+                    class="w-20 h-20 hidden group-open/accordion:block"
+                />
+            </summary>
+            <div class="flex flex-col gap-24 pb-24 pt-2 m:pt-4 l:pt-8 xl:pt-16">
+                {content}
+            </div>
+        </details>
+}

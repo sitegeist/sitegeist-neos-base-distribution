@@ -2,36 +2,32 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Shared\Components\Block\Text;
+namespace Vendor\Shared\Components\Block\Accordion;
 
 use PackageFactory\ComponentEngine as _;
-use Vendor\Shared\Components\Block\Copy\Copy;
-use Vendor\Shared\Components\Block\Copy\CopySize;
 use Vendor\Shared\Components\Block\Headline\Headline;
 use Vendor\Shared\Components\Block\Headline\HeadlineSize;
 use Vendor\Shared\Components\Block\Headline\HeadlineTag;
 use Vendor\Shared\Components\Block\Headline\HeadlineVariant;
-use Vendor\Shared\Components\Block\Text\TextColumns;
 use Vendor\Shared\Components\Layout\Grid\Grid;
 
 #[\Neos\Flow\Annotations\Proxy(false)]
-final readonly class Text implements _\ComponentInterface
+final readonly class Accordion implements _\ComponentInterface
 {
     private function __construct(
-        private Grid $_168_Grid,
+        private Grid $_128_Grid,
     ) {
     }
 
     public static function create(
-        TextColumns $columns,
         _\ComponentInterface|string|null $headline,
         _\ComponentInterface|string|null $content,
     ): self {
         return new self(
-            _168_Grid: Grid::create(
-                component: 'Text',
+            _128_Grid: Grid::create(
+                component: 'Accordion',
                 content: _\SlotComponent::list(
-                    '<div class="' . _\Util::joinAttributeValues(['col-span-4', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-4 lg:col-span-6', default => 'sm:col-span-full' }]) . '">',
+                    '<div class="col-span-full">',
                     Headline::create(
                         tag: HeadlineTag::TAG_H2,
                         size: HeadlineSize::SIZE_LG,
@@ -39,11 +35,8 @@ final readonly class Text implements _\ComponentInterface
                         content: $headline,
                     ),
                     '</div>',
-                    '<div class="' . _\Util::joinAttributeValues(['col-span-4', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-4 lg:col-span-6', default => 'sm:col-span-full' }]) . '">',
-                    Copy::create(
-                        size: CopySize::SIZE_MD,
-                        content: $content,
-                    ),
+                    '<div class="col-span-full">',
+                    (($temp = $content) === null ? null : $temp),
                     '</div>'
                 ),
             ),
@@ -52,6 +45,6 @@ final readonly class Text implements _\ComponentInterface
 
     public function render(): string
     {
-        return $this->_168_Grid->render();
+        return $this->_128_Grid->render();
     }
 }

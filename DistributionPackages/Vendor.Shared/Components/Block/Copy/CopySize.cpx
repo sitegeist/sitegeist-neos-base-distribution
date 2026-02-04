@@ -1,6 +1,5 @@
-export enum HeadlineSize {
+export enum CopySize {
     SIZE_SM("small")
     SIZE_MD("medium")
     SIZE_LG("large")
-    SIZE_XL("xLarge")
 }

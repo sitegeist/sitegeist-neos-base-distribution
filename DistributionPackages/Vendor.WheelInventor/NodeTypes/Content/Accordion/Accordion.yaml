@@ -1,5 +1,4 @@
 'Vendor.WheelInventor:Content.Accordion':
-  label: "${q(node).property('headline') || q(node).property('text') || node.nodeType.label}"
   superTypes:
     'Vendor.WheelInventor:Content': true
     'Neos.Neos:ContentCollection': true

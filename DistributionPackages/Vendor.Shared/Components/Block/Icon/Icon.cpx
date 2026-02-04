@@ -1,0 +1,10 @@
+export component Icon {
+
+    icon: string
+    class: string
+
+    render
+        <div component="Icon" class={class}>
+            WIP: {icon}
+        </div>
+}

@@ -1,4 +1,9 @@
 @import 'tailwindcss';
+@import './Typography.css';
+
+.neos-backend :focus-visible {
+	outline: 2px dotted #00adee;
+}
 
 @theme {
 	--spacing-1: 1px;
@@ -24,7 +29,7 @@
 	--spacing-240: 240px;
 
 	--min-height-touch: 48px;
-	--max-width-content-full: 1000px;
+	--max-width-content-full: 1280px;
 	--spacing-header: 100px;
 	--spacing-header-scrolled: 60px;
 

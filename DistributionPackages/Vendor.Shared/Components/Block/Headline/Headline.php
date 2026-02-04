@@ -36,6 +36,6 @@ final readonly class Headline implements _\ComponentInterface
 
     public function render(): string
     {
-        return '<' . ($_129_tag = $this->tag->value) . '' .  (($temp = _\Util::joinAttributeValues(['[Block.Headline (' . _\Util::escapeAttributeValue($this->variant->value) . ', ' . _\Util::escapeAttributeValue($this->size->value) . ')] w-full', match ($this->size) { HeadlineSize::SIZE_MD => 'text-md font-bold', HeadlineSize::SIZE_XL => 'text-xl font-bold', HeadlineSize::SIZE_2XL => 'text-2xl font-bold', default => '' }, match ($this->variant) { HeadlineVariant::VARIANT_UPPERCASE => 'uppercase', default => '' }])) === '' ? '' : ' class="' . $temp . '"') . '>' . (($temp = $this->content) === null ? '' : $temp->render()) . '</' . $_129_tag . '>';
+        return '<' . ($_129_tag = $this->tag->value) . '' .  (($temp = _\Util::joinAttributeValues(['[Block.Headline (' . _\Util::escapeAttributeValue($this->variant->value) . ', ' . _\Util::escapeAttributeValue($this->size->value) . ')] w-full', match ($this->size) { HeadlineSize::SIZE_SM => 'head-h4 lg:head-hl5', HeadlineSize::SIZE_MD => 'head-hl6 sm:head-hl3 lg:head-hl4 xl:head-hl5', HeadlineSize::SIZE_LG => 'head-hl6 sm:head-hl5 lg:head-hl5 xl:head-hl4', HeadlineSize::SIZE_XL => 'head-hl5 sm:head-hl3 lg:head-hl2 xl:head-hl1', default => '' }, match ($this->variant) { HeadlineVariant::VARIANT_UPPERCASE => 'uppercase', default => '' }])) === '' ? '' : ' class="' . $temp . '"') . '>' . (($temp = $this->content) === null ? '' : $temp->render()) . '</' . $_129_tag . '>';
     }
 }

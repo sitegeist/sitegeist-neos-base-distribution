@@ -2,21 +2,19 @@
 
 declare(strict_types=1);
 
-namespace Vendor\WheelInventor\NodeTypes\Content\Text;
+namespace Vendor\WheelInventor\NodeTypes\Content\Accordion;
 
+use PackageFactory\ComponentEngine\ComponentCollection;
 use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
-use Vendor\Shared\Components\Block\Text\Text;
+use Vendor\Shared\Components\Block\Accordion\Accordion;
 use Vendor\WheelInventor\NodeTypes\Content\ContentComponentRenderer;
 
-final class TextRenderer extends ContentComponentRenderer
+final class AccordionRenderer extends ContentComponentRenderer
 {
     protected function renderContent(NeosContext $context): ComponentInterface
     {
-        $columns = $context->node->getProperty('columns');
-
-        return Text::create(
-            $columns,
+        return Accordion::create(
             $context->neos->getEditable(
                 $context->node,
                 'headline',
@@ -24,7 +22,7 @@ final class TextRenderer extends ContentComponentRenderer
             ),
             $context->neos->getEditable(
                 $context->node,
-                'text',
+                'headline',
                 true
             )
         );

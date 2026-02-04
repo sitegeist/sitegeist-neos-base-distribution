@@ -1,25 +1,51 @@
 from "./TextColumns.cpx" import { TextColumns }
+from "../Headline/Headline.cpx" import { Headline }
+from "../Headline/HeadlineTag.cpx" import { HeadlineTag }
+from "../Headline/HeadlineSize.cpx" import { HeadlineSize }
+from "../Headline/HeadlineVariant.cpx" import { HeadlineVariant }
+from "../Copy/Copy.cpx" import { Copy }
+from "../Copy/CopySize.cpx" import { CopySize }
 from "../../Layout/Grid/Grid.cpx" import { Grid }
 
 export component Text {
 
     columns: TextColumns
+    headline: slot
     content: slot
 
     render
-        <Grid>
+        <Grid component={"Text"}>
             <div
-                data-component="Text"
                 class={[
-                    "[Block.Text ({columns})]",
-                    "col-span-full",
+                    "col-span-4",
                     match (columns) {
-                        TextColumns.COLUMNS_TWO_COLUMNS -> "sm:columns-2",
-                        default -> "",
+                        TextColumns.COLUMNS_TWO_COLUMNS
+                            -> "sm:col-span-4 lg:col-span-6",
+                        default -> "sm:col-span-full",
                     },
                 ]}
             >
-                {content}
+                <Headline
+                    tag={HeadlineTag.TAG_H2}
+                    size={HeadlineSize.SIZE_LG}
+                    variant={HeadlineVariant.VARIANT_REGULAR}
+                    content={headline}
+                />
+            </div>
+            <div
+                class={[
+                    "col-span-4",
+                    match (columns) {
+                        TextColumns.COLUMNS_TWO_COLUMNS
+                            -> "sm:col-span-4 lg:col-span-6",
+                        default -> "sm:col-span-full",
+                    },
+                ]}
+            >
+                <Copy
+                    size={CopySize.SIZE_MD}
+                    content={content}
+                />
             </div>
         </Grid>
 }
