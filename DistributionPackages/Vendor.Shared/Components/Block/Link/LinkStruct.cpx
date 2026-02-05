@@ -1,0 +1,8 @@
+export struct LinkStruct {
+
+    href: ?string
+    title: ?string
+    rel: ?string
+    target: ?string
+
+}

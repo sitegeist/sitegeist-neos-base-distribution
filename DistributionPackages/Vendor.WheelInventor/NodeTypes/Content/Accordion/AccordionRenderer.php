@@ -22,7 +22,7 @@ final class AccordionRenderer implements ContentNodeRendererInterface
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
         return ContentContainerFactory::create(
-            $context->node,
+            $context,
             Accordion::create(
                 $context->neos->getEditable(
                     $context->node,

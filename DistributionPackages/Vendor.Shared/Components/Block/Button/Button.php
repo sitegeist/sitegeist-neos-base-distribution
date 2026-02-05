@@ -16,7 +16,7 @@ final readonly class Button implements _\ComponentInterface
         private ?_\ComponentInterface $content,
         private ButtonTag $tag,
         private ButtonVariant $variant,
-        private Icon $_2312_Icon,
+        private Icon $_2612_Icon,
     ) {
     }
 
@@ -29,15 +29,15 @@ final readonly class Button implements _\ComponentInterface
             content: is_string($content) ? _\StringComponent::fromString($content) : $content,
             tag: $tag,
             variant: $variant,
-            _2312_Icon: Icon::create(
+            _2612_Icon: Icon::create(
                 icon: 'arrow_right',
-                class: 'w-20 h-20',
+                class: 'w-32 h-32',
             ),
         );
     }
 
     public function render(): string
     {
-        return '<' . ($_119_tag = $this->tag->value) . ' data-component="Button" class="' . _\Util::joinAttributeValues(['inline-flex gap-16 items-center min-w-touch min-h-touch copy-medium', match ($this->variant) { ButtonVariant::VARIANT_GHOST => 'hover:text-highlight', default => '' }]) . '">' . (($temp = $this->content) === null ? '' : $temp->render()) . '' . $this->_2312_Icon->render() . '</' . $_119_tag . '>';
+        return '<' . ($_119_tag = $this->tag->value) . ' data-component="Button" class="' . _\Util::joinAttributeValues(['flex gap-16 items-center w-fit min-w-touch min-h-touch copy-medium', match ($this->variant) { ButtonVariant::VARIANT_REGULAR => 'border border-brand px-24 py-8 hover:text-highlight hover:border-highlight', ButtonVariant::VARIANT_SOLID => 'bg-brand text-brand-contrast px-24 py-8 hover:bg-highlight', ButtonVariant::VARIANT_GHOST => 'hover:text-highlight' }]) . '">' . (($temp = $this->content) === null ? '' : $temp->render()) . '' . $this->_2612_Icon->render() . '</' . $_119_tag . '>';
     }
 }

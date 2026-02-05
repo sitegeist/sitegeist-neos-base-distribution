@@ -13,17 +13,20 @@ export component Button {
             data-component="Button"
             tagName={tag}
             class={[
-                "inline-flex gap-16 items-center min-w-touch min-h-touch copy-medium",
+                "flex gap-16 items-center w-fit min-w-touch min-h-touch copy-medium",
                 match (variant) {
+                    ButtonVariant.VARIANT_REGULAR
+                        -> "border border-brand px-24 py-8 hover:text-highlight hover:border-highlight",
+                    ButtonVariant.VARIANT_SOLID
+                        -> "bg-brand text-brand-contrast px-24 py-8 hover:bg-highlight",
                     ButtonVariant.VARIANT_GHOST -> "hover:text-highlight",
-                    default -> "",
                 },
             ]}
         >
             {content}
             <Icon
                 icon="arrow_right"
-                class="w-20 h-20"
+                class="w-32 h-32"
             />
         </element>
 }

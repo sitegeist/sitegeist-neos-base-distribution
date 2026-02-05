@@ -3,27 +3,35 @@ from "../../Headline/HeadlineTag.cpx" import { HeadlineTag }
 from "../../Headline/HeadlineSize.cpx" import { HeadlineSize }
 from "../../Headline/HeadlineVariant.cpx" import { HeadlineVariant }
 from "../../Icon/Icon.cpx" import { Icon }
+from "../../Link/LinkStruct.cpx" import { LinkStruct }
+from "../../Link/LinkedButton.cpx" import { LinkedButton }
+from "../../Button/Button.cpx" import { Button }
 
 export component AccordionItem {
 
     headline: slot
     content: slot
     initialOpen: boolean
+    inBackend: boolean
+    button: Button|LinkedButton|slot
 
     render
-        <details
+        <element
+            tagName={inBackend ? "div" : "details"}
             data-component="AccordionItem"
             class={[
-                "w-full group/accordion overflow-hidden",
-                "last:border-b-2 last:border-gs-gs40 [&:has(>summary:hover)]:border-b-bb-bb60"
+                "w-full group/accordion last:border-b-2 last:border-brand",
+                "[&:has(>summary:hover)+details>summary]:border-highlight",
+                "[&:has(>summary:hover)]:border-highlight",
+                inBackend ? "" : "overflow-hidden"
             ]}
             open={initialOpen}
         >
             <summary 
                 class={[
                     "w-full py-24 flex justify-between items-center",
-                    "cursor-pointer marker:hidden group/summary",
-                    "border-t-2 border-gs-gs40 hover:border-bb-bb60"
+                    "border-t-2 border-brand marker:hidden hover:border-highlight",
+                    !inBackend ? "cursor-pointer hover:text-highlight select-none" : ""
                 ]}
             >
                 <Headline
@@ -34,15 +42,16 @@ export component AccordionItem {
                 />
                 <Icon
                     icon="plus"
-                    class="w-20 h-20 group-open/accordion:hidden"
+                    class="w-32 h-32 group-open/accordion:hidden"
                 />
                 <Icon
                     icon="minus"
-                    class="w-20 h-20 hidden group-open/accordion:block"
+                    class="w-32 h-32 hidden group-open/accordion:block"
                 />
             </summary>
-            <div class="flex flex-col gap-24 pb-24 pt-2 m:pt-4 l:pt-8 xl:pt-16">
+            <div class="flex flex-col gap-16 md:gap-24 pb-24 pt-2 m:pt-4 l:pt-8 xl:pt-16">
                 {content}
+                {button}
             </div>
-        </details>
+        </element>
 }

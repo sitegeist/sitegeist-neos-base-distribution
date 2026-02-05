@@ -1,0 +1,20 @@
+from "./LinkStruct.cpx" import { LinkStruct }
+
+export component Link {
+
+    content: slot
+    link: LinkStruct
+    component: ?string
+
+    render
+        <a
+            data-component={component ? component : "Link"}
+            href={link.href}
+            title={link.title}
+            rel={link.rel}
+            target={link.target}
+            class="w-fit cursor-pointer"
+        >
+            {content}
+        </a>
+}

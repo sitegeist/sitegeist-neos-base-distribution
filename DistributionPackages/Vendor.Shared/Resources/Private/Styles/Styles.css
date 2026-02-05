@@ -91,4 +91,34 @@
 	}
 }
 
+body {
+    interpolate-size: allow-keywords;
+	min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+	overflow-x: hidden;
 
+    font-family: 'Arial', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+
+    hyphens: auto;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+	word-break: break-word;
+}
+
+body main {
+	flex-grow: 1;
+}
+
+details::details-content {
+    transition: block-size 500ms, content-visibility 500ms;
+    block-size: 0;
+    transition-behavior: allow-discrete;
+}
+
+details[open]::details-content {
+    block-size: auto;
+}

@@ -10,29 +10,36 @@ use PackageFactory\Neos\ComponentEngine\NeosContext;
 use Vendor\Shared\Components\Block\Text\Text;
 use Vendor\Shared\Components\Block\Text\TextColumns;
 use Vendor\WheelInventor\Integration\ContentContainerFactory;
+use Vendor\WheelInventor\Integration\LinkedButtonFactory;
 
 final class TextRenderer implements ContentNodeRendererInterface
 {
+    public function __construct(
+        private readonly LinkedButtonFactory $linkedbuttonFactory
+    ) {
+    }
+
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
         return ContentContainerFactory::create(
-            $context->node,
+            $context,
             Text::create(
-                $context->nodes->getObjectValue(
+                columns: $context->nodes->getObjectValue(
                     $context->node,
                     'columns',
                     TextColumns::class
                 ) ?: TextColumns::COLUMNS_ONE_COLUMN,
-                $context->neos->getEditable(
+                headline: $context->neos->getEditable(
                     $context->node,
                     'headline',
                     true
                 ),
-                $context->neos->getEditable(
+                content: $context->neos->getEditable(
                     $context->node,
                     'text',
                     true
-                )
+                ),
+                button: $this->linkedbuttonFactory->tryForMixin($context) ?: ''
             )
         );
     }

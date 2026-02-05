@@ -8,34 +8,20 @@
           icon: 'link'
   properties:
     link:
-      type: string
+      type: Neos\Neos\Domain\Link\Link
       ui:
         label: 'Link-Ziel'
         reloadIfChanged: true
         inspector:
           group: 'link'
           editorOptions:
-            anchor: true
             title: true
-            relNofollow: true
-            targetBlank: true
-            linkTypes:
-              'Sitegeist.Archaeopteryx:Node':
-                position: start 100
-              'Sitegeist.Archaeopteryx:Asset':
-                position: start 90
-              'Sitegeist.Archaeopteryx:MailTo':
-                position: start 80
-              'Sitegeist.Archaeopteryx:Web':
-                position: start 70
-              'Sitegeist.Archaeopteryx:PhoneNumber':
-                position: start 60
       validation:
         Neos.Neos/Validation/NotEmptyValidator: { }
     link__label:
-      type: string
+      options:
+        preset: 'rte.text'
       ui:
-        label: 'Link-Label'
-        reloadIfChanged: true
-        inspector:
-          group: 'link'
+        inline:
+          editorOptions:
+            placeholder: 'Bitte Label eingeben'

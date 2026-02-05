@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Shared\Integration;
+namespace Vendor\WheelInventor\Integration;
 
 use Neos\ContentRepository\Core\NodeType\NodeType;
 use Neos\ContentRepository\Core\Projection\ContentGraph\Node;

@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Shared\Integration;
+namespace Vendor\WheelInventor\Integration;
 
 use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\SlotInterface;
 use Sitegeist\Monocle\PresentationObjects\Domain\StyleguideCaseFactoryInterface;
 use Sitegeist\Kaleidoscope\Domain\DummyImageSource;
-use Vendor\Shared\Integration\ImageSourceFactory;
+use Vendor\WheelInventor\Integration\ImageSourceFactory;
 
 final class FigureFactory
 {

@@ -6,7 +6,6 @@ namespace Vendor\Shared\Components\Block\Button;
 
 enum ButtonTag : string
 {
-    case TAG_H1 = 'button';
-    case TAG_H2 = 'span';
-    case TAG_H3 = 'link';
+    case TAG_BUTTON = 'button';
+    case TAG_SPAN = 'span';
 }

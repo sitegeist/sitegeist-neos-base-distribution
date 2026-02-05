@@ -4,7 +4,13 @@ export component Icon {
     class: string
 
     render
-        <div component="Icon" class={class}>
-            WIP: {icon}
+        <div 
+            component="Icon"
+            class={[
+                "shrink-0 overflow-hidden bg-[red] text-white",
+                class
+            ]}
+        >
+            {icon}
         </div>
 }

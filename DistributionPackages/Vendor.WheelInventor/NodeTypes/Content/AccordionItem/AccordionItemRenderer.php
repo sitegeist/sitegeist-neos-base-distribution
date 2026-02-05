@@ -8,23 +8,34 @@ use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
 use Vendor\Shared\Components\Block\Accordion\Item\AccordionItem;
+use Vendor\WheelInventor\Integration\LinkedButtonFactory;
 
 final class AccordionItemRenderer implements ContentNodeRendererInterface
 {
+    public function __construct(
+        private readonly LinkedButtonFactory $linkedbuttonFactory
+    ) {
+    }
+
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
         return AccordionItem::create(
-            $context->neos->getEditable(
+            headline: $context->neos->getEditable(
                 $context->node,
                 'headline',
                 true
             ),
-            $context->neos->getEditable(
+            content: $context->neos->getEditable(
                 $context->node,
                 'text',
                 true
             ),
-            false
+            initialOpen: $context->nodes->getBoolValue(
+                $context->node,
+                'initialOpen'
+            ),
+            inBackend: $context->renderingMode->isEdit,
+            button: $this->linkedbuttonFactory->tryForMixin($context) ?: ''
         );
     }
 }

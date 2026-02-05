@@ -5,12 +5,14 @@ declare(strict_types=1);
 namespace Vendor\Shared\Components\Block\Text;
 
 use PackageFactory\ComponentEngine as _;
+use Vendor\Shared\Components\Block\Button\Button;
 use Vendor\Shared\Components\Block\Copy\Copy;
 use Vendor\Shared\Components\Block\Copy\CopySize;
 use Vendor\Shared\Components\Block\Headline\Headline;
 use Vendor\Shared\Components\Block\Headline\HeadlineSize;
 use Vendor\Shared\Components\Block\Headline\HeadlineTag;
 use Vendor\Shared\Components\Block\Headline\HeadlineVariant;
+use Vendor\Shared\Components\Block\Link\LinkedButton;
 use Vendor\Shared\Components\Block\Text\TextColumns;
 use Vendor\Shared\Components\Layout\Grid\Grid;
 
@@ -18,17 +20,21 @@ use Vendor\Shared\Components\Layout\Grid\Grid;
 final readonly class Text implements _\ComponentInterface
 {
     private function __construct(
-        private Grid $_168_Grid,
+        private Grid $_198_Grid,
     ) {
     }
 
+    /**
+     * @param Button|LinkedButton|_\ComponentEnvelopeInterface<Button|LinkedButton>|_\ComponentInterface|null $button
+     */
     public static function create(
         TextColumns $columns,
         _\ComponentInterface|string|null $headline,
         _\ComponentInterface|string|null $content,
+        Button|LinkedButton|_\ComponentEnvelopeInterface|_\ComponentInterface|string|null $button,
     ): self {
         return new self(
-            _168_Grid: Grid::create(
+            _198_Grid: Grid::create(
                 component: 'Text',
                 content: _\SlotComponent::list(
                     '<div class="' . _\Util::joinAttributeValues(['col-span-4', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-4 lg:col-span-6', default => 'sm:col-span-full' }]) . '">',
@@ -39,11 +45,12 @@ final readonly class Text implements _\ComponentInterface
                         content: $headline,
                     ),
                     '</div>',
-                    '<div class="' . _\Util::joinAttributeValues(['col-span-4', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-4 lg:col-span-6', default => 'sm:col-span-full' }]) . '">',
+                    '<div class="' . _\Util::joinAttributeValues(['col-span-4 flex flex-col gap-16 md:gap-24', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-4 lg:col-span-6', default => 'sm:col-span-full' }]) . '">',
                     Copy::create(
                         size: CopySize::SIZE_MD,
                         content: $content,
                     ),
+                    (($temp = $button) === null ? null : $temp),
                     '</div>'
                 ),
             ),
@@ -52,6 +59,6 @@ final readonly class Text implements _\ComponentInterface
 
     public function render(): string
     {
-        return $this->_168_Grid->render();
+        return $this->_198_Grid->render();
     }
 }

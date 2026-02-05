@@ -1,0 +1,14 @@
+from "./Link.cpx" import { Link }
+from "./LinkStruct.cpx" import { LinkStruct }
+from "../Button/Button.cpx" import { Button }
+
+export component LinkedButton {
+
+    button: Button
+    link: LinkStruct
+
+    render
+        <Link link={link} component="LinkedButton">
+            {button}
+        </Link>
+}

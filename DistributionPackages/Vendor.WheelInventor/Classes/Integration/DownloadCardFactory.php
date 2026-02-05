@@ -10,8 +10,8 @@ use Neos\Media\Domain\Model\Document;
 use Neos\Utility\Files;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\SlotInterface;
 use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Value;
-use Vendor\Shared\Integration\ImageSourceFactory;
-use Vendor\Shared\Integration\LinkFactory;
+use Vendor\WheelInventor\Integration\ImageSourceFactory;
+use Vendor\WheelInventor\Integration\LinkFactory;
 use Vendor\Shared\Presentation\Block\Button\Button;
 use Vendor\Shared\Presentation\Block\Button\ButtonColor;
 use Vendor\Shared\Presentation\Block\Button\ButtonType;
@@ -35,7 +35,6 @@ final class DownloadCardFactory
 {
     public function __construct(
         private readonly ImageSourceFactory $imageSourceFactory,
-        private readonly LinkFactory $linkFactory,
     ) {
     }
 
