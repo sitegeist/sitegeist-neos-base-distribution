@@ -2,32 +2,57 @@ export component MenuButton {
 
     render
         <button
-            class="relative flex h-8 w-8 items-center justify-center shrink-0 cursor-pointer"
+            class="relative z-30 flex h-24 w-24 items-center justify-center shrink-0 cursor-pointer lg:hidden"
             data-menu-button
+            aria-label="Toggle menu"
         >
-            <span class="relative block h-[80%] w-full">
-                <span
-                    class={[
-                        "absolute block bg-cta-contrast w-full origin-center transition-all duration-500 h-1 top-0",
-                        "group-data-open/SiteHeader:top-1/2 group-data-open/SiteHeader:-translate-y-1/2",
-                        "group-data-open/SiteHeader:rotate-45"
-                    ]}
-                ></span>
-                <span
-                    class={[
-                        "absolute block bg-cta-contrast w-full h-1 top-1/2",
-                        "origin-center transition-all duration-500 -translate-y-1/2",
-                        "group-data-open/SiteHeader:scale-x-0"
-                    ]}
-                ></span>
-                <span
-                    class={[
-                        "absolute block bg-cta-contrast w-full  h-1 top-full",
-                        "origin-center transition-all duration-500 -translate-y-full",
-                        "group-data-open/SiteHeader:top-1/2 group-data-open/SiteHeader:-translate-y-1/2",
-                        "group-data-open/SiteHeader:-rotate-45"
-                    ]}
-                ></span>
-            </span>
+            <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+            >
+                <line
+                    x1="3"
+                    y1="6"
+                    x2="21"
+                    y2="6"
+                    class="
+                        transition-all duration-500
+                        origin-center
+                        group-data-open/SiteHeader:translate-y-[6px]
+                        group-data-open/SiteHeader:rotate-45
+                    "
+                    style="transform-box: fill-box;"
+                />
+
+                <line
+                    x1="3"
+                    y1="12"
+                    x2="21"
+                    y2="12"
+                    class="
+                        transition-all duration-500
+                        origin-center
+                        group-data-open/SiteHeader:opacity-0
+                    "
+                    style="transform-box: fill-box;"
+                />
+
+                <line
+                    x1="3"
+                    y1="18"
+                    x2="21"
+                    y2="18"
+                    class="
+                        transition-all duration-500
+                        origin-center
+                        group-data-open/SiteHeader:-translate-y-[6px]
+                        group-data-open/SiteHeader:-rotate-45
+                    "
+                    style="transform-box: fill-box;"
+                />
+            </svg>
         </button>
 }

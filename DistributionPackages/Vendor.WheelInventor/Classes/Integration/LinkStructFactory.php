@@ -11,9 +11,7 @@ use Neos\Media\Domain\Repository\AssetRepository;
 use Neos\Neos\Domain\Link\Link as NeosLink;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
 use Vendor\Shared\Components\Block\Link\LinkStruct;
-use Vendor\Shared\Presentation\Block\Link\LinkTarget;
-
-use function Neos\Flow\var_dump;
+use Vendor\Shared\Components\Block\Link\LinkTarget;
 
 final class LinkStructFactory
 {
@@ -43,7 +41,7 @@ final class LinkStructFactory
                 (string)$neosLink->href,
                 $neosLink->title,
                 implode(" ", $neosLink->rel),
-                $neosLink->target,
+                LinkTarget::from($neosLink->target),
             )
             : null;
     }

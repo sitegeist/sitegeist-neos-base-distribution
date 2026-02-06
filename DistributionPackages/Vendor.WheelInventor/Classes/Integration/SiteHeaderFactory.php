@@ -4,45 +4,39 @@ declare(strict_types=1);
 
 namespace Vendor\WheelInventor\Integration;
 
-use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
-use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\Value;
-use Sitegeist\Archaeopteryx\Link as ArchaeopteryxLink;
-use Vendor\Shared\Presentation\Block\Link\Link;
-use Vendor\Shared\Presentation\Block\Link\LinkTarget;
-use Vendor\Shared\Presentation\Block\Link\LinkVariant;
-use Vendor\Shared\Presentation\Block\MainNavigation\MainNavigation;
-use Vendor\Shared\Presentation\Block\SiteHeader\SiteHeader;
+use PackageFactory\Neos\ComponentEngine\NeosContext;
+use Vendor\Shared\Components\Block\Link\Link;
+use Vendor\Shared\Components\Block\Link\LinkStruct;
+use Vendor\Shared\Components\Block\Link\LinkTarget;
+use Vendor\Shared\Components\Block\Link\LinkVariant;
+use Vendor\Shared\Components\Block\SiteHeader\MainNavigation\MainNavigation;
+use Vendor\Shared\Components\Block\SiteHeader\SiteHeader;
 
 final class SiteHeaderFactory
 {
     public function __construct(
-        private readonly NavigationItemFactory $navigationItemFactory
+        private readonly MainNavigationItemFactory $mainNavigationItemFactory
     ) {
     }
 
     public function forDocumentNode(
-        Node $documentNode,
-        Node $site,
-        bool $inBackend
+        NeosContext $context
     ): SiteHeader {
-        return new SiteHeader(
-            homeLink: new Link(
-                LinkVariant::VARIANT_REGULAR,
-                ArchaeopteryxLink::create(
-                    $this->uriService->getNodeUri($site),
-                    $site->getProperty('title'),
-                    LinkTarget::TARGET_SELF->value,
-                    ['noopener', 'nofollow'],
-                ),
-                Value::fromString('Home'),
-                $inBackend
+
+        return SiteHeader::create(
+            homeLink: Link::create(
+                content: "Home",
+                link: LinkStruct::create(
+                    href: (string)$context->neos->getNodeUri($context->siteNode),
+                    title: "Home",
+                    rel: null,
+                    target: LinkTarget::TARGET_SELF
+                ),  
+                component: null,
+                variant: LinkVariant::VARIANT_MENU
             ),
-            mainNavigation: new MainNavigation(
-                items: $this->navigationItemFactory->forNavigationNode(
-                    $site,
-                    $documentNode,
-                    1
-                ) ?? null
+            mainNavigation: MainNavigation::create(
+                items: $this->mainNavigationItemFactory->fromRootNode($context)
             ),
         );
     }

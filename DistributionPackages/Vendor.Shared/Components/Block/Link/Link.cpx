@@ -1,10 +1,12 @@
 from "./LinkStruct.cpx" import { LinkStruct }
+from "./LinkVariant.cpx" import { LinkVariant }
 
 export component Link {
 
     content: slot
     link: LinkStruct
     component: ?string
+    variant: LinkVariant
 
     render
         <a
@@ -13,7 +15,13 @@ export component Link {
             title={link.title}
             rel={link.rel}
             target={link.target}
-            class="w-fit cursor-pointer"
+            class={[
+                "w-fit cursor-pointer",
+                match (variant) {
+                    LinkVariant.VARIANT_NONE -> "",
+                    LinkVariant.VARIANT_MENU -> "font-bold hover:text-highlight"
+                }
+            ]}
         >
             {content}
         </a>

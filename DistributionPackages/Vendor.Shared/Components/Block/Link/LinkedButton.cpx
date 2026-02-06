@@ -1,5 +1,6 @@
 from "./Link.cpx" import { Link }
 from "./LinkStruct.cpx" import { LinkStruct }
+from "./LinkVariant.cpx" import { LinkVariant }
 from "../Button/Button.cpx" import { Button }
 
 export component LinkedButton {
@@ -8,7 +9,9 @@ export component LinkedButton {
     link: LinkStruct
 
     render
-        <Link link={link} component="LinkedButton">
-            {button}
-        </Link>
+        <Link
+            link={link}
+            component="LinkedButton"
+            variant={LinkVariant.VARIANT_NONE}
+        >{button}</Link>
 }

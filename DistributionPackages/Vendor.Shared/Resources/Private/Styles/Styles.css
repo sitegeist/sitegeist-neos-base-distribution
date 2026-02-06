@@ -28,10 +28,9 @@
 	--spacing-160: 160px;
 	--spacing-240: 240px;
 
-	--min-height-touch: 48px;
+	--spacing-touch: 48px;
 	--max-width-content-full: 1280px;
-	--spacing-header: 100px;
-	--spacing-header-scrolled: 60px;
+	--spacing-header: 60px;
 
 	--color-brand: #564e58;
 	--color-brand-contrast: #fff;
@@ -93,6 +92,7 @@
 
 body {
     interpolate-size: allow-keywords;
+	padding-top: var(--spacing-header);
 	min-height: 100vh;
     display: flex;
     flex-direction: column;

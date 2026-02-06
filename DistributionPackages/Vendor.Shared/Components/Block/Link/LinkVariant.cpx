@@ -1,0 +1,4 @@
+export enum LinkVariant {
+    VARIANT_NONE("none")
+    VARIANT_MENU("menu")
+}

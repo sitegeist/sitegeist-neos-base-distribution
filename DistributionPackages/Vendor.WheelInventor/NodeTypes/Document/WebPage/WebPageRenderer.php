@@ -13,12 +13,14 @@ use PackageFactory\ComponentEngine\ComponentCollection;
 use Vendor\Shared\Components\Layout\PageBody\PageBody;
 use Vendor\WheelInventor\Integration\BaseFactory;
 use Vendor\WheelInventor\Integration\Base;
+use Vendor\WheelInventor\Integration\SiteHeaderFactory;
 
 final class WebPageRenderer implements DocumentNodeRendererInterface
 {
     public function __construct(
         private BaseFactory $baseFactory,
-        private ContentRenderer $contentRenderer
+        private ContentRenderer $contentRenderer,
+        private readonly SiteHeaderFactory $siteHeaderFactory
     ) {
     }
 
@@ -26,11 +28,12 @@ final class WebPageRenderer implements DocumentNodeRendererInterface
         return $this->baseFactory->createWithContent(
             $context,
             PageBody::create(
-                ComponentCollection::list(
+                content: ComponentCollection::list(
                     $this->contentRenderer->forContentCollectionChildNode(
                         $context->documentNode, NodeName::fromString('main'), $context
                     ),
-                )
+                ),
+                siteHeader: $this->siteHeaderFactory->forDocumentNode($context)
             )
         );
     }

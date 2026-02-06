@@ -4,13 +4,12 @@ declare(strict_types=1);
 
 namespace Vendor\WheelInventor\Integration;
 
-use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
 use Neos\Flow\Annotations as Flow;
 use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
 use Vendor\Shared\Components\Layout\ContentContainer\ContentContainer;
 use Vendor\Shared\Components\Layout\ContentContainer\ContentContainerTag;
-
+use Vendor\Shared\Components\Layout\ContentContainer\ContentContainerVariant;
 
 #[Flow\Scope('singleton')]
 final class ContentContainerFactory
@@ -24,6 +23,7 @@ final class ContentContainerFactory
 
         return ContentContainer::create(
             ContentContainerTag::TAG_SECTION,
+            ContentContainerVariant::VARIANT_REGULAR,
             $content,
             $anchorId
         );

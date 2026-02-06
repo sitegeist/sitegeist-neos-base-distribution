@@ -1,8 +1,10 @@
 from "./ContentContainerTag.cpx" import { ContentContainerTag }
+from "./ContentContainerVariant.cpx" import { ContentContainerVariant }
 
 export component ContentContainer {
 
     tagName: ContentContainerTag
+    variant: ContentContainerVariant
     content: slot
     anchorId: ?string
 
@@ -12,8 +14,13 @@ export component ContentContainer {
             data-component="ContentContainer"
             tagName={tagName}
             class={[
-                "max-w-content-full mx-auto",
-                "py-16 sm:py-24 lg:py-32"
+                "max-w-content-full mx-auto w-full",
+                "px-24 sm:px-32 lg:px-56 xl:px-64",
+                match (variant) {
+                    ContentContainerVariant.VARIANT_REGULAR
+                        -> "py-16 sm:py-24 lg:py-32",
+                    ContentContainerVariant.VARIANT_NO_PADDING -> ""
+                },
             ]}
         >
             {content}

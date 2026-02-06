@@ -14,7 +14,6 @@ async function mountComponents(root: ParentNode = document) {
 		)?.[1];
 
 		if (!loader) {
-			console.warn(`[components] Not found: ${name}`);
 			continue;
 		}
 

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace Vendor\Shared\Components\Block\Link;
 
 use PackageFactory\ComponentEngine as _;
+use Vendor\Shared\Components\Block\Link\LinkTarget;
 
 #[\Neos\Flow\Annotations\Proxy(false)]
 final readonly class LinkStruct
@@ -13,7 +14,7 @@ final readonly class LinkStruct
         public ?string $href,
         public ?string $title,
         public ?string $rel,
-        public ?string $target,
+        public ?LinkTarget $target,
     ) {
     }
 
@@ -21,7 +22,7 @@ final readonly class LinkStruct
         ?string $href,
         ?string $title,
         ?string $rel,
-        ?string $target,
+        ?LinkTarget $target,
     ): self {
         return new self(
             href: $href,

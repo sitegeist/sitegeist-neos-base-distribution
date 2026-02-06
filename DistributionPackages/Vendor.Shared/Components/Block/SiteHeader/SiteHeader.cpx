@@ -1,0 +1,31 @@
+from "../Link/Link.cpx" import { Link }
+from "../MenuButton/MenuButton.cpx" import { MenuButton }
+from "../../Layout/Grid/Grid.cpx" import { Grid }
+from "../../Layout/ContentContainer/ContentContainer.cpx" import { ContentContainer }
+from "../../Layout/ContentContainer/ContentContainerTag.cpx" import { ContentContainerTag }
+from "../../Layout/ContentContainer/ContentContainerVariant.cpx" import { ContentContainerVariant }
+from "./MainNavigation/MainNavigation.cpx" import { MainNavigation }
+
+export component SiteHeader {
+
+    homeLink: Link
+    mainNavigation: MainNavigation
+
+    render
+        <header
+            data-component="SiteHeader"
+            class="group/SiteHeader fixed w-full top-0 flex flex-col z-50 bg-brand-grey h-header"
+        >
+            <ContentContainer
+                tagName={ContentContainerTag.TAG_DIV}
+                variant={ContentContainerVariant.VARIANT_NO_PADDING}
+                anchorId={null}
+            >
+                <div class="h-header flex justify-between w-full items-center">
+                    {homeLink}
+                    {mainNavigation}
+                    <MenuButton />
+                </div>
+            </ContentContainer>
+        </header>
+}

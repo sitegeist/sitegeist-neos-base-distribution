@@ -1,13 +1,13 @@
+from "../../Block/SiteHeader/SiteHeader.cpx" import { SiteHeader }
+
 export component PageBody {
 
     content: slot
+    siteHeader: SiteHeader
 
     render
         <body>
-            <header>
-                Header
-                <nav>Navigation</nav>
-            </header>
+            {siteHeader}
             <main>
                 {content}
             </main>
