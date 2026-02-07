@@ -19,6 +19,10 @@ export default (el: HTMLElement): void => {
             el.hasAttribute("data-open") ? closeMenu() : openMenu();
         });
 
-        drawer.addEventListener("sl-hide", closeMenu);
+        drawer.addEventListener("sl-hide", (event: Event) => {
+            if (event.target === drawer) {
+                el.removeAttribute("data-open");
+            }
+        });
     }
 };

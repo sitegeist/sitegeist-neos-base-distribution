@@ -24,7 +24,7 @@ final readonly class MainNavigationSubItem implements _\ComponentInterface
         return new self(
             _108_Link: Link::create(
                 link: $link,
-                variant: LinkVariant::VARIANT_MENU,
+                variant: LinkVariant::VARIANT_MENU_SUB_ITEM,
                 component: null,
                 content: _\SlotComponent::list(
                     '<sl-menu-item class="max-lg:hidden">',

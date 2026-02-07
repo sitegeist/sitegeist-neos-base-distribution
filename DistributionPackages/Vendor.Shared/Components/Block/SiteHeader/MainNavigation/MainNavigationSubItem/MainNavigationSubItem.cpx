@@ -10,7 +10,7 @@ export component MainNavigationSubItem {
     render
         <Link
             link={link}
-            variant={LinkVariant.VARIANT_MENU}
+            variant={LinkVariant.VARIANT_MENU_SUB_ITEM}
             component={null}
         >
             <sl-menu-item class="max-lg:hidden">

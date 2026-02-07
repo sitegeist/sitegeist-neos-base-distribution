@@ -16,10 +16,13 @@ export component Link {
             rel={link.rel}
             target={link.target}
             class={[
-                "w-fit cursor-pointer",
+                "cursor-pointer",
                 match (variant) {
                     LinkVariant.VARIANT_NONE -> "",
-                    LinkVariant.VARIANT_MENU -> "font-bold hover:text-highlight"
+                    LinkVariant.VARIANT_MENU_ITEM
+                        -> "link-large lg:link-medium hover:text-highlight flex h-full items-center",
+                    LinkVariant.VARIANT_MENU_SUB_ITEM
+                        -> "link-medium lg:link-small hover:text-highlight"
                 }
             ]}
         >

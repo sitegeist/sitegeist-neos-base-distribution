@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import './Typography.css';
+@import './Shoelace.css';
 @import '@shoelace-style/shoelace/dist/themes/light.css';
 
 .neos-backend :focus-visible {
@@ -62,10 +63,6 @@
 
 	--animate-fade-in: fade-in 0.5s forwards;
 	--animate-fade-out: fade-out 0.5s forwards;
-}
-
-sl-drawer {
-    --size: 20rem;
 }
 
 body {

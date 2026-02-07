@@ -21,6 +21,14 @@
     --text-size-copy-large: 24px;
     --leading-line-height-copy-large: 28px;
     --text-size-copy-xlarge: 26px;
+
+    /* Text Variants */
+    --text-size-body-small: 14px;
+    --leading-line-height-body-small: 20px;
+    --text-size-body-medium: 18px;
+    --leading-line-height-body-medium: 24px;
+    --text-size-body-large: 24px;
+    --leading-line-height-body-large: 28px;
 }
 
 /* HEADLINE */
@@ -78,6 +86,26 @@
     line-height: var(--leading-line-height-copy-large);
     font-weight: 400;
 }
+
+/* Links */
+@utility link-small {
+    font-size: var(--text-size-body-small);
+    line-height: var(--leading-line-height-body-small);
+    font-weight: 700;
+}
+
+@utility link-medium {
+    font-size: var(--text-size-body-medium);
+    line-height: var(--leading-line-height-body-medium);
+    font-weight: 700;
+}
+
+@utility link-large {
+    font-size: var(--text-size-body-large);
+    line-height: var(--leading-line-height-body-large);
+    font-weight: 700;
+}
+
 
 @layer base {
     .prose {
