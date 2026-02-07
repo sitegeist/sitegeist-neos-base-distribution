@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import './Typography.css';
+@import '@shoelace-style/shoelace/dist/themes/light.css';
 
 .neos-backend :focus-visible {
 	outline: 2px dotted #00adee;
@@ -61,33 +62,10 @@
 
 	--animate-fade-in: fade-in 0.5s forwards;
 	--animate-fade-out: fade-out 0.5s forwards;
-
-	@keyframes fade-in {
-		0% {
-			opacity: 0;
-		}
-		100% {
-			opacity: 0.5;
-		}
-	}
-
-	@keyframes fade-out {
-		0% {
-			opacity: 0.5;
-		}
-		100% {
-			opacity: 0;
-		}
-	}
 }
 
-@layer components {
-	.backdrop {
-		@apply absolute top-0 right-0 h-dvh w-full bg-black z-5;
-		@apply transition-opacity duration-500 ease-in-out opacity-0;
-		@apply animate-fade-in;
-		@apply lg:hidden;
-	}
+sl-drawer {
+    --size: 20rem;
 }
 
 body {

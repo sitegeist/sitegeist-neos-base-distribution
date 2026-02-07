@@ -13,6 +13,7 @@ use PackageFactory\Neos\ComponentEngine\NeosContext;
 use Vendor\Shared\Components\Block\Link\LinkStruct;
 use Vendor\Shared\Components\Block\Link\LinkTarget;
 use Vendor\Shared\Components\Block\SiteHeader\MainNavigation\MainNavigationItem\MainNavigationItem;
+use Vendor\Shared\Components\Block\SiteHeader\MainNavigation\MainNavigationSubItem\MainNavigationSubItem;
 
 final class MainNavigationItemFactory
 {
@@ -50,29 +51,43 @@ final class MainNavigationItemFactory
         return ComponentCollection::list(...$childNavigationItems);
     }
 
-    private function createMainNavigationITemFromSubtree(
+    private function createMainNavigationItemFromSubtree(
         Subtree $subtree,
-        NeosAccessInterface $neos
-    ): MainNavigationItem {
+        NeosAccessInterface $neos,
+        int $level = 1
+    ): MainNavigationItem|MainNavigationSubItem {
         $childNavigationItems = [];
 
         foreach ($subtree->children as $child) {
-            $childNavigationItems[] = $this->createMainNavigationITemFromSubtree(
+            $childNavigationItems[] = $this->createMainNavigationItemFromSubtree(
                 $child,
-                $neos
+                $neos,
+                $level + 1
             );
-        };
+        }
 
-        /**TODO: add function to linkstructfactory */
-        return MainNavigationItem::create(
-            link: LinkStruct::create(
-                href: (string)$neos->getNodeUri($subtree->node),
-                title: null,
-                rel: null,
-                target: LinkTarget::TARGET_SELF
-            ),
-            label: $this->nodeLabelGenerator->getLabel($subtree->node),
-            items: ComponentCollection::list(...$childNavigationItems)
+        $linkStruct = LinkStruct::create(
+            href: (string)$neos->getNodeUri($subtree->node),
+            title: null,
+            rel: null,
+            target: LinkTarget::TARGET_SELF
         );
+
+        $itemsCollection = !empty($childNavigationItems)
+            ? ComponentCollection::list(...$childNavigationItems)
+            : null;
+
+        if ($level === 1) {
+            return MainNavigationItem::create(
+                link: $linkStruct,
+                label: $this->nodeLabelGenerator->getLabel($subtree->node),
+                items: $itemsCollection
+            );
+        } else {
+            return MainNavigationSubItem::create(
+                link: $linkStruct,
+                label: $this->nodeLabelGenerator->getLabel($subtree->node)
+            );
+        }
     }
 }

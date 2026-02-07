@@ -4,25 +4,22 @@ export component MainNavigation {
 
     render
         <nav data-component="MainNavigation" class="h-full z-20">
-            <div class="contents lg:block h-full">
-                <div
-                    class={[
-                        "lg:contents",
-                        "absolute top-0 right-0 h-dvh w-0 max-w-dvw pt-header bg-white",
-                        "transition-all duration-500 ease-in-out",
-                        "group-data-open/SiteHeader:w-full md:group-data-open/SiteHeader:w-80"
-                    ]}
-                    data-offcanvas-menu
-                >
-                    <div class="lg:contents overflow-y-auto max-h-full overflow-x-hidden">
-                        <div class={[
-                            "list-none p-10 w-dvw flex flex-col gap-24",
-                            "md:w-80 lg:flex-row lg:p-0 lg:h-full lg:w-full"
-                        ]}>
-                            {items}
-                        </div>
+            <sl-drawer
+                placement="end"
+                class="lg:hidden w-128"
+                data-offcanvas-menu
+                no-header
+                no-footer
+            >
+                <div class="overflow-y-auto max-h-full overflow-x-hidden pt-header px-24">
+                    <div class="flex flex-col gap-24 list-none">
+                        {items}
                     </div>
                 </div>
+            </sl-drawer>
+
+            <div class="hidden lg:flex h-full list-none gap-24">
+                {items}
             </div>
         </nav>
 }
