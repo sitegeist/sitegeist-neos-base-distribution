@@ -25,3 +25,5 @@
           'Vendor.WheelInventor:Content.Accordion': true
           'Vendor.WheelInventor:Content.TileNavigation': true
           'Vendor.WheelInventor:Content.AnchorNavigation': true
+          'Vendor.WheelInventor:Content.ReactExample': true
+          'Vendor.WheelInventor:Content.ReactExampleSSR': true

@@ -1,8 +1,9 @@
 import { defineConfig } from "vite";
+import react from '@vitejs/plugin-react'
 
 /** @type {import("vite").UserConfig} */
 export default defineConfig({
-	publicDir: false,
+	plugins: [react()],
 	build: {
 		outDir: "./Resources/Public/Build/JavaScript",
 		emptyOutDir: false,
@@ -24,9 +25,13 @@ export default defineConfig({
 
 				chunkFileNames: "[name].[hash].js",
 			},
+			// Ignore "use-client" Warning
+			onwarn(warning, warn) {
+				if (warning.code === 'MODULE_LEVEL_DIRECTIVE') {
+					return
+				}
+				warn(warning)
+			},
 		},
-	},
-	define: {
-		BUILD_DATE: JSON.stringify(Date.now()),
 	},
 });

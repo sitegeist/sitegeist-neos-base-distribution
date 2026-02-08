@@ -18,7 +18,7 @@ export component Link {
             class={[
                 "cursor-pointer",
                 match (variant) {
-                    LinkVariant.VARIANT_NONE -> "",
+                    LinkVariant.VARIANT_NONE -> "w-fit",
                     LinkVariant.VARIANT_MENU_ITEM
                         -> "link-large lg:link-medium hover:text-highlight flex h-full items-center",
                     LinkVariant.VARIANT_MENU_SUB_ITEM

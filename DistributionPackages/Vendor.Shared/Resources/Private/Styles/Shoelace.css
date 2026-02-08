@@ -1,3 +1,9 @@
+@import '@shoelace-style/shoelace/dist/themes/light.css';
+
+:not(:defined) {
+	visibility: hidden;
+}
+
 sl-drawer {
     --size: 20rem;
 }

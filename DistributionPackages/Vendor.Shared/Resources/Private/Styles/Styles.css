@@ -1,7 +1,6 @@
 @import 'tailwindcss';
 @import './Typography.css';
 @import './Shoelace.css';
-@import '@shoelace-style/shoelace/dist/themes/light.css';
 
 .neos-backend :focus-visible {
 	outline: 2px dotted #00adee;

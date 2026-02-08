@@ -36,11 +36,7 @@ class BaseFactory
                     ),
                     HtmlResourceFactory::script(
                         $this->resourceUriWithCacheBuster('Vendor.Shared', 'Build/JavaScript/main.min.js', $context),
-                        ['defer' => true, 'crossorigin' => 'anonymous']
-                    ),
-                    HtmlResourceFactory::stylesheet(
-                        $this->resourceUriWithCacheBuster('Vendor.Shared', 'Build/Styles/main.min.css', $context),
-                        ['rel' => 'preload', 'as' => 'style']
+                        ['crossorigin' => 'anonymous']
                     ),
                 ])
             ),

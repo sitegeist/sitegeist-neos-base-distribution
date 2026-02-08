@@ -1,10 +1,6 @@
 /// <reference types="vite/client" />
-import '@shoelace-style/shoelace/dist/components/drawer/drawer.js';
-import '@shoelace-style/shoelace/dist/components/menu/menu.js';
-import '@shoelace-style/shoelace/dist/components/menu-item/menu-item.js';
-import '@shoelace-style/shoelace/dist/components/details/details.js';
 
-const components = import.meta.glob("../../Components/**/*.ts");
+const components = import.meta.glob("../../Components/**/*.entry.ts");
 
 async function mountComponents(root: ParentNode = document) {
 	const nodes = root.querySelectorAll<HTMLElement>("[data-component]");
@@ -14,7 +10,7 @@ async function mountComponents(root: ParentNode = document) {
 		if (!name) continue;
 
 		const loader = Object.entries(components).find(([path]) =>
-			path.endsWith(`/${name}.ts`)
+			path.endsWith(`/${name}.entry.ts`)
 		)?.[1];
 
 		if (!loader) {
