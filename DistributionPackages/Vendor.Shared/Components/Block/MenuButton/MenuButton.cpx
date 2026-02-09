@@ -2,7 +2,7 @@ export component MenuButton {
 
     render
         <button
-            class="relative z-30 flex h-24 w-24 items-center justify-center shrink-0 cursor-pointer lg:hidden"
+            class="relative z-30 flex h-24 w-24 items-center justify-center shrink-0 cursor-pointer lg:hidden hover:text-highlight"
             data-menu-button
             aria-label="Toggle menu"
         >
@@ -19,7 +19,7 @@ export component MenuButton {
                     x2="21"
                     y2="6"
                     class="
-                        transition-all duration-500
+                        transition-transform duration-500
                         origin-center
                         group-data-open/SiteHeader:translate-y-[6px]
                         group-data-open/SiteHeader:rotate-45
@@ -33,7 +33,7 @@ export component MenuButton {
                     x2="21"
                     y2="12"
                     class="
-                        transition-all duration-500
+                        transition-opacity duration-500
                         origin-center
                         group-data-open/SiteHeader:opacity-0
                     "
@@ -46,7 +46,7 @@ export component MenuButton {
                     x2="21"
                     y2="18"
                     class="
-                        transition-all duration-500
+                        transition-transform duration-500
                         origin-center
                         group-data-open/SiteHeader:-translate-y-[6px]
                         group-data-open/SiteHeader:-rotate-45

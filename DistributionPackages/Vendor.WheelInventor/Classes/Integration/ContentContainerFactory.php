@@ -16,7 +16,7 @@ final class ContentContainerFactory
 {
     public static function create(NeosContext $context, ComponentInterface $content): ComponentInterface
     {
-        $anchorId = $context->nodes->getBoolValue(
+        $anchorId = $context->nodes->getStringValue(
             $context->node,
             'anchorId'
         );

@@ -64,6 +64,14 @@
 	--animate-fade-out: fade-out 0.5s forwards;
 }
 
+html {
+	scroll-behavior: smooth;
+}
+
+*[id] {
+	scroll-margin-top:var(--spacing-header);
+}
+
 body {
     interpolate-size: allow-keywords;
 	padding-top: var(--spacing-header);

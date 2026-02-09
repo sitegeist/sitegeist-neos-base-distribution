@@ -7,7 +7,7 @@ export component Icon {
         <div 
             component="Icon"
             class={[
-                "shrink-0 overflow-hidden bg-[red] text-white",
+                "shrink-0 overflow-hidden hidden text-white",
                 class
             ]}
         >
