@@ -1,0 +1,14 @@
+export component PageGrid {
+
+    content: slot
+
+    render
+        <div
+            class={[
+                "w-full h-full grid grid-cols-12",
+                "gap-x-16 md:gap-x-32 min-h-screen"
+            ]}
+        >
+            {content}
+        </div>
+}

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Shared\Components\Application\ReactExample;
+namespace Vendor\Shared\Components\Block\Downloads;
 
 use PackageFactory\ComponentEngine as _;
 use Vendor\Shared\Components\Block\Headline\Headline;
@@ -12,21 +12,20 @@ use Vendor\Shared\Components\Block\Headline\HeadlineVariant;
 use Vendor\Shared\Components\Layout\Grid\ContentGrid;
 
 #[\Neos\Flow\Annotations\Proxy(false)]
-final readonly class ReactExample implements _\ComponentInterface
+final readonly class Downloads implements _\ComponentInterface
 {
     private function __construct(
-        private ContentGrid $_138_ContentGrid,
+        private ContentGrid $_128_ContentGrid,
     ) {
     }
 
     public static function create(
         _\ComponentInterface|string|null $headline,
-        string $appData,
-        string $labels,
+        _\ComponentInterface|string|null $content,
     ): self {
         return new self(
-            _138_ContentGrid: ContentGrid::create(
-                componentName: 'ReactExample',
+            _128_ContentGrid: ContentGrid::create(
+                componentName: 'Downloads',
                 content: _\SlotComponent::list(
                     '<div class="col-span-full">',
                     Headline::create(
@@ -36,7 +35,9 @@ final readonly class ReactExample implements _\ComponentInterface
                         content: $headline,
                     ),
                     '</div>',
-                    '<div data-root data-app-data="' . _\Util::escapeAttributeValue($appData) . '" data-labels="' . _\Util::escapeAttributeValue($labels) . '" class="col-span-full"></div>'
+                    '<div data-__neos-insertion-anchor class="col-span-full grid grid-cols-1 w-full sm:grid-cols-2 md:grid-cols-3 gap-16 md:gap-32">',
+                    (($temp = $content) === null ? null : $temp),
+                    '</div>'
                 ),
             ),
         );
@@ -44,6 +45,6 @@ final readonly class ReactExample implements _\ComponentInterface
 
     public function render(): string
     {
-        return $this->_138_ContentGrid->render();
+        return $this->_128_ContentGrid->render();
     }
 }

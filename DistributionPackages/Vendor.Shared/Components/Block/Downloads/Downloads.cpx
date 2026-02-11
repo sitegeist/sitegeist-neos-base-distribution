@@ -4,13 +4,13 @@ from "../Headline/HeadlineSize.cpx" import { HeadlineSize }
 from "../Headline/HeadlineVariant.cpx" import { HeadlineVariant }
 from "../../Layout/Grid/ContentGrid.cpx" import { ContentGrid }
 
-export component Accordion {
+export component Downloads {
 
     headline: slot
     content: slot
 
     render
-        <ContentGrid componentName="Accordion">
+        <ContentGrid componentName="Downloads">
             <div class="col-span-full">
                 <Headline
                     tag={HeadlineTag.TAG_H2}
@@ -19,7 +19,10 @@ export component Accordion {
                     content={headline}
                 />
             </div>
-            <div data-__neos-insertion-anchor class="col-span-full">
+            <div
+                data-__neos-insertion-anchor
+                class="col-span-full grid grid-cols-1 w-full sm:grid-cols-2 md:grid-cols-3 gap-16 md:gap-32"
+            >
                 {content}
             </div>
         </ContentGrid>

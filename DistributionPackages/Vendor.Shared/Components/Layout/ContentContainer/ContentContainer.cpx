@@ -11,14 +11,12 @@ export component ContentContainer {
     render
         <element
             id={anchorId}
-            data-component="ContentContainer"
             tagName={tagName}
             class={[
-                "max-w-content-full mx-auto w-full",
-                "px-24 sm:px-32 lg:px-56 xl:px-64",
+                "grid grid-cols-subgrid",
                 match (variant) {
                     ContentContainerVariant.VARIANT_REGULAR
-                        -> "py-16 sm:py-24 lg:py-32",
+                        -> "py-16 sm:py-24 lg:py-32 col-span-content-full",
                     ContentContainerVariant.VARIANT_NO_PADDING -> ""
                 },
             ]}

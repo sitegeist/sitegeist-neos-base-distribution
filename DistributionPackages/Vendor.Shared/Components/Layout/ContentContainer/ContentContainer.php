@@ -35,6 +35,6 @@ final readonly class ContentContainer implements _\ComponentInterface
 
     public function render(): string
     {
-        return '<' . ($_119_tag = $this->tagName->value) . '' . (($temp = $this->anchorId) === null ? '' : ' id="' . _\Util::escapeAttributeValue($temp) . '"') . ' data-component="ContentContainer" class="' . _\Util::joinAttributeValues(['max-w-content-full mx-auto w-full', 'px-24 sm:px-32 lg:px-56 xl:px-64', match ($this->variant) { ContentContainerVariant::VARIANT_REGULAR => 'py-16 sm:py-24 lg:py-32', ContentContainerVariant::VARIANT_NO_PADDING => '' }]) . '">' . (($temp = $this->content) === null ? '' : $temp->render()) . '</' . $_119_tag . '>';
+        return '<' . ($_119_tag = $this->tagName->value) . '' . (($temp = $this->anchorId) === null ? '' : ' id="' . _\Util::escapeAttributeValue($temp) . '"') . ' class="' . _\Util::joinAttributeValues(['grid grid-cols-subgrid', match ($this->variant) { ContentContainerVariant::VARIANT_REGULAR => 'py-16 sm:py-24 lg:py-32 col-span-content-full', ContentContainerVariant::VARIANT_NO_PADDING => '' }]) . '">' . (($temp = $this->content) === null ? '' : $temp->render()) . '</' . $_119_tag . '>';
     }
 }

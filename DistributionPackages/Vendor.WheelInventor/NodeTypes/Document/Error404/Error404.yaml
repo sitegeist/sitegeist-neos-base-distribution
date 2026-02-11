@@ -1,4 +1,4 @@
-'Vendor.WheelInventor:Document.Error.404':
+'Vendor.WheelInventor:Document.Error404':
   superTypes:
     'Vendor.WheelInventor:Document': true
   ui:

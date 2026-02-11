@@ -9,13 +9,13 @@ use Vendor\Shared\Components\Block\Headline\Headline;
 use Vendor\Shared\Components\Block\Headline\HeadlineSize;
 use Vendor\Shared\Components\Block\Headline\HeadlineTag;
 use Vendor\Shared\Components\Block\Headline\HeadlineVariant;
-use Vendor\Shared\Components\Layout\Grid\Grid;
+use Vendor\Shared\Components\Layout\Grid\ContentGrid;
 
 #[\Neos\Flow\Annotations\Proxy(false)]
 final readonly class Accordion implements _\ComponentInterface
 {
     private function __construct(
-        private Grid $_128_Grid,
+        private ContentGrid $_128_ContentGrid,
     ) {
     }
 
@@ -24,8 +24,8 @@ final readonly class Accordion implements _\ComponentInterface
         _\ComponentInterface|string|null $content,
     ): self {
         return new self(
-            _128_Grid: Grid::create(
-                component: 'Accordion',
+            _128_ContentGrid: ContentGrid::create(
+                componentName: 'Accordion',
                 content: _\SlotComponent::list(
                     '<div class="col-span-full">',
                     Headline::create(
@@ -45,6 +45,6 @@ final readonly class Accordion implements _\ComponentInterface
 
     public function render(): string
     {
-        return $this->_128_Grid->render();
+        return $this->_128_ContentGrid->render();
     }
 }

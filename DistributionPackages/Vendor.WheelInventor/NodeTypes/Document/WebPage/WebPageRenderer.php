@@ -13,6 +13,7 @@ use PackageFactory\ComponentEngine\ComponentCollection;
 use Vendor\Shared\Components\Layout\PageBody\PageBody;
 use Vendor\WheelInventor\Integration\BaseFactory;
 use Vendor\WheelInventor\Integration\Base;
+use Vendor\WheelInventor\Integration\SiteFooterFactory;
 use Vendor\WheelInventor\Integration\SiteHeaderFactory;
 
 final class WebPageRenderer implements DocumentNodeRendererInterface
@@ -20,7 +21,8 @@ final class WebPageRenderer implements DocumentNodeRendererInterface
     public function __construct(
         private BaseFactory $baseFactory,
         private ContentRenderer $contentRenderer,
-        private readonly SiteHeaderFactory $siteHeaderFactory
+        private readonly SiteHeaderFactory $siteHeaderFactory,
+        private readonly SiteFooterFactory $siteFooterFactory,
     ) {
     }
 
@@ -33,7 +35,8 @@ final class WebPageRenderer implements DocumentNodeRendererInterface
                         $context->documentNode, NodeName::fromString('main'), $context
                     ),
                 ),
-                siteHeader: $this->siteHeaderFactory->forDocumentNode($context)
+                siteHeader: $this->siteHeaderFactory->forDocumentNode($context),
+                siteFooter: $this->siteFooterFactory->forDocumentNode($context)
             )
         );
     }

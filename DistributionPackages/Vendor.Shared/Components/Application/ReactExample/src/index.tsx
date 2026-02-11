@@ -72,7 +72,7 @@ const ExampleReact = () => {
 				ref={drawerRef}
 				label="Contained Drawer"
 				contained
-				className="drawer-contained not-[&:defined]:hidden"
+				className="drawer-contained"
 			>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 			</sl-drawer>

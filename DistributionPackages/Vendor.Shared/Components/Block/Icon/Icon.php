@@ -27,6 +27,6 @@ final readonly class Icon implements _\ComponentInterface
 
     public function render(): string
     {
-        return '<div component="Icon" class="' . _\Util::joinAttributeValues(['shrink-0 overflow-hidden hidden text-white', _\Util::escapeAttributeValue($this->class)]) . '">' . _\Util::escapeRenderValue($this->icon) . '</div>';
+        return '<div component="Icon" class="' . _\Util::joinAttributeValues(['shrink-0 overflow-hidden text-inherit flex items-center whitespace-nowrap', _\Util::escapeAttributeValue($this->class)]) . '">' . _\Util::escapeRenderValue($this->icon) . '</div>';
     }
 }

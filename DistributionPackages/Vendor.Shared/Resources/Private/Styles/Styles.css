@@ -58,10 +58,13 @@
 	--grid-template-columns-2-66-33: 2fr 1fr;
 	--grid-template-columns-3-COL: 1fr 1fr 1fr;
 
-	--padding-ratio-4-3: calc(3 * 100% / 4);
+	--grid-template-columns-12: minmax(0, auto) repeat(12, minmax(0, 122px)) minmax(0, auto);
+    --grid-template-columns-8: minmax(0, auto) repeat(8, minmax(0, 1fr)) minmax(0, auto);
+    --grid-template-columns-4: minmax(0, auto) repeat(4, minmax(0, 1fr)) minmax(0, auto);
 
-	--animate-fade-in: fade-in 0.5s forwards;
-	--animate-fade-out: fade-out 0.5s forwards;
+	--grid-column-span-content-full: 2 / -2;
+
+	--padding-ratio-4-3: calc(3 * 100% / 4);
 }
 
 html {
@@ -74,10 +77,6 @@ html {
 
 body {
     interpolate-size: allow-keywords;
-	padding-top: var(--spacing-header);
-	min-height: 100vh;
-    display: flex;
-    flex-direction: column;
 	overflow-x: hidden;
 
     font-family: 'Arial', sans-serif;
@@ -91,8 +90,12 @@ body {
 	word-break: break-word;
 }
 
-body main {
-	flex-grow: 1;
+/* Replace with main once component engine supports custom tags for contentCollection */
+body > div > .neos-contentcollection {
+	display: grid;
+	grid-template-columns: subgrid;
+	grid-column-start: 1;
+	grid-column-end: -1;
 }
 
 details::details-content {

@@ -19,7 +19,7 @@
       'Vendor.WheelInventor:Document.Shortcut': true
   childNodes:
     notfound:
-      type: 'Vendor.WheelInventor:Document.Error.404'
+      type: 'Vendor.WheelInventor:Document.Error404'
     main:
       type: 'Neos.Neos:ContentCollection'
       constraints:
@@ -36,3 +36,5 @@
           'Vendor.WheelInventor:Content.AnchorNavigation': true
           'Vendor.WheelInventor:Content.ReactExample': true
           'Vendor.WheelInventor:Content.ReactExampleSSR': true
+          'Vendor.WheelInventor:Content.DownloadsManual': true
+          'Vendor.WheelInventor:Content.DownloadsCollections': true

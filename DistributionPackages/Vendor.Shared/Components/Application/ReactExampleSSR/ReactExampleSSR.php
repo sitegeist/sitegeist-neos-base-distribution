@@ -9,13 +9,13 @@ use Vendor\Shared\Components\Block\Headline\Headline;
 use Vendor\Shared\Components\Block\Headline\HeadlineSize;
 use Vendor\Shared\Components\Block\Headline\HeadlineTag;
 use Vendor\Shared\Components\Block\Headline\HeadlineVariant;
-use Vendor\Shared\Components\Layout\Grid\Grid;
+use Vendor\Shared\Components\Layout\Grid\ContentGrid;
 
 #[\Neos\Flow\Annotations\Proxy(false)]
 final readonly class ReactExampleSSR implements _\ComponentInterface
 {
     private function __construct(
-        private Grid $_148_Grid,
+        private ContentGrid $_148_ContentGrid,
     ) {
     }
 
@@ -26,8 +26,8 @@ final readonly class ReactExampleSSR implements _\ComponentInterface
         _\ComponentInterface|string|null $renderedApplication,
     ): self {
         return new self(
-            _148_Grid: Grid::create(
-                component: 'ReactExampleSSR',
+            _148_ContentGrid: ContentGrid::create(
+                componentName: 'ReactExampleSSR',
                 content: _\SlotComponent::list(
                     '<div class="col-span-full">',
                     Headline::create(
@@ -47,6 +47,6 @@ final readonly class ReactExampleSSR implements _\ComponentInterface
 
     public function render(): string
     {
-        return $this->_148_Grid->render();
+        return $this->_148_ContentGrid->render();
     }
 }

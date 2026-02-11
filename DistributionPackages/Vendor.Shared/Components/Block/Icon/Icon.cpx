@@ -7,7 +7,7 @@ export component Icon {
         <div 
             component="Icon"
             class={[
-                "shrink-0 overflow-hidden hidden text-white",
+                "shrink-0 overflow-hidden text-inherit flex items-center whitespace-nowrap",
                 class
             ]}
         >

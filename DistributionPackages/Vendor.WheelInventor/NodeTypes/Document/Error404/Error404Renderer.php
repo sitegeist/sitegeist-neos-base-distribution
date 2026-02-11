@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\WheelInventor\NodeTypes\Document\HomePage;
+namespace Vendor\WheelInventor\NodeTypes\Document\Error404;
 
 use Neos\ContentRepository\Core\SharedModel\Node\NodeName;
 use Neos\Flow\Annotations as Flow;
@@ -16,7 +16,7 @@ use Vendor\WheelInventor\Integration\Base;
 use Vendor\WheelInventor\Integration\SiteFooterFactory;
 use Vendor\WheelInventor\Integration\SiteHeaderFactory;
 
-final class HomePageRenderer implements DocumentNodeRendererInterface
+final class Error404Renderer implements DocumentNodeRendererInterface
 {
     public function __construct(
         private BaseFactory $baseFactory,

@@ -1,4 +1,4 @@
-'Vendor.WheelInventor:Content.Download':
+'Vendor.WheelInventor:Content.DownloadsItem':
   superTypes:
     'Vendor.WheelInventor:Content': true
     'Vendor.Shared:Mixin.Image': true

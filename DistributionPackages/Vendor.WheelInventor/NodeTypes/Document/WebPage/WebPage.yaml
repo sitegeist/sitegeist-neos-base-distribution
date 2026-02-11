@@ -27,3 +27,5 @@
           'Vendor.WheelInventor:Content.AnchorNavigation': true
           'Vendor.WheelInventor:Content.ReactExample': true
           'Vendor.WheelInventor:Content.ReactExampleSSR': true
+          'Vendor.WheelInventor:Content.DownloadsManual': true
+          'Vendor.WheelInventor:Content.DownloadsCollections': true

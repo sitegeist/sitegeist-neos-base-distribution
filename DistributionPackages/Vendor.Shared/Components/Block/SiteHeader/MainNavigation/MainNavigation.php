@@ -24,6 +24,6 @@ final readonly class MainNavigation implements _\ComponentInterface
 
     public function render(): string
     {
-        return '<nav data-component="MainNavigation" class="h-full z-20"><sl-drawer placement="end" class="lg:hidden w-128" data-offcanvas-menu no-header no-footer><div class="overflow-y-auto max-h-full overflow-x-hidden pt-header px-16"><div class="flex flex-col gap-8">' . (($temp = $this->items) === null ? '' : $temp->render()) . '</div></div></sl-drawer><div class="hidden lg:flex h-full list-none gap-24">' . (($temp = $this->items) === null ? '' : $temp->render()) . '</div></nav>';
+        return '<nav data-component="MainNavigation" class="h-full z-20"><sl-drawer placement="end" class="lg:hidden" data-offcanvas-menu no-header><div class="overflow-y-auto max-h-full overflow-x-hidden pt-header px-16"><div class="flex flex-col gap-8">' . (($temp = $this->items) === null ? '' : $temp->render()) . '</div></div></sl-drawer><div class="hidden lg:flex h-full list-none gap-24">' . (($temp = $this->items) === null ? '' : $temp->render()) . '</div></nav>';
     }
 }

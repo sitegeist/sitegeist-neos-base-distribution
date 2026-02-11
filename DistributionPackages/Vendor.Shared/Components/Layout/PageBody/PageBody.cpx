@@ -1,16 +1,19 @@
 from "../../Block/SiteHeader/SiteHeader.cpx" import { SiteHeader }
+from "../../Block/SiteFooter/SiteFooter.cpx" import { SiteFooter }
+from "../Grid/PageGrid.cpx" import { PageGrid }
 
 export component PageBody {
 
     content: slot
     siteHeader: SiteHeader
+    siteFooter: SiteFooter
 
     render
         <body>
-            {siteHeader}
-            <main>
+            <PageGrid>
+                {siteHeader}
                 {content}
-            </main>
-            <footer>footer</footer>
+                {siteFooter}
+            </PageGrid>
         </body>
 }

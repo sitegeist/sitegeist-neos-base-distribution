@@ -14,13 +14,13 @@ use Vendor\Shared\Components\Block\Headline\HeadlineTag;
 use Vendor\Shared\Components\Block\Headline\HeadlineVariant;
 use Vendor\Shared\Components\Block\Link\LinkedButton;
 use Vendor\Shared\Components\Block\Text\TextColumns;
-use Vendor\Shared\Components\Layout\Grid\Grid;
+use Vendor\Shared\Components\Layout\Grid\ContentGrid;
 
 #[\Neos\Flow\Annotations\Proxy(false)]
 final readonly class Text implements _\ComponentInterface
 {
     private function __construct(
-        private Grid $_198_Grid,
+        private ContentGrid $_198_ContentGrid,
     ) {
     }
 
@@ -34,10 +34,10 @@ final readonly class Text implements _\ComponentInterface
         Button|LinkedButton|_\ComponentEnvelopeInterface|_\ComponentInterface|string|null $button,
     ): self {
         return new self(
-            _198_Grid: Grid::create(
-                component: 'Text',
+            _198_ContentGrid: ContentGrid::create(
+                componentName: 'Text',
                 content: _\SlotComponent::list(
-                    '<div class="' . _\Util::joinAttributeValues(['col-span-4', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-4 lg:col-span-6', default => 'sm:col-span-full' }]) . '">',
+                    '<div class="' . _\Util::joinAttributeValues(['col-span-full', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-full lg:col-span-6', default => 'sm:col-span-full' }]) . '">',
                     Headline::create(
                         tag: HeadlineTag::TAG_H2,
                         size: HeadlineSize::SIZE_LG,
@@ -45,7 +45,7 @@ final readonly class Text implements _\ComponentInterface
                         content: $headline,
                     ),
                     '</div>',
-                    '<div class="' . _\Util::joinAttributeValues(['col-span-4 flex flex-col gap-16 md:gap-24', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-4 lg:col-span-6', default => 'sm:col-span-full' }]) . '">',
+                    '<div class="' . _\Util::joinAttributeValues(['col-span-full flex flex-col gap-16 md:gap-24', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-full lg:col-span-6', default => 'sm:col-span-full' }]) . '">',
                     Copy::create(
                         size: CopySize::SIZE_MD,
                         content: $content,
@@ -59,6 +59,6 @@ final readonly class Text implements _\ComponentInterface
 
     public function render(): string
     {
-        return $this->_198_Grid->render();
+        return $this->_198_ContentGrid->render();
     }
 }

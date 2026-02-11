@@ -1,11 +1,11 @@
-'Vendor.WheelInventor:Content.DownloadList':
+'Vendor.WheelInventor:Content.DownloadsCollections':
   label: "${node.nodeType.label}"
   superTypes:
     'Vendor.WheelInventor:Content': true
     'Vendor.Shared:Mixin.Headline': true
 
   ui:
-    label: 'Download-Liste'
+    label: 'Downloads (Sammlungen)'
     icon: 'download'
     inspector:
       groups:

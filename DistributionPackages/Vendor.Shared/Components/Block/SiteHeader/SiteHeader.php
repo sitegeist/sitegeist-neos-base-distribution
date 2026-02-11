@@ -11,13 +11,18 @@ use Vendor\Shared\Components\Block\SiteHeader\MainNavigation\MainNavigation;
 use Vendor\Shared\Components\Layout\ContentContainer\ContentContainer;
 use Vendor\Shared\Components\Layout\ContentContainer\ContentContainerTag;
 use Vendor\Shared\Components\Layout\ContentContainer\ContentContainerVariant;
-use Vendor\Shared\Components\Layout\Grid\Grid;
 
 #[\Neos\Flow\Annotations\Proxy(false)]
 final readonly class SiteHeader implements _\ComponentInterface
 {
+    /**
+     * @param Link|_\ComponentEnvelopeInterface<Link> $homeLink
+     * @param MainNavigation|_\ComponentEnvelopeInterface<MainNavigation> $mainNavigation
+     */
     private function __construct(
-        private ContentContainer $_1812_ContentContainer,
+        private Link|_\ComponentEnvelopeInterface $homeLink,
+        private MainNavigation|_\ComponentEnvelopeInterface $mainNavigation,
+        private MenuButton $_2316_MenuButton,
     ) {
     }
 
@@ -30,23 +35,14 @@ final readonly class SiteHeader implements _\ComponentInterface
         MainNavigation|_\ComponentEnvelopeInterface $mainNavigation,
     ): self {
         return new self(
-            _1812_ContentContainer: ContentContainer::create(
-                tagName: ContentContainerTag::TAG_DIV,
-                variant: ContentContainerVariant::VARIANT_NO_PADDING,
-                anchorId: null,
-                content: _\SlotComponent::list(
-                    '<div class="h-header flex justify-between w-full items-center">',
-                    $homeLink,
-                    $mainNavigation,
-                    MenuButton::create(),
-                    '</div>'
-                ),
-            ),
+            homeLink: $homeLink,
+            mainNavigation: $mainNavigation,
+            _2316_MenuButton: MenuButton::create(),
         );
     }
 
     public function render(): string
     {
-        return '<header data-component="SiteHeader" class="group/SiteHeader fixed w-full top-0 flex flex-col z-50 bg-brand-grey h-header">' . $this->_1812_ContentContainer->render() . '</header>';
+        return '<header data-component="SiteHeader" class="' . _\Util::joinAttributeValues(['group/SiteHeader col-span-full sticky top-0', 'grid grid-cols-subgrid z-50 bg-brand-grey h-header']) . '"><div class="col-span-content-full flex justify-between w-full items-center">' . $this->homeLink->render() . '' . $this->mainNavigation->render() . '' . $this->_2316_MenuButton->render() . '</div></header>';
     }
 }

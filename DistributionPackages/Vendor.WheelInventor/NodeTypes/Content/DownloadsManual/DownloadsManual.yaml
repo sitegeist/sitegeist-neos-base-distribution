@@ -1,4 +1,4 @@
-'Vendor.WheelInventor:Content.Downloads':
+'Vendor.WheelInventor:Content.DownloadsManual':
   label: "${node.nodeType.label}"
   superTypes:
     'Vendor.WheelInventor:Content': true
@@ -6,18 +6,18 @@
     'Vendor.Shared:Mixin.Headline': true
 
   ui:
-    label: 'Einzeldownloads'
+    label: 'Downloads (Manuell)'
     icon: 'download'
 
   constraints:
     nodeTypes:
       '*': false
-      'Vendor.WheelInventor:Content.Download': true
+      'Vendor.WheelInventor:Content.DownloadsItem': true
 
   options:
     template:
       childNodes:
         download-1:
-          type: 'Vendor.WheelInventor:Content.Download'
+          type: 'Vendor.WheelInventor:Content.DownloadsItem'
         download-2:
-          type: 'Vendor.WheelInventor:Content.Download'
+          type: 'Vendor.WheelInventor:Content.DownloadsItem'
