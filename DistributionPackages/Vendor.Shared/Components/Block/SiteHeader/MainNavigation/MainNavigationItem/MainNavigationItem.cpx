@@ -36,7 +36,7 @@ export component MainNavigationItem {
                         </sl-menu>
                     </div>
 
-                   <div class="lg:hidden relative">
+                    <div class="lg:hidden relative">
                         <div class="absolute top-0 left-0 py-8">
                             <Link
                                 link={link}

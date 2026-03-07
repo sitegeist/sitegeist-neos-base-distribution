@@ -1,0 +1,30 @@
+export component Figure {
+
+    src: ?string
+    alt: ?string
+    title: ?string
+    class: ?string
+
+    render
+        <figure
+            data-component="Figure"
+            class={[
+                "[Block.Figure placeholder]",
+                "w-full h-full flex flex-col max-h-full relative",
+                class ? class : ""
+            ]}
+        >
+            {src
+                ? <img
+                    src={src}
+                    alt={alt ? alt : ""}
+                    title={title}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                />
+                : <div class="w-full h-full min-h-64 flex items-center justify-center bg-brand-grey copy-small uppercase">
+                    No image
+                </div>
+            }
+        </figure>
+}

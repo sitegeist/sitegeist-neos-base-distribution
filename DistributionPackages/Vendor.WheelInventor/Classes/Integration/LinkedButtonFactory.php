@@ -41,7 +41,7 @@ final class LinkedButtonFactory
         if (!$label || !$linkStruct) {
             return null;
         }
-    
+
         return LinkedButton::create(
             $button,
             $linkStruct

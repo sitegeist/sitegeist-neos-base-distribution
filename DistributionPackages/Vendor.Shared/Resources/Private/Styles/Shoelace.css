@@ -5,18 +5,18 @@
 }
 
 sl-drawer {
-    --size: 20rem;
+	--size: 20rem;
 }
 
 sl-details::part(base) {
-    @apply border-none;
+	@apply border-none;
 }
 
 sl-details::part(header) {
-    @apply h-24;
+	@apply h-24;
 }
 
 sl-details::part(header),
 sl-details::part(content) {
-    @apply px-0 py-8;
+	@apply px-0 py-8;
 }

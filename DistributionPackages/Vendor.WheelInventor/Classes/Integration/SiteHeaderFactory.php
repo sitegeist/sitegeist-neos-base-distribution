@@ -31,7 +31,7 @@ final class SiteHeaderFactory
                     title: "Home",
                     rel: null,
                     target: LinkTarget::TARGET_SELF
-                ),  
+                ),
                 component: null,
                 variant: LinkVariant::VARIANT_MENU_ITEM
             ),

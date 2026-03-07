@@ -27,7 +27,7 @@ export component AccordionItem {
             ]}
             open={initialOpen}
         >
-            <summary 
+            <summary
                 class={[
                     "w-full py-24 flex justify-between items-center",
                     "border-t-2 border-brand marker:hidden hover:border-highlight",

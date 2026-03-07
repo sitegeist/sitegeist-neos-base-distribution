@@ -35,7 +35,7 @@ final readonly class Downloads implements _\ComponentInterface
                         content: $headline,
                     ),
                     '</div>',
-                    '<div data-__neos-insertion-anchor class="col-span-full grid grid-cols-1 w-full sm:grid-cols-2 md:grid-cols-3 gap-16 md:gap-32">',
+                    '<div data-__neos-insertion-anchor class="col-span-full grid grid-cols-1 w-full sm:grid-cols-2 lg:grid-cols-3 gap-16 md:gap-32">',
                     (($temp = $content) === null ? null : $temp),
                     '</div>'
                 ),

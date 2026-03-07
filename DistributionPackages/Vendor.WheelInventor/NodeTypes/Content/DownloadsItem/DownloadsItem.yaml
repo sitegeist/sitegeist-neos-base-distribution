@@ -13,6 +13,8 @@
           icon: file
   properties:
     image:
+      options:
+        preset: 'image.3:4'
       validation: ~
     image__alt:
       validation: ~

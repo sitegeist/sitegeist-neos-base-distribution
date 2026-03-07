@@ -1,4 +1,5 @@
 'Vendor.WheelInventor:Content':
+  label: "${Neos.Node.labelForNode(node).properties('headline', 'title', 'text')}"
   abstract: true
   superTypes:
     'Neos.Neos:Content': true

@@ -32,7 +32,7 @@ final class LinkStructFactory
 
         if (!$link) {
             return null;
-        } 
+        }
 
         $neosLink = $this->resolveLink($link, $context);
 

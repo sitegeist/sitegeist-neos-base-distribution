@@ -21,7 +21,7 @@ export component ReactExample {
                 />
             </div>
             <div
-                data-root 
+                data-root
                 data-app-data={appData}
                 data-labels={labels}
                 class="col-span-full"

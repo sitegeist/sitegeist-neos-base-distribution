@@ -90,6 +90,22 @@ Neos:
                         locked:
                           width: 4
                           height: 3
+            '3:4':
+              type: 'Neos\Media\Domain\Model\ImageInterface'
+              ui:
+                label: 'Bild'
+                reloadIfChanged: true
+                inspector:
+                  group: 'image'
+                  editorOptions:
+                    features:
+                      crop: true
+                    crop:
+                      aspectRatio:
+                        forceCrop: true
+                        locked:
+                          width: 3
+                          height: 4
             '3:2':
               type: 'Neos\Media\Domain\Model\ImageInterface'
               ui:
