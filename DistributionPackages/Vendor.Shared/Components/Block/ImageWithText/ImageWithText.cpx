@@ -1,0 +1,75 @@
+from "./ImageWithTextAlignment.cpx" import { ImageWithTextAlignment }
+from "./ImageWithTextLayout.cpx" import { ImageWithTextLayout }
+from "../Figure/Figure.cpx" import { Figure }
+from "../Headline/Headline.cpx" import { Headline }
+from "../Headline/HeadlineTag.cpx" import { HeadlineTag }
+from "../Headline/HeadlineSize.cpx" import { HeadlineSize }
+from "../Headline/HeadlineVariant.cpx" import { HeadlineVariant }
+from "../Copy/Copy.cpx" import { Copy }
+from "../Copy/CopySize.cpx" import { CopySize }
+from "../Link/LinkedButton.cpx" import { LinkedButton }
+from "../Button/Button.cpx" import { Button }
+from "../../Layout/Grid/ContentGrid.cpx" import { ContentGrid }
+
+export component ImageWithText {
+
+    headline: slot
+    content: slot
+    figure: Figure|slot
+    button: Button|LinkedButton|slot
+    alignment: ImageWithTextAlignment
+    layout: ImageWithTextLayout
+
+    render
+        <ContentGrid componentName="ImageWithText">
+            <div class="col-span-full grid grid-cols-subgrid">
+                <div
+                    class={[
+                        match (alignment) {
+                            ImageWithTextAlignment.VARIANT_IMAGELAST
+                                -> "lg:order-2",
+                            default -> "lg:order-1",
+                        },
+                        match (layout) {
+                            ImageWithTextLayout.VARIANT_66_33
+                                -> "lg:col-span-8",
+                            ImageWithTextLayout.VARIANT_33_66
+                                -> "lg:col-span-4",
+                            default -> "lg:col-span-6",
+                        },
+                    ]}
+                >
+                    {figure}
+                </div>
+                <div
+                    class={[
+                        "flex flex-col gap-16 md:gap-24 justify-center",
+                        match (alignment) {
+                            ImageWithTextAlignment.VARIANT_IMAGELAST
+                                -> "lg:order-1",
+                            default -> "lg:order-2",
+                        },
+                        match (layout) {
+                            ImageWithTextLayout.VARIANT_66_33
+                                -> "lg:col-span-4",
+                            ImageWithTextLayout.VARIANT_33_66
+                                -> "lg:col-span-8",
+                            default -> "lg:col-span-6",
+                        },
+                    ]}
+                >
+                    <Headline
+                        tag={HeadlineTag.TAG_H2}
+                        size={HeadlineSize.SIZE_LG}
+                        variant={HeadlineVariant.VARIANT_REGULAR}
+                        content={headline}
+                    />
+                    <Copy
+                        size={CopySize.SIZE_MD}
+                        content={content}
+                    />
+                    {button}
+                </div>
+            </div>
+        </ContentGrid>
+}

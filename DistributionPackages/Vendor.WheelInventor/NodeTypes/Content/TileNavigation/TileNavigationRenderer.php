@@ -6,20 +6,24 @@ namespace Vendor\WheelInventor\NodeTypes\Content\TileNavigation;
 
 use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
 use Neos\ContentRepository\Core\Projection\ContentGraph\Filter\FindReferencesFilter;
-use Neos\Media\Domain\Model\ImageInterface;
 use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\ComponentEngine\SlotComponent;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
-use Vendor\Shared\Components\Block\Figure\Figure;
 use Vendor\Shared\Components\Block\Link\LinkStruct;
 use Vendor\Shared\Components\Block\Link\LinkTarget;
 use Vendor\Shared\Components\Block\NavigationCard\NavigationCard;
 use Vendor\Shared\Components\Block\TileNavigation\TileNavigation;
 use Vendor\WheelInventor\Integration\ContentContainerFactory;
+use Vendor\WheelInventor\Integration\FigureFactory;
 
 final class TileNavigationRenderer implements ContentNodeRendererInterface
 {
+    public function __construct(
+        private readonly FigureFactory $figureFactory
+    ) {
+    }
+
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
         $documentNodes = $this->resolveReferencedDocuments($context);
@@ -72,9 +76,10 @@ final class TileNavigationRenderer implements ContentNodeRendererInterface
         bool $inBackend
     ): NavigationCard {
         return NavigationCard::create(
-            figure: $this->createFigureForDocument($context, $documentNode),
-            headline: $documentNode->getProperty('previewHeadline') ?: $context->nodes->getLabel($documentNode),
-            text: $documentNode->getProperty('previewText') ?: '',
+            figure: $this->figureFactory->tryForMixin($context, 'previewImage', $documentNode),
+            headline: $context->nodes->getStringValue($documentNode, 'previewHeadline')
+                ?: $context->nodes->getLabel($documentNode),
+            text: $context->nodes->getStringValue($documentNode, 'previewText') ?: '',
             link: $inBackend
                 ? LinkStruct::create(
                     href: null,
@@ -89,37 +94,6 @@ final class TileNavigationRenderer implements ContentNodeRendererInterface
                     target: LinkTarget::TARGET_SELF
                 ),
             inBackend: $inBackend
-        );
-    }
-
-    private function createFigureForDocument(NeosContext $context, Node $documentNode): Figure
-    {
-        $previewImage = $context->nodes->getObjectValue(
-            $documentNode,
-            'previewImage',
-            ImageInterface::class
-        );
-        $fallbackImage = $context->nodes->getObjectValue(
-            $documentNode,
-            'image',
-            ImageInterface::class
-        );
-
-        $image = $previewImage ?: $fallbackImage;
-        if (!$image) {
-            return Figure::create(
-                src: null,
-                alt: null,
-                title: null,
-                class: null
-            );
-        }
-
-        return Figure::create(
-            src: (string)$context->neos->getPersistentResourceUri($image->getResource()),
-            alt: $documentNode->getProperty($previewImage ? 'previewImage__alt' : 'image__alt') ?: null,
-            title: $documentNode->getProperty($previewImage ? 'previewImage__title' : 'image__title') ?: null,
-            class: null
         );
     }
 }

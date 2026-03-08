@@ -9,7 +9,7 @@ export component ContentCollectionGrid {
         <div
             data-__neos-insertion-anchor
             class={[
-                "col-span-full grid grid-cols-1 gap-16",
+                "col-span-full grid grid-cols-1 gap-x-16 md:gap-x-32",
                 match (variant) {
                     ContentCollectionGridVariant.VARIANT_THREE_COLUMNS
                         -> "sm:grid-cols-2 lg:grid-cols-3",

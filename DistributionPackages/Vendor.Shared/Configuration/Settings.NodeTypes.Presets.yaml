@@ -138,3 +138,13 @@ Neos:
                         locked:
                           width: 8
                           height: 3
+            'free':
+              type: 'Neos\Media\Domain\Model\ImageInterface'
+              ui:
+                label: 'Bild'
+                reloadIfChanged: true
+                inspector:
+                  group: 'image'
+                  editorOptions:
+                    features:
+                      crop: true

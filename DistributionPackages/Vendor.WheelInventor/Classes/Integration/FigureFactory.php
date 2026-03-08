@@ -5,72 +5,38 @@ declare(strict_types=1);
 namespace Vendor\WheelInventor\Integration;
 
 use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
-use PackageFactory\AtomicFusion\PresentationObjects\Presentation\Slot\SlotInterface;
-use Sitegeist\Monocle\PresentationObjects\Domain\StyleguideCaseFactoryInterface;
-use Sitegeist\Kaleidoscope\Domain\DummyImageSource;
-use Vendor\WheelInventor\Integration\ImageSourceFactory;
+use Neos\Media\Domain\Model\ImageInterface;
+use PackageFactory\Neos\ComponentEngine\NeosContext;
+use Vendor\Shared\Components\Block\Figure\Figure;
 
 final class FigureFactory
 {
-    public function __construct(
-        public readonly ImageSourceFactory $imageSourceFactory
-    ) {
-    }
+    public function tryForMixin(
+        NeosContext $context,
+        ?string $propertyName = 'image',
+        ?Node $node = null
+    ): Figure {
+        $sourceNode = $node ?? $context->node;
+        $image = $context->nodes->getObjectValue(
+            $sourceNode,
+            $propertyName,
+            ImageInterface::class
+        );
 
-    public function forNavigationCard(Node $documentNode): Figure
-    {
-        $previewImageSource = $documentNode->getProperty('previewImage')
-            ? $this->imageSourceFactory->tryFromImageMixinForProperty(
-                $documentNode,
-                'previewImage',
-                true
-            )
-            : $this->imageSourceFactory->tryFromImageMixinForProperty(
-                $documentNode,
-                'image',
-                true,
-                null,
-                true
-            );
-
-        if (! $previewImageSource) {
-            throw new \InvalidArgumentException(
-                'there is no preview Image for document ' . $documentNode->getProperty('title'),
-                1669212737
+        if (!$image) {
+            return Figure::create(
+                src: null,
+                alt: null,
+                title: null,
+                class: null
             );
         }
 
-        return new Figure(
-            $previewImageSource,
-            true,
-            FigureSize::SIZE_FIFTH_HALF_FULL,
-            FigureObjectFit::FIT_COVER,
-            FigureObjectPosition::POSITION_CENTER,
-            FigureAspectRatio::RATIO_4X3
+        return Figure::create(
+            src: (string)$context->neos->getPersistentResourceUri($image->getResource()),
+            alt: $context->nodes->getStringValue($sourceNode, $propertyName . '__alt'),
+            title: $context->nodes->getStringValue($sourceNode, $propertyName . '__title'),
+            class: null
         );
-    }
-
-    public function getDefaultCase(): SlotInterface
-    {
-        return new Figure(
-            new DummyImageSource(
-                (string)$this->uriService->getDummyImageBaseUri(),
-                null,
-                null,
-                1920,
-                1080,
-                null,
-            ),
-            false,
-            FigureSize::SIZE_FULL_FULL_FULL,
-            FigureObjectFit::FIT_COVER,
-            FigureObjectPosition::POSITION_CENTER,
-            FigureAspectRatio::RATIO_4X3
-        );
-    }
-
-    public function getUseCases(): \Traversable
-    {
-        return new \ArrayIterator([]);
     }
 }

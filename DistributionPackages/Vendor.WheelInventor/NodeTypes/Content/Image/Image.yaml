@@ -1,5 +1,4 @@
 'Vendor.WheelInventor:Content.Image':
-  label: "${q(node).property('headline') || node.nodeType.label}"
   superTypes:
     'Vendor.WheelInventor:Content': true
     'Vendor.Shared:Mixin.Headline': true
@@ -8,3 +7,8 @@
   ui:
     label: 'Bild'
     icon: 'image'
+
+  properties:
+    image:
+      options:
+        preset: 'image.free'

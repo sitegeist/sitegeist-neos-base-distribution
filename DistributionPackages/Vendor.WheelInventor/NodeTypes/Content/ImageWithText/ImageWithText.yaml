@@ -1,10 +1,8 @@
 'Vendor.WheelInventor:Content.ImageWithText':
-  label: "${q(node).property('headline') || q(node).property('text') || node.nodeType.label}"
   superTypes:
     'Vendor.WheelInventor:Content': true
     'Vendor.Shared:Mixin.Headline': true
     'Vendor.Shared:Mixin.Text': true
-    'Vendor.Shared:Mixin.TextColumns': true
     'Vendor.Shared:Mixin.Link': true
     'Vendor.Shared:Mixin.Image': true
 
@@ -19,10 +17,13 @@
           position: 10
 
   properties:
+    image:
+      options:
+        preset: 'image.free'
     link:
       validation: { }
     alignment:
-      type: string
+      type: Vendor\Shared\Components\Block\ImageWithText\ImageWithTextAlignment
       defaultValue: 'Bild links'
       ui:
         label: 'Ausrichtung'
@@ -31,7 +32,7 @@
           group: 'layout'
           editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
     layout:
-      type: string
+      type: Vendor\Shared\Components\Block\ImageWithText\ImageWithTextLayout
       defaultValue: '50-50'
       ui:
         label: 'Breite Varianten'
@@ -39,3 +40,17 @@
         inspector:
           group: 'layout'
           editor: Neos.Neos/Inspector/Editors/SelectBoxEditor
+
+  postprocessors:
+    alignmentOptions:
+      postprocessor: Vendor\Shared\Application\EnumProvider
+      postprocessorOptions:
+        enumName: Vendor\Shared\Components\Block\ImageWithText\ImageWithTextAlignment
+        propertyNames:
+          - alignment
+    layoutOptions:
+      postprocessor: Vendor\Shared\Application\EnumProvider
+      postprocessorOptions:
+        enumName: Vendor\Shared\Components\Block\ImageWithText\ImageWithTextLayout
+        propertyNames:
+          - layout

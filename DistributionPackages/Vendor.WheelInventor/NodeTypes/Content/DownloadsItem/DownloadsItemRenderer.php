@@ -5,22 +5,26 @@ declare(strict_types=1);
 namespace Vendor\WheelInventor\NodeTypes\Content\DownloadsItem;
 
 use Neos\Media\Domain\Model\Document;
-use Neos\Media\Domain\Model\ImageInterface;
 use Neos\Utility\Files;
 use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
 use Vendor\Shared\Components\Block\Downloads\Item\DownloadsItem;
-use Vendor\Shared\Components\Block\Figure\Figure;
 use Vendor\Shared\Components\Block\Headline\Headline;
 use Vendor\Shared\Components\Block\Headline\HeadlineSize;
 use Vendor\Shared\Components\Block\Headline\HeadlineTag;
 use Vendor\Shared\Components\Block\Headline\HeadlineVariant;
 use Vendor\Shared\Components\Block\Link\LinkStruct;
 use Vendor\Shared\Components\Block\Link\LinkTarget;
+use Vendor\WheelInventor\Integration\FigureFactory;
 
 final class DownloadsItemRenderer implements ContentNodeRendererInterface
 {
+    public function __construct(
+        private readonly FigureFactory $figureFactory
+    ) {
+    }
+
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
         $asset = $context->nodes->getObjectValue(
@@ -30,7 +34,7 @@ final class DownloadsItemRenderer implements ContentNodeRendererInterface
         );
 
         return DownloadsItem::create(
-            media: $this->createMedia($context),
+            media: $this->figureFactory->tryForMixin($context),
             headline: Headline::create(
                 content: $context->neos->getEditable(
                     $context->node,
@@ -59,30 +63,4 @@ final class DownloadsItemRenderer implements ContentNodeRendererInterface
             inBackend: $context->renderingMode->isEdit
         );
     }
-
-    private function createMedia(NeosContext $context): Figure
-    {
-        $image = $context->nodes->getObjectValue(
-            $context->node,
-            'image',
-            ImageInterface::class
-        );
-
-        if (!$image) {
-            return Figure::create(
-                src: null,
-                alt: null,
-                title: null,
-                class: null
-            );
-        }
-
-        return Figure::create(
-            src: (string)$context->neos->getPersistentResourceUri($image->getResource()),
-            alt: $context->nodes->getStringValue($context->node, 'image__alt'),
-            title: $context->nodes->getStringValue($context->node, 'image__title'),
-            class: null
-        );
-    }
-
 }
