@@ -28,6 +28,6 @@ final readonly class ContentCollectionGrid implements _\ComponentInterface
 
     public function render(): string
     {
-        return '<div data-__neos-insertion-anchor class="' . _\Util::joinAttributeValues(['col-span-full grid grid-cols-1 gap-x-16 md:gap-x-32', match ($this->variant) { ContentCollectionGridVariant::VARIANT_THREE_COLUMNS => 'sm:grid-cols-2 lg:grid-cols-3', ContentCollectionGridVariant::VARIANT_FOUR_COLUMNS => 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' }]) . '">' . (($temp = $this->content) === null ? '' : $temp->render()) . '</div>';
+        return '<div data-__neos-insertion-anchor class="' . _\Util::joinAttributeValues(['col-span-full grid grid-cols-1 gap-16 md:gap-32', match ($this->variant) { ContentCollectionGridVariant::VARIANT_THREE_COLUMNS => 'sm:grid-cols-2 lg:grid-cols-3', ContentCollectionGridVariant::VARIANT_FOUR_COLUMNS => 'sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4' }]) . '">' . (($temp = $this->content) === null ? '' : $temp->render()) . '</div>';
     }
 }

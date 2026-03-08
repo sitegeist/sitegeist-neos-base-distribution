@@ -8,21 +8,16 @@
     label: 'Zitat'
   properties:
     image:
-      ui:
-        inspector:
-          editorOptions:
-            crop:
-              aspectRatio:
-                forceCrop: true
-                locked:
-                  width: 1
-                  height: 1
+      options:
+        preset: 'image.1:1'
       validation: ~
     image__alt:
       validation: ~
     image__title:
       validation: ~
-
+    text:
+      options:
+        preset: 'rte.plain'
     spokenByCharacter__name:
       options:
         preset: 'rte.plain'
@@ -37,4 +32,3 @@
         inline:
           editorOptions:
             placeholder: 'Bitte Jobbezeichnung eingeben'
-

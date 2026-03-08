@@ -42,11 +42,10 @@ final readonly class ImageWithText implements _\ComponentInterface
             _238_ContentGrid: ContentGrid::create(
                 componentName: 'ImageWithText',
                 content: _\SlotComponent::list(
-                    '<div class="col-span-full grid grid-cols-subgrid">',
-                    '<div' .  (($temp = _\Util::joinAttributeValues([match ($alignment) { ImageWithTextAlignment::VARIANT_IMAGELAST => 'lg:order-2', default => 'lg:order-1' }, match ($layout) { ImageWithTextLayout::VARIANT_66_33 => 'lg:col-span-8', ImageWithTextLayout::VARIANT_33_66 => 'lg:col-span-4', default => 'lg:col-span-6' }])) === '' ? '' : ' class="' . $temp . '"') . '>',
+                    '<div' .  (($temp = _\Util::joinAttributeValues([match ($alignment) { ImageWithTextAlignment::VARIANT_IMAGELAST => 'lg:order-2', default => 'lg:order-1' }, match ($layout) { ImageWithTextLayout::VARIANT_66_33 => 'col-span-full md:col-span-8', ImageWithTextLayout::VARIANT_33_66 => 'col-span-full md:col-span-4', default => 'col-span-full md:col-span-6' }])) === '' ? '' : ' class="' . $temp . '"') . '>',
                     (($temp = $figure) === null ? null : $temp),
                     '</div>',
-                    '<div class="' . _\Util::joinAttributeValues(['flex flex-col gap-16 md:gap-24 justify-center', match ($alignment) { ImageWithTextAlignment::VARIANT_IMAGELAST => 'lg:order-1', default => 'lg:order-2' }, match ($layout) { ImageWithTextLayout::VARIANT_66_33 => 'lg:col-span-4', ImageWithTextLayout::VARIANT_33_66 => 'lg:col-span-8', default => 'lg:col-span-6' }]) . '">',
+                    '<div class="' . _\Util::joinAttributeValues(['flex flex-col gap-16 md:gap-24 justify-center', match ($alignment) { ImageWithTextAlignment::VARIANT_IMAGELAST => 'lg:order-1', default => 'lg:order-2' }, match ($layout) { ImageWithTextLayout::VARIANT_66_33 => 'col-span-full md:col-span-4', ImageWithTextLayout::VARIANT_33_66 => 'col-span-full md:col-span-8', default => 'col-span-full md:col-span-6' }]) . '">',
                     Headline::create(
                         tag: HeadlineTag::TAG_H2,
                         size: HeadlineSize::SIZE_LG,
@@ -58,7 +57,6 @@ final readonly class ImageWithText implements _\ComponentInterface
                         content: $content,
                     ),
                     (($temp = $button) === null ? null : $temp),
-                    '</div>',
                     '</div>'
                 ),
             ),
