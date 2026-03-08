@@ -6,13 +6,13 @@ from "../../Layout/Grid/ContentGrid.cpx" import { ContentGrid }
 from "../../Layout/Grid/ContentCollectionGrid.cpx" import { ContentCollectionGrid }
 from "../../Layout/Grid/ContentCollectionGridVariant.cpx" import { ContentCollectionGridVariant }
 
-export component Downloads {
+export component TileNavigation {
 
     headline: slot
     content: slot
 
     render
-        <ContentGrid componentName="Downloads">
+        <ContentGrid componentName="TileNavigation">
             <div class="col-span-full">
                 <Headline
                     tag={HeadlineTag.TAG_H2}

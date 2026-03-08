@@ -58,9 +58,9 @@
 	--grid-template-columns-2-66-33: 2fr 1fr;
 	--grid-template-columns-3-COL: 1fr 1fr 1fr;
 
-	--grid-template-columns-12: minmax(0, auto) repeat(12, minmax(0, 122px)) minmax(0, auto);
-	--grid-template-columns-8: minmax(0, auto) repeat(8, minmax(0, 1fr)) minmax(0, auto);
-	--grid-template-columns-4: minmax(0, auto) repeat(4, minmax(0, 1fr)) minmax(0, auto);
+	--grid-template-columns-page-12: minmax(0, auto) repeat(12, minmax(0, 122px)) minmax(0, auto);
+	--grid-template-columns-page-8: minmax(0, auto) repeat(8, minmax(0, 1fr)) minmax(0, auto);
+	--grid-template-columns-page-4: minmax(0, auto) repeat(4, minmax(0, 1fr)) minmax(0, auto);
 
 	--grid-column-span-content-full: 2 / -2;
 

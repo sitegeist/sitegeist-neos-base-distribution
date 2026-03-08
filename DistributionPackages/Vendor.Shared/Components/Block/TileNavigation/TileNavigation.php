@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Shared\Components\Block\Downloads;
+namespace Vendor\Shared\Components\Block\TileNavigation;
 
 use PackageFactory\ComponentEngine as _;
 use Vendor\Shared\Components\Block\Headline\Headline;
@@ -14,7 +14,7 @@ use Vendor\Shared\Components\Layout\Grid\ContentCollectionGridVariant;
 use Vendor\Shared\Components\Layout\Grid\ContentGrid;
 
 #[\Neos\Flow\Annotations\Proxy(false)]
-final readonly class Downloads implements _\ComponentInterface
+final readonly class TileNavigation implements _\ComponentInterface
 {
     private function __construct(
         private ContentGrid $_148_ContentGrid,
@@ -27,7 +27,7 @@ final readonly class Downloads implements _\ComponentInterface
     ): self {
         return new self(
             _148_ContentGrid: ContentGrid::create(
-                componentName: 'Downloads',
+                componentName: 'TileNavigation',
                 content: _\SlotComponent::list(
                     '<div class="col-span-full">',
                     Headline::create(

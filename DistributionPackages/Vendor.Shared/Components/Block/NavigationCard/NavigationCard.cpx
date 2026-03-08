@@ -1,0 +1,57 @@
+from "../Figure/Figure.cpx" import { Figure }
+from "../Link/LinkStruct.cpx" import { LinkStruct }
+from "../Button/Button.cpx" import { Button }
+from "../Button/ButtonTag.cpx" import { ButtonTag }
+from "../Button/ButtonVariant.cpx" import { ButtonVariant }
+from "../Headline/Headline.cpx" import { Headline }
+from "../Headline/HeadlineTag.cpx" import { HeadlineTag }
+from "../Headline/HeadlineSize.cpx" import { HeadlineSize }
+from "../Headline/HeadlineVariant.cpx" import { HeadlineVariant }
+from "../Copy/Copy.cpx" import { Copy }
+from "../Copy/CopySize.cpx" import { CopySize }
+
+export component NavigationCard {
+
+    figure: Figure|slot
+    headline: slot
+    text: slot
+    link: LinkStruct
+    inBackend: boolean
+
+    render
+        <element
+            tagName={!inBackend && link.href ? "a" : "div"}
+            data-component="NavigationCard"
+            href={!inBackend ? link.href : null}
+            title={link.title}
+            rel={!inBackend ? link.rel : null}
+            target={!inBackend ? link.target : null}
+            class={[
+                "flex flex-col w-full h-full relative bg-brand-grey",
+                !inBackend && link.href ? "cursor-pointer hover:text-highlight" : ""
+            ]}
+        >
+            <div class="w-full aspect-4/3 overflow-hidden shrink-0">
+                {figure}
+            </div>
+
+            <div class="flex flex-col justify-between p-16 gap-16 bg-brand-grey h-full">
+                <Headline
+                    tag={HeadlineTag.TAG_DIV}
+                    size={HeadlineSize.SIZE_MD}
+                    variant={HeadlineVariant.VARIANT_REGULAR}
+                    content={headline}
+                />
+                <Copy
+                    size={CopySize.SIZE_MD}
+                    content={text}
+                />
+                <div class="mt-auto ml-auto">
+                    <Button
+                        tag={ButtonTag.TAG_SPAN}
+                        variant={ButtonVariant.VARIANT_GHOST}
+                    />
+                </div>
+            </div>
+        </element>
+}
