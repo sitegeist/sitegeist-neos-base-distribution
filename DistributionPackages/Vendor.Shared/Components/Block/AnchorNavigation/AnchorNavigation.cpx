@@ -1,0 +1,12 @@
+export component AnchorNavigation {
+
+    items: slot
+
+    render
+        <div
+            data-component="AnchorNavigation"
+            class="col-span-full flex flex-wrap justify-center items-center divide-x divide-brand-grey"
+        >
+            {items}
+        </div>
+}

@@ -44,8 +44,8 @@ class Sailor
                     FindChildNodesFilter::create()
                 ) as $contentNode
             ) {
-                if ($contentNode->getProperty('anchorID')) {
-                    $availableAnchors[] = $contentNode->getProperty('anchorID');
+                if ($contentNode->getProperty('anchorId')) {
+                    $availableAnchors[] = $contentNode->getProperty('anchorId');
                 }
             }
         }

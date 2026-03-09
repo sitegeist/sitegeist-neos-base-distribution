@@ -9,7 +9,7 @@
   properties:
     columns:
       type: Vendor\Shared\Components\Block\Text\TextColumns
-      defaultValue: 'oneColumn'
+      defaultValue: 'Eine Spalte'
       ui:
         label: 'Spalten'
         reloadIfChanged: true

@@ -19,6 +19,8 @@ export component Link {
                 "cursor-pointer",
                 match (variant) {
                     LinkVariant.VARIANT_NONE -> "w-fit",
+                    LinkVariant.VARIANT_DEFAULT
+                        -> "link-medium hover:text-highlight flex",
                     LinkVariant.VARIANT_MENU_ITEM
                         -> "link-large lg:link-medium hover:text-highlight flex h-full items-center",
                     LinkVariant.VARIANT_MENU_SUB_ITEM

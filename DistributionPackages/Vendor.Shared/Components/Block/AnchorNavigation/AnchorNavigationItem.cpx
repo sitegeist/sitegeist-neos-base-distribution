@@ -1,0 +1,20 @@
+from "../Link/Link.cpx" import { Link }
+from "../Link/LinkStruct.cpx" import { LinkStruct }
+from "../Link/LinkVariant.cpx" import { LinkVariant }
+
+export component AnchorNavigationItem {
+
+    link: LinkStruct
+    title: slot
+
+    render
+        <Link
+            component="AnchorNavigationItem"
+            link={link}
+            variant={LinkVariant.VARIANT_DEFAULT}
+        >
+            <span class="px-24 py-16">
+                {title}
+            </span>
+        </Link>
+}

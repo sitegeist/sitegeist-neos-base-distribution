@@ -22,7 +22,7 @@ class PublishWatch
         $nodeTypeManager = $this->contentRepositoryRegistry->get($node->contentRepositoryId)->getNodeTypeManager();
         if (
             $nodeTypeManager->getNodeType($node->nodeTypeName)?->isOfType('Neos.Neos:Content')
-            && $node->getProperty('anchorID')
+            && $node->getProperty('anchorId')
         ) {
             $availableAnchors = $this->sailor->findAvailableNeighbouringAnchors($node);
 
