@@ -14,6 +14,12 @@ final class ReactExampleRenderer implements ContentNodeRendererInterface
 {
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
+        $appData = json_encode([
+            'endpointBaseUri' => '/placeholder'
+        ]) ?: '{}';
+
+        $labels = json_encode([]) ?: '[]';
+
         return ContentContainerFactory::create(
             $context,
             ReactExample::create(
@@ -22,10 +28,8 @@ final class ReactExampleRenderer implements ContentNodeRendererInterface
                     'headline',
                     true
                 ),
-                appData: json_encode([
-                    'endpointBaseUri' => '/placeholder'
-                ]),
-                labels: json_encode([])
+                appData: $appData,
+                labels: $labels
             )
         );
     }

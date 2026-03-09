@@ -22,7 +22,7 @@ final class LinkStructFactory
 
     public function tryForMixin(
         NeosContext $context,
-        ?string $propertyName = 'link',
+        string $propertyName = 'link',
     ): ?LinkStruct {
         $link = $context->nodes->getObjectValue(
             $context->node,
@@ -36,14 +36,18 @@ final class LinkStructFactory
 
         $neosLink = $this->resolveLink($link, $context);
 
-        return $link
-            ? LinkStruct::create(
-                (string)$neosLink->href,
-                $neosLink->title,
-                implode(" ", $neosLink->rel),
-                LinkTarget::from($neosLink->target),
-            )
-            : null;
+        if ($neosLink === null) {
+            return null;
+        }
+
+        $target = $neosLink->target ?? LinkTarget::TARGET_SELF->value;
+
+        return LinkStruct::create(
+            (string)$neosLink->href,
+            $neosLink->title,
+            implode(" ", $neosLink->rel),
+            LinkTarget::from($target),
+        );
     }
 
     private function resolveLink(
@@ -77,14 +81,12 @@ final class LinkStructFactory
                     )
                     : null;
             default:
-                return $link
-                    ? NeosLink::create(
-                        $link->href,
-                        $title,
-                        $link->target ?: LinkTarget::TARGET_BLANK->value,
-                        $link->rel ?: ['noopener', 'nofollow']
-                    )
-                    : null;
+                return NeosLink::create(
+                    $link->href,
+                    $title,
+                    $link->target ?: LinkTarget::TARGET_BLANK->value,
+                    $link->rel ?: ['noopener', 'nofollow']
+                );
         }
     }
 }

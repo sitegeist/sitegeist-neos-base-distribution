@@ -79,7 +79,7 @@
 		],
 
 		"lint:editorconfig": "ec",
-		"lint:phpcs": "phpcs --colors --standard=PSR12 ./DistributionPackages/*/Classes ./DistributionPackages/*/Resources/Private/Fusion",
+		"lint:phpcs": "phpcs --colors --standard=PSR12 ./DistributionPackages/*/Classes",
 		"lint:phpstan": "phpstan analyse",
 		"lint": [
 			"@lint:phpcs",

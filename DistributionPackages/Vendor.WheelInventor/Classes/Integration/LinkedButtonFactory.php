@@ -19,7 +19,7 @@ final class LinkedButtonFactory
 
     public function tryForMixin(
         NeosContext $context,
-        ?string $propertyName = 'link'
+        string $propertyName = 'link'
     ): Button|LinkedButton|null {
         $button = Button::create(
             $context->neos->getEditable(

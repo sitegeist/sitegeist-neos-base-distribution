@@ -19,7 +19,7 @@ declare module "react/jsx-runtime" {
 declare global {
 	interface Document {
 		addEventListener(
-			type: 'Neos.NodeSelected' | 'Neos.NodeRemoved' | 'Neos.NodeCreated',
+			type: "Neos.NodeSelected" | "Neos.NodeRemoved" | "Neos.NodeCreated",
 			listener: (event: NeosUiNodeEvent) => void
 		): void
 	}

@@ -33,7 +33,7 @@ final class AccordionItemRenderer implements ContentNodeRendererInterface
             initialOpen: $context->nodes->getBoolValue(
                 $context->node,
                 'initialOpen'
-            ),
+            ) ?? false,
             inBackend: $context->renderingMode->isEdit,
             button: $this->linkedbuttonFactory->tryForMixin($context) ?: ''
         );

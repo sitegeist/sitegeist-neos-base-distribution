@@ -13,7 +13,7 @@ final class FigureFactory
 {
     public function tryForMixin(
         NeosContext $context,
-        ?string $propertyName = 'image',
+        string $propertyName = 'image',
         ?Node $node = null
     ): Figure {
         $sourceNode = $node ?? $context->node;

@@ -14,7 +14,9 @@ use Neos\Eel\ProtectedContextAwareInterface;
 use Vendor\Shared\Domain\Enum\IsEnum;
 use Vendor\Shared\Domain\Enum\EnumLabel;
 
-final class EnumProvider extends AbstractDataSource implements ProtectedContextAwareInterface, NodeTypePostprocessorInterface
+final class EnumProvider extends AbstractDataSource implements
+    ProtectedContextAwareInterface,
+    NodeTypePostprocessorInterface
 {
     #[Flow\Inject]
     protected Translator $translator;
@@ -89,7 +91,11 @@ final class EnumProvider extends AbstractDataSource implements ProtectedContextA
     public function getCases(string $enumName): array
     {
         if (!IsEnum::isSatisfiedByClassName($enumName)) {
-            throw new \InvalidArgumentException('Given enum "' . $enumName . '" does not exist or does not implement the required ' . \BackedEnum::class, 1625297031);
+            throw new \InvalidArgumentException(
+                'Given enum "' . $enumName . '" does not exist or does not implement the required '
+                . \BackedEnum::class,
+                1625297031
+            );
         }
 
         return $enumName::cases();

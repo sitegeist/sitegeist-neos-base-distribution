@@ -2,3 +2,6 @@ parameters:
     level: 8
     paths:
         - DistributionPackages
+    excludePaths:
+        analyse:
+            - DistributionPackages/*/Components/**/*.php

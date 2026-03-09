@@ -22,10 +22,10 @@ final class ReactExampleSSRRenderer implements ContentNodeRendererInterface
     {
         $appData = json_encode([
             'endpointBaseUri' => '/placeholder'
-        ]);
+        ]) ?: '{}';
         $labels = json_encode([
             'label.test' => 'Test'
-        ]);
+        ]) ?: '{}';
 
         $react = shell_exec(
             "npx tsx "
@@ -44,7 +44,7 @@ final class ReactExampleSSRRenderer implements ContentNodeRendererInterface
                 ),
                 appData: $appData,
                 labels: $labels,
-                renderedApplication: $react
+                renderedApplication: $react ?: null
             )
         );
     }

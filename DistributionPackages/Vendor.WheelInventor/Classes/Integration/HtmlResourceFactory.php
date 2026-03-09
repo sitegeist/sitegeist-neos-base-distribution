@@ -10,10 +10,13 @@ use Psr\Http\Message\UriInterface;
 final readonly class HtmlResourceFactory implements ComponentInterface
 {
     private function __construct(
-        private string $tag,
+        private string $html,
     ) {
     }
 
+    /**
+     * @param array<string, scalar|bool|null> $attributes
+     */
     public static function stylesheet(
         UriInterface $href,
         array $attributes = []
@@ -26,6 +29,9 @@ final readonly class HtmlResourceFactory implements ComponentInterface
         return new self("<link{$attrs}>");
     }
 
+    /**
+     * @param array<string, scalar|bool|null> $attributes
+     */
     public static function script(
         UriInterface $src,
         array $attributes = []
@@ -37,6 +43,9 @@ final readonly class HtmlResourceFactory implements ComponentInterface
         return new self("<script{$attrs}></script>");
     }
 
+    /**
+     * @param array<string, scalar|bool|null> $attributes
+     */
     private static function buildAttributes(array $attributes): string
     {
         $parts = [];
@@ -54,6 +63,6 @@ final readonly class HtmlResourceFactory implements ComponentInterface
 
     public function render(): string
     {
-        return $this->tag;
+        return $this->html;
     }
 }

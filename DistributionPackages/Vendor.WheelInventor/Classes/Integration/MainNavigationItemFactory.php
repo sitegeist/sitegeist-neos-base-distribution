@@ -26,13 +26,11 @@ final class MainNavigationItemFactory
 
     public const MAX_NAVIGATION_DEPTH = 2;
 
-    /*
-     * @return ComponentCollection<MainNavigationItem>
-    */
+    /**
+     * @return ComponentCollection<MainNavigationItem>|null
+     */
     public function fromRootNode(NeosContext $context): ComponentCollection|null
     {
-        $childNavigationItems = [];
-
         $subtree = $context->subgraph->findSubtree(
             $context->siteNode->aggregateId,
             FindSubtreeFilter::create(
@@ -41,11 +39,22 @@ final class MainNavigationItemFactory
             )
         );
 
+        if ($subtree === null) {
+            return null;
+        }
+
+        /** @var list<MainNavigationItem> $childNavigationItems */
+        $childNavigationItems = [];
         foreach ($subtree->children as $child) {
-            $childNavigationItems[] = $this->createMainNavigationITemFromSubtree(
+            $item = $this->createMainNavigationItemFromSubtree(
                 $child,
                 $context->neos
             );
+            if (!$item instanceof MainNavigationItem) {
+                continue;
+            }
+
+            $childNavigationItems[] = $item;
         };
 
         return ComponentCollection::list(...$childNavigationItems);

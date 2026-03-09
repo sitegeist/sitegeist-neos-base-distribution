@@ -64,6 +64,9 @@ final class SiteFooterFactory
         );
     }
 
+    /**
+     * @return ComponentCollection<Link>|null
+     */
     private function createNavigationItemsFromReferenceProperty(
         NeosContext $context,
         string $propertyName,
@@ -74,6 +77,7 @@ final class SiteFooterFactory
             FindReferencesFilter::create(referenceName: $propertyName)
         );
 
+        /** @var list<Link> $items */
         $items = [];
         foreach ($references as $reference) {
             $targetNode = $reference->node;
@@ -91,8 +95,7 @@ final class SiteFooterFactory
         NeosContext $context,
         Node $targetNode,
         bool $inBackend
-    ): Link
-    {
+    ): Link {
         $label = $context->nodes->getLabel($targetNode);
         return Link::create(
             content: $label,
