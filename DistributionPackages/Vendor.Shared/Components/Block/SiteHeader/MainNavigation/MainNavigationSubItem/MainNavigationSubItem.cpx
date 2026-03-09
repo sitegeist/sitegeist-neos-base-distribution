@@ -12,6 +12,7 @@ export component MainNavigationSubItem {
             link={link}
             variant={LinkVariant.VARIANT_MENU_SUB_ITEM}
             component={null}
+            inBackend={false}
         >
             <sl-menu-item class="max-lg:hidden">
                 {label}

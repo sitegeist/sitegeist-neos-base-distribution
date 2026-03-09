@@ -33,7 +33,8 @@ final class SiteHeaderFactory
                     target: LinkTarget::TARGET_SELF
                 ),
                 component: null,
-                variant: LinkVariant::VARIANT_MENU_ITEM
+                variant: LinkVariant::VARIANT_MENU_ITEM,
+                inBackend: false
             ),
             mainNavigation: MainNavigation::create(
                 items: $this->mainNavigationItemFactory->fromRootNode($context)

@@ -6,12 +6,14 @@ export component AnchorNavigationItem {
 
     link: LinkStruct
     title: slot
+    inBackend: boolean
 
     render
         <Link
             component="AnchorNavigationItem"
             link={link}
             variant={LinkVariant.VARIANT_DEFAULT}
+            inBackend={inBackend}
         >
             <span class="px-24 py-16">
                 {title}

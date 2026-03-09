@@ -20,6 +20,7 @@ export component MainNavigationItem {
                             link={link}
                             variant={LinkVariant.VARIANT_MENU_ITEM}
                             component={null}
+                            inBackend={false}
                         >
                             {label}
                         </Link>
@@ -42,6 +43,7 @@ export component MainNavigationItem {
                                 link={link}
                                 variant={LinkVariant.VARIANT_MENU_ITEM}
                                 component={null}
+                                inBackend={false}
                             >
                                 {label}
                             </Link>
@@ -59,6 +61,7 @@ export component MainNavigationItem {
                     link={link}
                     variant={LinkVariant.VARIANT_MENU_ITEM}
                     component={null}
+                    inBackend={false}
                 >
                     {label}
                 </Link>

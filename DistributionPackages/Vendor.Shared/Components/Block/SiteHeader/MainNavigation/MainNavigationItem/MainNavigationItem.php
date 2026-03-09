@@ -15,8 +15,8 @@ final readonly class MainNavigationItem implements _\ComponentInterface
     private function __construct(
         private ?_\ComponentInterface $items,
         private Link $_1824_Link,
-        private Link $_4028_Link,
-        private Link $_5716_Link,
+        private Link $_4128_Link,
+        private Link $_5916_Link,
     ) {
     }
 
@@ -31,22 +31,25 @@ final readonly class MainNavigationItem implements _\ComponentInterface
                 link: $link,
                 variant: LinkVariant::VARIANT_MENU_ITEM,
                 component: null,
+                inBackend: false,
                 content: _\SlotComponent::list(
                     _\Util::escapeRenderValue($label)
                 ),
             ),
-            _4028_Link: Link::create(
+            _4128_Link: Link::create(
                 link: $link,
                 variant: LinkVariant::VARIANT_MENU_ITEM,
                 component: null,
+                inBackend: false,
                 content: _\SlotComponent::list(
                     _\Util::escapeRenderValue($label)
                 ),
             ),
-            _5716_Link: Link::create(
+            _5916_Link: Link::create(
                 link: $link,
                 variant: LinkVariant::VARIANT_MENU_ITEM,
                 component: null,
+                inBackend: false,
                 content: _\SlotComponent::list(
                     _\Util::escapeRenderValue($label)
                 ),
@@ -56,6 +59,6 @@ final readonly class MainNavigationItem implements _\ComponentInterface
 
     public function render(): string
     {
-        return '<div data-component="MainNavigationItem" class="relative group/navItem">' . (($this->items !== null) ? '<div class="max-lg:hidden h-full">' . $this->_1824_Link->render() . '<sl-menu class="' . _\Util::joinAttributeValues(['pointer-events-none absolute top-full left-1/2 -translate-x-1/2 opacity-0', 'group-focus-within/navItem:opacity-100 group-hover/navItem:opacity-100', 'group-hover/navItem:pointer-events-auto transition-opacity', 'min-w-48 shadow-lg bg-white']) . '">' . (($temp = $this->items) === null ? '' : $temp->render()) . '</sl-menu></div><div class="lg:hidden relative"><div class="absolute top-0 left-0 py-8">' . $this->_4028_Link->render() . '</div><sl-details><div class="flex flex-col gap-16 py-16">' . (($temp = $this->items) === null ? '' : $temp->render()) . '</div></sl-details></div>' : $this->_5716_Link->render()) . '</div>';
+        return '<div data-component="MainNavigationItem" class="relative group/navItem">' . (($this->items !== null) ? '<div class="max-lg:hidden h-full">' . $this->_1824_Link->render() . '<sl-menu class="' . _\Util::joinAttributeValues(['pointer-events-none absolute top-full left-1/2 -translate-x-1/2 opacity-0', 'group-focus-within/navItem:opacity-100 group-hover/navItem:opacity-100', 'group-hover/navItem:pointer-events-auto transition-opacity', 'min-w-48 shadow-lg bg-white']) . '">' . (($temp = $this->items) === null ? '' : $temp->render()) . '</sl-menu></div><div class="lg:hidden relative"><div class="absolute top-0 left-0 py-8">' . $this->_4128_Link->render() . '</div><sl-details><div class="flex flex-col gap-16 py-16">' . (($temp = $this->items) === null ? '' : $temp->render()) . '</div></sl-details></div>' : $this->_5916_Link->render()) . '</div>';
     }
 }

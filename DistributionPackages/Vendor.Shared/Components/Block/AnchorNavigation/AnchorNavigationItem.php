@@ -13,19 +13,21 @@ use Vendor\Shared\Components\Block\Link\LinkVariant;
 final readonly class AnchorNavigationItem implements _\ComponentInterface
 {
     private function __construct(
-        private Link $_108_Link,
+        private Link $_118_Link,
     ) {
     }
 
     public static function create(
         LinkStruct $link,
         _\ComponentInterface|string|null $title,
+        bool $inBackend,
     ): self {
         return new self(
-            _108_Link: Link::create(
+            _118_Link: Link::create(
                 component: 'AnchorNavigationItem',
                 link: $link,
                 variant: LinkVariant::VARIANT_DEFAULT,
+                inBackend: $inBackend,
                 content: _\SlotComponent::list(
                     '<span class="px-24 py-16">',
                     (($temp = $title) === null ? null : $temp),
@@ -37,6 +39,6 @@ final readonly class AnchorNavigationItem implements _\ComponentInterface
 
     public function render(): string
     {
-        return $this->_108_Link->render();
+        return $this->_118_Link->render();
     }
 }
