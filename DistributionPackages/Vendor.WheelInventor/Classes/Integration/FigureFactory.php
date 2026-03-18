@@ -5,37 +5,62 @@ declare(strict_types=1);
 namespace Vendor\WheelInventor\Integration;
 
 use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
-use Neos\Media\Domain\Model\ImageInterface;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
+use Sitegeist\Kaleidoscope\Cpx\Components\ImageSource\ImageSourceFactory;
+use Sitegeist\Kaleidoscope\Domain\DummyImageSource;
+use Sitegeist\Kaleidoscope\ValueObjects\ImageSourceProxy;
 use Vendor\Shared\Components\Block\Figure\Figure;
+use Vendor\Shared\Components\Block\Figure\FigureSize;
 
 final class FigureFactory
 {
+    public function __construct(
+        private readonly ImageSourceFactory $imageSourceFactory
+    ) {
+    }
+
     public function tryForMixin(
         NeosContext $context,
+        FigureSize $figureSize = FigureSize::SIZE_DEFAULT,
+        bool $isLazyLoaded = false,
         string $propertyName = 'image',
-        ?Node $node = null
-    ): Figure {
+        ?Node $node = null,
+    ): ?Figure {
         $sourceNode = $node ?? $context->node;
         $image = $context->nodes->getObjectValue(
             $sourceNode,
             $propertyName,
-            ImageInterface::class
+            ImageSourceProxy::class
         );
 
-        if (!$image) {
-            return Figure::create(
-                src: null,
-                alt: null,
-                title: null,
-                class: null
+        if ($image === null) {
+            if (!$context->renderingMode->isEdit) {
+                return null;
+            }
+
+            $imageSource = $this->imageSourceFactory->createForImageSourceInterface(
+                new DummyImageSource(
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null,
+                    'Bild'
+                )
             );
+        } else {
+            $imageSource = $this->imageSourceFactory->tryCreateForImageSourceProxy($image);
+            if ($imageSource === null) {
+                return null;
+            }
         }
 
         return Figure::create(
-            src: (string)$context->neos->getPersistentResourceUri($image->getResource()),
-            alt: $context->nodes->getStringValue($sourceNode, $propertyName . '__alt'),
-            title: $context->nodes->getStringValue($sourceNode, $propertyName . '__title'),
+            image: $imageSource,
+            size: $figureSize,
+            isLazyLoaded: $isLazyLoaded,
             class: null
         );
     }

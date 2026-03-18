@@ -10,11 +10,6 @@
     image:
       options:
         preset: 'image.1:1'
-      validation: ~
-    image__alt:
-      validation: ~
-    image__title:
-      validation: ~
     text:
       options:
         preset: 'rte.plain'

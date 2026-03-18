@@ -13,19 +13,4 @@
         preset: 'image.4:3'
       validation:
         Neos.Neos/Validation/NotEmptyValidator: {}
-    image__alt:
-      type: string
-      ui:
-        label: 'Alt-Text'
-        inspector:
-          group: 'image'
-      validation:
-        Neos.Neos/Validation/NotEmptyValidator: {}
-    image__title:
-      type: string
-      ui:
-        label: 'Titel'
-        inspector:
-          group: 'image'
-      validation:
-        Neos.Neos/Validation/NotEmptyValidator: {}
+

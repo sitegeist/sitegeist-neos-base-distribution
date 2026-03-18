@@ -76,7 +76,11 @@ final class TileNavigationRenderer implements ContentNodeRendererInterface
         bool $inBackend
     ): NavigationCard {
         return NavigationCard::create(
-            figure: $this->figureFactory->tryForMixin($context, 'previewImage', $documentNode),
+            figure: $this->figureFactory->tryForMixin(
+                context: $context,
+                propertyName: 'previewImage',
+                node: $documentNode
+            ),
             headline: $context->nodes->getStringValue($documentNode, 'previewHeadline')
                 ?: $context->nodes->getLabel($documentNode),
             text: $context->nodes->getStringValue($documentNode, 'previewText') ?: '',

@@ -32,6 +32,8 @@
 		"sitegeist/iconoclasm": "^2.1",
 		"sitegeist/inspectorgadget": "^3.0",
 		"sitegeist/kaleidoscope": "^7.0",
+		"sitegeist/kaleidoscope-valueobjects": "^1.6.0",
+		"sitegeist/kaleidoscope-cpx": "dev-main",
 		"sitegeist/klarschiff": "^3.0",
 		"sitegeist/monocle": "^7.10",
 		"sitegeist/schemeonyou": "^2.0",
@@ -98,6 +100,10 @@
 		"test": "echo \"No tests yet.\""
 	},
 	"repositories": {
+		"sitegeist/kaleidoscope-cpx": {
+			"type": "vcs",
+			"url": "https://github.com/sitegeist/Sitegeist.Kaleidoscope.Cpx"
+		},
 		"local": {
 			"type": "path",
 			"url": "./DistributionPackages/*"

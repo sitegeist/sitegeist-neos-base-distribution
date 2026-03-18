@@ -21,16 +21,10 @@ final class QuotationRenderer implements ContentNodeRendererInterface
 
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
-        $image = $context->nodes->getObjectValue(
-            $context->node,
-            'image',
-            ImageInterface::class
-        );
-
         return ContentContainerFactory::create(
             $context,
             Quotation::create(
-                figure: $image ? $this->figureFactory->tryForMixin($context) : '',
+                figure: $this->figureFactory->tryForMixin($context),
                 content: $context->neos->getEditable(
                     $context->node,
                     'text',

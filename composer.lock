@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "5634e12889ebaa32f66417f993b130b4",
+    "content-hash": "068ab88f5d1b869bb9c31bf619b3fded",
     "packages": [
         {
             "name": "behat/transliterator",
@@ -7519,6 +7519,93 @@
             "time": "2026-01-07T14:53:00+00:00"
         },
         {
+            "name": "sitegeist/kaleidoscope-cpx",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sitegeist/Sitegeist.Kaleidoscope.Cpx.git",
+                "reference": "6d651d2cf3c36c92ab698bdba00da1cf5a56ff78"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sitegeist/Sitegeist.Kaleidoscope.Cpx/zipball/6d651d2cf3c36c92ab698bdba00da1cf5a56ff78",
+                "reference": "6d651d2cf3c36c92ab698bdba00da1cf5a56ff78",
+                "shasum": ""
+            },
+            "require": {
+                "neos/flow": "*",
+                "sitegeist/kaleidoscope": "^7.0"
+            },
+            "default-branch": true,
+            "type": "neos-package",
+            "extra": {
+                "neos": {
+                    "package-key": "Sitegeist.Kaleidoscope.Cpx"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sitegeist\\Kaleidoscope\\Cpx\\": "Classes/",
+                    "Sitegeist\\Kaleidoscope\\Cpx\\Components\\": "Components/"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "Adapter package that integrates PackageFactory.ComponentEngine with Sitegeist.Kaleidoscpope",
+            "support": {
+                "source": "https://github.com/sitegeist/Sitegeist.Kaleidoscope.Cpx/tree/main",
+                "issues": "https://github.com/sitegeist/Sitegeist.Kaleidoscope.Cpx/issues"
+            },
+            "time": "2026-03-18T09:57:58+00:00"
+        },
+        {
+            "name": "sitegeist/kaleidoscope-valueobjects",
+            "version": "v1.6.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/sitegeist/Sitegeist.Kaleidoscope.ValueObjects.git",
+                "reference": "527e1b4f510c59d44eccc563ae0596883ab3d698"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/sitegeist/Sitegeist.Kaleidoscope.ValueObjects/zipball/527e1b4f510c59d44eccc563ae0596883ab3d698",
+                "reference": "527e1b4f510c59d44eccc563ae0596883ab3d698",
+                "shasum": ""
+            },
+            "require": {
+                "neos/neos": "^8.3 || ^9.0",
+                "php": ">=8.2",
+                "sitegeist/kaleidoscope": "^6.8 || ^7.0"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^1.8",
+                "phpunit/phpunit": "^9.5",
+                "squizlabs/php_codesniffer": "^3.7"
+            },
+            "type": "neos-package",
+            "extra": {
+                "neos": {
+                    "package-key": "Sitegeist.Kaleidoscope.ValueObjects"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sitegeist\\Kaleidoscope\\ValueObjects\\": "Classes/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "Value objects and editors based on Kaleidoscope",
+            "support": {
+                "issues": "https://github.com/sitegeist/Sitegeist.Kaleidoscope.ValueObjects/issues",
+                "source": "https://github.com/sitegeist/Sitegeist.Kaleidoscope.ValueObjects/tree/v1.6.0"
+            },
+            "time": "2026-01-28T13:59:25+00:00"
+        },
+        {
             "name": "sitegeist/klarschiff",
             "version": "v3.0.3",
             "source": {
@@ -9593,7 +9680,7 @@
             "dist": {
                 "type": "path",
                 "url": "./DistributionPackages/Vendor.Shared",
-                "reference": "2b28f9029fe3c10dc0b03f9d7f496fdd33dba1da"
+                "reference": "a4ecf9210a08ed6ebc3b378e6391b1c81614e135"
             },
             "require": {
                 "flowpack/nodetemplates": "^3.0",
@@ -9641,7 +9728,7 @@
             "dist": {
                 "type": "path",
                 "url": "./DistributionPackages/Vendor.WheelInventor",
-                "reference": "8e4a7f5d8eea49dc5e627412729eea38d67b1ecb"
+                "reference": "722b25aed0eef7402b96787ce962d9a789be5380"
             },
             "require": {
                 "vendor/shared": "*"
@@ -13059,7 +13146,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": {},
+    "stability-flags": {
+        "sitegeist/kaleidoscope-cpx": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {},
