@@ -1,16 +1,21 @@
 export component Icon {
 
     icon: string
-    class: string
+    class: ?string
 
     render
-        <div
+        <svg
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
             component="Icon"
-            class={[
-                "shrink-0 overflow-hidden text-inherit flex items-center whitespace-nowrap bg-gray-200 rounded-full",
-                class
-            ]}
+            class={["fill-current", class]}
+            height="1em"
+            width="1em"
         >
-            {icon}
-        </div>
+            <use
+                xlink:href="/stampede/svgsprite?collection=shared#{icon}"
+                href="/stampede/svgsprite?collection=shared#{icon}"
+            />
+        </svg>
 }

@@ -64,7 +64,7 @@ final readonly class SiteFooter implements _\ComponentInterface
             _5416_SiteFooterItem: SiteFooterItem::create(
                 title: 'Folgen Sie uns!',
                 content: _\SlotComponent::list(
-                    '<div class="flex flex-wrap gap-8 mt-auto">',
+                    '<div class="flex flex-wrap gap-16 mt-auto">',
                     (($facebookLinkStruct->href !== null) ? Link::create(
                         link: $facebookLinkStruct,
                         variant: LinkVariant::VARIANT_DEFAULT,

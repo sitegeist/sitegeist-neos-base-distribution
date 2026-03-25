@@ -30,14 +30,14 @@ final readonly class Button implements _\ComponentInterface
             tag: $tag,
             variant: $variant,
             _2612_Icon: Icon::create(
-                icon: 'arrow_right',
-                class: 'w-32 h-32',
+                icon: 'arrow-right',
+                class: 'w-24 h-24',
             ),
         );
     }
 
     public function render(): string
     {
-        return '<' . ($_119_tag = $this->tag->value) . ' data-component="Button" class="' . _\Util::joinAttributeValues(['flex gap-16 items-center w-fit min-w-touch min-h-touch copy-medium', match ($this->variant) { ButtonVariant::VARIANT_REGULAR => 'border border-brand px-24 py-8 hover:text-highlight hover:border-highlight', ButtonVariant::VARIANT_SOLID => 'bg-brand text-brand-contrast px-24 py-8 hover:bg-highlight', ButtonVariant::VARIANT_GHOST => 'hover:text-highlight' }]) . '">' . (($temp = $this->content) === null ? '' : $temp->render()) . '' . $this->_2612_Icon->render() . '</' . $_119_tag . '>';
+        return '<' . ($_119_tag = $this->tag->value) . ' data-component="Button" class="' . _\Util::joinAttributeValues(['flex gap-16 items-center w-fit copy-medium', match ($this->variant) { ButtonVariant::VARIANT_REGULAR => 'border min-w-touch min-h-touch border-brand px-24 py-8 hover:text-highlight hover:border-highlight', ButtonVariant::VARIANT_SOLID => 'bg-brand min-w-touch min-h-touch text-brand-contrast px-24 py-8 hover:bg-highlight', ButtonVariant::VARIANT_GHOST => 'hover:text-highlight' }]) . '">' . (($temp = $this->content) === null ? '' : $temp->render()) . '' . $this->_2612_Icon->render() . '</' . $_119_tag . '>';
     }
 }

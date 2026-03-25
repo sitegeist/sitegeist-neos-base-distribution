@@ -53,7 +53,7 @@ export component SiteFooter {
                 </SiteFooterItem>
 
                 <SiteFooterItem title="Folgen Sie uns!">
-                    <div class="flex flex-wrap gap-8 mt-auto">
+                    <div class="flex flex-wrap gap-16 mt-auto">
                         {facebookLinkStruct.href ?
                             <Link
                                 link={facebookLinkStruct}
