@@ -14,8 +14,11 @@ use Vendor\Shared\Components\Layout\ContentContainer\ContentContainerVariant;
 #[Flow\Scope('singleton')]
 final class ContentContainerFactory
 {
-    public static function create(NeosContext $context, ComponentInterface $content): ComponentInterface
-    {
+    public static function create(
+        NeosContext $context,
+        ComponentInterface $content,
+        ContentContainerVariant $variant = ContentContainerVariant::VARIANT_REGULAR,
+    ): ComponentInterface {
         $anchorId = $context->nodes->getStringValue(
             $context->node,
             'anchorId'
@@ -23,7 +26,7 @@ final class ContentContainerFactory
 
         return ContentContainer::create(
             ContentContainerTag::TAG_SECTION,
-            ContentContainerVariant::VARIANT_REGULAR,
+            $variant,
             $content,
             $anchorId
         );

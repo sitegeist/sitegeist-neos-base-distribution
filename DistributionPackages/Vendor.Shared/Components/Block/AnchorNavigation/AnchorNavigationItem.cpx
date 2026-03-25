@@ -7,6 +7,7 @@ export component AnchorNavigationItem {
     link: LinkStruct
     title: slot
     inBackend: boolean
+    forSticky: boolean
 
     render
         <Link
@@ -15,7 +16,12 @@ export component AnchorNavigationItem {
             variant={LinkVariant.VARIANT_DEFAULT}
             inBackend={inBackend}
         >
-            <span class="px-24 py-16">
+            <span
+                class={[
+                    "whitespace-nowrap",
+                    forSticky ? "py-16 pr-8 last:pr-0" : "px-24 py-16"
+                ]}
+            >
                 {title}
             </span>
         </Link>

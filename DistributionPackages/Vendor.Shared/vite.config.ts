@@ -1,9 +1,15 @@
+import { fileURLToPath, URL } from "node:url";
 import { defineConfig } from "vite";
-import react from '@vitejs/plugin-react'
+import react from "@vitejs/plugin-react";
 
 /** @type {import("vite").UserConfig} */
 export default defineConfig({
 	plugins: [react()],
+	resolve: {
+		alias: {
+			"@Components": fileURLToPath(new URL("./Components", import.meta.url)),
+		},
+	},
 	build: {
 		outDir: "./Resources/Public/Build/JavaScript",
 		emptyOutDir: false,
@@ -27,10 +33,10 @@ export default defineConfig({
 			},
 			// Ignore "use-client" Warning
 			onwarn(warning, warn) {
-				if (warning.code === 'MODULE_LEVEL_DIRECTIVE') {
-					return
+				if (warning.code === "MODULE_LEVEL_DIRECTIVE") {
+					return;
 				}
-				warn(warning)
+				warn(warning);
 			},
 		},
 	},

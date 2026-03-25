@@ -21,14 +21,24 @@ final class AnchorNavigationRenderer implements ContentNodeRendererInterface
 
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
-        return ContentContainerFactory::create(
-            $context,
-            AnchorNavigation::create(
-                items: $this->contentRenderer->renderContentChildren(
-                    $context,
-                    RenderingUseCase::CONTENT
-                )
-            )
+        $isSticky = $context->nodes->getBoolValue(
+            $context->node,
+            'isSticky'
         );
+
+        $anchorNavigation = AnchorNavigation::create(
+            items: $this->contentRenderer->renderContentChildren(
+                $context,
+                RenderingUseCase::CONTENT
+            ),
+            isSticky: $isSticky ?? false,
+        );
+
+        return $isSticky
+            ? $anchorNavigation
+            : ContentContainerFactory::create(
+                $context,
+                $anchorNavigation,
+            );
     }
 }

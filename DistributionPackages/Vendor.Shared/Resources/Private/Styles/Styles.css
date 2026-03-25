@@ -32,6 +32,7 @@
 	--spacing-touch: 48px;
 	--max-width-content-full: 1280px;
 	--spacing-header: 60px;
+	--spacing-sticky-nav-height: 56px;
 
 	--color-brand: #564e58;
 	--color-brand-contrast: #fff;
@@ -72,7 +73,11 @@ html {
 }
 
 *[id] {
-	scroll-margin-top:var(--spacing-header);
+	scroll-margin-top: var(--spacing-header);
+}
+
+html:has(.sticky-nav-active) *[id] {
+	scroll-margin-top: calc(var(--spacing-header) + var(--spacing-sticky-nav-height));
 }
 
 body {

@@ -1,18 +1,17 @@
 'Vendor.WheelInventor:Content.Anchor':
   superTypes:
-    'Vendor.WheelInventor:Content': true
+    'Neos.Neos:Content': true
     'Vendor.Shared:Mixin.IDLess': true
 
   ui:
     label: 'Anchor'
     icon: 'anchor'
-    ui:
-      inspector:
-        groups:
-          anchor:
-            label: 'Anchor'
-            icon: 'anchor'
-            position: start 0
+    inspector:
+      groups:
+        anchor:
+          label: 'Anchor'
+          icon: 'anchor'
+          position: start 0
 
   properties:
     targetIdentifier:

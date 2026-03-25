@@ -16,6 +16,7 @@
 		"@shoelace-style/shoelace": "2.20.1",
 		"@tanstack/react-query": "5.90.20",
 		"clsx": "2.1.1",
+		"lit": "3.3.2",
 		"react": "^19.2",
 		"react-dom": "^19.2",
 		"tailwind-merge": "3.4.0",

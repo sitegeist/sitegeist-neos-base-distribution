@@ -18,6 +18,7 @@ final class AnchorRenderer implements ContentNodeRendererInterface
             $context->node,
             'targetIdentifier'
         );
+        $parentNode = $context->subgraph->findParentNode($context->node->aggregateId);
 
         return AnchorNavigationItem::create(
             link: LinkStruct::create(
@@ -33,7 +34,13 @@ final class AnchorRenderer implements ContentNodeRendererInterface
                 $context->node,
                 'title',
                 true
-            )
+            ),
+            forSticky: $parentNode
+                ? ($context->nodes->getBoolValue(
+                    $parentNode,
+                    'isSticky'
+                ) ?? false)
+                : false
         );
     }
 }

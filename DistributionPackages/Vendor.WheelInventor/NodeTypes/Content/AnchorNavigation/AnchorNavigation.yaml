@@ -1,6 +1,6 @@
 'Vendor.WheelInventor:Content.AnchorNavigation':
   superTypes:
-    'Vendor.WheelInventor:Content': true
+    'Neos.Neos:Content': true
     'Neos.Neos:ContentCollection': true
     'Vendor.Shared:Mixin.IDLess': true
 
@@ -12,6 +12,16 @@
     nodeTypes:
       '*': false
       'Vendor.WheelInventor:Content.Anchor': true
+
+  properties:
+    isSticky:
+      type: boolean
+      defaultValue: false
+      ui:
+        reloadIfChanged: true
+        label: 'Sticky Navigation?'
+        inspector:
+          group: 'default'
 
   options:
     template:

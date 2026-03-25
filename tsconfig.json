@@ -16,6 +16,11 @@
 		"experimentalDecorators": true,
 
 		"baseUrl": "./",
+		"paths": {
+			"@Components/*": [
+				"DistributionPackages/Vendor.Shared/Components/*"
+			]
+		},
 
 		"outDir": "dist"
 	},
