@@ -1,0 +1,5 @@
+title: "Menu button"
+description: "Mobile navigation trigger"
+container:
+  __type: "Vendor.Shared/Layout/AtomContainer/AtomContainer.cpx"
+props: {}

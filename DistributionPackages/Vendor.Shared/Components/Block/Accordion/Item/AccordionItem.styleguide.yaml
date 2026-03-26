@@ -1,0 +1,20 @@
+title: "Accordion item"
+description: "Expandable accordion entry"
+container:
+  __type: "Vendor.Shared/Layout/AtomContainer/AtomContainer.cpx"
+props: &defaultProps
+  headline: "Lorem ipsum dolor sit?"
+  content:
+    __type: "Vendor.Shared/Block/Copy/Copy.cpx"
+    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    size: "medium"
+  initialOpen: false
+  inBackend: false
+  button:
+    __type: "Vendor.Shared/Block/Link/LinkedButton.cpx"
+useCases:
+  open:
+    title: "Open item"
+    props:
+      <<: *defaultProps
+      initialOpen: true

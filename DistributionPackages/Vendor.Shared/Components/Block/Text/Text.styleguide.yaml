@@ -1,0 +1,20 @@
+title: "Text"
+description: "Text block with optional button"
+container:
+  __type: "Vendor.Shared/Layout/PageGridWithContentContainer/PageGridWithContentContainer.cpx"
+props: &defaultProps
+  columns:
+    __type: "Vendor.Shared/Block/Text/TextColumns.cpx"
+    value: "Eine Spalte"
+  headline: "Lorem ipsum dolor"
+  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  button:
+    __type: "Vendor.Shared/Block/Link/LinkedButton.cpx"
+useCases:
+  twoColumns:
+    title: "Two columns"
+    props:
+      <<: *defaultProps
+      columns:
+        __type: "Vendor.Shared/Block/Text/TextColumns.cpx"
+        value: "Zwei Spalten"

@@ -2,3 +2,83 @@ Sitegeist:
   Monocle:
     hiddenPrototypeNamePatterns:
       - 'Sitegeist.Kaleidoscope:*'
+
+    styleguides:
+      'CpxPackage::Vendor.Shared':
+        ui:
+          grids:
+            xs:
+              mediaQuery: '(max-width:767px)'
+              label: Mobile
+              columns: 12
+              gap: 16px
+              gutter: 0 16px
+
+            md:
+              mediaQuery: '(min-width:768px)'
+              label: Desktop
+              columns: 12
+              gap: 32px
+              gutter: 0 32px
+              maxWidth: 1880px
+
+          viewportPresets:
+            md: ~
+            xs:
+              label: 'Xtra Small'
+              width: 320
+              height: 768
+            s:
+              label: 'Small'
+              width: 768
+              height: 768
+            m:
+              label: 'Medium'
+              width: 1024
+              height: 768
+            l:
+              label: 'Large'
+              width: 1280
+              height: 768
+            xl:
+              label: 'Xtra Large'
+              width: 1920
+              height: 768
+
+          structure:
+            base:
+              position: 100
+              match: Components?\.Base
+              label: Base
+              icon: icon-minus
+              color: '#AAA'
+            atoms:
+              position: 200
+              match: Components?\.Atom
+              label: Atoms
+              icon: icon-gear
+              color: '#4DBCE9'
+            molecules:
+              position: 300
+              match: Components?\.Molecule
+              label: Molecules
+              icon: icon-gears
+              color: '#26ADE4'
+            organisms:
+              position: 400
+              match: Components?\.Organism
+              label: Organisms
+              icon: icon-certificate
+              color: '#D1E751'
+            templates:
+              position: 500
+              match: Block
+              label: Templates
+              icon: icon-file
+              color: '#FFF'
+
+        preview:
+          styles:
+            - 'resource://Vendor.Shared/Public/Build/Styles/main.min.css'
+          scripts:
+            - 'resource://Vendor.Shared/Public/Build/JavaScript/main.min.js'

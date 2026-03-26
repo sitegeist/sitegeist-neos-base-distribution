@@ -1,0 +1,13 @@
+title: "Content container"
+description: "Section-level content wrapper for block previews"
+props: &defaultProps
+  tagName: "section"
+  variant: "regular"
+  content: "Lorem ipsum dolor sit amet"
+  anchorId: null
+useCases:
+  noPadding:
+    title: "No padding"
+    props:
+      <<: *defaultProps
+      variant: "noPadding"

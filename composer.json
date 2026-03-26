@@ -35,7 +35,7 @@
 		"sitegeist/kaleidoscope-valueobjects": "^1.6.0",
 		"sitegeist/kaleidoscope-cpx": "dev-main",
 		"sitegeist/klarschiff": "^3.0",
-		"sitegeist/monocle": "^7.10",
+		"sitegeist/monocle": "dev-task/refactorToEnableUseCasesBeyondFusion",
 		"sitegeist/schemeonyou": "^2.0",
 		"sitegeist/stampede": "^2.0",
 
@@ -100,6 +100,10 @@
 		"test": "echo \"No tests yet.\""
 	},
 	"repositories": {
+		"sitegeist/monocle": {
+			"type": "vcs",
+			"url": "https://github.com/sitegeist/Sitegeist.Monocle"
+		},
 		"sitegeist/kaleidoscope-cpx": {
 			"type": "vcs",
 			"url": "https://github.com/sitegeist/Sitegeist.Kaleidoscope.Cpx"

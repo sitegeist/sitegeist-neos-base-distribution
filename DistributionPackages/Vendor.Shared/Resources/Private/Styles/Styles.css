@@ -93,6 +93,10 @@ body {
 	overflow-wrap: break-word;
 	word-wrap: break-word;
 	word-break: break-word;
+
+	min-height: 100dvh;
+	display: flex;
+	flex-direction: column;
 }
 
 /* Replace with main once component engine supports custom tags for contentCollection */

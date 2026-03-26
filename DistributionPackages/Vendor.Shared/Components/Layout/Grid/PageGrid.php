@@ -24,6 +24,6 @@ final readonly class PageGrid implements _\ComponentInterface
 
     public function render(): string
     {
-        return '<div class="' . _\Util::joinAttributeValues(['w-full h-full grid grid-cols-page-12', 'gap-x-16 md:gap-x-32 min-h-screen']) . '">' . (($temp = $this->content) === null ? '' : $temp->render()) . '</div>';
+        return '<div class="' . _\Util::joinAttributeValues(['w-full h-full grid grid-cols-page-12', 'gap-x-16 md:gap-x-32 grow grid-rows-[auto_1fr_auto]']) . '">' . (($temp = $this->content) === null ? '' : $temp->render()) . '</div>';
     }
 }

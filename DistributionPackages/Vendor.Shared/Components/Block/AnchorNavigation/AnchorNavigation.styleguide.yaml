@@ -1,0 +1,17 @@
+title: "Anchor navigation"
+description: "Section jump navigation"
+container:
+  __type: "Vendor.Shared/Layout/PageGridWithContentContainer/PageGridWithContentContainer.cpx"
+props: &defaultProps
+  items:
+    __type: "Vendor.Shared/Block/AnchorNavigation/AnchorNavigationItem.cpx"
+  isSticky: false
+useCases:
+  sticky:
+    title: "Sticky navigation"
+    props:
+      <<: *defaultProps
+      items:
+        __type: "Vendor.Shared/Block/AnchorNavigation/AnchorNavigationItem.cpx"
+        __useCase: "sticky"
+      isSticky: true

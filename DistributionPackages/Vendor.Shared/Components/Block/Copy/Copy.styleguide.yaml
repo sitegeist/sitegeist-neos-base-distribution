@@ -1,0 +1,20 @@
+title: "Copy"
+description: "Rich text copy wrapper"
+container:
+  __type: "Vendor.Shared/Layout/AtomContainer/AtomContainer.cpx"
+props: &defaultProps
+  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  size: "medium"
+useCases:
+  compact:
+    title: "Compact copy"
+    props:
+      <<: *defaultProps
+      content: "Lorem ipsum dolor sit amet."
+      size: "small"
+  editorial:
+    title: "Editorial copy"
+    props:
+      <<: *defaultProps
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      size: "large"

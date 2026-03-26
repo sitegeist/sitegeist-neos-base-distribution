@@ -1,0 +1,8 @@
+title: "Page Preview"
+props:
+  siteHeader:
+    __type: "Vendor.Shared/Block/SiteHeader/SiteHeader.cpx"
+  content:
+    __type: "Vendor.Shared/Block/PagePreviewContent/PagePreviewContent.cpx"
+  siteFooter:
+    __type: "Vendor.Shared/Block/SiteFooter/SiteFooter.cpx"

@@ -25,9 +25,13 @@ async function mountComponents(root: ParentNode = document) {
 	}
 }
 
-document.addEventListener("DOMContentLoaded", () => {
+if (document.readyState === "loading") {
+	document.addEventListener("DOMContentLoaded", () => {
+		mountComponents();
+	});
+} else {
 	mountComponents();
-});
+}
 
 document.addEventListener("Neos.NodeCreated", () => {
 	mountComponents();

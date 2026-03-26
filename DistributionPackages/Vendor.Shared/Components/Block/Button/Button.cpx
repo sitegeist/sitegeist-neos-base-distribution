@@ -14,6 +14,10 @@ export component Button {
             tagName={tag}
             class={[
                 "flex gap-16 items-center w-fit copy-medium",
+                match (tag) {
+                    ButtonTag.TAG_BUTTON -> "cursor-pointer",
+                    default -> ""
+                },
                 match (variant) {
                     ButtonVariant.VARIANT_REGULAR
                         -> "border min-w-touch min-h-touch border-brand px-24 py-8 hover:text-highlight hover:border-highlight",
