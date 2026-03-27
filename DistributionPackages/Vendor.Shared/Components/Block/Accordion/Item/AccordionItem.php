@@ -12,7 +12,7 @@ use Vendor\Shared\Components\Block\Headline\HeadlineTag;
 use Vendor\Shared\Components\Block\Headline\HeadlineVariant;
 use Vendor\Shared\Components\Block\Icon\Icon;
 use Vendor\Shared\Components\Block\Link\LinkStruct;
-use Vendor\Shared\Components\Block\Link\LinkedButton;
+use Vendor\Shared\Components\Block\LinkedButton\LinkedButton;
 
 #[\Neos\Flow\Annotations\Proxy(false)]
 final readonly class AccordionItem implements _\ComponentInterface

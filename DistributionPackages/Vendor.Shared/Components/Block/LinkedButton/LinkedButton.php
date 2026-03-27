@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Shared\Components\Block\Link;
+namespace Vendor\Shared\Components\Block\LinkedButton;
 
 use PackageFactory\ComponentEngine as _;
 use Vendor\Shared\Components\Block\Button\Button;

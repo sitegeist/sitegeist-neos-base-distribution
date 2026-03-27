@@ -1,6 +1,6 @@
-from "./Link.cpx" import { Link }
-from "./LinkStruct.cpx" import { LinkStruct }
-from "./LinkVariant.cpx" import { LinkVariant }
+from "../Link/Link.cpx" import { Link }
+from "../Link/LinkStruct.cpx" import { LinkStruct }
+from "../Link/LinkVariant.cpx" import { LinkVariant }
 from "../Button/Button.cpx" import { Button }
 
 export component LinkedButton {

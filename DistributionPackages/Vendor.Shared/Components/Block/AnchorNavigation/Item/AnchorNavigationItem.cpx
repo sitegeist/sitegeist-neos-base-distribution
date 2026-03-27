@@ -1,6 +1,6 @@
-from "../Link/Link.cpx" import { Link }
-from "../Link/LinkStruct.cpx" import { LinkStruct }
-from "../Link/LinkVariant.cpx" import { LinkVariant }
+from "../../Link/Link.cpx" import { Link }
+from "../../Link/LinkStruct.cpx" import { LinkStruct }
+from "../../Link/LinkVariant.cpx" import { LinkVariant }
 
 export component AnchorNavigationItem {
 

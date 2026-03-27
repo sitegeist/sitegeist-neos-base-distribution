@@ -15,7 +15,7 @@ use Vendor\Shared\Components\Block\Headline\HeadlineTag;
 use Vendor\Shared\Components\Block\Headline\HeadlineVariant;
 use Vendor\Shared\Components\Block\ImageWithText\ImageWithTextAlignment;
 use Vendor\Shared\Components\Block\ImageWithText\ImageWithTextLayout;
-use Vendor\Shared\Components\Block\Link\LinkedButton;
+use Vendor\Shared\Components\Block\LinkedButton\LinkedButton;
 use Vendor\Shared\Components\Layout\Grid\ContentGrid;
 
 #[\Neos\Flow\Annotations\Proxy(false)]

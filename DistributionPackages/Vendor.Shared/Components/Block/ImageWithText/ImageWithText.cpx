@@ -7,7 +7,7 @@ from "../Headline/HeadlineSize.cpx" import { HeadlineSize }
 from "../Headline/HeadlineVariant.cpx" import { HeadlineVariant }
 from "../Copy/Copy.cpx" import { Copy }
 from "../Copy/CopySize.cpx" import { CopySize }
-from "../Link/LinkedButton.cpx" import { LinkedButton }
+from "../LinkedButton/LinkedButton.cpx" import { LinkedButton }
 from "../Button/Button.cpx" import { Button }
 from "../../Layout/Grid/ContentGrid.cpx" import { ContentGrid }
 

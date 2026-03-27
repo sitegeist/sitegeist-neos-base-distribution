@@ -8,7 +8,7 @@ props: &defaultProps
   figure:
     __type: "Vendor.Shared/Block/Figure/Figure.cpx"
   button:
-    __type: "Vendor.Shared/Block/Link/LinkedButton.cpx"
+    __type: "Vendor.Shared/Block/LinkedButton/LinkedButton.cpx"
   alignment:
     __type: "Vendor.Shared/Block/ImageWithText/ImageWithTextAlignment.cpx"
     value: "Bild links"

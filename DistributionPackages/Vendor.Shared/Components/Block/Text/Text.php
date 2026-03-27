@@ -12,7 +12,7 @@ use Vendor\Shared\Components\Block\Headline\Headline;
 use Vendor\Shared\Components\Block\Headline\HeadlineSize;
 use Vendor\Shared\Components\Block\Headline\HeadlineTag;
 use Vendor\Shared\Components\Block\Headline\HeadlineVariant;
-use Vendor\Shared\Components\Block\Link\LinkedButton;
+use Vendor\Shared\Components\Block\LinkedButton\LinkedButton;
 use Vendor\Shared\Components\Block\Text\TextColumns;
 use Vendor\Shared\Components\Layout\Grid\ContentGrid;
 

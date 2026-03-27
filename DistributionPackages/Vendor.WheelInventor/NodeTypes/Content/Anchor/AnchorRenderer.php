@@ -7,7 +7,7 @@ namespace Vendor\WheelInventor\NodeTypes\Content\Anchor;
 use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
-use Vendor\Shared\Components\Block\AnchorNavigation\AnchorNavigationItem;
+use Vendor\Shared\Components\Block\AnchorNavigation\Item\AnchorNavigationItem;
 use Vendor\Shared\Components\Block\Link\LinkStruct;
 
 final class AnchorRenderer implements ContentNodeRendererInterface

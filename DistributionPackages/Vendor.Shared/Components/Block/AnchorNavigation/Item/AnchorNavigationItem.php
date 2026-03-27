@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Vendor\Shared\Components\Block\AnchorNavigation;
+namespace Vendor\Shared\Components\Block\AnchorNavigation\Item;
 
 use PackageFactory\ComponentEngine as _;
 use Vendor\Shared\Components\Block\Link\Link;

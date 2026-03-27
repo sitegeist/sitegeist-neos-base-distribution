@@ -8,7 +8,7 @@ use PackageFactory\Neos\ComponentEngine\NeosContext;
 use Vendor\Shared\Components\Block\Button\Button;
 use Vendor\Shared\Components\Block\Button\ButtonTag;
 use Vendor\Shared\Components\Block\Button\ButtonVariant;
-use Vendor\Shared\Components\Block\Link\LinkedButton;
+use Vendor\Shared\Components\Block\LinkedButton\LinkedButton;
 
 final class LinkedButtonFactory
 {

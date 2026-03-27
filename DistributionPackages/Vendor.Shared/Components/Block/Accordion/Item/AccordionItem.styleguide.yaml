@@ -12,7 +12,7 @@ props: &defaultProps
   initialOpen: false
   inBackend: false
   button:
-    __type: "Vendor.Shared/Block/Link/LinkedButton.cpx"
+    __type: "Vendor.Shared/Block/LinkedButton/LinkedButton.cpx"
 useCases:
   open:
     title: "Open item"

@@ -9,7 +9,7 @@ props: &defaultProps
   headline: "Lorem ipsum dolor"
   content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
   button:
-    __type: "Vendor.Shared/Block/Link/LinkedButton.cpx"
+    __type: "Vendor.Shared/Block/LinkedButton/LinkedButton.cpx"
 useCases:
   twoColumns:
     title: "Two columns"
