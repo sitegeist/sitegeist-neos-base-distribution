@@ -1,5 +1,6 @@
 title: "Link"
 description: "Text link with semantic link metadata"
+group: UI
 container:
   __type: "Vendor.Shared/Layout/AtomContainer/AtomContainer.cpx"
 props: &defaultProps

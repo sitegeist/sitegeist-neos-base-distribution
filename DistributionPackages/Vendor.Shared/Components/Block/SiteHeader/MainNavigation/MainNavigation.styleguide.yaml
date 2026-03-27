@@ -13,3 +13,4 @@ useCases:
       items:
         __type: "Vendor.Shared/Block/SiteHeader/MainNavigation/MainNavigationItem/MainNavigationItem.cpx"
         __useCase: "single"
+hidden: true

@@ -1,5 +1,6 @@
 title: "Headline"
 description: "Typographic headline component"
+group: UI
 container:
   __type: "Vendor.Shared/Layout/AtomContainer/AtomContainer.cpx"
 props: &defaultProps

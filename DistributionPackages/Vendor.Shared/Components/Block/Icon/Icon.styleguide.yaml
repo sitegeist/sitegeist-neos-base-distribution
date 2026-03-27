@@ -1,5 +1,6 @@
 title: "Icon"
 description: "SVG icon from the shared sprite"
+group: UI
 container:
   __type: "Vendor.Shared/Layout/AtomContainer/AtomContainer.cpx"
 props: &defaultProps

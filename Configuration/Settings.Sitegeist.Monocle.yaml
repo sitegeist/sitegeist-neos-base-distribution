@@ -47,19 +47,19 @@ Sitegeist:
 
           structure:
             layout:
-              position: 100
+              position: 3
               match: Layout
               label: Layout
               icon: border-all
               color: '#35c3f8'
             ui:
-              position: 200
+              position: 2
               match: UI
               label: UI
               icon: atom
               color: '#84FAF0'
             block:
-              position: 300
+              position: 1
               match: Block
               label: Block
               icon: vector-square

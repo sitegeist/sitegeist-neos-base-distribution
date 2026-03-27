@@ -22,3 +22,4 @@ useCases:
         title: "Dolor sit"
         rel: null
         target: "_self"
+hidden: true

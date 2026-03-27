@@ -1,5 +1,6 @@
 title: "Accordion item"
 description: "Expandable accordion entry"
+group: UI
 container:
   __type: "Vendor.Shared/Layout/AtomContainer/AtomContainer.cpx"
 props: &defaultProps

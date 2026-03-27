@@ -1,5 +1,6 @@
 title: "Navigation card"
 description: "Promotional navigation tile"
+group: UI
 container:
   __type: "Vendor.Shared/Layout/AtomContainer/AtomContainer.cpx"
 props: &defaultProps

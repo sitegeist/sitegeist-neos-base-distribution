@@ -1,5 +1,6 @@
 title: "Main navigation item"
 description: "Top level navigation item"
+group: UI
 container:
   __type: "Vendor.Shared/Layout/AtomContainer/AtomContainer.cpx"
 props: &defaultProps

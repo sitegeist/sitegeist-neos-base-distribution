@@ -1,5 +1,6 @@
 title: "Anchor navigation item"
 description: "Single anchor navigation link"
+group: UI
 container:
   __type: "Vendor.Shared/Layout/AtomContainer/AtomContainer.cpx"
 props: &defaultProps
