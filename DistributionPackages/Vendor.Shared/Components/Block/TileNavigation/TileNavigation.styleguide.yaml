@@ -2,15 +2,9 @@ title: "Tile navigation"
 description: "Navigation card grid"
 container:
   __type: "Vendor.Shared/Layout/PageGridWithContentContainer/PageGridWithContentContainer.cpx"
-props: &defaultProps
+props:
   headline: "Lorem ipsum dolor"
   content:
-    __type: "Vendor.Shared/Block/NavigationCard/NavigationCard.cpx"
-useCases:
-  withoutImage:
-    title: "Cards without images"
-    props:
-      <<: *defaultProps
-      content:
-        __type: "Vendor.Shared/Block/NavigationCard/NavigationCard.cpx"
-        __useCase: "noImage"
+    - __type: "Vendor.Shared/Block/NavigationCard/NavigationCard.cpx"
+    - __type: "Vendor.Shared/Block/NavigationCard/NavigationCard.cpx"
+    - __type: "Vendor.Shared/Block/NavigationCard/NavigationCard.cpx"

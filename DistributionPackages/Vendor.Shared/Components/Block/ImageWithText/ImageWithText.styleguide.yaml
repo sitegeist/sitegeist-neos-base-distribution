@@ -4,7 +4,9 @@ container:
   __type: "Vendor.Shared/Layout/PageGridWithContentContainer/PageGridWithContentContainer.cpx"
 props: &defaultProps
   headline: "Lorem ipsum dolor"
-  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  content:
+    __type: "Vendor.Shared/Block/Copy/Copy.cpx"
+    __useCase: "noLists"
   figure:
     __type: "Vendor.Shared/Block/Figure/Figure.cpx"
   button:

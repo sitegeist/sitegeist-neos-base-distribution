@@ -7,7 +7,8 @@ props: &defaultProps
     __type: "Vendor.Shared/Block/Text/TextColumns.cpx"
     value: "Eine Spalte"
   headline: "Lorem ipsum dolor"
-  content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+  content:
+    __type: "Vendor.Shared/Block/Copy/Copy.cpx"
   button:
     __type: "Vendor.Shared/Block/LinkedButton/LinkedButton.cpx"
 useCases:

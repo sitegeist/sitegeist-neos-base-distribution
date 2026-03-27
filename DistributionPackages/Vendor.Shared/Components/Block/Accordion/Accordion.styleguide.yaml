@@ -5,12 +5,16 @@ container:
 props: &defaultProps
   headline: "Lorem ipsum dolor"
   content:
-    __type: "Vendor.Shared/Block/Accordion/Item/AccordionItem.cpx"
+    - __type: "Vendor.Shared/Block/Accordion/Item/AccordionItem.cpx"
+    - __type: "Vendor.Shared/Block/Accordion/Item/AccordionItem.cpx"
+      __useCase: "open"
 useCases:
   open:
     title: "Initially open"
     props:
       <<: *defaultProps
       content:
-        __type: "Vendor.Shared/Block/Accordion/Item/AccordionItem.cpx"
-        __useCase: "open"
+        - __type: "Vendor.Shared/Block/Accordion/Item/AccordionItem.cpx"
+          __useCase: "open"
+        - __type: "Vendor.Shared/Block/Accordion/Item/AccordionItem.cpx"
+          __useCase: "open"

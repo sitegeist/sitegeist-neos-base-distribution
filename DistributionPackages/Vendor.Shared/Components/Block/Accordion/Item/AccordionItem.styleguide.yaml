@@ -7,8 +7,7 @@ props: &defaultProps
   headline: "Lorem ipsum dolor sit?"
   content:
     __type: "Vendor.Shared/Block/Copy/Copy.cpx"
-    content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    size: "medium"
+    __useCase: "noLists"
   initialOpen: false
   inBackend: false
   button:

@@ -5,12 +5,6 @@ container:
 props: &defaultProps
   headline: "Lorem ipsum"
   content:
-    __type: "Vendor.Shared/Block/Downloads/Item/DownloadsItem.cpx"
-useCases:
-  backend:
-    title: "Backend preview"
-    props:
-      <<: *defaultProps
-      content:
-        __type: "Vendor.Shared/Block/Downloads/Item/DownloadsItem.cpx"
-        __useCase: "backend"
+    - __type: "Vendor.Shared/Block/Downloads/Item/DownloadsItem.cpx"
+    - __type: "Vendor.Shared/Block/Downloads/Item/DownloadsItem.cpx"
+    - __type: "Vendor.Shared/Block/Downloads/Item/DownloadsItem.cpx"
