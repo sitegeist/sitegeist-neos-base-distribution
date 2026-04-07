@@ -10,6 +10,7 @@ Neos:
       SupportWheelInventor.Accordion: Vendor\SupportWheelInventor\NodeTypes\Content\Accordion\AccordionRenderer
       SupportWheelInventor.AccordionItem: Vendor\SupportWheelInventor\NodeTypes\Content\AccordionItem\AccordionItemRenderer
       SupportWheelInventor.AnchorNavigation: Vendor\SupportWheelInventor\NodeTypes\Content\AnchorNavigation\AnchorNavigationRenderer
+      SupportWheelInventor.Anchor: Vendor\SupportWheelInventor\NodeTypes\Content\Anchor\AnchorRenderer
       SupportWheelInventor.Download: Vendor\SupportWheelInventor\NodeTypes\Content\Download\DownloadRenderer
       SupportWheelInventor.DownloadList: Vendor\SupportWheelInventor\NodeTypes\Content\DownloadList\DownloadListRenderer
       SupportWheelInventor.Downloads: Vendor\SupportWheelInventor\NodeTypes\Content\Downloads\DownloadsRenderer
