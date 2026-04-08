@@ -25,8 +25,7 @@ class Sailor
         $documentNode = $subgraph->findParentNode($contentNode->aggregateId);
         $availableAnchors = [];
 
-        while (
-            $documentNode
+        while ($documentNode
             && !($this->getNodeType($documentNode)?->isOfType('Neos.Neos:Document'))
             && !$documentNode->classification->isRoot()
         ) {
