@@ -1,4 +1,4 @@
-prototype(Vendor.Shared:Resource.BodyScripts) < prototype(Neos.Fusion:Array) {
+prototype(Vendor.Shared:Resource.BodyScripts) < prototype(Neos.Fusion:Join) {
     main = Neos.Fusion:Tag {
         tagName = 'script'
         attributes.src = Neos.Fusion:ResourceUri {

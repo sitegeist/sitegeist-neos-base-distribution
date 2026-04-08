@@ -40,8 +40,6 @@
         "sitegeist/schemeonyou": "^2.0",
         "sitegeist/stampede": "^2.0",
 
-        "vendor/site": "*",
-        "vendor/wheelinventor": "*",
         "vendor/supportwheelinventor": "*"
     },
     "require-dev": {

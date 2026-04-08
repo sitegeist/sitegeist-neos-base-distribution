@@ -1,7 +1,7 @@
 prototype(Vendor.SupportWheelInventor:Document.HomePage) < prototype(Neos.Fusion:Component) {
     renderer = Vendor.SupportWheelInventor:Document.Base {
         body = Vendor.Shared:Layout.Page {
-            presentationObject = ${SupportWheelInventor.HomePage.renderAsDocument(documentNode, documentNode.context, documentNode.context.inBackend)}
+            presentationObject = ${SupportWheelInventor.HomePage.renderAsDocument(documentNode, Neos.Node.subgraphForNode(documentNode), renderingMode.isEdit)}
         }
     }
 }

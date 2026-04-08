@@ -43,9 +43,6 @@ final class AccordionRenderer extends AbstractComponentPresentationObjectFactory
                         : null,
                     Collection::fromNodes(
                         $subgraph->findChildNodes($contentNode->aggregateId, FindChildNodesFilter::create()),
-                        function (Node $accordionItem): Content {
-                            return Content::fromNode($accordionItem, 'Vendor.SupportWheelInventor:ContentSlot');
-                        }
                     )
                 ]))
             )

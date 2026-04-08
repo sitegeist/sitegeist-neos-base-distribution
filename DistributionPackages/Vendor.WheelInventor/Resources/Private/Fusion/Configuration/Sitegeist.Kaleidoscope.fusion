@@ -1,7 +1,0 @@
-//
-// Base Configuration for all Dummy Image Sources
-//
-prototype(Sitegeist.Kaleidoscope:DummyImageSource) {
-    backgroundColor = '888'
-    foregroundColor = 'fff'
-}

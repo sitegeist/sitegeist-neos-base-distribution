@@ -1,8 +1,4 @@
 prototype(Neos.Neos:ContentCollectionRenderer) {
-    itemRenderer {
-        default.type = ${String.split(node.nodeType.name, ':')[0] + ':ContentSlot'}
-    }
-
     itemRenderer.@process.addAnchor = Neos.Fusion:Augmenter {
         id = ${q(node).property('anchorID')}
     }

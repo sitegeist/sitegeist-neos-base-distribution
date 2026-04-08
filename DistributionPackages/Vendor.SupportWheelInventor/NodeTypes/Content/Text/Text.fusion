@@ -1,5 +1,5 @@
 prototype(Vendor.SupportWheelInventor:Content.Text) < prototype(Neos.Neos:ContentComponent) {
     renderer = PackageFactory.AtomicFusion.PresentationObjects:Slot {
-        presentationObject = ${SupportWheelInventor.Text.renderContent(node, documentNode, site, Neos.Node.subgraphForNode(documentNode), renderingMode.isEdit)}
+        presentationObject = ${SupportWheelInventor.Text.renderAsContent(node, documentNode, site, Neos.Node.subgraphForNode(documentNode), renderingMode.isEdit)}
     }
 }

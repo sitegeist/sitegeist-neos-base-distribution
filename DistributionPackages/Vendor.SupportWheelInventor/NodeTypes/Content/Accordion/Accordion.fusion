@@ -1,5 +1,5 @@
 prototype(Vendor.SupportWheelInventor:Content.Accordion) < prototype(Neos.Neos:ContentComponent) {
     renderer = PackageFactory.AtomicFusion.PresentationObjects:Slot {
-        presentationObject = ${SupportWheelInventor.Accordion.renderContent(node, documentNode, site, Neos.Node.subgraphForNode(documentNode), renderingMode.isEdit)}
+        presentationObject = ${SupportWheelInventor.Accordion.renderAsContent(node, documentNode, site, Neos.Node.subgraphForNode(documentNode), renderingMode.isEdit)}
     }
 }

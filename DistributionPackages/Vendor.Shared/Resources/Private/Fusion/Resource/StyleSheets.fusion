@@ -1,4 +1,4 @@
-prototype(Vendor.Shared:Resource.StyleSheets) < prototype(Neos.Fusion:Array) {
+prototype(Vendor.Shared:Resource.StyleSheets) < prototype(Neos.Fusion:Join) {
     font = Neos.Fusion:Tag {
         tagName = 'link'
         attributes.rel = 'stylesheet'

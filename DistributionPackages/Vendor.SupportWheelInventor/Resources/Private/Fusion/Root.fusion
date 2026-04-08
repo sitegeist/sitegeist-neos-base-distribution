@@ -2,9 +2,9 @@ include: **/*.fusion
 include: nodetypes://Vendor.SupportWheelInventor/**/*.fusion
 
 siteHeader = Vendor.Shared:Block.SiteHeader {
-    presentationObject = ${SupportWheelInventor.SiteHeader.forDocumentNode(documentNode, site)}
+    presentationObject = ${SupportWheelInventor.SiteHeader.forDocumentNode(documentNode, site,Neos.Node.subgraphForNode(documentNode), renderingMode.isEdit)}
 }
 
 siteFooter = Vendor.Shared:Block.SiteFooter {
-    presentationObject = ${SupportWheelInventor.SiteFooter.forSite(site)}
+    presentationObject = ${SupportWheelInventor.SiteFooter.forSite(site, Neos.Node.subgraphForNode(documentNode), renderingMode.isEdit)}
 }

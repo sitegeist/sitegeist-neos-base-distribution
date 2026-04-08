@@ -1,7 +1,7 @@
 prototype(Vendor.SupportWheelInventor:Document.Error.404) < prototype(Neos.Fusion:Component) {
     renderer = Vendor.SupportWheelInventor:Document.Base {
         body = Vendor.Shared:Layout.Page {
-            presentationObject = ${SupportWheelInventor.NotFoundPage.renderAsDocument(documentNode, site, documentNode.context, documentNode.context.inBackend)}
+            presentationObject = ${SupportWheelInventor.NotFoundPage.renderAsDocument(documentNode, site, Neos.Node.subgraphForNode(documentNode), renderingMode.isEdit)}
         }
     }
     prototype(Neos.Neos:Page) {

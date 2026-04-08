@@ -47,8 +47,6 @@ final class DownloadsRenderer extends AbstractComponentPresentationObjectFactory
                         GridVariant::VARIANT_3_COL_GAP,
                         Collection::fromNodes(
                             $subgraph->findChildNodes($contentNode->aggregateId, FindChildNodesFilter::create()),
-                            fn (Node $downloadNode): Content
-                                => Content::fromNode($downloadNode, 'Vendor.SupportWheelInventor:ContentSlot')
                         )
                     )
                 ]))

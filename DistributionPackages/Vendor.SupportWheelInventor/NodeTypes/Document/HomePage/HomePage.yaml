@@ -1,6 +1,7 @@
 'Vendor.SupportWheelInventor:Document.HomePage':
   superTypes:
     'Vendor.SupportWheelInventor:Document': true
+    'Neos.Neos:Site': true
   ui:
     icon: globe
     label: 'Homepage'
