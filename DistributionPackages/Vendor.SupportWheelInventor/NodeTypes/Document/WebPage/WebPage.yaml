@@ -7,8 +7,8 @@
 
   constraints:
     nodeTypes:
-      'Vendor.WheelInventor:Document.WebPage': true
-      'Vendor.WheelInventor:Document.Shortcut': true
+      'Vendor.SupportWheelInventor:Document.WebPage': true
+      'Vendor.SupportWheelInventor:Document.Shortcut': true
   childNodes:
     main:
       type: 'Neos.Neos:ContentCollection'
