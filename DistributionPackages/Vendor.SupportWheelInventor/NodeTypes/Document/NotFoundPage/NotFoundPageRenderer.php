@@ -15,7 +15,7 @@ use Vendor\Shared\Presentation\Layout\Page\Page;
 
 final class NotFoundPageRenderer extends AbstractComponentPresentationObjectFactory
 {
-    public function forNotFoundPage(
+    public function renderAsDocument(
         Node $documentNode,
         Node $site,
         ContentSubgraphInterface $subgraph,
@@ -25,6 +25,7 @@ final class NotFoundPageRenderer extends AbstractComponentPresentationObjectFact
             NodeName::fromString('main'),
             $documentNode->aggregateId
         );
+
 
         return new Page(
             Collection::fromSlots(

@@ -1,4 +1,4 @@
-prototype(Vendor.SupportWheelInventor:Document.Error.404) < prototype(Neos.Fusion:Component) {
+prototype(Vendor.SupportWheelInventor:Document.NotFoundPage) < prototype(Neos.Fusion:Component) {
     renderer = Vendor.SupportWheelInventor:Document.Base {
         body = Vendor.Shared:Layout.Page {
             presentationObject = ${SupportWheelInventor.NotFoundPage.renderAsDocument(documentNode, site, Neos.Node.subgraphForNode(documentNode), renderingMode.isEdit)}
@@ -12,7 +12,7 @@ prototype(Vendor.SupportWheelInventor:Document.Error.404) < prototype(Neos.Fusio
 }
 
 error {
-    @context.notfoundDocument = ${q(site).children('notfound').get(0)}
+    @context.notfoundDocument = ${SupportWheelInventor.NotFound.resolve(site)}
 
     404 {
         @position = 'start'

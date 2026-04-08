@@ -31,8 +31,6 @@ final class AnchorNavigationRenderer extends AbstractComponentPresentationObject
                 StackVariant::VARIANT_HORIZONTAL_CENTERED,
                 Collection::fromNodes(
                     $subgraph->findChildNodes($contentNode->aggregateId, FindChildNodesFilter::create()),
-                    fn(Node $anchor): Content
-                        => Content::fromNode($anchor, 'Vendor.SupportWheelInventor:ContentSlot')
                 )
             )
         );

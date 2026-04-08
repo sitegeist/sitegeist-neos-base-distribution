@@ -3,7 +3,7 @@
     'Vendor.SupportWheelInventor:Document': true
   ui:
     icon: file
-    label: i18n
+    label: 'Webpage'
 
   constraints:
     nodeTypes:
@@ -14,4 +14,12 @@
       type: 'Neos.Neos:ContentCollection'
       constraints:
         nodeTypes:
-          '*': false
+          'Vendor.SupportWheelInventor:Content.Downloads': true
+          'Vendor.SupportWheelInventor:Content.DownloadList': true
+          'Vendor.SupportWheelInventor:Content.Image': true
+          'Vendor.SupportWheelInventor:Content.ImageWithText': true
+          'Vendor.SupportWheelInventor:Content.Quotation': true
+          'Vendor.SupportWheelInventor:Content.Text': true
+          'Vendor.SupportWheelInventor:Content.Accordion': true
+          'Vendor.SupportWheelInventor:Content.TileNavigation': true
+          'Vendor.SupportWheelInventor:Content.AnchorNavigation': true

@@ -7,13 +7,12 @@
   ui:
     label: 'Anchor'
     icon: 'anchor'
-    ui:
-      inspector:
-        groups:
-          anchor:
-            label: 'Anchor'
-            icon: 'anchor'
-            position: start 0
+    inspector:
+      groups:
+        anchor:
+          label: 'Anchor'
+          icon: 'anchor'
+          position: start 0
 
   properties:
     targetIdentifier:

@@ -4,10 +4,26 @@
   ui:
     icon: exclamation-triangle
     label: i18n
+
+  childNodes:
+    main:
+      type: 'Neos.Neos:ContentCollection'
+      constraints:
+        nodeTypes:
+          'Vendor.SupportWheelInventor:Content.Downloads': true
+          'Vendor.SupportWheelInventor:Content.DownloadList': true
+          'Vendor.SupportWheelInventor:Content.Image': true
+          'Vendor.SupportWheelInventor:Content.ImageWithText': true
+          'Vendor.SupportWheelInventor:Content.Quotation': true
+          'Vendor.SupportWheelInventor:Content.Text': true
+          'Vendor.SupportWheelInventor:Content.Accordion': true
+          'Vendor.SupportWheelInventor:Content.TileNavigation': true
+          'Vendor.SupportWheelInventor:Content.AnchorNavigation': true
   properties:
     title:
       defaultValue: '404'
     uriPathSegment:
+      defaultValue: '404'
       ui:
         inspector:
           editorOptions:

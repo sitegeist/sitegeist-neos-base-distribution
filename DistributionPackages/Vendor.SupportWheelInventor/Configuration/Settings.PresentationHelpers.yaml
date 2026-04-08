@@ -22,3 +22,5 @@ Neos:
 
       SupportWheelInventor.SiteHeader: Vendor\SupportWheelInventor\Integration\SiteHeaderFactory
       SupportWheelInventor.SiteFooter: Vendor\SupportWheelInventor\Integration\SiteFooterFactory
+
+      SupportWheelInventor.NotFound: Vendor\SupportWheelInventor\Application\NotFoundResolver
