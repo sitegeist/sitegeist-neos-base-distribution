@@ -1,0 +1,11 @@
+from "Sitegeist.PaperTiger.CPX/Message/MessageProps.cpx" import { MessageProps }
+
+export component Message {
+    message: MessageProps
+    content: slot
+
+    render
+        <div id={message.id} data-custom-message class="papertiger-message" role="status">
+            {content}
+        </div>
+}

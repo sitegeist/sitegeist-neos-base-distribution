@@ -1,0 +1,171 @@
+@layer components {
+	.papertiger-form__fields {
+		@apply flex flex-col gap-16 md:gap-24;
+	}
+
+	.papertiger-error {
+		@apply copy-small text-error;
+	}
+
+	.papertiger-form__element > .papertiger-error {
+		@apply copy-small mb-16 text-error;
+	}
+
+	.papertiger-field {
+		@apply relative flex flex-col gap-8;
+	}
+
+	.papertiger-field__input-wrap {
+		@apply relative;
+	}
+
+	.papertiger-fieldset {
+		@apply m-0 border-0 p-0 flex flex-col gap-16;
+	}
+
+	.papertiger-fieldset__legend {
+		@apply head-hl6 mb-8 text-brand;
+	}
+
+	.papertiger-field__label {
+		@apply copy-small relative flex items-start gap-8 text-brand font-bold;
+	}
+
+	.papertiger-field__required {
+		@apply text-error;
+	}
+
+	.papertiger-field__optional {
+		@apply text-brand/55 font-normal;
+	}
+
+	.papertiger-field__control {
+		@apply copy-medium w-full rounded-none border-2 border-brand/20 bg-brand-grey/45 px-24 py-16 text-brand outline-none transition-colors duration-200;
+	}
+
+	.papertiger-field__control::placeholder {
+		@apply text-brand/55;
+	}
+
+	.papertiger-field__control:hover {
+		@apply border-brand/50 bg-brand-grey;
+	}
+
+	.papertiger-field__control:focus-visible {
+		@apply border-highlight bg-brand-grey;
+	}
+
+	.papertiger-field.showInvalid .papertiger-field__control:invalid {
+		@apply border-error pr-64;
+	}
+
+	.papertiger-field__control--textarea {
+		@apply min-h-160 resize-y;
+	}
+
+	.papertiger-field__control--select,
+	.papertiger-field__control--date,
+	.papertiger-field__control--upload {
+		@apply cursor-pointer;
+	}
+
+	.papertiger-field__control--upload {
+		@apply file:bg-brand file:text-white file:-ml-24 file:-my-16 file:py-16 file:px-24 file:mr-24;
+	}
+
+	.papertiger-field__control--hidden,
+	.papertiger-field__control--honeypot,
+	.papertiger-field__input--honeypot {
+		@apply sr-only;
+	}
+
+	.papertiger-field__options {
+		@apply flex flex-col gap-16;
+	}
+
+	.papertiger-checkbox-item,
+	.papertiger-radio-item {
+		@apply relative flex min-h-32 cursor-pointer items-center;
+	}
+
+	.papertiger-checkbox-item__input,
+	.papertiger-radio-item__input {
+		@apply absolute left-0 top-1/2 z-10 mt-0 h-32 w-32 -translate-y-1/2 cursor-pointer appearance-none border-2 border-brand text-brand transition-colors duration-200;
+	}
+
+	.papertiger-checkbox-item__input {
+		@apply rounded-none;
+	}
+
+	.papertiger-radio-item__input {
+		@apply rounded-full;
+	}
+
+	.papertiger-checkbox-item__input:hover,
+	.papertiger-radio-item__input:hover {
+		@apply border-highlight;
+	}
+
+	.papertiger-checkbox-item__input:disabled,
+	.papertiger-radio-item__input:disabled {
+		@apply cursor-not-allowed border-brand/25;
+	}
+
+	.papertiger-field.showInvalid .papertiger-checkbox-item__input:invalid,
+	.papertiger-field.showInvalid .papertiger-radio-item__input:invalid {
+		@apply border-error;
+	}
+
+	.papertiger-field .papertiger-error {
+		@apply copy-small text-error;
+	}
+
+	.papertiger-field__invalid-icon {
+		@apply pointer-events-none absolute right-24 bottom-16 hidden h-24 w-24 text-error;
+	}
+
+	.papertiger-field.showInvalid .papertiger-field__control:invalid + .papertiger-field__invalid-icon {
+		@apply flex items-center;
+	}
+
+	.papertiger-checkbox-item__label,
+	.papertiger-radio-item__label {
+		@apply copy-medium relative flex min-h-32 w-full items-center pl-48 text-brand;
+	}
+
+	.papertiger-checkbox-item__check,
+	.papertiger-radio-item__check {
+		@apply pointer-events-none absolute left-0 top-1/2 hidden -translate-y-1/2 text-highlight;
+	}
+
+	.papertiger-checkbox-item__check {
+		@apply h-20 w-20 left-6;
+	}
+
+	.papertiger-radio-item__check {
+		@apply h-32 w-32 left-0;
+	}
+
+	.papertiger-checkbox-item__input:checked ~ .papertiger-checkbox-item__check,
+	.papertiger-radio-item__input:checked ~ .papertiger-radio-item__check {
+		@apply block;
+	}
+
+	.papertiger-field__button {
+		@apply link-medium inline-flex min-h-touch w-fit cursor-pointer items-center justify-center border-2 border-brand bg-brand px-32 py-12 text-brand-contrast transition-colors duration-200;
+	}
+
+	.papertiger-field__button:hover {
+		@apply border-highlight bg-highlight text-brand-contrast;
+	}
+
+	.papertiger-checkbox-item__input:focus-visible,
+	.papertiger-radio-item__input:focus-visible
+	.papertiger-field__button:focus-visible {
+		@apply outline-2 outline-offset-4 outline-highlight;
+	}
+
+	.papertiger-field__button:disabled {
+		@apply cursor-not-allowed border-brand/25 bg-brand/25 text-brand/55;
+	}
+}

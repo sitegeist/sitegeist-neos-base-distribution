@@ -25,6 +25,8 @@
 
 		"flowpack/nodetemplates": "^3.0",
 
+		"packagefactory/neos-component-engine": "1.0.0-alpha3",
+		"packagefactory/component-engine": "1.0.0-alpha3",
 		"packagefactory/neos-componentview": "^1.0",
 
 		"sitegeist/archaeopteryx": "^2.0",
@@ -36,10 +38,12 @@
 		"sitegeist/kaleidoscope-cpx": "dev-main",
 		"sitegeist/klarschiff": "^3.0",
 		"sitegeist/monocle": "dev-task/refactorToEnableUseCasesBeyondFusion",
-		"sitegeist/schemeonyou": "^2.0",
+		"sitegeist/schemeonyou": "^2.1.0",
 		"sitegeist/stampede": "^2.0",
 
-		"vendor/wheelinventor": "*"
+		"vendor/wheelinventor": "*",
+		"sitegeist/papertiger-cpx": "dev-main",
+		"neos/symfonymailer": "^1.0.2"
 	},
 	"require-dev": {
 		"neos/buildessentials": "^9.0",
@@ -107,6 +111,10 @@
 		"sitegeist/kaleidoscope-cpx": {
 			"type": "vcs",
 			"url": "https://github.com/sitegeist/Sitegeist.Kaleidoscope.Cpx"
+		},
+		"sitegeist/papertiger-cpx": {
+			"type": "vcs",
+			"url": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX"
 		},
 		"local": {
 			"type": "path",

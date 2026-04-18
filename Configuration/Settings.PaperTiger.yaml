@@ -1,0 +1,14 @@
+Sitegeist:
+  PaperTiger:
+    CPX:
+      components:
+        fieldContainer: 'Vendor\Shared\Components\Block\FormBuilder\Fields\FieldContainer\FieldContainer'
+        label: 'Vendor\Shared\Components\Block\FormBuilder\Fields\Label\Label'
+        error: 'Vendor\Shared\Components\Block\FormBuilder\Fields\Error\Error'
+        input: 'Vendor\Shared\Components\Block\FormBuilder\Fields\Input\Input'
+        textarea: 'Vendor\Shared\Components\Block\FormBuilder\Fields\Textarea\Textarea'
+        select: 'Vendor\Shared\Components\Block\FormBuilder\Fields\Select\Select'
+        upload: 'Vendor\Shared\Components\Block\FormBuilder\Fields\Upload\Upload'
+        checkbox: 'Vendor\Shared\Components\Block\FormBuilder\Fields\Checkbox\Checkbox'
+        radio: 'Vendor\Shared\Components\Block\FormBuilder\Fields\Radio\Radio'
+        message: 'Vendor\Shared\Components\Block\FormBuilder\Fields\Message\Message'

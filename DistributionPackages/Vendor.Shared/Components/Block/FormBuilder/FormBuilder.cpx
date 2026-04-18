@@ -1,0 +1,26 @@
+from "../Headline/Headline.cpx" import { Headline }
+from "../Headline/HeadlineTag.cpx" import { HeadlineTag }
+from "../Headline/HeadlineSize.cpx" import { HeadlineSize }
+from "../Headline/HeadlineVariant.cpx" import { HeadlineVariant }
+from "../../Layout/Grid/ContentGrid.cpx" import { ContentGrid }
+
+export component FormBuilder {
+
+    headline: slot
+    content: slot
+
+    render
+        <ContentGrid componentName="FormBuilder">
+            <div class="col-span-full">
+                <Headline
+                    tag={HeadlineTag.TAG_H2}
+                    size={HeadlineSize.SIZE_LG}
+                    variant={HeadlineVariant.VARIANT_REGULAR}
+                    content={headline}
+                />
+            </div>
+            <div class="col-span-full" data-form-wrapper>
+                {content}
+            </div>
+        </ContentGrid>
+}
