@@ -55,9 +55,10 @@
 		@apply border-highlight bg-brand-grey;
 	}
 
-	.papertiger-field.showInvalid .papertiger-field__control:invalid {
-		@apply border-error pr-64;
-	}
+		.papertiger-field.showInvalid .papertiger-field__control:invalid,
+		.papertiger-field--invalid .papertiger-field__control {
+			@apply border-error pr-64;
+		}
 
 	.papertiger-field__control--textarea {
 		@apply min-h-160 resize-y;
@@ -111,10 +112,12 @@
 		@apply cursor-not-allowed border-brand/25;
 	}
 
-	.papertiger-field.showInvalid .papertiger-checkbox-item__input:invalid,
-	.papertiger-field.showInvalid .papertiger-radio-item__input:invalid {
-		@apply border-error;
-	}
+		.papertiger-field.showInvalid .papertiger-checkbox-item__input:invalid,
+		.papertiger-field.showInvalid .papertiger-radio-item__input:invalid,
+		.papertiger-field--invalid .papertiger-checkbox-item__input,
+		.papertiger-field--invalid .papertiger-radio-item__input {
+			@apply border-error;
+		}
 
 	.papertiger-field .papertiger-error {
 		@apply copy-small text-error;
@@ -124,9 +127,10 @@
 		@apply pointer-events-none absolute right-24 bottom-16 hidden h-24 w-24 text-error;
 	}
 
-	.papertiger-field.showInvalid .papertiger-field__control:invalid + .papertiger-field__invalid-icon {
-		@apply flex items-center;
-	}
+		.papertiger-field.showInvalid .papertiger-field__control:invalid + .papertiger-field__invalid-icon,
+		.papertiger-field--invalid .papertiger-field__invalid-icon {
+			@apply flex items-center;
+		}
 
 	.papertiger-checkbox-item__label,
 	.papertiger-radio-item__label {
@@ -146,14 +150,44 @@
 		@apply h-32 w-32 left-0;
 	}
 
-	.papertiger-checkbox-item__input:checked ~ .papertiger-checkbox-item__check,
-	.papertiger-radio-item__input:checked ~ .papertiger-radio-item__check {
-		@apply block;
-	}
+		.papertiger-checkbox-item__input:checked ~ .papertiger-checkbox-item__check,
+		.papertiger-radio-item__input:checked ~ .papertiger-radio-item__check {
+			@apply block;
+		}
 
-	.papertiger-field__button {
-		@apply link-medium inline-flex min-h-touch w-fit cursor-pointer items-center justify-center border-2 border-brand bg-brand px-32 py-12 text-brand-contrast transition-colors duration-200;
-	}
+		@media (prefers-reduced-motion: no-preference) {
+			[data-form-field].papertiger-field--submitError {
+				animation: var(
+					--papertiger-invalid-submit-animation,
+					papertiger-jiggle 180ms ease-in-out
+				);
+			}
+		}
+
+		@keyframes papertiger-jiggle {
+			0% {
+				transform: translateX(0);
+			}
+			20% {
+				transform: translateX(-4px);
+			}
+			40% {
+				transform: translateX(4px);
+			}
+			60% {
+				transform: translateX(-2px);
+			}
+			80% {
+				transform: translateX(2px);
+			}
+			100% {
+				transform: translateX(0);
+			}
+		}
+
+		.papertiger-field__button {
+			@apply link-medium inline-flex min-h-touch w-fit cursor-pointer items-center justify-center border-2 border-brand bg-brand px-32 py-12 text-brand-contrast transition-colors duration-200;
+		}
 
 	.papertiger-field__button:hover {
 		@apply border-highlight bg-highlight text-brand-contrast;
@@ -166,6 +200,14 @@
 	}
 
 	.papertiger-field__button:disabled {
-		@apply cursor-not-allowed border-brand/25 bg-brand/25 text-brand/55;
+		@apply cursor-not-allowed opacity-50 pointer-events-none;
+	}
+
+	.papertiger-field__button-spinner {
+		@apply hidden;
+	}
+
+	.papertiger-form--submitLoading .papertiger-field__button-spinner {
+		@apply inline-block;
 	}
 }

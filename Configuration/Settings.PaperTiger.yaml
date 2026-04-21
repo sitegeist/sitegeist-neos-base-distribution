@@ -11,4 +11,5 @@ Sitegeist:
         upload: 'Vendor\Shared\Components\Block\FormBuilder\Fields\Upload\Upload'
         checkbox: 'Vendor\Shared\Components\Block\FormBuilder\Fields\Checkbox\Checkbox'
         radio: 'Vendor\Shared\Components\Block\FormBuilder\Fields\Radio\Radio'
+        button: 'Vendor\Shared\Components\Block\FormBuilder\Fields\Button\Button'
         message: 'Vendor\Shared\Components\Block\FormBuilder\Fields\Message\Message'

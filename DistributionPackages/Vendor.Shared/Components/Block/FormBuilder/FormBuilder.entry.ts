@@ -5,6 +5,11 @@ export default (el: HTMLElement): void => {
 		return;
 	}
 
+	const form = formWrapper.querySelector("form") as HTMLFormElement | null;
+	if (form?.dataset.formMode === "async") {
+		return;
+	}
+
 	const formFields = formWrapper.querySelectorAll("[data-form-field]") as NodeListOf<HTMLElement>;
 
 	formFields.forEach((field) => {
