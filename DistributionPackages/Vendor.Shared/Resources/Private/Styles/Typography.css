@@ -107,75 +107,73 @@
 }
 
 
-@layer base {
-	.prose {
-		@apply flex;
-		@apply flex-col;
+@utility prose {
+	@apply flex;
+	@apply flex-col;
 
-		h3 {
-			@apply head-hl6 xl:head-hl5;
-			@apply mb-16;
+	h3 {
+		@apply head-hl6 xl:head-hl5;
+		@apply mb-16;
+	}
+
+	h4 {
+		@apply head-hl6;
+		@apply mb-16;
+	}
+
+	p + h3,
+	p + h4,
+	ol + h3,
+	ol + h4,
+	ul + h3,
+	ul + h4 {
+		@apply mt-24 xl:mt-40;
+	}
+
+	p + p,
+	p + ol,
+	p + ul,
+	ul + p,
+	ol + p {
+		@apply mt-24;
+	}
+
+	p {
+		b, strong {
 		}
 
-		h4 {
-			@apply head-hl6;
-			@apply mb-16;
-		}
+		a {
+			@apply underline text-brand;
 
-		p + h3,
-		p + h4,
-		ol + h3,
-		ol + h4,
-		ul + h3,
-		ul + h4 {
-			@apply mt-24 xl:mt-40;
-		}
-
-		p + p,
-		p + ol,
-		p + ul,
-		ul + p,
-		ol + p {
-			@apply mt-24;
-		}
-
-		p {
-			b, strong {
+			&:hover {
+				@apply text-highlight;
 			}
 
-			a {
-				@apply underline text-brand;
-
-				&:hover {
-					@apply text-highlight;
-				}
-
-				&:focus-within {
-					@apply outline-solid;
-					@apply outline-4;
-					@apply outline-offset-4;
-				}
+			&:focus-within {
+				@apply outline-solid;
+				@apply outline-4;
+				@apply outline-offset-4;
 			}
 		}
+	}
 
-		ol {
-			@apply pl-4 list-decimal ml-24 mb-4;
-		}
+	ol {
+		@apply pl-4 list-decimal ml-24 mb-4;
+	}
 
-		ul {
-			@apply pl-8;
+	ul {
+		@apply pl-8;
 
-			li {
-				@apply relative pl-16 list-none mb-4;
+		li {
+			@apply relative pl-16 list-none mb-4;
 
-				&::before {
-					content: '\25C6';
-					font-size: 6px;
-					position: absolute;
-					left: 2px;
-					top: -1px;
-					vertical-align: middle;
-				}
+			&::before {
+				content: '\25C6';
+				font-size: 6px;
+				position: absolute;
+				left: 2px;
+				top: -1px;
+				vertical-align: middle;
 			}
 		}
 	}

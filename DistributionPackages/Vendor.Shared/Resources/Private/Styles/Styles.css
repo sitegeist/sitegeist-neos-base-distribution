@@ -106,6 +106,7 @@ body > div > .neos-contentcollection {
 	grid-template-columns: subgrid;
 	grid-column-start: 1;
 	grid-column-end: -1;
+	height: fit-content;
 }
 
 details::details-content {

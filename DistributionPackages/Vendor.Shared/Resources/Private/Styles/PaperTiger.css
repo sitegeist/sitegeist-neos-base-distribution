@@ -210,4 +210,8 @@
 	.papertiger-form--submitLoading .papertiger-field__button-spinner {
 		@apply inline-block;
 	}
+
+	.papertiger-message {
+		@apply prose copy-medium;
+	}
 }
