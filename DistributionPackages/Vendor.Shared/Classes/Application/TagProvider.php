@@ -27,7 +27,7 @@ final class TagProvider implements DataSourceInterface
      * @param array<string,mixed> $arguments
      * @return array<string|int,mixed>
      */
-    public function getData(Node $node = null, array $arguments = []): array
+    public function getData(?Node $node = null, array $arguments = []): array
     {
         $options = [];
         foreach ($this->tagRepository->findAll() as $tag) {

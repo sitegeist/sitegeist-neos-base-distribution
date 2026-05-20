@@ -27,18 +27,6 @@ Neos:
                       title: true
                       relNofollow: true
                       targetBlank: true
-                      'Sitegeist.Archaeopteryx':
-                        linkTypes:
-                          'Sitegeist.Archaeopteryx:Node':
-                            position: start 100
-                          'Sitegeist.Archaeopteryx:Asset':
-                            position: start 90
-                          'Sitegeist.Archaeopteryx:MailTo':
-                            position: start 80
-                          'Sitegeist.Archaeopteryx:Web':
-                            position: start 70
-                          'Sitegeist.Archaeopteryx:PhoneNumber':
-                            position: start 60
                     formatting:
                       strong: true
                       em: true

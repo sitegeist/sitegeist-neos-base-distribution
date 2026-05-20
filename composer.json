@@ -5,7 +5,7 @@
 		"vendor-dir": "Packages/Libraries",
 		"bin-dir": "bin",
 		"platform": {
-			"php": "8.3"
+			"php": "8.5"
 		},
 		"allow-plugins": {
 			"neos/composer-plugin": true

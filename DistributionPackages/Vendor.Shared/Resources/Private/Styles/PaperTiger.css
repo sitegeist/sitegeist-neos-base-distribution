@@ -1,5 +1,5 @@
 @layer components {
-	.papertiger-form__fields {
+	.papertiger-form__element {
 		@apply flex flex-col gap-16 md:gap-24;
 	}
 
