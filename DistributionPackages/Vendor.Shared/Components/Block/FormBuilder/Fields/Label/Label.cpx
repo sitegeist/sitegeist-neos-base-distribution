@@ -12,7 +12,7 @@ export component Label {
             <span class="papertiger-field__label-text">
                 {label.label}
             </span>
-            {!label.isRequired ? <span class="papertiger-field__optional">(optional)</span> : null}
-            {label.isRequired ? <span class="papertiger-field__required">*</span> : null}
+            {(!label.isRequired && label.label)? <span class="papertiger-field__optional">(optional)</span> : null}
+            {(label.isRequired && label.label) ? <span class="papertiger-field__required">*</span> : null}
         </label>
 }
