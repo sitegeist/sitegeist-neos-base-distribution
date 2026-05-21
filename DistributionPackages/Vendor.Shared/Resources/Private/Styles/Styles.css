@@ -7,6 +7,10 @@
 	outline: 2px dotted #00adee;
 }
 
+[class*="notInlineEditableOverlay"] {
+	background-image: none;
+}
+
 @theme {
 	--spacing-1: 1px;
 	--spacing-2: 2px;
