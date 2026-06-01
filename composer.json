@@ -43,7 +43,8 @@
 
 		"vendor/wheelinventor": "*",
 		"sitegeist/papertiger-cpx": "dev-main",
-		"neos/symfonymailer": "^1.0.2"
+		"neos/symfonymailer": "^1.0.2",
+		"altcha-org/altcha": "^2.0"
 	},
 	"require-dev": {
 		"neos/buildessentials": "^9.0",

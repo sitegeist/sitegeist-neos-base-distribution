@@ -16,7 +16,7 @@ export component ContentContainer {
                 "grid grid-cols-subgrid h-fit",
                 match (variant) {
                     ContentContainerVariant.VARIANT_REGULAR
-                        -> "py-16 sm:py-24 lg:py-32 col-span-content-full",
+                        -> "my-16 sm:my-24 lg:my-32 col-span-content-full",
                     ContentContainerVariant.VARIANT_NO_PADDING -> ""
                 },
             ]}
