@@ -1,24 +1,13 @@
 export component MainNavigation {
+	items: slot
 
-    items: slot
-
-    render
-        <nav data-component="MainNavigation" class="h-full z-20">
-            <sl-drawer
-                placement="end"
-                class="lg:hidden"
-                data-offcanvas-menu
-                no-header
-            >
-                <div class="overflow-y-auto max-h-full overflow-x-hidden pt-header px-16">
-                    <div class="flex flex-col gap-8">
-                        {items}
-                    </div>
-                </div>
-            </sl-drawer>
-
-            <div class="hidden lg:flex h-full list-none gap-24">
-                {items}
-            </div>
-        </nav>
+	render
+		<nav data-component="MainNavigation" class="h-full z-20">
+			<sl-drawer placement="end" class="lg:hidden" data-offcanvas-menu no-header>
+				<div class="overflow-y-auto max-h-full overflow-x-hidden pt-header px-16">
+					<div class="flex flex-col gap-8">{items}</div>
+				</div>
+			</sl-drawer>
+			<div class="hidden lg:flex h-full list-none gap-24">{items}</div>
+		</nav>
 }

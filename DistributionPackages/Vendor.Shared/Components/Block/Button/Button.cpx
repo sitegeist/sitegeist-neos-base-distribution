@@ -1,36 +1,32 @@
+from "../Icon/Icon.cpx" import { Icon }
 from "./ButtonTag.cpx" import { ButtonTag }
 from "./ButtonVariant.cpx" import { ButtonVariant }
-from "../Icon/Icon.cpx" import { Icon }
 
 export component Button {
+	content: slot
+	tag: ButtonTag
+	variant: ButtonVariant
 
-    content: slot
-    tag: ButtonTag
-    variant: ButtonVariant
-
-    render
-        <element
-            data-component="Button"
-            tagName={tag}
-            class={[
-                "flex gap-16 items-center w-fit copy-medium",
-                match (tag) {
-                    ButtonTag.TAG_BUTTON -> "cursor-pointer",
-                    default -> ""
-                },
-                match (variant) {
-                    ButtonVariant.VARIANT_REGULAR
-                        -> "border min-w-touch min-h-touch border-brand px-24 py-8 hover:text-highlight hover:border-highlight",
-                    ButtonVariant.VARIANT_SOLID
-                        -> "bg-brand min-w-touch min-h-touch text-brand-contrast px-24 py-8 hover:bg-highlight",
-                    ButtonVariant.VARIANT_GHOST -> "hover:text-highlight",
-                },
-            ]}
-        >
-            {content}
-            <Icon
-                icon="arrow-right"
-                class="w-24 h-24"
-            />
-        </element>
+	render
+		<element
+			data-component="Button"
+			tagName={tag}
+			class={[
+				"flex gap-16 items-center w-fit copy-medium",
+				match (tag) {
+					ButtonTag.TAG_BUTTON -> "cursor-pointer",
+					default -> ""
+				},
+				match (variant) {
+					ButtonVariant.VARIANT_REGULAR ->
+						"border min-w-touch min-h-touch border-brand px-24 py-8 hover:text-highlight hover:border-highlight",
+					ButtonVariant.VARIANT_SOLID ->
+						"bg-brand min-w-touch min-h-touch text-brand-contrast px-24 py-8 hover:bg-highlight",
+					ButtonVariant.VARIANT_GHOST -> "hover:text-highlight"
+				}
+			]}
+		>
+			{content}
+			<Icon icon="arrow-right" class="w-24 h-24" />
+		</element>
 }

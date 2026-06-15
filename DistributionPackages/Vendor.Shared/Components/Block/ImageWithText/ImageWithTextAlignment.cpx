@@ -1,4 +1,4 @@
 export enum ImageWithTextAlignment {
-    VARIANT_IMAGEFIRST("Bild links")
-    VARIANT_IMAGELAST("Bild rechts")
+	VARIANT_IMAGEFIRST("Bild links")
+	VARIANT_IMAGELAST("Bild rechts")
 }

@@ -104,6 +104,11 @@
 
 		"test": "echo \"No tests yet.\""
 	},
+	"autoload": {
+		"psr-4": {
+			"Sitegeist\\MissionAccessible\\": "Packages/Plugins/Sitegeist.MissionAccessible/Classes/"
+		}
+	},
 	"repositories": {
 		"sitegeist/monocle": {
 			"type": "vcs",

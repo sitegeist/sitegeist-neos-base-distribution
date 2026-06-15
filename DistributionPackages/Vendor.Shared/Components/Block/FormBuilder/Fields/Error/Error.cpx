@@ -1,8 +1,8 @@
 from "Sitegeist.PaperTiger.CPX/Error/ErrorProps.cpx" import { ErrorProps }
 
 export component Error {
-    error: ErrorProps
+	error: ErrorProps
 
-    render
-        <p data-custom-error class="papertiger-error">{error.message}</p>
+	render
+		<p data-custom-error class="papertiger-error">{error.message}</p>
 }

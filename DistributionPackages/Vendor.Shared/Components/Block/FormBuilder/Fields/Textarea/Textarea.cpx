@@ -1,13 +1,10 @@
+from "../InvalidIcon/InvalidIcon.cpx" import { InvalidIcon }
 from "Sitegeist.PaperTiger.CPX/Field/TextareaField/TextareaField.cpx" import { TextareaField }
 from "Sitegeist.PaperTiger.CPX/Field/TextareaField/TextareaFieldProps.cpx" import { TextareaFieldProps }
-from "../InvalidIcon/InvalidIcon.cpx" import { InvalidIcon }
 
 export component Textarea {
-    field: TextareaFieldProps
+	field: TextareaFieldProps
 
-    render
-        <div class="relative">
-            <TextareaField field={field} />
-            <InvalidIcon />
-        </div>
+	render
+		<div class="relative"><TextareaField field={field} /><InvalidIcon /></div>
 }

@@ -1,4 +1,5 @@
 {
+	"plugins": ["prettier-plugin-cpx"],
 	"trailingComma": "es5",
 	"tabWidth": 4,
 	"semi": true,

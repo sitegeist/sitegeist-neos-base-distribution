@@ -1,33 +1,32 @@
+from "./HeadlineSize.cpx" import { HeadlineSize }
 from "./HeadlineTag.cpx" import { HeadlineTag }
 from "./HeadlineVariant.cpx" import { HeadlineVariant }
-from "./HeadlineSize.cpx" import { HeadlineSize }
 
 export component Headline {
+	content: slot
+	variant: HeadlineVariant
+	size: HeadlineSize
+	tag: HeadlineTag
 
-    content: slot
-    variant: HeadlineVariant
-    size: HeadlineSize
-    tag: HeadlineTag
-
-    render
-        <element
-            data-component="Headline"
-            tagName={tag}
-            class={[
-                "w-full",
-                match (size) {
-                    HeadlineSize.SIZE_SM -> "head-hl6",
-                    HeadlineSize.SIZE_MD -> "head-hl6 xl:head-hl5",
-                    HeadlineSize.SIZE_LG -> "head-hl5 md:head-hl5 xl:head-hl4",
-                    HeadlineSize.SIZE_XL -> "head-hl5 md:head-hl2 xl:head-hl1",
-                    default -> "",
-                },
-                match (variant) {
-                    HeadlineVariant.VARIANT_UPPERCASE -> "uppercase",
-                    default -> "",
-                },
-            ]}
-        >
-            {content}
-        </element>
+	render
+		<element
+			data-component="Headline"
+			tagName={tag}
+			class={[
+				"w-full",
+				match (size) {
+					HeadlineSize.SIZE_SM -> "head-hl6",
+					HeadlineSize.SIZE_MD -> "head-hl6 xl:head-hl5",
+					HeadlineSize.SIZE_LG -> "head-hl5 md:head-hl5 xl:head-hl4",
+					HeadlineSize.SIZE_XL -> "head-hl5 md:head-hl2 xl:head-hl1",
+					default -> ""
+				},
+				match (variant) {
+					HeadlineVariant.VARIANT_UPPERCASE -> "uppercase",
+					default -> ""
+				}
+			]}
+		>
+			{content}
+		</element>
 }

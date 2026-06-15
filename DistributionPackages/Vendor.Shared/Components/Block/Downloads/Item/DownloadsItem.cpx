@@ -3,40 +3,39 @@ from "../../Headline/Headline.cpx" import { Headline }
 from "../../Link/LinkStruct.cpx" import { LinkStruct }
 
 export component DownloadsItem {
+	media: Figure | slot
+	headline: Headline | slot
+	primaryMetaHeadline: slot
+	secondaryMetaHeadline: slot
+	link: LinkStruct
+	inBackend: boolean
 
-    media: Figure|slot
-    headline: Headline|slot
-    primaryMetaHeadline: slot
-    secondaryMetaHeadline: slot
-    link: LinkStruct
-    inBackend: boolean
-
-    render
-        <element
-            tagName={!inBackend && link.href ? "a" : "div"}
-            data-component="DownloadsItem"
-            href={!inBackend ? link.href : null}
-            title={link.title}
-            rel={!inBackend ? link.rel : null}
-            target={!inBackend ? link.target : null}
-            class={[
-                "p-16 flex flex-col justify-between h-full gap-16 bg-brand-grey",
-                !inBackend && link.href ? "cursor-pointer hover:text-highlight" : ""
-            ]}
-        >
-            <div class="flex gap-24 h-full items-stretch">
-                <div class="w-1/4 aspect-3/4 flex items-start shrink-0 h-full shadow-md">
-                    {media}
-                </div>
-                <div class="flex flex-col justify-between h-full w-full">
-                    <div class="h-full flex flex-col justify-between mb-2">
-                        {headline}
-                        <div class="flex gap-8 justify-between mt-auto copy-medium">
-                            <span>{primaryMetaHeadline}</span>
-                            <span>{secondaryMetaHeadline}</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </element>
+	render
+		<element
+			tagName={!inBackend && link.href ? "a" : "div"}
+			data-component="DownloadsItem"
+			href={!inBackend ? link.href : null}
+			title={link.title}
+			rel={!inBackend ? link.rel : null}
+			target={!inBackend ? link.target : null}
+			class={[
+				"p-16 flex flex-col justify-between h-full gap-16 bg-brand-grey",
+				!inBackend && link.href ? "cursor-pointer hover:text-highlight" : ""
+			]}
+		>
+			<div class="flex gap-24 h-full items-stretch">
+				<div class="w-1/4 aspect-3/4 flex items-start shrink-0 h-full shadow-md">
+					{media}
+				</div>
+				<div class="flex flex-col justify-between h-full w-full">
+					<div class="h-full flex flex-col justify-between mb-2">
+						{headline}
+						<div class="flex gap-8 justify-between mt-auto copy-medium">
+							<span>{primaryMetaHeadline}</span>
+							<span>{secondaryMetaHeadline}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</element>
 }

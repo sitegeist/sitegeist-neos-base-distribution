@@ -14,7 +14,7 @@ indent_size = 2
 [{.eslintrc}]
 indent_size = 2
 
-[*.{css,js,ts,tsx,json}]
+[*.{css,js,ts,tsx,json,cpx}]
 indent_style = tab
 
 [Makefile]

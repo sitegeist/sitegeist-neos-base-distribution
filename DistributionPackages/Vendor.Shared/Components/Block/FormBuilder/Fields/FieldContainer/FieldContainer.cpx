@@ -1,19 +1,21 @@
 from "Sitegeist.PaperTiger.CPX/FieldContainer/FieldContainerProps.cpx" import { FieldContainerProps }
 
 export component FieldContainer {
-    fieldContainer: FieldContainerProps
-    label: slot
-    content: slot
-    error: slot
+	fieldContainer: FieldContainerProps
+	label: slot
+	content: slot
+	error: slot
 
-    render
-        <div
-            id={fieldContainer.id}
-            class={fieldContainer.hasErrors ? "papertiger-field papertiger-field--invalid showInvalid group" : "papertiger-field group"}
-            data-form-field
-        >
-            {label}
-            {content}
-            {error}
-        </div>
+	render
+		<div
+			id={fieldContainer.id}
+			class={fieldContainer.hasErrors
+				? "papertiger-field papertiger-field--invalid showInvalid group"
+				: "papertiger-field group"}
+			data-form-field
+		>
+			{label}
+			{content}
+			{error}
+		</div>
 }

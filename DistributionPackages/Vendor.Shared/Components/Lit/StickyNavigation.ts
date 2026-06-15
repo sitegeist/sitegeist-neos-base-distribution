@@ -99,7 +99,9 @@ export class StickyNavigation extends LitElement {
 
 		const links = slot
 			.assignedElements({ flatten: true })
-			.filter((element): element is HTMLAnchorElement => element instanceof HTMLAnchorElement);
+			.filter(
+				(element): element is HTMLAnchorElement => element instanceof HTMLAnchorElement
+			);
 
 		this.teardownListeners();
 		this.items = links
@@ -154,7 +156,8 @@ export class StickyNavigation extends LitElement {
 	private syncActiveHref(): void {
 		const hash = window.location.hash;
 		this.activeHref =
-			(hash && this.items.some((item) => item.href === hash) ? hash : this.items[0]?.href) ?? null;
+			(hash && this.items.some((item) => item.href === hash) ? hash : this.items[0]?.href) ??
+			null;
 
 		this.updateActiveClasses();
 	}
@@ -175,7 +178,7 @@ export class StickyNavigation extends LitElement {
 	private get sectionActivationOffset(): number {
 		const scrollMarginTop =
 			Number.parseFloat(
-				this.items[0] ? window.getComputedStyle(this.items[0].target).scrollMarginTop : "",
+				this.items[0] ? window.getComputedStyle(this.items[0].target).scrollMarginTop : ""
 			) || 0;
 
 		return Math.max(this.navigationOffset, scrollMarginTop) + SECTION_SWITCH_OFFSET;
@@ -256,7 +259,8 @@ export class StickyNavigation extends LitElement {
 		});
 
 		this.programmaticScrollListener = () => {
-			const scrollMarginTop = Number.parseFloat(window.getComputedStyle(item.target).scrollMarginTop) || 0;
+			const scrollMarginTop =
+				Number.parseFloat(window.getComputedStyle(item.target).scrollMarginTop) || 0;
 			const targetTop = item.target.getBoundingClientRect().top;
 			if (Math.abs(targetTop - scrollMarginTop) > 4) {
 				return;

@@ -1,13 +1,10 @@
+from "../InvalidIcon/InvalidIcon.cpx" import { InvalidIcon }
 from "Sitegeist.PaperTiger.CPX/Field/UploadField/UploadField.cpx" import { UploadField }
 from "Sitegeist.PaperTiger.CPX/Field/UploadField/UploadFieldProps.cpx" import { UploadFieldProps }
-from "../InvalidIcon/InvalidIcon.cpx" import { InvalidIcon }
 
 export component Upload {
-    field: UploadFieldProps
+	field: UploadFieldProps
 
-    render
-        <div class="relative">
-            <UploadField field={field} />
-            <InvalidIcon />
-        </div>
+	render
+		<div class="relative"><UploadField field={field} /><InvalidIcon /></div>
 }

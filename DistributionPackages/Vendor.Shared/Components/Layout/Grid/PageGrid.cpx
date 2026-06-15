@@ -1,14 +1,13 @@
 export component PageGrid {
+	content: slot
 
-    content: slot
-
-    render
-        <div
-            class={[
-                "w-full h-full grid grid-cols-page-12",
-                "gap-x-16 md:gap-x-32 grow grid-rows-[auto_1fr_auto]"
-            ]}
-        >
-            {content}
-        </div>
+	render
+		<div
+			class={[
+				"w-full h-full grid grid-cols-page-12",
+				"gap-x-16 md:gap-x-32 grow grid-rows-[auto_1fr_auto]"
+			]}
+		>
+			{content}
+		</div>
 }

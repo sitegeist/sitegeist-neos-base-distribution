@@ -20,7 +20,7 @@ async function mountComponents(root: ParentNode = document) {
 		if ((el as any).__mounted) continue;
 		(el as any).__mounted = true;
 
-		const mod: any = (await loader());
+		const mod: any = await loader();
 		mod.default?.(el);
 	}
 }

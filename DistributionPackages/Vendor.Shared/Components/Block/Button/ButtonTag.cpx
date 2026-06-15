@@ -1,4 +1,4 @@
 export enum ButtonTag {
-    TAG_BUTTON("button")
-    TAG_SPAN("span")
+	TAG_BUTTON("button")
+	TAG_SPAN("span")
 }

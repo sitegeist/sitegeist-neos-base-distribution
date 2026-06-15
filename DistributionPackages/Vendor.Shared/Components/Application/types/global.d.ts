@@ -21,12 +21,12 @@ declare global {
 		addEventListener(
 			type: "Neos.NodeSelected" | "Neos.NodeRemoved" | "Neos.NodeCreated",
 			listener: (event: NeosUiNodeEvent) => void
-		): void
+		): void;
 	}
 }
 
 interface NeosUiNodeEvent extends Event {
 	detail: {
-		element: HTMLElement
-	}
+		element: HTMLElement;
+	};
 }

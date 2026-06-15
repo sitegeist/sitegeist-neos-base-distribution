@@ -3,68 +3,57 @@ from "../../../Link/LinkStruct.cpx" import { LinkStruct }
 from "../../../Link/LinkVariant.cpx" import { LinkVariant }
 
 export component MainNavigationItem {
+	link: LinkStruct
+	label: string
+	items: slot
 
-    link: LinkStruct
-    label: string
-    items: slot
-
-    render
-        <div
-            data-component="MainNavigationItem"
-            class="relative group/navItem"
-        >
-            {items ?
-                <>
-                    <div class="max-lg:hidden h-full">
-                        <Link
-                            link={link}
-                            variant={LinkVariant.VARIANT_MENU_ITEM}
-                            component={null}
-                            inBackend={false}
-                        >
-                            {label}
-                        </Link>
-
-                        <sl-menu
-                            class={[
-                                "pointer-events-none absolute top-full left-1/2 -translate-x-1/2 opacity-0",
-                                "group-focus-within/navItem:opacity-100 group-hover/navItem:opacity-100",
-                                "group-hover/navItem:pointer-events-auto transition-opacity",
-                                "min-w-48 shadow-lg bg-white"
-                            ]}
-                        >
-                            {items}
-                        </sl-menu>
-                    </div>
-
-                    <div class="lg:hidden relative">
-                        <div class="absolute top-0 left-0 py-8">
-                            <Link
-                                link={link}
-                                variant={LinkVariant.VARIANT_MENU_ITEM}
-                                component={null}
-                                inBackend={false}
-                            >
-                                {label}
-                            </Link>
-                        </div>
-
-                        <sl-details>
-                            <div class="flex flex-col gap-16 py-16">
-                                {items}
-                            </div>
-                        </sl-details>
-                    </div>
-                </>
-            :
-                <Link
-                    link={link}
-                    variant={LinkVariant.VARIANT_MENU_ITEM}
-                    component={null}
-                    inBackend={false}
-                >
-                    {label}
-                </Link>
-            }
-        </div>
+	render
+		<div data-component="MainNavigationItem" class="relative group/navItem">
+			{items
+				? <>
+					<div class="max-lg:hidden h-full">
+						<Link
+							link={link}
+							variant={LinkVariant.VARIANT_MENU_ITEM}
+							component={null}
+							inBackend={false}
+						>
+							{label}
+						</Link>
+						<sl-menu
+							class={[
+								"pointer-events-none absolute top-full left-1/2 -translate-x-1/2 opacity-0",
+								"group-focus-within/navItem:opacity-100 group-hover/navItem:opacity-100",
+								"group-hover/navItem:pointer-events-auto transition-opacity",
+								"min-w-48 shadow-lg bg-white"
+							]}
+						>
+							{items}
+						</sl-menu>
+					</div>
+					<div class="lg:hidden relative">
+						<div class="absolute top-0 left-0 py-8">
+							<Link
+								link={link}
+								variant={LinkVariant.VARIANT_MENU_ITEM}
+								component={null}
+								inBackend={false}
+							>
+								{label}
+							</Link>
+						</div>
+						<sl-details>
+							<div class="flex flex-col gap-16 py-16">{items}</div>
+						</sl-details>
+					</div>
+				</>
+				: <Link
+					link={link}
+					variant={LinkVariant.VARIANT_MENU_ITEM}
+					component={null}
+					inBackend={false}
+				>
+					{label}
+				</Link>}
+		</div>
 }

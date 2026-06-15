@@ -12,6 +12,7 @@
 		"eslint": "^8.57.0",
 		"eslint-plugin-react": "^7.34.1",
 		"prettier": "^3.3.3",
+		"prettier-plugin-cpx": "^0.1.1",
 		"prettier-plugin-tailwindcss": "^0.5.13",
 		"tailwindcss": "^4.0.6",
 		"typescript": ">=4.4",
@@ -27,7 +28,7 @@
 		"watch": "yarn workspaces foreach --parallel --verbose --interlaced -j unlimited run watch",
 		"lint": "yarn workspaces foreach --parallel --verbose --interlaced run lint",
 		"test": "yarn workspaces foreach --parallel --verbose --interlaced run test",
-		"format": "prettier -c '**/*.{ts,tsx}'",
-		"format:fix": "prettier -w '**/*.{ts,tsx}'"
+		"format": "prettier -c '**/*.{ts,tsx,cpx}'",
+		"format:fix": "prettier -w '**/*.{ts,tsx,cpx}'"
 	}
 }
