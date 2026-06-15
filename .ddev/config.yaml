@@ -19,7 +19,12 @@ web_environment:
     - FLOW_REWRITEURLS=1
     - FLOW_PATH_TEMPORARY_BASE=/tmp/neos
     - FLOW_ROOTPATH=/var/www/html
+    - PUPPETEER_EXECUTABLE_PATH=/usr/bin/chromium
+    - PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
 corepack_enable: false
+
+webimage_extra_packages:
+    - chromium
 
 # Key features of DDEV's config.yaml:
 
