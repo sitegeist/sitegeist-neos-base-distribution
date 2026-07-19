@@ -1,6 +1,0 @@
-export enum LinkVariant {
-	VARIANT_NONE("none")
-	VARIANT_DEFAULT("default")
-	VARIANT_MENU_ITEM("menuItem")
-	VARIANT_MENU_SUB_ITEM("menuSubItem")
-}

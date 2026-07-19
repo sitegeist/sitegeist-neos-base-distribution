@@ -87,12 +87,14 @@ final class MainNavigationItemFactory
             : null;
 
         if ($level === 1) {
+            // @todo: link & inBackend in der Komponente?
             return MainNavigationItem::create(
                 link: $linkStruct,
                 label: $this->nodeLabelGenerator->getLabel($subtree->node),
                 items: $itemsCollection
             );
         } else {
+            // @todo: link & inBackend in der Komponente?
             return MainNavigationSubItem::create(
                 link: $linkStruct,
                 label: $this->nodeLabelGenerator->getLabel($subtree->node)

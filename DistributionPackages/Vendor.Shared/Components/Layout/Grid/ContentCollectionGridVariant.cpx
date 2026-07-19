@@ -1,4 +1,0 @@
-export enum ContentCollectionGridVariant {
-	VARIANT_THREE_COLUMNS("threeColumns")
-	VARIANT_FOUR_COLUMNS("fourColumns")
-}

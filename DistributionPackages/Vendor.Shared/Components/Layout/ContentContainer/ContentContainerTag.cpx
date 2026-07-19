@@ -1,4 +1,0 @@
-export enum ContentContainerTag {
-	TAG_DIV("div")
-	TAG_SECTION("section")
-}

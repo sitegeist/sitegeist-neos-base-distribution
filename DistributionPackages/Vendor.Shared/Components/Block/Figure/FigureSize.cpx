@@ -1,7 +1,0 @@
-export enum FigureSize {
-	SIZE_DEFAULT("default")
-	SIZE_FIFTH_HALF_FULL("fifthHalfFull")
-	SIZE_THIRD_HALF_FULL("thirdHalfFull")
-	SIZE_FULL_FULL_FULL("fullFullFull")
-	SIZE_HALF_FULL_FULL("halfFullFull")
-}

@@ -4,9 +4,6 @@
 	"config": {
 		"vendor-dir": "Packages/Libraries",
 		"bin-dir": "bin",
-		"platform": {
-			"php": "8.5"
-		},
 		"allow-plugins": {
 			"neos/composer-plugin": true
 		}
@@ -14,10 +11,9 @@
 	"minimum-stability": "dev",
 	"prefer-stable": true,
 	"require": {
-		"neos/neos": "^9.0",
-		"neos/contentgraph-doctrinedbaladapter": "^9.0",
-		"neos/neos-ui": "^9.0",
-		"neos/seo": "^4.1",
+		"neos/neos": "^9.1",
+		"neos/contentgraph-doctrinedbaladapter": "^9.1",
+		"neos/neos-ui": "^9.1",
 		"neos/redirecthandler": "^6.0",
 		"neos/redirecthandler-databasestorage": "*",
 		"neos/redirecthandler-neosadapter": "^5.0",
@@ -25,11 +21,10 @@
 
 		"flowpack/nodetemplates": "^3.0",
 
-		"packagefactory/neos-component-engine": "1.0.0-alpha3",
-		"packagefactory/component-engine": "1.0.0-alpha3",
+		"packagefactory/neos-component-engine": "1.0.0-alpha4",
+		"packagefactory/component-engine": "1.0.0-alpha4",
 		"packagefactory/neos-componentview": "^1.0",
 
-		"sitegeist/archaeopteryx": "^2.0",
 		"sitegeist/csvpo": "^2.0",
 		"sitegeist/iconoclasm": "^2.1",
 		"sitegeist/inspectorgadget": "^3.0",
@@ -42,15 +37,18 @@
 		"sitegeist/stampede": "^2.0",
 
 		"vendor/wheelinventor": "*",
-		"sitegeist/papertiger-cpx": "dev-main",
 		"neos/symfonymailer": "^1.0.2",
-		"altcha-org/altcha": "^2.0"
+		"altcha-org/altcha": "^2.0",
+		"packagefactory/opgm-neosadapter": "dev-main",
+		"packagefactory/neos-seo": "dev-main",
+		"packagefactory/opgm-contentrepositoryregistryadapter": "dev-main",
+		"packagefactory/opgm": "dev-main"
 	},
 	"require-dev": {
 		"neos/buildessentials": "^9.0",
 		"mikey179/vfsstream": "^1.6.10",
 		"squizlabs/php_codesniffer": "^3.7",
-		"phpstan/phpstan": "^1.10",
+		"phpstan/phpstan": "^2.2",
 		"phpunit/phpunit": "^10.0",
 		"symfony/css-selector": "~2.0",
 		"neos/behat": "^9.0",
@@ -71,7 +69,7 @@
 		"post-package-update": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
 		"post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
 		"post-create-project-cmd": "ddev config --project-name=`basename \"$PWD\"`",
-		"build:cpx": "./flow components:build 'Vendor.Shared'",
+		"build:cpx": "./flow components:build 'Vendor.Shared' 'PackageFactory.Neos.Seo'",
 		"flush": [
 			"./flow flow:cache:flush --force",
 			"./flow flow:package:rescan",
@@ -121,6 +119,22 @@
 		"sitegeist/papertiger-cpx": {
 			"type": "vcs",
 			"url": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX"
+		},
+		"packagefactory/opgm": {
+			"type": "vcs",
+			"url": "https://codeberg.org/PackageFactory/opgm"
+		},
+		"packagefactory/opgm-contentrepositoryregistryadapter": {
+			"type": "vcs",
+			"url": "https://codeberg.org/PackageFactory/opgm-contentrepositoryregistryadapter"
+		},
+		"packagefactory/opgm-neosadapter": {
+			"type": "vcs",
+			"url": "https://codeberg.org/PackageFactory/opgm-neosadapter"
+		},
+		"packagefactory/neos-seo": {
+			"type": "vcs",
+			"url": "https://codeberg.org/PackageFactory/neos-seo"
 		},
 		"local": {
 			"type": "path",

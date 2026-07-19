@@ -1,5 +1,0 @@
-export enum ButtonVariant {
-	VARIANT_REGULAR("regular")
-	VARIANT_SOLID("solid")
-	VARIANT_GHOST("ghost")
-}

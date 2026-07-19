@@ -10,7 +10,9 @@ use Vendor\WheelInventor\Domain\Sailor;
 
 final class AnchorDataSource extends AbstractDataSource
 {
-    protected static $identifier = 'available-anchors';
+    public const string IDENTIFIER = 'available-anchors';
+
+    protected static $identifier = self::IDENTIFIER;
 
     public function __construct(
         private readonly Sailor $sailor,

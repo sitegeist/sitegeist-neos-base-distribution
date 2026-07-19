@@ -1,7 +1,0 @@
-'Vendor.WheelInventor:Content.ReactExample':
-  superTypes:
-    'Vendor.WheelInventor:Content': true
-    'Vendor.Shared:Mixin.Headline': true
-  ui:
-    label: 'ReactExample (CSR)'
-    icon: 'frown'

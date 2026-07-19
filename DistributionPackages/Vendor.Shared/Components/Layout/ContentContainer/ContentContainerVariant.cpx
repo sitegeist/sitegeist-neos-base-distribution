@@ -1,4 +1,0 @@
-export enum ContentContainerVariant {
-	VARIANT_REGULAR("regular")
-	VARIANT_NO_PADDING("noPadding")
-}

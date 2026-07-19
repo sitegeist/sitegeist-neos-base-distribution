@@ -4,15 +4,19 @@ declare(strict_types=1);
 
 namespace Vendor\WheelInventor\Integration;
 
-use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
-use Neos\ContentRepository\Core\Projection\ContentGraph\Filter\FindReferencesFilter;
+use Neos\Neos\Domain\Link\Link as NeosLink;
 use PackageFactory\ComponentEngine\ComponentCollection;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
+use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
 use Vendor\Shared\Components\Block\Link\Link;
 use Vendor\Shared\Components\Block\Link\LinkStruct;
 use Vendor\Shared\Components\Block\Link\LinkTarget;
 use Vendor\Shared\Components\Block\Link\LinkVariant;
 use Vendor\Shared\Components\Block\SiteFooter\SiteFooter;
+use Vendor\WheelInventor\NodeTypes\Document\Document;
+use Vendor\WheelInventor\NodeTypes\Document\Documents;
+use Vendor\WheelInventor\NodeTypes\Document\HomePage\HomePage;
+use Vendor\WheelInventor\NodeTypes\Document\Shortcut;
 
 final class SiteFooterFactory
 {
@@ -20,44 +24,45 @@ final class SiteFooterFactory
         NeosContext $context
     ): SiteFooter {
         $inBackend = $context->renderingMode->isEdit;
+        $homePage = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, HomePage::class);
 
         return SiteFooter::create(
-            primaryMenuTitle: $context->nodes->getStringValue($context->siteNode, 'primaryMenuTitle'),
+            primaryMenuTitle: $homePage->primaryMenuTitle,
             primaryNavigationItems: $this->createNavigationItemsFromReferenceProperty(
                 $context,
-                'primaryMenu',
+                $homePage->primaryMenu,
                 $inBackend
             ),
-            secondaryMenuTitle: $context->nodes->getStringValue($context->siteNode, 'secondaryMenuTitle'),
+            secondaryMenuTitle: $homePage->secondaryMenuTitle,
             secondaryNavigationItems: $this->createNavigationItemsFromReferenceProperty(
                 $context,
-                'secondaryMenu',
+                $homePage->secondaryMenu,
                 $inBackend
             ),
-            thirdMenuTitle: $context->nodes->getStringValue($context->siteNode, 'thirdMenuTitle'),
+            thirdMenuTitle: $homePage->tertiaryMenuTitle,
             thirdNavigationItems: $this->createNavigationItemsFromReferenceProperty(
                 $context,
-                'thirdMenu',
+                $homePage->tertiaryMenu,
                 $inBackend
             ),
             facebookLinkStruct: $this->createSocialLink(
-                $context->nodes->getStringValue($context->siteNode, 'social__facebookUri'),
+                $homePage->socialFacebookUri,
                 'Facebook'
             ),
             instagramLinkStruct: $this->createSocialLink(
-                $context->nodes->getStringValue($context->siteNode, 'social__instagramUri'),
+                $homePage->socialInstagramUri,
                 'Instagram'
             ),
             xingLinkStruct: $this->createSocialLink(
-                $context->nodes->getStringValue($context->siteNode, 'social__xingUri'),
+                $homePage->socialXingUri,
                 'Xing'
             ),
             xLinkStruct: $this->createSocialLink(
-                $context->nodes->getStringValue($context->siteNode, 'social__xUri'),
+                $homePage->socialXUri,
                 'X / Twitter'
             ),
             linkedinLinkStruct: $this->createSocialLink(
-                $context->nodes->getStringValue($context->siteNode, 'social__linkedinUri'),
+                $homePage->socialLinkedinUri,
                 'LinkedIn'
             ),
             inBackend: $inBackend
@@ -69,23 +74,13 @@ final class SiteFooterFactory
      */
     private function createNavigationItemsFromReferenceProperty(
         NeosContext $context,
-        string $propertyName,
+        Documents $documents,
         bool $inBackend
     ): ?ComponentCollection {
-        $references = $context->subgraph->findReferences(
-            $context->siteNode->aggregateId,
-            FindReferencesFilter::create(referenceName: $propertyName)
-        );
-
         /** @var list<Link> $items */
         $items = [];
-        foreach ($references as $reference) {
-            $targetNode = $reference->node;
-            if (!$targetNode instanceof Node) {
-                continue;
-            }
-
-            $items[] = $this->createNavigationItem($context, $targetNode, $inBackend);
+        foreach ($documents as $document) {
+            $items[] = $this->createNavigationItem($context, $document, $inBackend);
         }
 
         return ComponentCollection::list(...$items);
@@ -93,33 +88,34 @@ final class SiteFooterFactory
 
     private function createNavigationItem(
         NeosContext $context,
-        Node $targetNode,
+        Document|Shortcut $targetNode,
         bool $inBackend
     ): Link {
-        $label = $context->nodes->getLabel($targetNode);
+        $label = $context->nodes->getLabel($targetNode->node);
+
         return Link::create(
             content: $label,
             link: LinkStruct::create(
-                href: (string)$context->neos->getNodeUri($targetNode),
+                href: (string)$context->neos->getNodeUri($targetNode->node),
                 title: $label,
                 rel: null,
                 target: LinkTarget::TARGET_SELF
             ),
             component: null,
             variant: LinkVariant::VARIANT_MENU_SUB_ITEM,
-            inBackend: $inBackend
+            inBackend: $inBackend,
         );
     }
 
     private function createSocialLink(
-        ?string $href,
-        string $title
+        ?NeosLink $link,
+        ?string $title,
     ): LinkStruct {
         return LinkStruct::create(
-            href: $href ?: null,
-            title: $title,
-            rel: null,
-            target: LinkTarget::TARGET_BLANK
+            href: $link?->href ? (string)$link->href : null,
+            title: $link?->title ?: $title,
+            rel: implode(' ', $link?->rel ?: []),
+            target: ($link?->target ? LinkTarget::tryFrom($link->target) : null) ?: LinkTarget::TARGET_BLANK,
         );
     }
 }

@@ -24,6 +24,7 @@ final class SiteHeaderFactory
     ): SiteHeader {
 
         return SiteHeader::create(
+            // @todo: link in der Komponente?
             homeLink: Link::create(
                 content: "Home",
                 link: LinkStruct::create(

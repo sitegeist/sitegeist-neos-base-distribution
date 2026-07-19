@@ -1,0 +1,65 @@
+<?php
+
+declare(strict_types=1);
+
+namespace Vendor\WheelInventor\NodeTypes\Document\WebPage;
+
+use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
+use Neos\Flow\Annotations as Flow;
+use Neos\Neos\NodeTypes\ContentCollection;
+use PackageFactory\OPGM\Domain\NodeType\NodeTypeConstraintsDeclaration;
+use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
+use PackageFactory\OPGM\Domain\NodeType\TetheredChildRelationDeclaration;
+use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
+use Vendor\WheelInventor\NodeTypes\Content\Accordion\Accordion;
+use Vendor\WheelInventor\NodeTypes\Content\AnchorNavigation\AnchorNavigation;
+use Vendor\WheelInventor\NodeTypes\Content\CollectionBasedDownloads\CollectionBasedDownloads;
+use Vendor\WheelInventor\NodeTypes\Content\Image\Image;
+use Vendor\WheelInventor\NodeTypes\Content\ImageWithText\ImageWithText;
+use Vendor\WheelInventor\NodeTypes\Content\ManualDownloads\ManualDownloads;
+use Vendor\WheelInventor\NodeTypes\Content\Quotation\Quotation;
+use Vendor\WheelInventor\NodeTypes\Content\ReactExample\ReactExample;
+use Vendor\WheelInventor\NodeTypes\Content\ReactExampleSSR\ReactExampleSSR;
+use Vendor\WheelInventor\NodeTypes\Content\Text\Text;
+use Vendor\WheelInventor\NodeTypes\Content\TileNavigation\TileNavigation;
+use Vendor\WheelInventor\NodeTypes\Document\Document;
+use Vendor\WheelInventor\NodeTypes\Document\Shortcut;
+use Vendor\WheelInventor\NodeTypes\Tag\MainNavigationElement;
+
+#[NodeTypeDeclaration]
+#[NodeTypeUiConfiguration(
+    label: 'Web Page',
+    icon: 'file',
+)]
+#[NodeTypeConstraintsDeclaration(
+    fqns: [
+        WebPage::class => true,
+        Shortcut::class => true,
+    ],
+)]
+#[Flow\Proxy(false)]
+final readonly class WebPage extends Document implements MainNavigationElement
+{
+    public function __construct(
+        #[TetheredChildRelationDeclaration(
+            fqn: ContentCollection::class,
+            constraints: new NodeTypeConstraintsDeclaration(fqns: [
+                ManualDownloads::class => true,
+                CollectionBasedDownloads::class => true,
+                Image::class => true,
+                ImageWithText::class => true,
+                Quotation::class => true,
+                Text::class => true,
+                Accordion::class => true,
+                TileNavigation::class => true,
+                AnchorNavigation::class => true,
+                ReactExample::class => true,
+                ReactExampleSSR::class => true,
+                // @todo: FormBuilder
+            ]),
+        )]
+        // @todo: custom content collection type?
+        public Node $main,
+    ) {
+    }
+}

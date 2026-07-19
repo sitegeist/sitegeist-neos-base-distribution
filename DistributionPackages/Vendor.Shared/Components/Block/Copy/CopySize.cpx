@@ -1,5 +1,0 @@
-export enum CopySize {
-	SIZE_SM("small")
-	SIZE_MD("medium")
-	SIZE_LG("large")
-}

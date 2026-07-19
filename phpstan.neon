@@ -5,3 +5,7 @@ parameters:
     excludePaths:
         analyse:
             - DistributionPackages/*/Components/**/*.php
+    ignoreErrors:
+        -
+            identifier: property.uninitializedReadonly
+            path: DistributionPackages/*/NodeTypes/**/*.php

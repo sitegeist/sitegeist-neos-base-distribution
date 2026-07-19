@@ -1,4 +1,0 @@
-export enum LinkTarget {
-	TARGET_BLANK("_blank")
-	TARGET_SELF("_self")
-}

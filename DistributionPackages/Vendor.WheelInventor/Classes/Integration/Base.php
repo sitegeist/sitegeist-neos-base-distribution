@@ -45,7 +45,7 @@ final readonly class Base implements ComponentInterface
             . '<html lang="'
             . Util::escapeAttributeValue($this->language)
             . '"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>'
-            . Util::escapeRenderValue($this->title)
+            . Util::escapeText($this->title)
             . '</title>'
             . '<link rel="icon" href="data:image/png;base64,iVBORw0KGgo=">'
             . $this->headMetaData?->render()

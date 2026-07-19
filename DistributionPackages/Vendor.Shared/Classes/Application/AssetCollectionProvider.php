@@ -18,9 +18,11 @@ final class AssetCollectionProvider implements DataSourceInterface
     ) {
     }
 
+    public const string IDENTIFIER = 'vendor-shared-assetcollections';
+
     public static function getIdentifier(): string
     {
-        return 'vendor-shared-assetcollections';
+        return self::IDENTIFIER;
     }
 
     /**

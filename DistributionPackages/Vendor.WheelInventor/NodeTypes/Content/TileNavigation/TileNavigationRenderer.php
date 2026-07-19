@@ -4,18 +4,19 @@ declare(strict_types=1);
 
 namespace Vendor\WheelInventor\NodeTypes\Content\TileNavigation;
 
-use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
-use Neos\ContentRepository\Core\Projection\ContentGraph\Filter\FindReferencesFilter;
+use PackageFactory\ComponentEngine\ComponentCollection;
 use PackageFactory\ComponentEngine\ComponentInterface;
-use PackageFactory\ComponentEngine\SlotComponent;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
+use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
 use Vendor\Shared\Components\Block\Link\LinkStruct;
 use Vendor\Shared\Components\Block\Link\LinkTarget;
 use Vendor\Shared\Components\Block\NavigationCard\NavigationCard;
-use Vendor\Shared\Components\Block\TileNavigation\TileNavigation;
+use Vendor\Shared\Components\Block\TileNavigation\TileNavigation as TileNavigationComponent;
 use Vendor\WheelInventor\Integration\ContentContainerFactory;
 use Vendor\WheelInventor\Integration\FigureFactory;
+use Vendor\WheelInventor\NodeTypes\Document\Document;
+use Vendor\WheelInventor\NodeTypes\Document\Shortcut;
 
 final class TileNavigationRenderer implements ContentNodeRendererInterface
 {
@@ -26,64 +27,40 @@ final class TileNavigationRenderer implements ContentNodeRendererInterface
 
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
-        $documentNodes = $this->resolveReferencedDocuments($context);
+        $tileNavigation = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, TileNavigation::class);
         $inBackend = $context->renderingMode->isEdit;
 
-        $cards = array_map(
-            fn (Node $documentNode): NavigationCard => $this->createNavigationCard(
+        $cards = [];
+        foreach ($tileNavigation->documents as $document) {
+            $cards[] = $this->createNavigationCard(
                 $context,
-                $documentNode,
-                $inBackend
-            ),
-            $documentNodes
-        );
+                $document,
+                $inBackend,
+            );
+        }
 
         return ContentContainerFactory::create(
             $context,
-            TileNavigation::create(
+            TileNavigationComponent::create(
                 $context->neos->getEditable(
                     $context->node,
                     'headline',
                     true
                 ),
-                SlotComponent::list(...$cards)
+                ComponentCollection::list(...$cards)
             )
         );
     }
 
-    /**
-     * @return array<int,Node>
-     */
-    private function resolveReferencedDocuments(NeosContext $context): array
-    {
-        $references = $context->subgraph->findReferences(
-            $context->node->aggregateId,
-            FindReferencesFilter::create(referenceName: 'documents')
-        );
-
-        $documents = [];
-        foreach ($references as $reference) {
-            if ($reference->node instanceof Node) {
-                $documents[] = $reference->node;
-            }
-        }
-        return $documents;
-    }
-
     private function createNavigationCard(
         NeosContext $context,
-        Node $documentNode,
-        bool $inBackend
+        Document|Shortcut $document,
+        bool $inBackend,
     ): NavigationCard {
         return NavigationCard::create(
-            figure: $this->figureFactory->tryForMixin(
-                context: $context,
-                propertyName: 'previewImage',
-                node: $documentNode
-            ),
-            headline: $context->nodes->getStringValue($documentNode, 'previewHeadline')
-                ?: $context->nodes->getLabel($documentNode),
-            text: $context->nodes->getStringValue($documentNode, 'previewText') ?: '',
+            figure: $this->figureFactory->tryForPreviewImageProvider($document),
+            headline: $document->previewHeadline ?: $context->nodes->getLabel($document->node),
+            text: $document->previewText,
             link: $inBackend
                 ? LinkStruct::create(
                     href: null,
@@ -92,8 +69,8 @@ final class TileNavigationRenderer implements ContentNodeRendererInterface
                     target: null
                 )
                 : LinkStruct::create(
-                    href: (string)$context->neos->getNodeUri($documentNode),
-                    title: $context->nodes->getLabel($documentNode),
+                    href: (string)$context->neos->getNodeUri($document->node),
+                    title: $context->nodes->getLabel($document->node),
                     rel: null,
                     target: LinkTarget::TARGET_SELF
                 ),

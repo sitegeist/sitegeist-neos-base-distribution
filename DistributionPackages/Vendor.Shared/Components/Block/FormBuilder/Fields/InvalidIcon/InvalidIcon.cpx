@@ -1,6 +1,0 @@
-from "../../../Icon/Icon.cpx" import { Icon }
-
-export component InvalidIcon {
-	render
-		<Icon icon="alert" class="papertiger-field__invalid-icon" />
-}

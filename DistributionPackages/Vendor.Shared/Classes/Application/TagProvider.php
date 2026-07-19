@@ -18,9 +18,11 @@ final class TagProvider implements DataSourceInterface
     ) {
     }
 
+    public const string IDENTIFIER = 'vendor-shared-tags';
+
     public static function getIdentifier(): string
     {
-        return 'vendor-shared-tags';
+        return self::IDENTIFIER;
     }
 
     /**

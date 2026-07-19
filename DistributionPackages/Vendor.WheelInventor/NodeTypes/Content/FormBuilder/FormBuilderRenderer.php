@@ -10,7 +10,6 @@ use PackageFactory\Neos\ComponentEngine\NeosContext;
 use Sitegeist\PaperTiger\CPX\NodeTypes\Form\FormFactory;
 use Vendor\Shared\Components\Block\FormBuilder\FormBuilder;
 use Vendor\WheelInventor\Integration\ContentContainerFactory;
-use Neos\Flow\Annotations as Flow;
 
 final class FormBuilderRenderer implements ContentNodeRendererInterface
 {

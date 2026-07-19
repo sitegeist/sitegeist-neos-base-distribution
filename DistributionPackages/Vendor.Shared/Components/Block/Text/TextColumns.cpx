@@ -1,4 +1,0 @@
-export enum TextColumns {
-	COLUMNS_ONE_COLUMN("Eine Spalte")
-	COLUMNS_TWO_COLUMNS("Zwei Spalten")
-}

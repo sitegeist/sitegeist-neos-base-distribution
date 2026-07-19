@@ -1,8 +1,0 @@
-'Vendor.WheelInventor:Content.FormBuilder':
-  superTypes:
-    'Vendor.WheelInventor:Content': true
-    'Sitegeist.PaperTiger.CPX:Form': true
-    'Vendor.Shared:Mixin.Headline': true
-  ui:
-    label: 'Form Builder'
-    icon: 'wpforms'

@@ -4,13 +4,13 @@ declare(strict_types=1);
 
 namespace Vendor\WheelInventor\Integration;
 
-use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
-use PackageFactory\Neos\ComponentEngine\NeosContext;
 use Sitegeist\Kaleidoscope\Cpx\Components\ImageSource\ImageSourceFactory;
 use Sitegeist\Kaleidoscope\Domain\DummyImageSource;
-use Sitegeist\Kaleidoscope\ValueObjects\ImageSourceProxy;
 use Vendor\Shared\Components\Block\Figure\Figure;
 use Vendor\Shared\Components\Block\Figure\FigureSize;
+use Vendor\Shared\NodeTypes\Mixin\ImageProvider;
+use Vendor\Shared\NodeTypes\Mixin\OptionalImageProvider;
+use Vendor\Shared\NodeTypes\Mixin\PreviewProvider;
 
 final class FigureFactory
 {
@@ -19,25 +19,35 @@ final class FigureFactory
     ) {
     }
 
-    public function tryForMixin(
-        NeosContext $context,
+    public function tryForImageProvider(
+        ImageProvider $imageProvider,
         FigureSize $figureSize = FigureSize::SIZE_DEFAULT,
         bool $isLazyLoaded = false,
-        string $propertyName = 'image',
-        ?Node $node = null,
     ): ?Figure {
-        $sourceNode = $node ?? $context->node;
-        $image = $context->nodes->getObjectValue(
-            $sourceNode,
-            $propertyName,
-            ImageSourceProxy::class
+        $imageSource = $this->imageSourceFactory->tryCreateForImageSourceProxy($imageProvider->image);
+        if ($imageSource === null) {
+            return null;
+        }
+
+        return Figure::create(
+            image: $imageSource,
+            size: $figureSize,
+            isLazyLoaded: $isLazyLoaded,
+            class: null
         );
+    }
 
-        if ($image === null) {
-            if (!$context->renderingMode->isEdit) {
-                return null;
-            }
+    public function tryForOptionalImageProvider(
+        OptionalImageProvider $optionalImageProvider,
+        FigureSize $figureSize = FigureSize::SIZE_DEFAULT,
+        bool $isLazyLoaded = false,
+        bool $inBackend = false,
+    ): ?Figure {
+        $imageSource = $optionalImageProvider->image
+            ? $this->imageSourceFactory->tryCreateForImageSourceProxy($optionalImageProvider->image)
+            : null;
 
+        if ($imageSource === null && $inBackend) {
             $imageSource = $this->imageSourceFactory->createForImageSourceInterface(
                 new DummyImageSource(
                     null,
@@ -50,18 +60,36 @@ final class FigureFactory
                     'Bild'
                 )
             );
-        } else {
-            $imageSource = $this->imageSourceFactory->tryCreateForImageSourceProxy($image);
+        }
+
+        return $imageSource
+            ? Figure::create(
+                image: $imageSource,
+                size: $figureSize,
+                isLazyLoaded: $isLazyLoaded,
+                class: null
+            )
+            : null;
+    }
+
+    public function tryForPreviewImageProvider(
+        PreviewProvider $previewProvider,
+        # shouldn't this be a fixed thingy for preview images?
+        FigureSize $figureSize = FigureSize::SIZE_DEFAULT,
+    ): ?Figure {
+        if ($previewProvider->previewImage) {
+            $imageSource = $this->imageSourceFactory->tryCreateForImageSourceProxy($previewProvider->previewImage);
             if ($imageSource === null) {
                 return null;
             }
+            return Figure::create(
+                image: $imageSource,
+                size: $figureSize,
+                isLazyLoaded: true,
+                class: null,
+            );
         }
 
-        return Figure::create(
-            image: $imageSource,
-            size: $figureSize,
-            isLazyLoaded: $isLazyLoaded,
-            class: null
-        );
+        return null;
     }
 }

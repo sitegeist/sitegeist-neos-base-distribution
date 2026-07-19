@@ -7,9 +7,8 @@ namespace Vendor\WheelInventor\NodeTypes\Content\ImageWithText;
 use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
-use Vendor\Shared\Components\Block\ImageWithText\ImageWithText;
-use Vendor\Shared\Components\Block\ImageWithText\ImageWithTextAlignment;
-use Vendor\Shared\Components\Block\ImageWithText\ImageWithTextLayout;
+use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
+use Vendor\Shared\Components\Block\ImageWithText\ImageWithText as ImageWithTextComponent;
 use Vendor\WheelInventor\Integration\ContentContainerFactory;
 use Vendor\WheelInventor\Integration\FigureFactory;
 use Vendor\WheelInventor\Integration\LinkedButtonFactory;
@@ -24,20 +23,11 @@ final class ImageWithTextRenderer implements ContentNodeRendererInterface
 
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
-        $alignment = $context->nodes->getObjectValue(
-            $context->node,
-            'alignment',
-            ImageWithTextAlignment::class
-        ) ?? ImageWithTextAlignment::VARIANT_IMAGEFIRST;
-        $layout = $context->nodes->getObjectValue(
-            $context->node,
-            'layout',
-            ImageWithTextLayout::class
-        ) ?? ImageWithTextLayout::VARIANT_50_50;
+        $imageWithText = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, ImageWithText::class);
 
         return ContentContainerFactory::create(
             $context,
-            ImageWithText::create(
+            ImageWithTextComponent::create(
                 headline: $context->neos->getEditable(
                     $context->node,
                     'headline',
@@ -48,10 +38,10 @@ final class ImageWithTextRenderer implements ContentNodeRendererInterface
                     'text',
                     true
                 ),
-                figure: $this->figureFactory->tryForMixin($context),
+                figure: $this->figureFactory->tryForOptionalImageProvider($imageWithText),
                 button: $this->linkedButtonFactory->tryForMixin($context) ?: '',
-                alignment: $alignment,
-                layout: $layout
+                alignment: $imageWithText->alignment,
+                layout: $imageWithText->layout,
             )
         );
     }

@@ -7,9 +7,11 @@ namespace Vendor\WheelInventor\NodeTypes\Content\AnchorNavigation;
 use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentRenderer;
-use PackageFactory\Neos\ComponentEngine\Integration\RenderingUseCase;
+use PackageFactory\Neos\ComponentEngine\Integration\RenderingUseCase as DefaultRenderingUseCase;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
-use Vendor\Shared\Components\Block\AnchorNavigation\AnchorNavigation;
+use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
+use Vendor\Shared\Components\Block\AnchorNavigation\AnchorNavigation as AnchorNavigationComponent;
+use Vendor\Shared\NodeTypes\RenderingUseCase;
 use Vendor\WheelInventor\Integration\ContentContainerFactory;
 
 final class AnchorNavigationRenderer implements ContentNodeRendererInterface
@@ -21,24 +23,23 @@ final class AnchorNavigationRenderer implements ContentNodeRendererInterface
 
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
-        $isSticky = $context->nodes->getBoolValue(
-            $context->node,
-            'isSticky'
-        );
+        $anchorNavigation = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, AnchorNavigation::class);
 
-        $anchorNavigation = AnchorNavigation::create(
+        $anchorNavigationComponent = AnchorNavigationComponent::create(
             items: $this->contentRenderer->renderContentChildren(
                 $context,
-                RenderingUseCase::CONTENT
+                $anchorNavigation->isSticky
+                    ? RenderingUseCase::STICKY_CONTENT
+                    : DefaultRenderingUseCase::CONTENT
             ),
-            isSticky: $isSticky ?? false,
+            isSticky: $anchorNavigation->isSticky,
         );
 
-        return $isSticky
-            ? $anchorNavigation
+        return $anchorNavigation->isSticky
+            ? $anchorNavigationComponent
             : ContentContainerFactory::create(
                 $context,
-                $anchorNavigation,
+                $anchorNavigationComponent,
             );
     }
 }

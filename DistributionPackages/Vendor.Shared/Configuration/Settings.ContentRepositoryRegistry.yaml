@@ -1,0 +1,6 @@
+Neos:
+  ContentRepositoryRegistry:
+    presets:
+      default:
+        nodeTypeManager:
+          factoryObjectName: PackageFactory\OPGM\ContentRepositoryRegistryAdapter\OPGMNodeTypeManagerFactory

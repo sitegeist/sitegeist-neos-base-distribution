@@ -1,5 +1,0 @@
-export enum ImageWithTextLayout {
-	VARIANT_50_50("50-50")
-	VARIANT_66_33("66-33")
-	VARIANT_33_66("33-66")
-}

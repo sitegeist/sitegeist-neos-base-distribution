@@ -1,8 +1,0 @@
-from "./LinkTarget.cpx" import { LinkTarget }
-
-export struct LinkStruct {
-	href: ?string
-	title: ?string
-	rel: ?string
-	target: ?LinkTarget
-}

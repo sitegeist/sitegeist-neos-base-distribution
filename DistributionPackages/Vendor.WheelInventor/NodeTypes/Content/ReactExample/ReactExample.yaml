@@ -1,7 +1,0 @@
-'Vendor.WheelInventor:Content.ReactExampleSSR':
-  superTypes:
-    'Vendor.WheelInventor:Content': true
-    'Vendor.Shared:Mixin.Headline': true
-  ui:
-    label: 'ReactExample (SSR)'
-    icon: 'smile'

@@ -7,28 +7,26 @@ namespace Vendor\WheelInventor\NodeTypes\Content\Text;
 use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
-use Vendor\Shared\Components\Block\Text\Text;
-use Vendor\Shared\Components\Block\Text\TextColumns;
+use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
 use Vendor\WheelInventor\Integration\ContentContainerFactory;
 use Vendor\WheelInventor\Integration\LinkedButtonFactory;
+use Vendor\Shared\Components\Block\Text\Text as TextComponent;
 
 final class TextRenderer implements ContentNodeRendererInterface
 {
     public function __construct(
-        private readonly LinkedButtonFactory $linkedbuttonFactory
+        private readonly LinkedButtonFactory $linkedButtonFactory,
     ) {
     }
 
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
+        $text = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, Text::class);
+
         return ContentContainerFactory::create(
             $context,
-            Text::create(
-                columns: $context->nodes->getObjectValue(
-                    $context->node,
-                    'columns',
-                    TextColumns::class
-                ) ?: TextColumns::COLUMNS_ONE_COLUMN,
+            TextComponent::create(
+                columns: $text->columns,
                 headline: $context->neos->getEditable(
                     $context->node,
                     'headline',
@@ -39,7 +37,7 @@ final class TextRenderer implements ContentNodeRendererInterface
                     'text',
                     true
                 ),
-                button: $this->linkedbuttonFactory->tryForMixin($context) ?: ''
+                button: $this->linkedButtonFactory->tryForMixin($context) ?: ''
             )
         );
     }

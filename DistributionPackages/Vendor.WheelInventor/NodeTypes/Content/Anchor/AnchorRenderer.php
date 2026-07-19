@@ -7,6 +7,7 @@ namespace Vendor\WheelInventor\NodeTypes\Content\Anchor;
 use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
+use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
 use Vendor\Shared\Components\Block\AnchorNavigation\Item\AnchorNavigationItem;
 use Vendor\Shared\Components\Block\Link\LinkStruct;
 
@@ -14,33 +15,35 @@ final class AnchorRenderer implements ContentNodeRendererInterface
 {
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
-        $targetIdentifier = $context->nodes->getStringValue(
-            $context->node,
-            'targetIdentifier'
-        );
-        $parentNode = $context->subgraph->findParentNode($context->node->aggregateId);
+        return $this->render($context, false);
+    }
 
+    public function renderAsStickyContent(NeosContext $context): ComponentInterface
+    {
+        return $this->render($context, true);
+    }
+
+    private function render(NeosContext $context, bool $sticky): ComponentInterface
+    {
+        $anchor = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, Anchor::class);
+
+        // @todo: link & inBackend in der Komponente?
         return AnchorNavigationItem::create(
             link: LinkStruct::create(
-                href: (!$context->renderingMode->isEdit && $targetIdentifier)
-                    ? '#' . $targetIdentifier
+                href: (!$context->renderingMode->isEdit && $anchor->targetIdentifier)
+                    ? '#' . $anchor->targetIdentifier
                     : null,
                 title: null,
                 rel: null,
                 target: null
             ),
-            inBackend: $context->renderingMode->isEdit,
             title: $context->neos->getEditable(
                 $context->node,
                 'title',
                 true
             ),
-            forSticky: $parentNode
-                ? ($context->nodes->getBoolValue(
-                    $parentNode,
-                    'isSticky'
-                ) ?? false)
-                : false
+            inBackend: $context->renderingMode->isEdit,
+            forSticky: $sticky,
         );
     }
 }
