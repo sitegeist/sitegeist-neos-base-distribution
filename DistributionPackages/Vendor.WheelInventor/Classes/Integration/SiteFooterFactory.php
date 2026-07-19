@@ -8,6 +8,7 @@ use Neos\Neos\Domain\Link\Link as NeosLink;
 use PackageFactory\ComponentEngine\ComponentCollection;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
 use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
+use PackageFactory\OPGM\Domain\ReferenceIsMissing;
 use Vendor\Shared\Components\Block\Link\Link;
 use Vendor\Shared\Components\Block\Link\LinkStruct;
 use Vendor\Shared\Components\Block\Link\LinkTarget;
@@ -79,8 +80,13 @@ final class SiteFooterFactory
     ): ?ComponentCollection {
         /** @var list<Link> $items */
         $items = [];
-        foreach ($documents as $document) {
-            $items[] = $this->createNavigationItem($context, $document, $inBackend);
+        try {
+            foreach ($documents as $document) {
+                $items[] = $this->createNavigationItem($context, $document, $inBackend);
+            }
+        } catch (ReferenceIsMissing) {
+            // then don't
+            // @todo this exception should not be thrown for collections, must investigate
         }
 
         return ComponentCollection::list(...$items);

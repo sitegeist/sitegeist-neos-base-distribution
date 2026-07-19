@@ -5,8 +5,6 @@ declare(strict_types=1);
 namespace Vendor\Shared\NodeTypes\Mixin;
 
 use Neos\ContentRepository\Core\Feature\NodeModification\Dto\PropertyScope;
-use Neos\Neos\NodeTypes\Document;
-use PackageFactory\OPGM\Domain\NodeType\NodeTypeConstraintsDeclaration;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
 use PackageFactory\OPGM\Domain\NodeType\ReferenceRelationDeclaration;
 use PackageFactory\OPGM\Domain\Property\PropertyScopeDeclaration;
@@ -40,31 +38,19 @@ trait FooterMixin
     #[InspectorConfiguration(group: 'footerLinks')]
     public readonly ?string $tertiaryMenuTitle;
 
-    #[ReferenceRelationDeclaration(nodeTypes: new NodeTypeConstraintsDeclaration(
-        fqns: [
-            Document::class => true,
-        ]
-    ))]
+    #[ReferenceRelationDeclaration]
     #[PropertyScopeDeclaration(scope: PropertyScope::SCOPE_NODE_AGGREGATE)]
     #[PropertyUiConfiguration(label: 'Footer-Navigation - Teil 1', reloadIfChanged: true)]
     #[InspectorConfiguration(group: 'footerLinks')]
     public readonly Documents $primaryMenu;
 
-    #[ReferenceRelationDeclaration(nodeTypes: new NodeTypeConstraintsDeclaration(
-        fqns: [
-            Document::class => true,
-        ]
-    ))]
+    #[ReferenceRelationDeclaration]
     #[PropertyScopeDeclaration(scope: PropertyScope::SCOPE_NODE_AGGREGATE)]
     #[PropertyUiConfiguration(label: 'Footer-Navigation - Teil 2', reloadIfChanged: true)]
     #[InspectorConfiguration(group: 'footerLinks')]
     public readonly Documents $secondaryMenu;
 
-    #[ReferenceRelationDeclaration(nodeTypes: new NodeTypeConstraintsDeclaration(
-        fqns: [
-            Document::class => true,
-        ]
-    ))]
+    #[ReferenceRelationDeclaration]
     #[PropertyScopeDeclaration(scope: PropertyScope::SCOPE_NODE_AGGREGATE)]
     #[PropertyUiConfiguration(label: 'Footer-Navigation - Teil 3', reloadIfChanged: true)]
     #[InspectorConfiguration(group: 'footerLinks')]
