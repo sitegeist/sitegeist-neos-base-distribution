@@ -1,7 +1,7 @@
 name: sitegeist-neos-base-distribution
 type: php
 docroot: Web
-php_version: "8.5"
+php_version: "8.4"
 webserver_type: nginx-fpm
 xdebug_enabled: false
 additional_hostnames: []
