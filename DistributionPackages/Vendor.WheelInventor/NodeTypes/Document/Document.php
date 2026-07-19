@@ -6,6 +6,7 @@ namespace Vendor\WheelInventor\NodeTypes\Document;
 
 use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
 use Neos\Neos\NodeTypes\Document as NeosDocument;
+use Neos\Neos\NodeTypes\DocumentProperties;
 use PackageFactory\Neos\Seo\NodeTypes\Mixin\CanonicalLinkMixin;
 use PackageFactory\Neos\Seo\NodeTypes\Mixin\CanonicalLinkProvider;
 use PackageFactory\Neos\Seo\NodeTypes\Mixin\OpenGraphMetadataMixin;
@@ -21,6 +22,7 @@ use Vendor\Shared\NodeTypes\Mixin\PreviewProvider;
 
 #[NodeTypeDeclaration]
 abstract readonly class Document implements
+    NeosDocument,
     CanonicalLinkProvider,
     OpenGraphMetadataProvider,
     SeoMetaTagsProvider,
@@ -33,7 +35,7 @@ abstract readonly class Document implements
     use SeoMetaTagsMixin;
     use TitleOverrideMixin;
     use PreviewMixin;
-    use NeosDocument;
+    use DocumentProperties;
 
     public function __construct(
         public Node $node,
