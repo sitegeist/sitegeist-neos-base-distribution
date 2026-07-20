@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e348d0f6184ef5da5dd25d609215d88c",
+    "content-hash": "ef32067ae446eb417f2085279a3d5dc5",
     "packages": [
         {
             "name": "altcha-org/altcha",
@@ -6237,12 +6237,12 @@
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/neos-seo.git",
-                "reference": "ac256a151f909fdb48631218b1859d40e7378b87"
+                "reference": "abc8907c0ff0ecd7e12765f7d4cfa40b5dc2dff0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/neos-seo/archive/ac256a151f909fdb48631218b1859d40e7378b87.zip",
-                "reference": "ac256a151f909fdb48631218b1859d40e7378b87",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/neos-seo/archive/abc8907c0ff0ecd7e12765f7d4cfa40b5dc2dff0.zip",
+                "reference": "abc8907c0ff0ecd7e12765f7d4cfa40b5dc2dff0",
                 "shasum": ""
             },
             "require": {
@@ -6277,7 +6277,7 @@
                 "source": "https://codeberg.org/PackageFactory/neos-seo/branch/main",
                 "issues": "https://codeberg.org/PackageFactory/neos-seo/issues"
             },
-            "time": "2026-07-18T15:07:35+02:00"
+            "time": "2026-07-19T23:32:24+02:00"
         },
         {
             "name": "packagefactory/opgm",
@@ -6425,17 +6425,22 @@
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/opgm-neosadapter.git",
-                "reference": "3c4c1b5f4af908fd3170e1679b683fbdeafcf4f6"
+                "reference": "597245b224d1766fd0c30d579c5f8548d8fdf46b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm-neosadapter/archive/3c4c1b5f4af908fd3170e1679b683fbdeafcf4f6.zip",
-                "reference": "3c4c1b5f4af908fd3170e1679b683fbdeafcf4f6",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm-neosadapter/archive/597245b224d1766fd0c30d579c5f8548d8fdf46b.zip",
+                "reference": "597245b224d1766fd0c30d579c5f8548d8fdf46b",
                 "shasum": ""
             },
             "require": {
                 "neos/neos": "^9.0",
                 "packagefactory/opgm-contentrepositoryregistryadapter": "*"
+            },
+            "suggest": {
+                "flowpack/nodetemplates": "For making use of the NodeTemplateDeclaration attribute",
+                "neos/neos-ui": "For making use of the NodeCreationHandlerConfiguration attribute",
+                "sitegeist/inspectorgadget": "For making use of the ValueObjectEditorConfiguration attribute"
             },
             "default-branch": true,
             "type": "neos-package",
@@ -6458,7 +6463,7 @@
                 "source": "https://codeberg.org/PackageFactory/opgm-neosadapter/branch/main",
                 "issues": "https://codeberg.org/PackageFactory/opgm-neosadapter/issues"
             },
-            "time": "2026-07-18T11:47:53+02:00"
+            "time": "2026-07-19T23:33:59+02:00"
         },
         {
             "name": "psr/cache",
@@ -7472,64 +7477,6 @@
                 "source": "https://github.com/Seldaek/signal-handler/tree/2.0.2"
             },
             "time": "2023-09-03T09:24:00+00:00"
-        },
-        {
-            "name": "sitegeist/archaeopteryx",
-            "version": "2.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/sitegeist/Sitegeist.Archaeopteryx.git",
-                "reference": "11bf0919a84b592b14bafd1fe34d237aed34464d"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/sitegeist/Sitegeist.Archaeopteryx/zipball/11bf0919a84b592b14bafd1fe34d237aed34464d",
-                "reference": "11bf0919a84b592b14bafd1fe34d237aed34464d",
-                "shasum": ""
-            },
-            "require": {
-                "neos/neos": "^9.0"
-            },
-            "require-dev": {
-                "mikey179/vfsstream": "^1.6",
-                "neos/buildessentials": "^6.3",
-                "phpstan/phpstan": "^1.10",
-                "phpunit/phpunit": "^9.4",
-                "squizlabs/php_codesniffer": "^3.6"
-            },
-            "type": "neos-plugin",
-            "extra": {
-                "neos": {
-                    "package-key": "Sitegeist.Archaeopteryx"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Sitegeist\\Archaeopteryx\\": "Classes"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Martin Ficzel",
-                    "email": "ficzel@sitegeist.de",
-                    "role": "Developer"
-                },
-                {
-                    "name": "Wilhelm Behncke",
-                    "email": "behncke@sitegeist.de",
-                    "role": "Developer"
-                }
-            ],
-            "description": "The missing link editor for Neos",
-            "support": {
-                "issues": "https://github.com/sitegeist/Sitegeist.Archaeopteryx/issues",
-                "source": "https://github.com/sitegeist/Sitegeist.Archaeopteryx/tree/2.0.1"
-            },
-            "time": "2025-05-28T13:35:51+00:00"
         },
         {
             "name": "sitegeist/csvpo",
