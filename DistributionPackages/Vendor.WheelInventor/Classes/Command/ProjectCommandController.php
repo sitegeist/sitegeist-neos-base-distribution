@@ -40,12 +40,12 @@ final class ProjectCommandController extends CommandController
 
     public function setupSiteCommand(string $siteName, string $siteId, string $domainName)
     {
-        #throw new \RuntimeException('define site variables first (see below)');
+        throw new \RuntimeException('Remove before flight: Make sure to set up the dimension space first and define your node ids and names below');
         $sitesId = 'vendor-wheelinventor-sites';
         $sitePackageKey = 'Vendor.WheelInventor';
         $initialOriginDSP = OriginDimensionSpacePoint::createWithoutDimensions();
-
         $contentRepositoryId = ContentRepositoryId::fromString('default');
+
         $contentRepository = $this->contentRepositoryRegistry->get($contentRepositoryId);
 
         try {
