@@ -13,8 +13,8 @@ use Vendor\Shared\Components\Block\FormBuilder\Fields\InvalidIcon\InvalidIcon;
 final readonly class Input implements _\ComponentInterface
 {
     private function __construct(
-        private InputField $_912_InputField,
-        private InvalidIcon $_1012_InvalidIcon,
+        private InputField $_830_InputField,
+        private InvalidIcon $_858_InvalidIcon,
     ) {
     }
 
@@ -22,15 +22,15 @@ final readonly class Input implements _\ComponentInterface
         InputFieldProps $field,
     ): self {
         return new self(
-            _912_InputField: InputField::create(
+            _830_InputField: InputField::create(
                 field: $field,
             ),
-            _1012_InvalidIcon: InvalidIcon::create(),
+            _858_InvalidIcon: InvalidIcon::create(),
         );
     }
 
     public function render(): string
     {
-        return '<div class="relative">' . $this->_912_InputField->render() . '' . $this->_1012_InvalidIcon->render() . '</div>';
+        return '<div class="relative">' . $this->_830_InputField->render() . '' . $this->_858_InvalidIcon->render() . '</div>';
     }
 }

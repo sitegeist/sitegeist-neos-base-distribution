@@ -13,7 +13,7 @@ use Vendor\Shared\Components\Layout\Grid\PageGrid;
 final readonly class PageBody implements _\ComponentInterface
 {
     private function __construct(
-        private PageGrid $_1212_PageGrid,
+        private PageGrid $_1014_PageGrid,
     ) {
     }
 
@@ -27,7 +27,7 @@ final readonly class PageBody implements _\ComponentInterface
         SiteFooter|_\ComponentEnvelopeInterface $siteFooter,
     ): self {
         return new self(
-            _1212_PageGrid: PageGrid::create(
+            _1014_PageGrid: PageGrid::create(
                 content: _\SlotComponent::list(
                     $siteHeader,
                     (($temp = $content) === null ? null : $temp),
@@ -39,6 +39,6 @@ final readonly class PageBody implements _\ComponentInterface
 
     public function render(): string
     {
-        return '<body>' . $this->_1212_PageGrid->render() . '</body>';
+        return '<body>' . $this->_1014_PageGrid->render() . '</body>';
     }
 }

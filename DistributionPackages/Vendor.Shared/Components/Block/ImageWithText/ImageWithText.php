@@ -5,41 +5,34 @@ declare(strict_types=1);
 namespace Vendor\Shared\Components\Block\ImageWithText;
 
 use PackageFactory\ComponentEngine as _;
-use Vendor\Shared\Components\Block\Button\Button;
 use Vendor\Shared\Components\Block\Copy\Copy;
 use Vendor\Shared\Components\Block\Copy\CopySize;
-use Vendor\Shared\Components\Block\Figure\Figure;
 use Vendor\Shared\Components\Block\Headline\Headline;
 use Vendor\Shared\Components\Block\Headline\HeadlineSize;
 use Vendor\Shared\Components\Block\Headline\HeadlineTag;
 use Vendor\Shared\Components\Block\Headline\HeadlineVariant;
 use Vendor\Shared\Components\Block\ImageWithText\ImageWithTextAlignment;
 use Vendor\Shared\Components\Block\ImageWithText\ImageWithTextLayout;
-use Vendor\Shared\Components\Block\LinkedButton\LinkedButton;
 use Vendor\Shared\Components\Layout\Grid\ContentGrid;
 
 #[\Neos\Flow\Annotations\Proxy(false)]
 final readonly class ImageWithText implements _\ComponentInterface
 {
     private function __construct(
-        private ContentGrid $_238_ContentGrid,
+        private ContentGrid $_198_ContentGrid,
     ) {
     }
 
-    /**
-     * @param Figure|_\ComponentEnvelopeInterface<Figure>|_\ComponentInterface|null $figure
-     * @param Button|LinkedButton|_\ComponentEnvelopeInterface<Button|LinkedButton>|_\ComponentInterface|null $button
-     */
     public static function create(
         _\ComponentInterface|string|null $headline,
         _\ComponentInterface|string|null $content,
-        Figure|_\ComponentEnvelopeInterface|_\ComponentInterface|string|null $figure,
-        Button|LinkedButton|_\ComponentEnvelopeInterface|_\ComponentInterface|string|null $button,
+        _\ComponentInterface|string|null $figure,
+        _\ComponentInterface|string|null $button,
         ImageWithTextAlignment $alignment,
         ImageWithTextLayout $layout,
     ): self {
         return new self(
-            _238_ContentGrid: ContentGrid::create(
+            _198_ContentGrid: ContentGrid::create(
                 componentName: 'ImageWithText',
                 content: _\SlotComponent::list(
                     '<div' .  (($temp = _\Util::joinAttributeValues([match ($alignment) { ImageWithTextAlignment::VARIANT_IMAGELAST => 'lg:order-2', default => 'lg:order-1' }, match ($layout) { ImageWithTextLayout::VARIANT_66_33 => 'col-span-full md:col-span-8', ImageWithTextLayout::VARIANT_33_66 => 'col-span-full md:col-span-4', default => 'col-span-full md:col-span-6' }])) === '' ? '' : ' class="' . $temp . '"') . '>',
@@ -65,6 +58,6 @@ final readonly class ImageWithText implements _\ComponentInterface
 
     public function render(): string
     {
-        return $this->_238_ContentGrid->render();
+        return $this->_198_ContentGrid->render();
     }
 }

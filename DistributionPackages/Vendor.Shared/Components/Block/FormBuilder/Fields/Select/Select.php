@@ -14,7 +14,7 @@ final readonly class Select implements _\ComponentInterface
 {
     private function __construct(
         private SelectField $_1012_SelectField,
-        private InvalidIcon $_1312_InvalidIcon,
+        private InvalidIcon $_1112_InvalidIcon,
     ) {
     }
 
@@ -29,12 +29,12 @@ final readonly class Select implements _\ComponentInterface
                     (($temp = $content) === null ? null : $temp)
                 ),
             ),
-            _1312_InvalidIcon: InvalidIcon::create(),
+            _1112_InvalidIcon: InvalidIcon::create(),
         );
     }
 
     public function render(): string
     {
-        return '<div class="relative">' . $this->_1012_SelectField->render() . '' . $this->_1312_InvalidIcon->render() . '</div>';
+        return '<div class="relative">' . $this->_1012_SelectField->render() . '' . $this->_1112_InvalidIcon->render() . '</div>';
     }
 }

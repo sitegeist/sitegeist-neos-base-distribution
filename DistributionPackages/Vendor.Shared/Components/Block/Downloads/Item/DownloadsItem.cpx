@@ -1,10 +1,8 @@
-from "../../Figure/Figure.cpx" import { Figure }
-from "../../Headline/Headline.cpx" import { Headline }
 from "../../Link/LinkStruct.cpx" import { LinkStruct }
 
 export component DownloadsItem {
-    media: Figure | slot
-    headline: Headline | slot
+    media: slot
+    headline: slot
     primaryMetaHeadline: slot
     secondaryMetaHeadline: slot
     link: LinkStruct

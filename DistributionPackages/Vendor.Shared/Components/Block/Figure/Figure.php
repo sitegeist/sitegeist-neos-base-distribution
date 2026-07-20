@@ -13,8 +13,7 @@ use Vendor\Shared\Components\Block\Figure\FigureSize;
 final readonly class Figure implements _\ComponentInterface
 {
     private function __construct(
-        private ?string $class,
-        private Image $_2012_Image,
+        private Image $_1712_Image,
     ) {
     }
 
@@ -22,11 +21,9 @@ final readonly class Figure implements _\ComponentInterface
         ImageSource $image,
         ?FigureSize $size,
         bool $isLazyLoaded,
-        ?string $class,
     ): self {
         return new self(
-            class: $class,
-            _2012_Image: Image::create(
+            _1712_Image: Image::create(
                 imageSource: $image,
                 width: null,
                 height: null,
@@ -43,6 +40,6 @@ final readonly class Figure implements _\ComponentInterface
 
     public function render(): string
     {
-        return '<figure data-component="Figure" class="' . _\Util::joinAttributeValues(['[Block.Figure]', 'w-full h-full flex flex-col max-h-full relative', (($this->class !== null) ? (($temp = $this->class) === null ? '' : _\Util::escapeAttributeValue($temp)) : '')]) . '">' . $this->_2012_Image->render() . '</figure>';
+        return '<figure data-component="Figure" class="' . _\Util::joinAttributeValues(['[Block.Figure]', 'w-full h-full flex flex-col max-h-full relative']) . '">' . $this->_1712_Image->render() . '</figure>';
     }
 }

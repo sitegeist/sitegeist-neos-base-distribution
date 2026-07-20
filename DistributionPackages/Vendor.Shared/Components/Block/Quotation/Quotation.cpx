@@ -1,10 +1,9 @@
 from "../../Layout/Grid/ContentGrid.cpx" import { ContentGrid }
 from "../Copy/Copy.cpx" import { Copy }
 from "../Copy/CopySize.cpx" import { CopySize }
-from "../Figure/Figure.cpx" import { Figure }
 
 export component Quotation {
-    figure: Figure | slot
+    figure: slot
     content: slot
     spokenByName: slot
     spokenByJobTitle: slot

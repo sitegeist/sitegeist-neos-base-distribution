@@ -15,10 +15,10 @@ use Vendor\Shared\Components\Block\SiteFooter\SiteFooterItem;
 final readonly class SiteFooter implements _\ComponentInterface
 {
     private function __construct(
-        private SiteFooterItem $_3016_SiteFooterItem,
+        private SiteFooterItem $_2916_SiteFooterItem,
+        private SiteFooterItem $_3216_SiteFooterItem,
+        private SiteFooterItem $_3516_SiteFooterItem,
         private SiteFooterItem $_3816_SiteFooterItem,
-        private SiteFooterItem $_4616_SiteFooterItem,
-        private SiteFooterItem $_5416_SiteFooterItem,
     ) {
     }
 
@@ -37,7 +37,7 @@ final readonly class SiteFooter implements _\ComponentInterface
         bool $inBackend,
     ): self {
         return new self(
-            _3016_SiteFooterItem: SiteFooterItem::create(
+            _2916_SiteFooterItem: SiteFooterItem::create(
                 title: $primaryMenuTitle,
                 content: _\SlotComponent::list(
                     '<div class="flex flex-col gap-8">',
@@ -45,7 +45,7 @@ final readonly class SiteFooter implements _\ComponentInterface
                     '</div>'
                 ),
             ),
-            _3816_SiteFooterItem: SiteFooterItem::create(
+            _3216_SiteFooterItem: SiteFooterItem::create(
                 title: $secondaryMenuTitle,
                 content: _\SlotComponent::list(
                     '<div class="flex flex-col gap-8">',
@@ -53,7 +53,7 @@ final readonly class SiteFooter implements _\ComponentInterface
                     '</div>'
                 ),
             ),
-            _4616_SiteFooterItem: SiteFooterItem::create(
+            _3516_SiteFooterItem: SiteFooterItem::create(
                 title: $thirdMenuTitle,
                 content: _\SlotComponent::list(
                     '<div class="flex flex-col gap-8">',
@@ -61,7 +61,7 @@ final readonly class SiteFooter implements _\ComponentInterface
                     '</div>'
                 ),
             ),
-            _5416_SiteFooterItem: SiteFooterItem::create(
+            _3816_SiteFooterItem: SiteFooterItem::create(
                 title: 'Folgen Sie uns!',
                 content: _\SlotComponent::list(
                     '<div class="flex flex-wrap gap-16 mt-auto">',
@@ -133,6 +133,6 @@ final readonly class SiteFooter implements _\ComponentInterface
 
     public function render(): string
     {
-        return '<footer data-component="SiteFooter" class="' . _\Util::joinAttributeValues(...['group/SiteFooter col-span-full mt-auto bg-brand-grey', 'grid grid-cols-subgrid']) . '"><div class="col-span-content-full grid grid-cols-1 lg:grid-cols-4 gap-24 py-24">' . $this->_3016_SiteFooterItem->render() . '' . $this->_3816_SiteFooterItem->render() . '' . $this->_4616_SiteFooterItem->render() . '' . $this->_5416_SiteFooterItem->render() . '</div></footer>';
+        return '<footer data-component="SiteFooter" class="' . _\Util::joinAttributeValues(['group/SiteFooter col-span-full mt-auto bg-brand-grey', 'grid grid-cols-subgrid']) . '"><div class="col-span-content-full grid grid-cols-1 lg:grid-cols-4 gap-24 py-24">' . $this->_2916_SiteFooterItem->render() . '' . $this->_3216_SiteFooterItem->render() . '' . $this->_3516_SiteFooterItem->render() . '' . $this->_3816_SiteFooterItem->render() . '</div></footer>';
     }
 }

@@ -13,7 +13,7 @@ use Vendor\Shared\Components\Block\Link\LinkVariant;
 final readonly class MainNavigationSubItem implements _\ComponentInterface
 {
     private function __construct(
-        private Link $_108_Link,
+        private Link $_98_Link,
     ) {
     }
 
@@ -22,7 +22,7 @@ final readonly class MainNavigationSubItem implements _\ComponentInterface
         string $label,
     ): self {
         return new self(
-            _108_Link: Link::create(
+            _98_Link: Link::create(
                 link: $link,
                 variant: LinkVariant::VARIANT_MENU_SUB_ITEM,
                 component: null,
@@ -41,6 +41,6 @@ final readonly class MainNavigationSubItem implements _\ComponentInterface
 
     public function render(): string
     {
-        return $this->_108_Link->render();
+        return $this->_98_Link->render();
     }
 }

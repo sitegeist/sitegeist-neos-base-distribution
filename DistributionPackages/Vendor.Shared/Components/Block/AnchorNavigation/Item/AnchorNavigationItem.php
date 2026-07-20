@@ -13,7 +13,7 @@ use Vendor\Shared\Components\Block\Link\LinkVariant;
 final readonly class AnchorNavigationItem implements _\ComponentInterface
 {
     private function __construct(
-        private Link $_128_Link,
+        private Link $_118_Link,
     ) {
     }
 
@@ -24,7 +24,7 @@ final readonly class AnchorNavigationItem implements _\ComponentInterface
         bool $forSticky,
     ): self {
         return new self(
-            _128_Link: Link::create(
+            _118_Link: Link::create(
                 component: 'AnchorNavigationItem',
                 link: $link,
                 variant: LinkVariant::VARIANT_DEFAULT,
@@ -40,6 +40,6 @@ final readonly class AnchorNavigationItem implements _\ComponentInterface
 
     public function render(): string
     {
-        return $this->_128_Link->render();
+        return $this->_118_Link->render();
     }
 }

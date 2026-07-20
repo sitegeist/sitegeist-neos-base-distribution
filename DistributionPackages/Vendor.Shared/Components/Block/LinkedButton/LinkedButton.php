@@ -14,7 +14,7 @@ use Vendor\Shared\Components\Block\Link\LinkVariant;
 final readonly class LinkedButton implements _\ComponentInterface
 {
     private function __construct(
-        private Link $_118_Link,
+        private Link $_108_Link,
     ) {
     }
 
@@ -26,7 +26,7 @@ final readonly class LinkedButton implements _\ComponentInterface
         LinkStruct $link,
     ): self {
         return new self(
-            _118_Link: Link::create(
+            _108_Link: Link::create(
                 link: $link,
                 component: 'LinkedButton',
                 variant: LinkVariant::VARIANT_NONE,
@@ -40,6 +40,6 @@ final readonly class LinkedButton implements _\ComponentInterface
 
     public function render(): string
     {
-        return $this->_118_Link->render();
+        return $this->_108_Link->render();
     }
 }

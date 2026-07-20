@@ -8,9 +8,6 @@ use PackageFactory\ComponentEngine as _;
 use Vendor\Shared\Components\Block\Link\Link;
 use Vendor\Shared\Components\Block\MenuButton\MenuButton;
 use Vendor\Shared\Components\Block\SiteHeader\MainNavigation\MainNavigation;
-use Vendor\Shared\Components\Layout\ContentContainer\ContentContainer;
-use Vendor\Shared\Components\Layout\ContentContainer\ContentContainerTag;
-use Vendor\Shared\Components\Layout\ContentContainer\ContentContainerVariant;
 
 #[\Neos\Flow\Annotations\Proxy(false)]
 final readonly class SiteHeader implements _\ComponentInterface
@@ -22,7 +19,7 @@ final readonly class SiteHeader implements _\ComponentInterface
     private function __construct(
         private Link|_\ComponentEnvelopeInterface $homeLink,
         private MainNavigation|_\ComponentEnvelopeInterface $mainNavigation,
-        private MenuButton $_2316_MenuButton,
+        private MenuButton $_1916_MenuButton,
     ) {
     }
 
@@ -37,12 +34,12 @@ final readonly class SiteHeader implements _\ComponentInterface
         return new self(
             homeLink: $homeLink,
             mainNavigation: $mainNavigation,
-            _2316_MenuButton: MenuButton::create(),
+            _1916_MenuButton: MenuButton::create(),
         );
     }
 
     public function render(): string
     {
-        return '<header data-component="SiteHeader" class="' . _\Util::joinAttributeValues(...['group/SiteHeader col-span-full sticky top-0', 'grid grid-cols-subgrid z-50 bg-brand-grey h-header']) . '"><div class="col-span-content-full flex justify-between w-full items-center">' . $this->homeLink->render() . '' . $this->mainNavigation->render() . '' . $this->_2316_MenuButton->render() . '</div></header>';
+        return '<header data-component="SiteHeader" class="' . _\Util::joinAttributeValues(['group/SiteHeader col-span-full sticky top-0', 'grid grid-cols-subgrid z-50 bg-brand-grey h-header']) . '"><div class="col-span-content-full flex justify-between w-full items-center">' . $this->homeLink->render() . '' . $this->mainNavigation->render() . '' . $this->_1916_MenuButton->render() . '</div></header>';
     }
 }

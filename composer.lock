@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "683ab62202ce4991e22481e59df6db0a",
+    "content-hash": "c0aacc4f6b43e329f1ebbb3807f10acb",
     "packages": [
         {
             "name": "altcha-org/altcha",
@@ -6126,11 +6126,11 @@
         },
         {
             "name": "packagefactory/component-engine",
-            "version": "1.0.0-alpha4",
+            "version": "1.0.0-alpha3",
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/component-engine",
-                "reference": "adba3ef269b095721b7e8a9595051ce2646c6833"
+                "reference": "e68fc7e155d59c28b3cb9191361bdfeb69735b66"
             },
             "require": {
                 "php": ">=8.2"
@@ -6158,20 +6158,20 @@
                 "GPL-3.0-or-later"
             ],
             "description": "Universal View Components for PHP",
-            "time": "2026-03-06T19:45:48+00:00"
+            "time": "2025-12-30T13:30:49+00:00"
         },
         {
             "name": "packagefactory/neos-component-engine",
-            "version": "1.0.0-alpha4",
+            "version": "1.0.0-alpha3",
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/neos-component-engine",
-                "reference": "9fb7c8fbe0fbe851151019bb44917ed772f3cae2"
+                "reference": "3627250c5a8e288053de4fd29bc210fcccf0c9b1"
             },
             "require": {
                 "neos/neos": "^9.0",
                 "neos/neos-ui": "^9.0",
-                "packagefactory/component-engine": "1.0.0-alpha4"
+                "packagefactory/component-engine": "1.0.0-alpha3"
             },
             "require-dev": {
                 "neos/contentgraph-doctrinedbaladapter": "^9.0",
@@ -6196,7 +6196,7 @@
                 "GPL-3.0-or-later"
             ],
             "description": "Adapter package that integrates PackageFactory.ComponentEngine with Neos CMS",
-            "time": "2026-03-06T20:06:37+00:00"
+            "time": "2025-12-30T13:39:32+00:00"
         },
         {
             "name": "packagefactory/neos-componentview",
@@ -8065,12 +8065,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX.git",
-                "reference": "ef917512a264ee962288c38a0efbdb5c13ff1283"
+                "reference": "758286c771e69e3a4037ea8c419917a0406edd83"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Devclaim/Sitegeist.PaperTiger.CPX/zipball/ef917512a264ee962288c38a0efbdb5c13ff1283",
-                "reference": "ef917512a264ee962288c38a0efbdb5c13ff1283",
+                "url": "https://api.github.com/repos/Devclaim/Sitegeist.PaperTiger.CPX/zipball/758286c771e69e3a4037ea8c419917a0406edd83",
+                "reference": "758286c771e69e3a4037ea8c419917a0406edd83",
                 "shasum": ""
             },
             "require": {
@@ -8079,7 +8079,7 @@
                 "neos/neos": "^9.1",
                 "neos/neos-ui": "^9.1",
                 "neos/symfonymailer": "^1.0.2",
-                "packagefactory/neos-component-engine": "1.0.0-alpha4",
+                "packagefactory/neos-component-engine": "^1.0.0",
                 "php": ">=8.4",
                 "sitegeist/inspectorgadget": "^3.0",
                 "sitegeist/schemeonyou": "^2.1.0"
@@ -8111,7 +8111,7 @@
                 "source": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX/tree/main",
                 "issues": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX/issues"
             },
-            "time": "2026-07-20T09:10:49+00:00"
+            "time": "2026-07-20T12:04:12+00:00"
         },
         {
             "name": "sitegeist/schemeonyou",

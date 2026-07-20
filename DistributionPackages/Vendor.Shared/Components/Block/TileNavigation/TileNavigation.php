@@ -17,7 +17,7 @@ use Vendor\Shared\Components\Layout\Grid\ContentGrid;
 final readonly class TileNavigation implements _\ComponentInterface
 {
     private function __construct(
-        private ContentGrid $_148_ContentGrid,
+        private ContentGrid $_138_ContentGrid,
     ) {
     }
 
@@ -26,7 +26,7 @@ final readonly class TileNavigation implements _\ComponentInterface
         _\ComponentInterface|string|null $content,
     ): self {
         return new self(
-            _148_ContentGrid: ContentGrid::create(
+            _138_ContentGrid: ContentGrid::create(
                 componentName: 'TileNavigation',
                 content: _\SlotComponent::list(
                     '<div class="col-span-full">',
@@ -48,6 +48,6 @@ final readonly class TileNavigation implements _\ComponentInterface
 
     public function render(): string
     {
-        return $this->_148_ContentGrid->render();
+        return $this->_138_ContentGrid->render();
     }
 }

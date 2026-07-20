@@ -5,7 +5,6 @@ declare(strict_types=1);
 namespace Vendor\Shared\Components\Block\Image;
 
 use PackageFactory\ComponentEngine as _;
-use Vendor\Shared\Components\Block\Figure\Figure;
 use Vendor\Shared\Components\Block\Headline\Headline;
 use Vendor\Shared\Components\Block\Headline\HeadlineSize;
 use Vendor\Shared\Components\Block\Headline\HeadlineTag;
@@ -16,19 +15,16 @@ use Vendor\Shared\Components\Layout\Grid\ContentGrid;
 final readonly class Image implements _\ComponentInterface
 {
     private function __construct(
-        private ContentGrid $_138_ContentGrid,
+        private ContentGrid $_118_ContentGrid,
     ) {
     }
 
-    /**
-     * @param Figure|_\ComponentEnvelopeInterface<Figure>|_\ComponentInterface|null $figure
-     */
     public static function create(
         _\ComponentInterface|string|null $headline,
-        Figure|_\ComponentEnvelopeInterface|_\ComponentInterface|string|null $figure,
+        _\ComponentInterface|string|null $figure,
     ): self {
         return new self(
-            _138_ContentGrid: ContentGrid::create(
+            _118_ContentGrid: ContentGrid::create(
                 componentName: 'Image',
                 content: _\SlotComponent::list(
                     '<div class="col-span-full">',
@@ -49,6 +45,6 @@ final readonly class Image implements _\ComponentInterface
 
     public function render(): string
     {
-        return $this->_138_ContentGrid->render();
+        return $this->_118_ContentGrid->render();
     }
 }

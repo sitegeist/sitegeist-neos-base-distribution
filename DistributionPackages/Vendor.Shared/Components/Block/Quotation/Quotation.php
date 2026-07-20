@@ -7,28 +7,24 @@ namespace Vendor\Shared\Components\Block\Quotation;
 use PackageFactory\ComponentEngine as _;
 use Vendor\Shared\Components\Block\Copy\Copy;
 use Vendor\Shared\Components\Block\Copy\CopySize;
-use Vendor\Shared\Components\Block\Figure\Figure;
 use Vendor\Shared\Components\Layout\Grid\ContentGrid;
 
 #[\Neos\Flow\Annotations\Proxy(false)]
 final readonly class Quotation implements _\ComponentInterface
 {
     private function __construct(
-        private ContentGrid $_138_ContentGrid,
+        private ContentGrid $_118_ContentGrid,
     ) {
     }
 
-    /**
-     * @param Figure|_\ComponentEnvelopeInterface<Figure>|_\ComponentInterface|null $figure
-     */
     public static function create(
-        Figure|_\ComponentEnvelopeInterface|_\ComponentInterface|string|null $figure,
+        _\ComponentInterface|string|null $figure,
         _\ComponentInterface|string|null $content,
         _\ComponentInterface|string|null $spokenByName,
         _\ComponentInterface|string|null $spokenByJobTitle,
     ): self {
         return new self(
-            _138_ContentGrid: ContentGrid::create(
+            _118_ContentGrid: ContentGrid::create(
                 componentName: 'Quotation',
                 content: _\SlotComponent::list(
                     '<div class="col-span-full sm:col-span-4">',
@@ -62,6 +58,6 @@ final readonly class Quotation implements _\ComponentInterface
 
     public function render(): string
     {
-        return $this->_138_ContentGrid->render();
+        return $this->_118_ContentGrid->render();
     }
 }

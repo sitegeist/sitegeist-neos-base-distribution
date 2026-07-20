@@ -3,7 +3,6 @@ from "../Button/ButtonTag.cpx" import { ButtonTag }
 from "../Button/ButtonVariant.cpx" import { ButtonVariant }
 from "../Copy/Copy.cpx" import { Copy }
 from "../Copy/CopySize.cpx" import { CopySize }
-from "../Figure/Figure.cpx" import { Figure }
 from "../Headline/Headline.cpx" import { Headline }
 from "../Headline/HeadlineSize.cpx" import { HeadlineSize }
 from "../Headline/HeadlineTag.cpx" import { HeadlineTag }
@@ -11,7 +10,7 @@ from "../Headline/HeadlineVariant.cpx" import { HeadlineVariant }
 from "../Link/LinkStruct.cpx" import { LinkStruct }
 
 export component NavigationCard {
-    figure: Figure | slot
+    figure: slot
     headline: slot
     text: slot
     link: LinkStruct

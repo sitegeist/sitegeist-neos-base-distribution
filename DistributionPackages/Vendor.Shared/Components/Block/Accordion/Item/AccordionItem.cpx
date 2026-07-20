@@ -1,18 +1,15 @@
-from "../../Button/Button.cpx" import { Button }
 from "../../Headline/Headline.cpx" import { Headline }
 from "../../Headline/HeadlineSize.cpx" import { HeadlineSize }
 from "../../Headline/HeadlineTag.cpx" import { HeadlineTag }
 from "../../Headline/HeadlineVariant.cpx" import { HeadlineVariant }
 from "../../Icon/Icon.cpx" import { Icon }
-from "../../Link/LinkStruct.cpx" import { LinkStruct }
-from "../../LinkedButton/LinkedButton.cpx" import { LinkedButton }
 
 export component AccordionItem {
     headline: slot
     content: slot
     initialOpen: boolean
     inBackend: boolean
-    button: Button | LinkedButton | slot
+    button: slot
 
     render
         <element

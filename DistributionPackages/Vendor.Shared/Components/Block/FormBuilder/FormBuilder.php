@@ -15,7 +15,7 @@ use Vendor\Shared\Components\Layout\Grid\ContentGrid;
 final readonly class FormBuilder implements _\ComponentInterface
 {
     private function __construct(
-        private ContentGrid $_128_ContentGrid,
+        private ContentGrid $_118_ContentGrid,
     ) {
     }
 
@@ -24,7 +24,7 @@ final readonly class FormBuilder implements _\ComponentInterface
         _\ComponentInterface|string|null $content,
     ): self {
         return new self(
-            _128_ContentGrid: ContentGrid::create(
+            _118_ContentGrid: ContentGrid::create(
                 componentName: 'FormBuilder',
                 content: _\SlotComponent::list(
                     '<div class="col-span-full">',
@@ -45,6 +45,6 @@ final readonly class FormBuilder implements _\ComponentInterface
 
     public function render(): string
     {
-        return $this->_128_ContentGrid->render();
+        return $this->_118_ContentGrid->render();
     }
 }

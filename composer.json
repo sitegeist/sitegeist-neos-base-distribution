@@ -21,8 +21,8 @@
 
 		"flowpack/nodetemplates": "^3.0",
 
-		"packagefactory/neos-component-engine": "1.0.0-alpha4",
-		"packagefactory/component-engine": "1.0.0-alpha4",
+		"packagefactory/neos-component-engine": "1.0.0-alpha3",
+		"packagefactory/component-engine": "1.0.0-alpha3",
 		"packagefactory/neos-componentview": "^1.0",
 
 		"sitegeist/csvpo": "^2.0",
