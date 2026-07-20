@@ -1,0 +1,49 @@
+from "../../Layout/Grid/ContentGrid.cpx" import { ContentGrid }
+from "../Button/Button.cpx" import { Button }
+from "../Copy/Copy.cpx" import { Copy }
+from "../Copy/CopySize.cpx" import { CopySize }
+from "../Headline/Headline.cpx" import { Headline }
+from "../Headline/HeadlineSize.cpx" import { HeadlineSize }
+from "../Headline/HeadlineTag.cpx" import { HeadlineTag }
+from "../Headline/HeadlineVariant.cpx" import { HeadlineVariant }
+from "../LinkedButton/LinkedButton.cpx" import { LinkedButton }
+from "./TextColumns.cpx" import { TextColumns }
+
+export component Text {
+    columns: TextColumns
+    headline: slot
+    content: slot
+    button: Button | LinkedButton | slot
+
+    render
+        <ContentGrid componentName="Text">
+            <div
+                class={[
+                    "col-span-full",
+                    match (columns) {
+                        TextColumns.COLUMNS_TWO_COLUMNS -> "sm:col-span-full lg:col-span-6",
+                        default -> "sm:col-span-full"
+                    }
+                ]}
+            >
+                <Headline
+                    tag={HeadlineTag.TAG_H2}
+                    size={HeadlineSize.SIZE_LG}
+                    variant={HeadlineVariant.VARIANT_REGULAR}
+                    content={headline}
+                />
+            </div>
+            <div
+                class={[
+                    "col-span-full flex flex-col gap-16 md:gap-24",
+                    match (columns) {
+                        TextColumns.COLUMNS_TWO_COLUMNS -> "sm:col-span-full lg:col-span-6",
+                        default -> "sm:col-span-full"
+                    }
+                ]}
+            >
+                <Copy size={CopySize.SIZE_MD} content={content} />
+                {button}
+            </div>
+        </ContentGrid>
+}

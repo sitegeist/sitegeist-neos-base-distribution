@@ -1,0 +1,45 @@
+from "./FigureSize.cpx" import { FigureSize }
+from "Sitegeist.Kaleidoscope.Cpx/Image/Image.cpx" import { Image }
+from "Sitegeist.Kaleidoscope.Cpx/ImageSource/ImageSource.cpx" import { ImageSource }
+
+export component Figure {
+    image: ImageSource
+    size: ?FigureSize
+    isLazyLoaded: boolean
+
+    render
+        <figure
+            data-component="Figure"
+            class={[
+                "[Block.Figure]",
+                "w-full h-full flex flex-col max-h-full relative",
+            ]}
+        >
+            <Image
+                imageSource={image}
+                width={null}
+                height={null}
+                format={null}
+                srcset={match (size) {
+                    FigureSize.SIZE_FIFTH_HALF_FULL -> "320w, 640w",
+                    FigureSize.SIZE_THIRD_HALF_FULL -> "320w, 640w",
+                    FigureSize.SIZE_HALF_FULL_FULL -> "320w, 640w, 870w",
+                    FigureSize.SIZE_FULL_FULL_FULL -> "320w, 640w, 1000w, 1200w, 1440w, 1600w",
+                    FigureSize.SIZE_DEFAULT -> "320w, 640w, 1000w, 1200w, 1440w, 1600w"
+                }}
+                sizes={match (size) {
+                    FigureSize.SIZE_FIFTH_HALF_FULL ->
+                        "(min-width: 1024px) 20vw, (min-width: 640px) 50vw, 100vw",
+                    FigureSize.SIZE_THIRD_HALF_FULL ->
+                        "(min-width: 640px) 50vw, (min-width: 1024px) 33vw, 100vw",
+                    FigureSize.SIZE_HALF_FULL_FULL -> "(min-width: 768px) 50vw, 100vw",
+                    FigureSize.SIZE_FULL_FULL_FULL -> "100vw",
+                    FigureSize.SIZE_DEFAULT -> "100vw"
+                }}
+                loading={isLazyLoaded ? "lazy" : "eager"}
+                alt={null}
+                title={null}
+                class="w-full h-full object-cover"
+            />
+        </figure>
+}

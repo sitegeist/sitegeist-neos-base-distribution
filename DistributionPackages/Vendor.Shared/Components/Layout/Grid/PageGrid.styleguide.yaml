@@ -1,0 +1,5 @@
+title: "Page grid"
+description: "Outer page grid wrapper for styleguide previews"
+props:
+  content: "Lorem ipsum dolor sit amet"
+hidden: true

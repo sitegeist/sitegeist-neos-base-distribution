@@ -1,0 +1,23 @@
+from "../Link/Link.cpx" import { Link }
+from "../MenuButton/MenuButton.cpx" import { MenuButton }
+from "./MainNavigation/MainNavigation.cpx" import { MainNavigation }
+
+export component SiteHeader {
+    homeLink: Link
+    mainNavigation: MainNavigation
+
+    render
+        <header
+            data-component="SiteHeader"
+            class={[
+                "group/SiteHeader col-span-full sticky top-0",
+                "grid grid-cols-subgrid z-50 bg-brand-grey h-header"
+            ]}
+        >
+            <div class="col-span-content-full flex justify-between w-full items-center">
+                {homeLink}
+                {mainNavigation}
+                <MenuButton />
+            </div>
+        </header>
+}

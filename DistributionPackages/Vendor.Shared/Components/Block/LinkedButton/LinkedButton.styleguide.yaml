@@ -1,0 +1,31 @@
+title: "Linked button"
+description: "Link wrapper around the button component"
+group: UI
+container:
+  __type: "Vendor.Shared/Layout/AtomContainer/AtomContainer.cpx"
+props: &defaultProps
+  button:
+    __type: "Vendor.Shared/Block/Button/Button.cpx"
+    __useCase: "solid"
+    content: "Lorem ipsum"
+  link:
+    __type: "Vendor.Shared/Block/Link/LinkStruct.cpx"
+    href: "#contact"
+    title: "Lorem ipsum"
+    rel: null
+    target: "_self"
+useCases:
+  secondary:
+    title: "Secondary linked button"
+    props:
+      <<: *defaultProps
+      button:
+        __type: "Vendor.Shared/Block/Button/Button.cpx"
+        __useCase: "ghost"
+        content: "Dolor sit amet"
+      link:
+        __type: "Vendor.Shared/Block/Link/LinkStruct.cpx"
+        href: "#details"
+        title: "Dolor sit amet"
+        rel: null
+        target: "_self"

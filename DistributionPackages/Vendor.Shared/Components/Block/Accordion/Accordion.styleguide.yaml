@@ -1,0 +1,20 @@
+title: "Accordion"
+description: "Accordion block"
+container:
+  __type: "Vendor.Shared/Layout/PageGridWithContentContainer/PageGridWithContentContainer.cpx"
+props: &defaultProps
+  headline: "Lorem ipsum dolor"
+  content:
+    - __type: "Vendor.Shared/Block/Accordion/Item/AccordionItem.cpx"
+    - __type: "Vendor.Shared/Block/Accordion/Item/AccordionItem.cpx"
+      __useCase: "open"
+useCases:
+  open:
+    title: "Initially open"
+    props:
+      <<: *defaultProps
+      content:
+        - __type: "Vendor.Shared/Block/Accordion/Item/AccordionItem.cpx"
+          __useCase: "open"
+        - __type: "Vendor.Shared/Block/Accordion/Item/AccordionItem.cpx"
+          __useCase: "open"

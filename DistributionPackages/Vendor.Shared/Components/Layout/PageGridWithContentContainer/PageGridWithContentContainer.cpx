@@ -1,0 +1,19 @@
+from "../ContentContainer/ContentContainer.cpx" import { ContentContainer }
+from "../ContentContainer/ContentContainerTag.cpx" import { ContentContainerTag }
+from "../ContentContainer/ContentContainerVariant.cpx" import { ContentContainerVariant }
+from "../Grid/PageGrid.cpx" import { PageGrid }
+
+export component PageGridWithContentContainer {
+    content: slot
+
+    render
+        <PageGrid>
+            <ContentContainer
+                tagName={ContentContainerTag.TAG_SECTION}
+                variant={ContentContainerVariant.VARIANT_REGULAR}
+                anchorId=""
+            >
+                {content}
+            </ContentContainer>
+        </PageGrid>
+}

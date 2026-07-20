@@ -1,0 +1,34 @@
+title: "Link"
+description: "Text link with semantic link metadata"
+group: UI
+container:
+  __type: "Vendor.Shared/Layout/AtomContainer/AtomContainer.cpx"
+props: &defaultProps
+  content: "Lorem ipsum"
+  link:
+    __type: "Vendor.Shared/Block/Link/LinkStruct.cpx"
+    href: "#styleguide"
+    title: "Lorem ipsum"
+    rel: null
+    target: "_self"
+  component: null
+  variant: "default"
+  inBackend: false
+useCases:
+  menuItem:
+    title: "Menu item"
+    props:
+      <<: *defaultProps
+      content: "Dolor sit"
+      variant: "menuItem"
+  external:
+    title: "External link"
+    props:
+      <<: *defaultProps
+      content: "Amet elit"
+      link:
+        __type: "Vendor.Shared/Block/Link/LinkStruct.cpx"
+        href: "https://example.com"
+        title: "Amet elit"
+        rel: "noopener"
+        target: "_blank"

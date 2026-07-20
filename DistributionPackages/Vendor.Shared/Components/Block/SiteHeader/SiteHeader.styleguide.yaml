@@ -1,0 +1,27 @@
+title: "Site header"
+description: "Global site header"
+container:
+  __type: "Vendor.Shared/Layout/Grid/PageGrid.cpx"
+props: &defaultProps
+  homeLink:
+    __type: "Vendor.Shared/Block/Link/Link.cpx"
+    content: "Lorem ipsum"
+    link:
+      __type: "Vendor.Shared/Block/Link/LinkStruct.cpx"
+      href: "#home"
+      title: "Lorem ipsum"
+      rel: null
+      target: "_self"
+    component: null
+    variant: "default"
+    inBackend: false
+  mainNavigation:
+    __type: "Vendor.Shared/Block/SiteHeader/MainNavigation/MainNavigation.cpx"
+useCases:
+  single:
+    title: "Minimal navigation"
+    props:
+      <<: *defaultProps
+      mainNavigation:
+        __type: "Vendor.Shared/Block/SiteHeader/MainNavigation/MainNavigation.cpx"
+        __useCase: "single"

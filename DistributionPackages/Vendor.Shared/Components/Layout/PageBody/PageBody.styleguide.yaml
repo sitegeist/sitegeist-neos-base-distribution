@@ -1,0 +1,56 @@
+title: "Page Preview"
+props:
+  siteHeader:
+    __type: "Vendor.Shared/Block/SiteHeader/SiteHeader.cpx"
+  content:
+    - __type: "Vendor.Shared/Layout/ContentContainer/ContentContainer.cpx"
+      tagName: "section"
+      variant: "regular"
+      anchorId: "accordion"
+      content:
+        __type: "Vendor.Shared/Block/AnchorNavigation/AnchorNavigation.cpx"
+    - __type: "Vendor.Shared/Layout/ContentContainer/ContentContainer.cpx"
+      tagName: "section"
+      variant: "regular"
+      anchorId: "accordion"
+      content:
+        __type: "Vendor.Shared/Block/Accordion/Accordion.cpx"
+    - __type: "Vendor.Shared/Layout/ContentContainer/ContentContainer.cpx"
+      tagName: "section"
+      variant: "regular"
+      anchorId: "downloads"
+      content:
+        __type: "Vendor.Shared/Block/Downloads/Downloads.cpx"
+    - __type: "Vendor.Shared/Layout/ContentContainer/ContentContainer.cpx"
+      tagName: "section"
+      variant: "regular"
+      anchorId: "image"
+      content:
+        __type: "Vendor.Shared/Block/Image/Image.cpx"
+    - __type: "Vendor.Shared/Layout/ContentContainer/ContentContainer.cpx"
+      tagName: "section"
+      variant: "regular"
+      anchorId: "image-with-text"
+      content:
+        __type: "Vendor.Shared/Block/ImageWithText/ImageWithText.cpx"
+    - __type: "Vendor.Shared/Layout/ContentContainer/ContentContainer.cpx"
+      tagName: "section"
+      variant: "regular"
+      anchorId: "quotation"
+      content:
+        __type: "Vendor.Shared/Block/Quotation/Quotation.cpx"
+    - __type: "Vendor.Shared/Layout/ContentContainer/ContentContainer.cpx"
+      tagName: "section"
+      variant: "regular"
+      anchorId: "text"
+      content:
+        __type: "Vendor.Shared/Block/Text/Text.cpx"
+        __useCase: "twoColumns"
+    - __type: "Vendor.Shared/Layout/ContentContainer/ContentContainer.cpx"
+      tagName: "section"
+      variant: "regular"
+      anchorId: "tile-navigation"
+      content:
+        __type: "Vendor.Shared/Block/TileNavigation/TileNavigation.cpx"
+  siteFooter:
+    __type: "Vendor.Shared/Block/SiteFooter/SiteFooter.cpx"

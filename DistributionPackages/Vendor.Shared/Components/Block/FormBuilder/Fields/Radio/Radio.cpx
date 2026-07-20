@@ -1,0 +1,26 @@
+from "../../../Icon/Icon.cpx" import { Icon }
+from "Sitegeist.PaperTiger.CPX/Field/RadioItem/RadioItemProps.cpx" import { RadioItemProps }
+
+export component Radio {
+    option: RadioItemProps
+
+    render
+        <label class="papertiger-radio-item">
+            <input
+                type="radio"
+                name={option.name}
+                value={option.value}
+                checked={option.isChecked}
+                required={option.isRequired}
+                class="papertiger-radio-item__input"
+                data-fieldtype="input"
+                data-custom-error-message={option.customErrorMessageEnabled
+                    ? option.customErrorMessage
+                    : null}
+                oninvalid="this.setCustomValidity(this.dataset.customErrorMessage || '')"
+                oninput="this.setCustomValidity('')"
+            />
+            <span class="papertiger-radio-item__label">{option.label}</span>
+            <Icon icon="dot-circle" class="papertiger-radio-item__check" />
+        </label>
+}

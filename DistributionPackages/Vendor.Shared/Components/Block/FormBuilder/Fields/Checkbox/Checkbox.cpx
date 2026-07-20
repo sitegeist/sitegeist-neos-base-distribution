@@ -1,0 +1,26 @@
+from "../../../Icon/Icon.cpx" import { Icon }
+from "Sitegeist.PaperTiger.CPX/Field/CheckboxItem/CheckboxItemProps.cpx" import { CheckboxItemProps }
+
+export component Checkbox {
+    option: CheckboxItemProps
+
+    render
+        <label class="papertiger-checkbox-item">
+            <input
+                type="checkbox"
+                name={option.name}
+                value={option.value}
+                checked={option.isChecked}
+                required={option.isRequired}
+                class="papertiger-checkbox-item__input"
+                data-fieldtype="input"
+                data-custom-error-message={option.customErrorMessageEnabled
+                    ? option.customErrorMessage
+                    : null}
+                oninvalid="this.setCustomValidity(this.dataset.customErrorMessage || '')"
+                oninput="this.setCustomValidity('')"
+            />
+            <span class="papertiger-checkbox-item__label">{option.label}</span>
+            <Icon icon="check" class="papertiger-checkbox-item__check" />
+        </label>
+}

@@ -1,0 +1,10 @@
+title: "Downloads"
+description: "Downloads overview block"
+container:
+  __type: "Vendor.Shared/Layout/PageGridWithContentContainer/PageGridWithContentContainer.cpx"
+props: &defaultProps
+  headline: "Lorem ipsum"
+  content:
+    - __type: "Vendor.Shared/Block/Downloads/Item/DownloadsItem.cpx"
+    - __type: "Vendor.Shared/Block/Downloads/Item/DownloadsItem.cpx"
+    - __type: "Vendor.Shared/Block/Downloads/Item/DownloadsItem.cpx"

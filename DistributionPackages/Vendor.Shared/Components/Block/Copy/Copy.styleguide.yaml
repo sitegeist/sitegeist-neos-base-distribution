@@ -1,0 +1,59 @@
+title: "Copy"
+description: "Rich text copy wrapper"
+group: UI
+container:
+  __type: "Vendor.Shared/Layout/AtomContainer/AtomContainer.cpx"
+props: &defaultProps
+  content: |
+    <p>Lorem ipsum <strong>dolor</strong> sit amet, <em>consectetur</em> adipiscing elit. <a href="#copy-link">Beispiel-Link</a></p>
+    <h3>Zwischenüberschrift</h3>
+    <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <h4>Weitere Ebene</h4>
+    <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+    <ul>
+      <li>Erster Listenpunkt</li>
+      <li>Zweiter Listenpunkt</li>
+      <li>Dritter Listenpunkt</li>
+    </ul>
+    <ol>
+      <li>Erster Schritt</li>
+      <li>Zweiter Schritt</li>
+      <li>Dritter Schritt</li>
+    </ol>
+  size: "medium"
+useCases:
+  noLists:
+    title: "Without lists"
+    props:
+      <<: *defaultProps
+      content: |
+        <p>Lorem ipsum <strong>dolor</strong> sit amet, <em>consectetur</em> adipiscing elit. <a href="#copy-link">Beispiel-Link</a></p>
+        <h3>Zwischenüberschrift</h3>
+        <p>Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+        <h4>Weitere Ebene</h4>
+        <p>Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
+  listsOnly:
+    title: "Lists only"
+    props:
+      <<: *defaultProps
+      content: |
+        <ul>
+          <li>Erster Listenpunkt</li>
+          <li>Zweiter Listenpunkt</li>
+          <li>Dritter Listenpunkt</li>
+        </ul>
+        <ol>
+          <li>Erster Schritt</li>
+          <li>Zweiter Schritt</li>
+          <li>Dritter Schritt</li>
+        </ol>
+  compact:
+    title: "Compact copy"
+    props:
+      <<: *defaultProps
+      size: "small"
+  editorial:
+    title: "Editorial copy"
+    props:
+      <<: *defaultProps
+      size: "large"

@@ -1,0 +1,27 @@
+from "../../Block/Headline/Headline.cpx" import { Headline }
+from "../../Block/Headline/HeadlineSize.cpx" import { HeadlineSize }
+from "../../Block/Headline/HeadlineTag.cpx" import { HeadlineTag }
+from "../../Block/Headline/HeadlineVariant.cpx" import { HeadlineVariant }
+from "../../Layout/Grid/ContentGrid.cpx" import { ContentGrid }
+
+export component ReactExampleSSR {
+    headline: slot
+    appData: string
+    labels: string
+    renderedApplication: slot
+
+    render
+        <ContentGrid componentName="ReactExampleSSR">
+            <div class="col-span-full">
+                <Headline
+                    tag={HeadlineTag.TAG_H2}
+                    size={HeadlineSize.SIZE_LG}
+                    variant={HeadlineVariant.VARIANT_REGULAR}
+                    content={headline}
+                />
+            </div>
+            <div data-root data-app-data={appData} data-labels={labels} class="col-span-full">
+                {renderedApplication}
+            </div>
+        </ContentGrid>
+}

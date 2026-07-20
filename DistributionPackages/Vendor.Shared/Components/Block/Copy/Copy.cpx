@@ -1,0 +1,21 @@
+from "./CopySize.cpx" import { CopySize }
+
+export component Copy {
+    content: slot
+    size: CopySize
+
+    render
+        <div
+            data-component="Copy"
+            class={[
+                "prose",
+                match (size) {
+                    CopySize.SIZE_SM -> "copy-small",
+                    CopySize.SIZE_MD -> "copy-medium",
+                    CopySize.SIZE_LG -> "copy-large"
+                }
+            ]}
+        >
+            {content}
+        </div>
+}

@@ -1,0 +1,30 @@
+title: "Image with text"
+description: "Split layout with media and copy"
+container:
+  __type: "Vendor.Shared/Layout/PageGridWithContentContainer/PageGridWithContentContainer.cpx"
+props: &defaultProps
+  headline: "Lorem ipsum dolor"
+  content:
+    __type: "Vendor.Shared/Block/Copy/Copy.cpx"
+    __useCase: "noLists"
+  figure:
+    __type: "Vendor.Shared/Block/Figure/Figure.cpx"
+  button:
+    __type: "Vendor.Shared/Block/LinkedButton/LinkedButton.cpx"
+  alignment:
+    __type: "Vendor.Shared/Block/ImageWithText/ImageWithTextAlignment.cpx"
+    value: "Bild links"
+  layout:
+    __type: "Vendor.Shared/Block/ImageWithText/ImageWithTextLayout.cpx"
+    value: "50-50"
+useCases:
+  imageRight:
+    title: "Image right 66/33"
+    props:
+      <<: *defaultProps
+      alignment:
+        __type: "Vendor.Shared/Block/ImageWithText/ImageWithTextAlignment.cpx"
+        value: "Bild rechts"
+      layout:
+        __type: "Vendor.Shared/Block/ImageWithText/ImageWithTextLayout.cpx"
+        value: "66-33"

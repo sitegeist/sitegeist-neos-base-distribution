@@ -1,0 +1,15 @@
+title: "Icon"
+description: "SVG icon from the shared sprite"
+group: UI
+container:
+  __type: "Vendor.Shared/Layout/AtomContainer/AtomContainer.cpx"
+props: &defaultProps
+  icon: "arrow-right"
+  class: "w-24 h-24"
+useCases:
+  social:
+    title: "Social icon"
+    props:
+      <<: *defaultProps
+      icon: "instagram"
+      class: "w-32 h-32"

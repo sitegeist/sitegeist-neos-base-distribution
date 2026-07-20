@@ -1,0 +1,12 @@
+export component ContentGrid {
+    content: slot
+    componentName: string
+
+    render
+        <div
+            data-component={componentName}
+            class={["col-span-full grid grid-cols-subgrid", "gap-y-16 md:gap-y-32"]}
+        >
+            {content}
+        </div>
+}

@@ -1,0 +1,30 @@
+title: "Button"
+description: "Interactive button component"
+group: UI
+container:
+  __type: "Vendor.Shared/Layout/AtomContainer/AtomContainer.cpx"
+props: &defaultProps
+  content: "Lorem ipsum"
+  tag:
+    __type: "Vendor.Shared/Block/Button/ButtonTag.cpx"
+    value: "button"
+  variant:
+    __type: "Vendor.Shared/Block/Button/ButtonVariant.cpx"
+    value: "regular"
+useCases:
+  solid:
+    title: "Solid button"
+    props:
+      <<: *defaultProps
+      content: "Dolor sit amet"
+      variant:
+        __type: "Vendor.Shared/Block/Button/ButtonVariant.cpx"
+        value: "solid"
+  ghost:
+    title: "Ghost button"
+    props:
+      <<: *defaultProps
+      content: "Consectetur elit"
+      variant:
+        __type: "Vendor.Shared/Block/Button/ButtonVariant.cpx"
+        value: "ghost"

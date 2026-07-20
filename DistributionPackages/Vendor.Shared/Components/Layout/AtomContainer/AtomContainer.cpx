@@ -1,0 +1,10 @@
+from "../Grid/PageGrid.cpx" import { PageGrid }
+
+export component AtomContainer {
+    content: slot
+
+    render
+        <PageGrid>
+            <div data-component="AtomContainer" class="col-span-content-full py-32">{content}</div>
+        </PageGrid>
+}

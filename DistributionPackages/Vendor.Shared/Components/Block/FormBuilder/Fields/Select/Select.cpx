@@ -1,0 +1,14 @@
+from "../InvalidIcon/InvalidIcon.cpx" import { InvalidIcon }
+from "Sitegeist.PaperTiger.CPX/Field/SelectField/SelectField.cpx" import { SelectField }
+from "Sitegeist.PaperTiger.CPX/Field/SelectField/SelectFieldProps.cpx" import { SelectFieldProps }
+
+export component Select {
+    field: SelectFieldProps
+    content: slot
+
+    render
+        <div class="relative">
+            <SelectField field={field}>{content}</SelectField>
+            <InvalidIcon />
+        </div>
+}

@@ -1,0 +1,30 @@
+title: "Main navigation item"
+description: "Top level navigation item"
+group: UI
+container:
+  __type: "Vendor.Shared/Layout/AtomContainer/AtomContainer.cpx"
+props: &defaultProps
+  link:
+    __type: "Vendor.Shared/Block/Link/LinkStruct.cpx"
+    href: "#services"
+    title: "Lorem ipsum"
+    rel: null
+    target: "_self"
+  label: "Lorem ipsum"
+  items:
+    - __type: "Vendor.Shared/Block/SiteHeader/MainNavigation/MainNavigationSubItem/MainNavigationSubItem.cpx"
+    - __type: "Vendor.Shared/Block/SiteHeader/MainNavigation/MainNavigationSubItem/MainNavigationSubItem.cpx"
+      label: "Dolor sit"
+      link:
+        __type: "Vendor.Shared/Block/Link/LinkStruct.cpx"
+        href: "#consulting"
+        title: "Dolor sit"
+        rel: null
+        target: "_self"
+useCases:
+  single:
+    title: "Without submenu"
+    props:
+      <<: *defaultProps
+      items: null
+hidden: true

@@ -1,0 +1,25 @@
+title: "Site footer item"
+description: "Single footer column"
+group: UI
+container:
+  __type: "Vendor.Shared/Layout/AtomContainer/AtomContainer.cpx"
+props: &defaultProps
+  title: "Lorem"
+  content:
+    __type: "Vendor.Shared/Block/Link/Link.cpx"
+    content: "Ipsum dolor"
+    link:
+      __type: "Vendor.Shared/Block/Link/LinkStruct.cpx"
+      href: "#about"
+      title: "Ipsum dolor"
+      rel: null
+      target: "_self"
+    component: null
+    variant: "default"
+    inBackend: false
+useCases:
+  plainText:
+    title: "Plain text"
+    props:
+      <<: *defaultProps
+      content: "Lorem ipsum dolor sit amet"
