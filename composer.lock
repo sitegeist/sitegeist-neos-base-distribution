@@ -6285,12 +6285,12 @@
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/opgm.git",
-                "reference": "45aa7a1b8ec0f146b51a35e86372056af4358624"
+                "reference": "26b54f9124432644ca81169e4879448179452237"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm/archive/45aa7a1b8ec0f146b51a35e86372056af4358624.zip",
-                "reference": "45aa7a1b8ec0f146b51a35e86372056af4358624",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm/archive/26b54f9124432644ca81169e4879448179452237.zip",
+                "reference": "26b54f9124432644ca81169e4879448179452237",
                 "shasum": ""
             },
             "require": {
@@ -6375,7 +6375,7 @@
                 "source": "https://codeberg.org/PackageFactory/opgm/branch/main",
                 "issues": "https://codeberg.org/PackageFactory/opgm/issues"
             },
-            "time": "2026-07-18T01:06:45+02:00"
+            "time": "2026-07-20T10:51:04+02:00"
         },
         {
             "name": "packagefactory/opgm-contentrepositoryregistryadapter",
