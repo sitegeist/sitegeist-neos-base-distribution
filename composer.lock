@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef32067ae446eb417f2085279a3d5dc5",
+    "content-hash": "683ab62202ce4991e22481e59df6db0a",
     "packages": [
         {
             "name": "altcha-org/altcha",
@@ -8060,6 +8060,60 @@
             "time": "2026-04-21T12:09:45+00:00"
         },
         {
+            "name": "sitegeist/papertiger-cpx",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX.git",
+                "reference": "ef917512a264ee962288c38a0efbdb5c13ff1283"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Devclaim/Sitegeist.PaperTiger.CPX/zipball/ef917512a264ee962288c38a0efbdb5c13ff1283",
+                "reference": "ef917512a264ee962288c38a0efbdb5c13ff1283",
+                "shasum": ""
+            },
+            "require": {
+                "altcha-org/altcha": "^2.0",
+                "neos/contentgraph-doctrinedbaladapter": "^9.0",
+                "neos/neos": "^9.1",
+                "neos/neos-ui": "^9.1",
+                "neos/symfonymailer": "^1.0.2",
+                "packagefactory/neos-component-engine": "1.0.0-alpha4",
+                "php": ">=8.4",
+                "sitegeist/inspectorgadget": "^3.0",
+                "sitegeist/schemeonyou": "^2.1.0"
+            },
+            "default-branch": true,
+            "type": "neos-plugin",
+            "extra": {
+                "neos": {
+                    "package-key": "Sitegeist.PaperTiger.CPX"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Sitegeist\\PaperTiger\\CPX\\": "Classes/",
+                    "Sitegeist\\PaperTiger\\CPX\\Components\\": "Components/",
+                    "Sitegeist\\PaperTiger\\CPX\\NodeTypes\\": "NodeTypes/"
+                }
+            },
+            "scripts": {
+                "build:cpx": [
+                    "../../../flow components:build 'Sitegeist.PaperTiger.CPX'"
+                ]
+            },
+            "license": [
+                "GPL-3.0+"
+            ],
+            "description": "Editable form nodetypes for Neos CMS with CPX-oriented rendering fallbacks",
+            "support": {
+                "source": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX/tree/main",
+                "issues": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX/issues"
+            },
+            "time": "2026-07-20T09:10:49+00:00"
+        },
+        {
             "name": "sitegeist/schemeonyou",
             "version": "v2.1.0",
             "source": {
@@ -13582,7 +13636,8 @@
         "packagefactory/opgm-contentrepositoryregistryadapter": 20,
         "packagefactory/opgm-neosadapter": 20,
         "sitegeist/kaleidoscope-cpx": 20,
-        "sitegeist/monocle": 20
+        "sitegeist/monocle": 20,
+        "sitegeist/papertiger-cpx": 20
     },
     "prefer-stable": true,
     "prefer-lowest": false,

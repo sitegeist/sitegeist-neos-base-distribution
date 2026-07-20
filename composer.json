@@ -33,6 +33,7 @@
 		"sitegeist/kaleidoscope-cpx": "dev-main",
 		"sitegeist/klarschiff": "^3.0",
 		"sitegeist/monocle": "dev-task/refactorToEnableUseCasesBeyondFusion",
+		"sitegeist/papertiger-cpx": "dev-main",
 		"sitegeist/schemeonyou": "^2.1.0",
 		"sitegeist/stampede": "^2.0",
 
