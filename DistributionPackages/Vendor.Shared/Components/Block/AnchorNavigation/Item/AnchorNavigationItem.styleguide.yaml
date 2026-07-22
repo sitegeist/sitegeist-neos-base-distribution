@@ -12,10 +12,8 @@ props: &defaultProps
     target: "_self"
   title: "Lorem ipsum"
   inBackend: false
-  forSticky: false
 useCases:
   sticky:
     title: "Sticky variant"
     props:
       <<: *defaultProps
-      forSticky: true

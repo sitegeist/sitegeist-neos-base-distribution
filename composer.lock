@@ -6425,12 +6425,12 @@
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/opgm-neosadapter.git",
-                "reference": "597245b224d1766fd0c30d579c5f8548d8fdf46b"
+                "reference": "1a6b99d8b945df8e0de86b26a2c27ecf7c91c528"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm-neosadapter/archive/597245b224d1766fd0c30d579c5f8548d8fdf46b.zip",
-                "reference": "597245b224d1766fd0c30d579c5f8548d8fdf46b",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm-neosadapter/archive/1a6b99d8b945df8e0de86b26a2c27ecf7c91c528.zip",
+                "reference": "1a6b99d8b945df8e0de86b26a2c27ecf7c91c528",
                 "shasum": ""
             },
             "require": {
@@ -6463,7 +6463,7 @@
                 "source": "https://codeberg.org/PackageFactory/opgm-neosadapter/branch/main",
                 "issues": "https://codeberg.org/PackageFactory/opgm-neosadapter/issues"
             },
-            "time": "2026-07-19T23:33:59+02:00"
+            "time": "2026-07-20T16:06:57+02:00"
         },
         {
             "name": "psr/cache",

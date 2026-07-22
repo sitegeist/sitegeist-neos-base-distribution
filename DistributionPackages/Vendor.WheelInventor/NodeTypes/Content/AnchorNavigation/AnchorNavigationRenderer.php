@@ -7,11 +7,10 @@ namespace Vendor\WheelInventor\NodeTypes\Content\AnchorNavigation;
 use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentRenderer;
-use PackageFactory\Neos\ComponentEngine\Integration\RenderingUseCase as DefaultRenderingUseCase;
+use PackageFactory\Neos\ComponentEngine\Integration\RenderingUseCase;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
 use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
 use Vendor\Shared\Components\Block\AnchorNavigation\AnchorNavigation as AnchorNavigationComponent;
-use Vendor\Shared\NodeTypes\RenderingUseCase;
 use Vendor\WheelInventor\Integration\ContentContainerFactory;
 
 final class AnchorNavigationRenderer implements ContentNodeRendererInterface
@@ -28,9 +27,7 @@ final class AnchorNavigationRenderer implements ContentNodeRendererInterface
         $anchorNavigationComponent = AnchorNavigationComponent::create(
             items: $this->contentRenderer->renderContentChildren(
                 $context,
-                $anchorNavigation->isSticky
-                    ? RenderingUseCase::STICKY_CONTENT
-                    : DefaultRenderingUseCase::CONTENT
+                RenderingUseCase::CONTENT
             ),
             isSticky: $anchorNavigation->isSticky,
         );

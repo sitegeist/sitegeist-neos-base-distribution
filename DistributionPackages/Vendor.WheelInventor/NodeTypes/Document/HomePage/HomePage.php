@@ -6,6 +6,7 @@ namespace Vendor\WheelInventor\NodeTypes\Document\HomePage;
 
 use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
 use Neos\Flow\Annotations as Flow;
+use Neos\Neos\NodeTypes\Content;
 use Neos\Neos\NodeTypes\ContentCollection;
 use Neos\Neos\NodeTypes\Site;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeConstraintsDeclaration;
@@ -17,6 +18,7 @@ use Vendor\Shared\NodeTypes\Mixin\SocialMixin;
 use Vendor\WheelInventor\NodeTypes\Content\Accordion\Accordion;
 use Vendor\WheelInventor\NodeTypes\Content\AnchorNavigation\AnchorNavigation;
 use Vendor\WheelInventor\NodeTypes\Content\CollectionBasedDownloads\CollectionBasedDownloads;
+use Vendor\WheelInventor\NodeTypes\Content\FormBuilder\FormBuilder;
 use Vendor\WheelInventor\NodeTypes\Content\Image\Image;
 use Vendor\WheelInventor\NodeTypes\Content\ImageWithText\ImageWithText;
 use Vendor\WheelInventor\NodeTypes\Content\ManualDownloads\ManualDownloads;
@@ -52,6 +54,7 @@ final readonly class HomePage extends Document
         #[TetheredChildRelationDeclaration(
             fqn: ContentCollection::class,
             constraints: new NodeTypeConstraintsDeclaration(fqns: [
+                Content::class => false,
                 ManualDownloads::class => true,
                 CollectionBasedDownloads::class => true,
                 Image::class => true,
@@ -63,7 +66,7 @@ final readonly class HomePage extends Document
                 AnchorNavigation::class => true,
                 ReactExample::class => true,
                 ReactExampleSSR::class => true,
-                // @todo: FormBuilder
+                FormBuilder::class => true,
             ]),
         )]
         // @todo: custom content collection type?
