@@ -43,12 +43,13 @@
 		"packagefactory/opgm-neosadapter": "dev-main",
 		"packagefactory/neos-seo": "dev-main",
 		"packagefactory/opgm-contentrepositoryregistryadapter": "dev-main",
-		"packagefactory/opgm": "dev-main"
+		"packagefactory/opgm": "dev-main",
+		"packagefactory/opgm-timeablenodevisibility": "dev-main"
 	},
 	"require-dev": {
 		"neos/buildessentials": "^9.0",
 		"mikey179/vfsstream": "^1.6.10",
-		"squizlabs/php_codesniffer": "^3.7",
+		"squizlabs/php_codesniffer": "^4.0",
 		"phpstan/phpstan": "^2.2",
 		"phpunit/phpunit": "^10.0",
 		"symfony/css-selector": "~2.0",
@@ -86,10 +87,22 @@
 
 		"lint:editorconfig": "ec",
 		"lint:phpcs": "phpcs --colors --standard=PSR12 ./DistributionPackages/*/Classes",
+		"lint:phpcs-opgm": "phpcs --colors --standard=PSR12 ./Packages/Application/PackageFactory.OPGM ./Packages/Application/PackageFactory.OPGM.ContentRepositoryRegistryAdapter ./Packages/Application/PackageFactory.OPGM.NeosAdapter ./Packages/Application/PackageFactory.OPGM.TimeableNodeVisibility",
+		"lint:phpcs-seo": "phpcs --colors --standard=PSR12 ./Packages/Application/PackageFactory.Neos.Seo/Classes ./Packages/Application/PackageFactory.Neos.Seo/NodeTypes",
 		"lint:phpstan": "phpstan analyse",
+		"lint:phpstan-seo": "phpstan analyse -c phpstan.seo.neon -vvv",
+		"lint:phpstan-opgm": "phpstan analyse -c phpstan.opgm.neon -vvv",
 		"lint": [
 			"@lint:phpcs",
 			"@lint:phpstan"
+		],
+		"lint:opgm": [
+			"@lint:phpcs-opgm",
+			"@lint:phpstan-opgm"
+		],
+		"lint:seo": [
+			"@lint:phpcs-seo",
+			"@lint:phpstan-seo"
 		],
 
 		"clone": [
@@ -101,11 +114,24 @@
 		"deploy:staging": "dep deploy staging -vv",
 		"deploy:master": "dep deploy master -vv",
 
-		"test": "echo \"No tests yet.\""
+		"test": "echo \"No tests yet.\"",
+
+		"test:opgm": [
+			"cd Packages/Application/PackageFactory.OPGM && phpunit Tests/Unit",
+			"FLOW_CONTEXT=Testing/Behat ./flow doctrine:migrate",
+			"cd Packages/Application/PackageFactory.OPGM && behat -f progress --strict -c Tests/Behaviour/behat.yml.dist -vvv"
+		]
 	},
 	"autoload": {
 		"psr-4": {
 			"Sitegeist\\MissionAccessible\\": "Packages/Plugins/Sitegeist.MissionAccessible/Classes/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"PackageFactory\\OPGM\\Tests\\": [
+				"Packages/Application/PackageFactory.OPGM/Tests"
+			]
 		}
 	},
 	"repositories": {
@@ -136,6 +162,10 @@
 		"packagefactory/neos-seo": {
 			"type": "vcs",
 			"url": "https://codeberg.org/PackageFactory/neos-seo"
+		},
+		"packagefactory/opgm-timeablenodevisibility": {
+			"type": "vcs",
+			"url": "ssh://git@codeberg.org/PackageFactory/opgm-timeablenodevisibility.git"
 		},
 		"local": {
 			"type": "path",
