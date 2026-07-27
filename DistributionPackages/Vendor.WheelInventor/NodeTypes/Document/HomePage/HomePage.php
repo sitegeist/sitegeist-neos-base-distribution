@@ -9,6 +9,8 @@ use Neos\Flow\Annotations as Flow;
 use Neos\Neos\NodeTypes\Content;
 use Neos\Neos\NodeTypes\ContentCollection;
 use Neos\Neos\NodeTypes\Site;
+use PackageFactory\Neos\Seo\NodeTypes\Mixin\GoogleSiteVerificationProperties;
+use PackageFactory\Neos\Seo\NodeTypes\Mixin\GoogleSiteVerificationProvider;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeConstraintsDeclaration;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
 use PackageFactory\OPGM\Domain\NodeType\TetheredChildRelationDeclaration;
@@ -30,7 +32,6 @@ use Vendor\WheelInventor\NodeTypes\Content\TileNavigation\TileNavigation;
 use Vendor\WheelInventor\NodeTypes\Document\Document;
 use Vendor\WheelInventor\NodeTypes\Document\Shortcut;
 use Vendor\WheelInventor\NodeTypes\Document\WebPage\WebPage;
-use Vendor\WheelInventor\NodeTypes\Tag\MainNavigationElement;
 
 #[NodeTypeDeclaration]
 #[NodeTypeUiConfiguration(
@@ -44,10 +45,12 @@ use Vendor\WheelInventor\NodeTypes\Tag\MainNavigationElement;
     ],
 )]
 #[Flow\Proxy(false)]
-final readonly class HomePage extends Document
+final readonly class HomePage extends Document implements
+    Site,
+    GoogleSiteVerificationProvider
 {
-    use Site;
     use SocialMixin;
+    use GoogleSiteVerificationProperties;
     use FooterMixin;
 
     public function __construct(
@@ -71,6 +74,7 @@ final readonly class HomePage extends Document
         )]
         // @todo: custom content collection type?
         public Node $main,
+        public string $uriPathSegment = '',
     ) {
     }
 }

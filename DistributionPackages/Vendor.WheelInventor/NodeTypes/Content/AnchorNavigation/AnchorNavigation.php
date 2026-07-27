@@ -40,10 +40,8 @@ use Vendor\WheelInventor\NodeTypes\Content\AnchorlessContent;
     ],
 )]
 #[Flow\Proxy(false)]
-final readonly class AnchorNavigation extends ContentCollection
+final readonly class AnchorNavigation extends ContentCollection implements AnchorlessContent
 {
-    use AnchorlessContent;
-
     public function __construct(
         #[PropertyUiConfiguration(label: 'Sticky Navigation?', reloadIfChanged: true)]
         #[InspectorConfiguration(group: 'default')]

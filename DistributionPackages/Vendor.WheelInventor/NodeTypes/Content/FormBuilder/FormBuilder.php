@@ -9,6 +9,7 @@ use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
 use Vendor\Shared\NodeTypes\Mixin\HeadlineMixin;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
+use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
 
 #[NodeTypeDeclaration]
 #[NodeTypeUiConfiguration(
@@ -16,9 +17,9 @@ use Vendor\WheelInventor\NodeTypes\Content\Content;
     icon: 'wpforms',
 )]
 #[Flow\Proxy(false)]
-final readonly class FormBuilder
+final readonly class FormBuilder implements Content
 {
-    use Content;
+    use ContentProperties;
     use HeadlineMixin;
     /** @todo FormMixin */
 }

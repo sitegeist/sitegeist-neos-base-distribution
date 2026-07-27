@@ -33,7 +33,6 @@ final class FigureFactory
             image: $imageSource,
             size: $figureSize,
             isLazyLoaded: $isLazyLoaded,
-            class: null
         );
     }
 
@@ -67,7 +66,6 @@ final class FigureFactory
                 image: $imageSource,
                 size: $figureSize,
                 isLazyLoaded: $isLazyLoaded,
-                class: null
             )
             : null;
     }
@@ -86,7 +84,6 @@ final class FigureFactory
                 image: $imageSource,
                 size: $figureSize,
                 isLazyLoaded: true,
-                class: null,
             );
         }
 

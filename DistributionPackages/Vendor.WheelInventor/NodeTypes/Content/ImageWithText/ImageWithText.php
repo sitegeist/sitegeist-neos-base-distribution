@@ -20,6 +20,7 @@ use Vendor\Shared\NodeTypes\Mixin\OptionalLinkMixin;
 use Vendor\Shared\NodeTypes\Mixin\TextMixin;
 use Vendor\Shared\NodeTypes\Preset\FreeCroppingImage;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
+use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
 
 #[NodeTypeDeclaration]
 #[NodeTypeUiConfiguration(
@@ -33,9 +34,9 @@ use Vendor\WheelInventor\NodeTypes\Content\Content;
     position: '10',
 )]
 #[Flow\Proxy(false)]
-final readonly class ImageWithText implements OptionalImageProvider
+final readonly class ImageWithText implements Content, OptionalImageProvider
 {
-    use Content;
+    use ContentProperties;
     use HeadlineMixin;
     use TextMixin;
     use OptionalLinkMixin;

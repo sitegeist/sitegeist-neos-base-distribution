@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "c0aacc4f6b43e329f1ebbb3807f10acb",
+    "content-hash": "ae22b6f4a58a43c55b4173ec7299201b",
     "packages": [
         {
             "name": "altcha-org/altcha",
-            "version": "v2.0.3",
+            "version": "v2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/altcha-org/altcha-lib-php.git",
-                "reference": "8b02ad2c9b82998613bac4d093517d457061cbbe"
+                "reference": "63038786ae51b572f8f1de5a29079bea5971dd84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/altcha-org/altcha-lib-php/zipball/8b02ad2c9b82998613bac4d093517d457061cbbe",
-                "reference": "8b02ad2c9b82998613bac4d093517d457061cbbe",
+                "url": "https://api.github.com/repos/altcha-org/altcha-lib-php/zipball/63038786ae51b572f8f1de5a29079bea5971dd84",
+                "reference": "63038786ae51b572f8f1de5a29079bea5971dd84",
                 "shasum": ""
             },
             "require": {
@@ -49,9 +49,9 @@
             "description": "A lightweight PHP library for creating and verifying ALTCHA challenges.",
             "support": {
                 "issues": "https://github.com/altcha-org/altcha-lib-php/issues",
-                "source": "https://github.com/altcha-org/altcha-lib-php/tree/v2.0.3"
+                "source": "https://github.com/altcha-org/altcha-lib-php/tree/v2.1.0"
             },
-            "time": "2026-07-02T16:36:58+00:00"
+            "time": "2026-07-20T13:20:13+00:00"
         },
         {
             "name": "behat/transliterator",
@@ -1126,16 +1126,16 @@
         },
         {
             "name": "doctrine/dbal",
-            "version": "3.10.5",
+            "version": "3.10.6",
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/dbal.git",
-                "reference": "95d84866bf3c04b2ddca1df7c049714660959aef"
+                "reference": "c95589d775a0b2e543467d40f8c3ecccf586f2b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/dbal/zipball/95d84866bf3c04b2ddca1df7c049714660959aef",
-                "reference": "95d84866bf3c04b2ddca1df7c049714660959aef",
+                "url": "https://api.github.com/repos/doctrine/dbal/zipball/c95589d775a0b2e543467d40f8c3ecccf586f2b4",
+                "reference": "c95589d775a0b2e543467d40f8c3ecccf586f2b4",
                 "shasum": ""
             },
             "require": {
@@ -1220,7 +1220,7 @@
             ],
             "support": {
                 "issues": "https://github.com/doctrine/dbal/issues",
-                "source": "https://github.com/doctrine/dbal/tree/3.10.5"
+                "source": "https://github.com/doctrine/dbal/tree/3.10.6"
             },
             "funding": [
                 {
@@ -1236,7 +1236,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-02-24T08:03:57+00:00"
+            "time": "2026-07-21T12:57:49+00:00"
         },
         {
             "name": "doctrine/deprecations",
@@ -2025,6 +2025,193 @@
                 "source": "https://github.com/darylldoyle/svg-sanitizer/tree/0.22.0"
             },
             "time": "2025-08-12T10:13:48+00:00"
+        },
+        {
+            "name": "flowpack/jobqueue-common",
+            "version": "3.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Flowpack/jobqueue-common.git",
+                "reference": "5d63e76b81ffb7311514902dc18ace44872d9f48"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Flowpack/jobqueue-common/zipball/5d63e76b81ffb7311514902dc18ace44872d9f48",
+                "reference": "5d63e76b81ffb7311514902dc18ace44872d9f48",
+                "shasum": ""
+            },
+            "require": {
+                "neos/cache": "*",
+                "neos/flow": "^6.3 || ^7.0 || ^8.0 || ^9.0",
+                "php": "^7.4 || ^8.0"
+            },
+            "type": "neos-package",
+            "extra": {
+                "neos": {
+                    "package-key": "Flowpack.JobQueue.Common"
+                },
+                "applied-flow-migrations": [
+                    "TYPO3.Flow-201209251426",
+                    "TYPO3.FLOW3-201209201112",
+                    "TYPO3.FLOW3-201201261636",
+                    "TYPO3.Fluid-201205031303",
+                    "TYPO3.FLOW3-201205292145",
+                    "TYPO3.FLOW3-201206271128",
+                    "TYPO3.Flow-201211151101",
+                    "TYPO3.Flow-201212051340",
+                    "TYPO3.TypoScript-130516234520",
+                    "TYPO3.TypoScript-130516235550",
+                    "TYPO3.TYPO3CR-130523180140",
+                    "TYPO3.Neos.NodeTypes-201309111655",
+                    "TYPO3.Flow-201310031523",
+                    "TYPO3.Flow-201405111147",
+                    "TYPO3.Neos-201407061038",
+                    "TYPO3.Neos-201409071922",
+                    "TYPO3.TYPO3CR-140911160326",
+                    "TYPO3.Neos-201410010000",
+                    "TYPO3.TYPO3CR-141101082142",
+                    "TYPO3.Neos-20141113115300",
+                    "TYPO3.Fluid-20141113120800",
+                    "TYPO3.Flow-20141113121400",
+                    "TYPO3.Fluid-20141121091700",
+                    "TYPO3.Neos-20141218134700",
+                    "TYPO3.Fluid-20150214130800",
+                    "TYPO3.Neos-20150303231600",
+                    "TYPO3.TYPO3CR-20150510103823",
+                    "TYPO3.Flow-20151113161300",
+                    "TYPO3.Flow-20161115140400",
+                    "TYPO3.Flow-20161115140430",
+                    "Neos.Flow-20161124204700",
+                    "Neos.Flow-20161124204701",
+                    "Neos.Flow-20161124224015",
+                    "Neos.Eel-20161124230101",
+                    "Neos.Kickstart-20161124230102",
+                    "Neos.Kickstarter-20161125110814",
+                    "Neos.Flow-20161125124112",
+                    "TYPO3.FluidAdaptor-20161130112935",
+                    "TYPO3.Form-20160601101500",
+                    "Neos.Twitter.Bootstrap-20161124204912",
+                    "Neos.Form-20161124205254",
+                    "Neos.Party-20161124225257",
+                    "Neos.Setup-20161124230842",
+                    "Neos.Imagine-20161124231742",
+                    "Neos.Media-20161124233100",
+                    "Neos.NodeTypes-20161125002300",
+                    "Neos.Neos-20161125002322",
+                    "Neos.ContentRepository-20161125012000",
+                    "Neos.Fusion-20161125013710",
+                    "Neos.Setup-20161125014759",
+                    "Neos.Fusion-20161125104701",
+                    "Neos.NodeTypes-20161125104800",
+                    "Neos.Neos-20161125104802",
+                    "Neos.Neos-20161125122412",
+                    "Neos.Fusion-20161201202543",
+                    "Neos.Neos-20161201222211",
+                    "Neos.Fusion-20161202215034",
+                    "Neos.Fusion-20161219092345",
+                    "Neos.ContentRepository-20161219093512",
+                    "Neos.Media-20161219094126",
+                    "Neos.Neos-20161219094403",
+                    "Neos.Neos-20161219122512",
+                    "Neos.Fusion-20161219130100",
+                    "Neos.Neos-20161220163741",
+                    "Neos.Neos-20170115114620",
+                    "Neos.Fusion-20170120013047",
+                    "Neos.Flow-20170125103800",
+                    "Neos.Seo-20170127154600",
+                    "Neos.Flow-20170127183102"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Flowpack\\JobQueue\\Common\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Common functionality for a JobQueue in Flow applications.",
+            "support": {
+                "issues": "https://github.com/Flowpack/jobqueue-common/issues",
+                "source": "https://github.com/Flowpack/jobqueue-common/tree/3.4.1"
+            },
+            "time": "2025-06-02T21:30:02+00:00"
+        },
+        {
+            "name": "flowpack/jobqueue-doctrine",
+            "version": "3.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Flowpack/jobqueue-doctrine.git",
+                "reference": "ae44633bf7ad04d3fb98aa213fb61c73f93c302e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Flowpack/jobqueue-doctrine/zipball/ae44633bf7ad04d3fb98aa213fb61c73f93c302e",
+                "reference": "ae44633bf7ad04d3fb98aa213fb61c73f93c302e",
+                "shasum": ""
+            },
+            "require": {
+                "ext-json": "*",
+                "flowpack/jobqueue-common": "^3.0 || dev-master",
+                "neos/flow": "^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.0"
+            },
+            "type": "neos-package",
+            "extra": {
+                "neos": {
+                    "package-key": "Flowpack.JobQueue.Doctrine"
+                },
+                "applied-flow-migrations": [
+                    "TYPO3.FLOW3-201201261636",
+                    "TYPO3.Fluid-201205031303",
+                    "TYPO3.FLOW3-201205292145",
+                    "TYPO3.FLOW3-201206271128",
+                    "TYPO3.FLOW3-201209201112",
+                    "TYPO3.Flow-201209251426",
+                    "TYPO3.Flow-201211151101",
+                    "TYPO3.Flow-201212051340",
+                    "TYPO3.Flow-201310031523",
+                    "TYPO3.Flow-201405111147",
+                    "TYPO3.Fluid-20141113120800",
+                    "TYPO3.Flow-20141113121400",
+                    "TYPO3.Fluid-20141121091700",
+                    "TYPO3.Fluid-20150214130800",
+                    "TYPO3.Form-20160601101500",
+                    "TYPO3.Flow-20151113161300",
+                    "TYPO3.Flow-20161115140400",
+                    "TYPO3.Flow-20161115140430",
+                    "Neos.Flow-20161124204700",
+                    "Neos.Flow-20161124204701",
+                    "Neos.Flow-20161124224015",
+                    "Neos.Eel-20161124230101",
+                    "Neos.Kickstart-20161124230102",
+                    "Neos.Kickstarter-20161125110814",
+                    "Neos.Flow-20161125124112",
+                    "TYPO3.FluidAdaptor-20161130112935",
+                    "Neos.Imagine-20161124231742",
+                    "Neos.Media-20161124233100",
+                    "Neos.SwiftMailer-20161130105617",
+                    "Neos.Media-20161219094126",
+                    "Neos.Flow-20170125103800",
+                    "Neos.Flow-20170127183102"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Flowpack\\JobQueue\\Doctrine\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Implements concrete Queue for the doctrine work queue. Requires the packages flowpack/jobqueue-common to be installed.",
+            "support": {
+                "issues": "https://github.com/Flowpack/jobqueue-doctrine/issues",
+                "source": "https://github.com/Flowpack/jobqueue-doctrine/tree/3.3.0"
+            },
+            "time": "2024-03-07T13:40:14+00:00"
         },
         {
             "name": "flowpack/nodetemplates",
@@ -5659,6 +5846,117 @@
             "time": "2025-12-16T14:27:51+00:00"
         },
         {
+            "name": "neos/timeable-node-visibility",
+            "version": "9.1.7",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/neos/timeable-node-visibility.git",
+                "reference": "34185e6ef3a46e9f62a0bfce82fc094dd48dfeea"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/neos/timeable-node-visibility/zipball/34185e6ef3a46e9f62a0bfce82fc094dd48dfeea",
+                "reference": "34185e6ef3a46e9f62a0bfce82fc094dd48dfeea",
+                "shasum": ""
+            },
+            "require": {
+                "neos/contentrepository-core": "self.version",
+                "neos/flow": "*",
+                "neos/neos": "self.version",
+                "php": "^8.2"
+            },
+            "type": "neos-package",
+            "extra": {
+                "applied-flow-migrations": [
+                    "TYPO3.TYPO3CR-20150510103823",
+                    "TYPO3.FLOW3-201201261636",
+                    "TYPO3.Fluid-201205031303",
+                    "TYPO3.FLOW3-201205292145",
+                    "TYPO3.FLOW3-201206271128",
+                    "TYPO3.Flow-201211151101",
+                    "TYPO3.Neos.NodeTypes-130516220640",
+                    "TYPO3.TypoScript-130516234520",
+                    "TYPO3.TypoScript-130516235550",
+                    "TYPO3.TYPO3CR-130523180140",
+                    "TYPO3.Neos.NodeTypes-201309111655",
+                    "TYPO3.Neos-201310021548",
+                    "TYPO3.Flow-201310031523",
+                    "TYPO3.Flow-201405111147",
+                    "TYPO3.Neos-201409071922",
+                    "TYPO3.TYPO3CR-140911160326",
+                    "TYPO3.Neos-201410010000",
+                    "TYPO3.TYPO3CR-141101082142",
+                    "TYPO3.Neos-20141113115300",
+                    "TYPO3.Fluid-20141121091700",
+                    "TYPO3.Neos-20141218134700",
+                    "TYPO3.Fluid-20150214130800",
+                    "TYPO3.Neos-201407061038",
+                    "TYPO3.Flow-201212051340",
+                    "TYPO3.Fluid-20141113120800",
+                    "TYPO3.Flow-20141113121400",
+                    "Typo3.Neos.NodeTypes-201309111655",
+                    "TYPO3.TYPO3CR-20140911160326",
+                    "TYPO3.Flow-201209251426",
+                    "TYPO3.FLOW3-201209201112",
+                    "TYPO3.Neos-20150303231600",
+                    "TYPO3.Flow-20151113161300",
+                    "TYPO3.Form-20160601101500",
+                    "TYPO3.Flow-20161115140400",
+                    "TYPO3.Flow-20161115140430",
+                    "Neos.Flow-20161124204700",
+                    "Neos.Flow-20161124204701",
+                    "Neos.Twitter.Bootstrap-20161124204912",
+                    "Neos.Form-20161124205254",
+                    "Neos.Flow-20161124224015",
+                    "Neos.Party-20161124225257",
+                    "Neos.Eel-20161124230101",
+                    "Neos.Kickstart-20161124230102",
+                    "Neos.Setup-20161124230842",
+                    "Neos.Imagine-20161124231742",
+                    "Neos.Media-20161124233100",
+                    "Neos.NodeTypes-20161125002300",
+                    "Neos.SiteKickstarter-20161125002311",
+                    "Neos.Neos-20161125002322",
+                    "Neos.ContentRepository-20161125012000",
+                    "Neos.Fusion-20161125013710",
+                    "Neos.Setup-20161125014759",
+                    "Neos.SiteKickstarter-20161125095901",
+                    "Neos.Fusion-20161125104701",
+                    "Neos.NodeTypes-20161125104800",
+                    "Neos.Neos-20161125104802",
+                    "Neos.Kickstarter-20161125110814",
+                    "Neos.Neos-20161125122412",
+                    "Neos.Flow-20161125124112",
+                    "TYPO3.FluidAdaptor-20161130112935",
+                    "Neos.Fusion-20161201202543",
+                    "Neos.Fusion-20170120013047"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Neos\\TimeableNodeVisibility\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "Enable and disable nodes at a specific time.",
+            "support": {
+                "docs": "https://docs.neos.io/",
+                "forum": "https://discuss.neos.io/",
+                "issues": "https://github.com/neos/timeable-node-visibility/issues",
+                "source": "https://github.com/neos/timeable-node-visibility.git"
+            },
+            "funding": [
+                {
+                    "url": "https://shop.neos.io/neosfunding/",
+                    "type": "custom"
+                }
+            ],
+            "time": "2026-06-16T21:05:20+00:00"
+        },
+        {
             "name": "neos/utility-arrays",
             "version": "9.1.1",
             "source": {
@@ -6237,18 +6535,27 @@
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/neos-seo.git",
-                "reference": "abc8907c0ff0ecd7e12765f7d4cfa40b5dc2dff0"
+                "reference": "8505dfc8e73b33b8bf3f59b050d19dd462778aa1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/neos-seo/archive/abc8907c0ff0ecd7e12765f7d4cfa40b5dc2dff0.zip",
-                "reference": "abc8907c0ff0ecd7e12765f7d4cfa40b5dc2dff0",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/neos-seo/archive/8505dfc8e73b33b8bf3f59b050d19dd462778aa1.zip",
+                "reference": "8505dfc8e73b33b8bf3f59b050d19dd462778aa1",
                 "shasum": ""
             },
             "require": {
                 "neos/neos": "^9.1",
                 "packagefactory/neos-component-engine": "*",
                 "packagefactory/opgm-neosadapter": "*"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.2",
+                "phpunit/phpunit": "^10.0",
+                "squizlabs/php_codesniffer": "^4.0"
+            },
+            "suggest": {
+                "flowpack/jobqueue-common": "For rendering the XML sitemap asynchronously",
+                "packagefactory/opgm-timeablenodevisibility": "For making use of the Timeable interface"
             },
             "default-branch": true,
             "type": "neos-package",
@@ -6277,7 +6584,7 @@
                 "source": "https://codeberg.org/PackageFactory/neos-seo/branch/main",
                 "issues": "https://codeberg.org/PackageFactory/neos-seo/issues"
             },
-            "time": "2026-07-19T23:32:24+02:00"
+            "time": "2026-07-26T20:04:08+02:00"
         },
         {
             "name": "packagefactory/opgm",
@@ -6285,12 +6592,12 @@
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/opgm.git",
-                "reference": "26b54f9124432644ca81169e4879448179452237"
+                "reference": "a68d874bef92cd02fa3c21185fe2a57adbb8ff0f"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm/archive/26b54f9124432644ca81169e4879448179452237.zip",
-                "reference": "26b54f9124432644ca81169e4879448179452237",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm/archive/a68d874bef92cd02fa3c21185fe2a57adbb8ff0f.zip",
+                "reference": "a68d874bef92cd02fa3c21185fe2a57adbb8ff0f",
                 "shasum": ""
             },
             "require": {
@@ -6306,9 +6613,9 @@
                 "neos/contentrepository-export": "^9.0.0",
                 "neos/contentrepository-testsuite": "^9.0.0",
                 "neos/contentrepositoryregistry-testsuite": "^9.0.0",
-                "phpstan/phpstan": "^2.1",
+                "phpstan/phpstan": "^2.2",
                 "phpunit/phpunit": "^10.0",
-                "squizlabs/php_codesniffer": "^3.4",
+                "squizlabs/php_codesniffer": "^4.0",
                 "symfony/yaml": "*"
             },
             "default-branch": true,
@@ -6375,7 +6682,7 @@
                 "source": "https://codeberg.org/PackageFactory/opgm/branch/main",
                 "issues": "https://codeberg.org/PackageFactory/opgm/issues"
             },
-            "time": "2026-07-20T10:51:04+02:00"
+            "time": "2026-07-26T20:05:06+02:00"
         },
         {
             "name": "packagefactory/opgm-contentrepositoryregistryadapter",
@@ -6383,12 +6690,12 @@
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/opgm-contentrepositoryregistryadapter.git",
-                "reference": "ec6bd9a3bd315284b86a5560ea566b50181eca95"
+                "reference": "766bd1d4f5cd9197eaacbcb6dd1eeb38313a9d97"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm-contentrepositoryregistryadapter/archive/ec6bd9a3bd315284b86a5560ea566b50181eca95.zip",
-                "reference": "ec6bd9a3bd315284b86a5560ea566b50181eca95",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm-contentrepositoryregistryadapter/archive/766bd1d4f5cd9197eaacbcb6dd1eeb38313a9d97.zip",
+                "reference": "766bd1d4f5cd9197eaacbcb6dd1eeb38313a9d97",
                 "shasum": ""
             },
             "require": {
@@ -6396,6 +6703,11 @@
                 "neos/flow": "*",
                 "neos/utility-arrays": "*",
                 "packagefactory/opgm": "*"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.2",
+                "phpunit/phpunit": "^10.0",
+                "squizlabs/php_codesniffer": "^4.0"
             },
             "default-branch": true,
             "type": "neos-package",
@@ -6417,7 +6729,7 @@
                 "source": "https://codeberg.org/PackageFactory/opgm-contentrepositoryregistryadapter/branch/main",
                 "issues": "https://codeberg.org/PackageFactory/opgm-contentrepositoryregistryadapter/issues"
             },
-            "time": "2026-01-16T20:33:01+01:00"
+            "time": "2026-07-26T20:05:37+02:00"
         },
         {
             "name": "packagefactory/opgm-neosadapter",
@@ -6425,17 +6737,22 @@
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/opgm-neosadapter.git",
-                "reference": "1a6b99d8b945df8e0de86b26a2c27ecf7c91c528"
+                "reference": "7dbe4a4b48820ed5f61d2f28e27b47567f973adf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm-neosadapter/archive/1a6b99d8b945df8e0de86b26a2c27ecf7c91c528.zip",
-                "reference": "1a6b99d8b945df8e0de86b26a2c27ecf7c91c528",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm-neosadapter/archive/7dbe4a4b48820ed5f61d2f28e27b47567f973adf.zip",
+                "reference": "7dbe4a4b48820ed5f61d2f28e27b47567f973adf",
                 "shasum": ""
             },
             "require": {
                 "neos/neos": "^9.0",
                 "packagefactory/opgm-contentrepositoryregistryadapter": "*"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.2",
+                "phpunit/phpunit": "^10.0",
+                "squizlabs/php_codesniffer": "^4.0"
             },
             "suggest": {
                 "flowpack/nodetemplates": "For making use of the NodeTemplateDeclaration attribute",
@@ -6463,7 +6780,49 @@
                 "source": "https://codeberg.org/PackageFactory/opgm-neosadapter/branch/main",
                 "issues": "https://codeberg.org/PackageFactory/opgm-neosadapter/issues"
             },
-            "time": "2026-07-20T16:06:57+02:00"
+            "time": "2026-07-26T20:08:18+02:00"
+        },
+        {
+            "name": "packagefactory/opgm-timeablenodevisibility",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "ssh://git@codeberg.org/PackageFactory/opgm-timeablenodevisibility.git",
+                "reference": "f3c6a8f0b2a391fbaf37d1d17010c3fb15576810"
+            },
+            "require": {
+                "neos/neos": "^9.0",
+                "neos/timeable-node-visibility": "*",
+                "packagefactory/opgm-neosadapter": "*"
+            },
+            "require-dev": {
+                "phpstan/phpstan": "^2.2",
+                "phpunit/phpunit": "^10.0",
+                "squizlabs/php_codesniffer": "^4.0"
+            },
+            "default-branch": true,
+            "type": "neos-package",
+            "extra": {
+                "neos": {
+                    "package-key": "PackageFactory.OPGM.TimeableNodeVisibility"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PackageFactory\\OPGM\\TimeableNodeVisibility\\": "Classes",
+                    "Neos\\TimeableNodeVisibility\\NodeTypes\\": "TimeableNodeVisibilityNodeTypes"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "PackageFactory\\OPGM\\TimeableNodeVisibility\\Tests\\": "Tests"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "OPGM adapter for the neos/timeable-node-visibility package.",
+            "time": "2026-07-26T18:08:59+00:00"
         },
         {
             "name": "psr/cache",
@@ -8065,12 +8424,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX.git",
-                "reference": "758286c771e69e3a4037ea8c419917a0406edd83"
+                "reference": "dbc29ef31f37d96da253211367974b6c198baa84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Devclaim/Sitegeist.PaperTiger.CPX/zipball/758286c771e69e3a4037ea8c419917a0406edd83",
-                "reference": "758286c771e69e3a4037ea8c419917a0406edd83",
+                "url": "https://api.github.com/repos/Devclaim/Sitegeist.PaperTiger.CPX/zipball/dbc29ef31f37d96da253211367974b6c198baa84",
+                "reference": "dbc29ef31f37d96da253211367974b6c198baa84",
                 "shasum": ""
             },
             "require": {
@@ -8080,6 +8439,7 @@
                 "neos/neos-ui": "^9.1",
                 "neos/symfonymailer": "^1.0.2",
                 "packagefactory/neos-component-engine": "^1.0.0",
+                "packagefactory/opgm-neosadapter": "*",
                 "php": ">=8.4",
                 "sitegeist/inspectorgadget": "^3.0",
                 "sitegeist/schemeonyou": "^2.1.0"
@@ -8111,7 +8471,7 @@
                 "source": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX/tree/main",
                 "issues": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX/issues"
             },
-            "time": "2026-07-20T12:04:12+00:00"
+            "time": "2026-07-22T08:40:30+00:00"
         },
         {
             "name": "sitegeist/schemeonyou",
@@ -13099,26 +13459,26 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "3.13.5",
+            "version": "4.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "0ca86845ce43291e8f5692c7356fccf3bcf02bf4"
+                "reference": "0525c73950de35ded110cffafb9892946d7771b5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/0ca86845ce43291e8f5692c7356fccf3bcf02bf4",
-                "reference": "0ca86845ce43291e8f5692c7356fccf3bcf02bf4",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/0525c73950de35ded110cffafb9892946d7771b5",
+                "reference": "0525c73950de35ded110cffafb9892946d7771b5",
                 "shasum": ""
             },
             "require": {
                 "ext-simplexml": "*",
                 "ext-tokenizer": "*",
                 "ext-xmlwriter": "*",
-                "php": ">=5.4.0"
+                "php": ">=7.2.0"
             },
             "require-dev": {
-                "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0 || ^8.0 || ^9.3.4"
+                "phpunit/phpunit": "^8.4.0 || ^9.3.4 || ^10.5.32 || 11.3.3 - 11.5.28 || ^11.5.31"
             },
             "bin": [
                 "bin/phpcbf",
@@ -13143,7 +13503,7 @@
                     "homepage": "https://github.com/PHPCSStandards/PHP_CodeSniffer/graphs/contributors"
                 }
             ],
-            "description": "PHP_CodeSniffer tokenizes PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+            "description": "PHP_CodeSniffer tokenizes PHP files and detects violations of a defined set of coding standards.",
             "homepage": "https://github.com/PHPCSStandards/PHP_CodeSniffer",
             "keywords": [
                 "phpcs",
@@ -13174,7 +13534,7 @@
                     "type": "thanks_dev"
                 }
             ],
-            "time": "2025-11-04T16:30:35+00:00"
+            "time": "2025-11-10T16:43:36+00:00"
         },
         {
             "name": "symfony/config",
@@ -13635,6 +13995,7 @@
         "packagefactory/opgm": 20,
         "packagefactory/opgm-contentrepositoryregistryadapter": 20,
         "packagefactory/opgm-neosadapter": 20,
+        "packagefactory/opgm-timeablenodevisibility": 20,
         "sitegeist/kaleidoscope-cpx": 20,
         "sitegeist/monocle": 20,
         "sitegeist/papertiger-cpx": 20

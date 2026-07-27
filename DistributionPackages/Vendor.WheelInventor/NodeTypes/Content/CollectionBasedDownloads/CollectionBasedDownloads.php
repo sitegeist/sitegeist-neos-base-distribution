@@ -17,6 +17,7 @@ use Vendor\Shared\Application\AssetCollectionProvider;
 use Vendor\Shared\Application\TagProvider;
 use Vendor\Shared\NodeTypes\Mixin\HeadlineMixin;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
+use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
 
 #[NodeTypeDeclaration]
 #[NodeTypeUiConfiguration(
@@ -29,9 +30,9 @@ use Vendor\WheelInventor\NodeTypes\Content\Content;
     icon: 'download',
 )]
 #[Flow\Proxy(false)]
-final readonly class CollectionBasedDownloads
+final readonly class CollectionBasedDownloads implements Content
 {
-    use Content;
+    use ContentProperties;
     use HeadlineMixin;
 
     /**

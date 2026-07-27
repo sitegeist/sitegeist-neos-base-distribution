@@ -9,6 +9,7 @@ use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
 use Vendor\Shared\NodeTypes\Mixin\HeadlineMixin;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
+use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
 
 #[NodeTypeDeclaration]
 #[NodeTypeUiConfiguration(
@@ -16,8 +17,8 @@ use Vendor\WheelInventor\NodeTypes\Content\Content;
     icon: 'smile',
 )]
 #[Flow\Proxy(false)]
-final readonly class ReactExampleSSR
+final readonly class ReactExampleSSR implements Content
 {
-    use Content;
+    use ContentProperties;
     use HeadlineMixin;
 }

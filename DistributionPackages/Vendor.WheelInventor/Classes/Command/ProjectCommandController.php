@@ -6,6 +6,7 @@ namespace Vendor\WheelInventor\Command;
 
 use Neos\ContentRepository\Core\DimensionSpace\OriginDimensionSpacePoint;
 use Neos\ContentRepository\Core\Feature\NodeCreation\Command\CreateNodeAggregateWithNode;
+use Neos\ContentRepository\Core\Feature\NodeModification\Dto\PropertyValuesToWrite;
 use Neos\ContentRepository\Core\Feature\RootNodeCreation\Command\CreateRootNodeAggregateWithNode;
 use Neos\ContentRepository\Core\Feature\WorkspaceCreation\Command\CreateRootWorkspace;
 use Neos\ContentRepository\Core\SharedModel\ContentRepository\ContentRepositoryId;
@@ -30,17 +31,25 @@ use Vendor\WheelInventor\NodeTypes\Document\HomePage\HomePage;
 final class ProjectCommandController extends CommandController
 {
     public function __construct(
+        /** @phpstan-ignore property.onlyWritten (seal will be removed before flight) */
         private readonly ContentRepositoryRegistry $contentRepositoryRegistry,
+        /** @phpstan-ignore property.onlyWritten (seal will be removed before flight) */
         private readonly SiteRepository $siteRepository,
+        /** @phpstan-ignore property.onlyWritten (seal will be removed before flight) */
         private readonly DomainRepository $domainRepository,
+        /** @phpstan-ignore property.onlyWritten (seal will be removed before flight) */
         private readonly WorkspaceService $workspaceService,
     ) {
         parent::__construct();
     }
 
-    public function setupSiteCommand(string $siteName, string $siteId, string $domainName)
+    public function setupSiteCommand(string $siteName, string $siteId, string $domainName): void
     {
-        throw new \RuntimeException('Remove before flight: Make sure to set up the dimension space first and define your node ids and names below');
+        throw new \RuntimeException(
+            'Remove before flight: Make sure to set up the dimension space first'
+                . ' and define your node ids and names below'
+        );
+        /** @phpstan-ignore deadCode.unreachable (seal will be removed before flight) */
         $sitesId = 'vendor-wheelinventor-sites';
         $sitePackageKey = 'Vendor.WheelInventor';
         $initialOriginDSP = OriginDimensionSpacePoint::createWithoutDimensions();
@@ -69,11 +78,15 @@ final class ProjectCommandController extends CommandController
 
         try {
             $contentRepository->handle(CreateNodeAggregateWithNode::create(
-                WorkspaceName::forLive(),
-                NodeAggregateId::fromString($siteId),
-                NodeTypeNameExtractor::requireFromFQN(HomePage::class),
-                $initialOriginDSP,
-                NodeAggregateId::fromString($sitesId),
+                workspaceName: WorkspaceName::forLive(),
+                nodeAggregateId: NodeAggregateId::fromString($siteId),
+                nodeTypeName: NodeTypeNameExtractor::requireFromFQN(HomePage::class),
+                originDimensionSpacePoint: $initialOriginDSP,
+                parentNodeAggregateId: NodeAggregateId::fromString($sitesId),
+                initialPropertyValues: PropertyValuesToWrite::fromArray([
+                    'title' => 'Home',
+                    'uriPathSegment' => '',
+                ])
             )->withNodeName(NodeName::fromString($siteId)));
         } catch (\Throwable $e) {
             // then don't

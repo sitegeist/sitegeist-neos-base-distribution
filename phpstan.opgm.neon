@@ -1,0 +1,14 @@
+parameters:
+    level: 8
+    paths:
+        - Packages/Application/PackageFactory.OPGM
+        - Packages/Application/PackageFactory.OPGM.ContentRepositoryRegistryAdapter
+        - Packages/Application/PackageFactory.OPGM.NeosAdapter
+        - Packages/Application/PackageFactory.OPGM.TimeableNodeVisibility
+    ignoreErrors:
+        -
+            identifier: trait.unused
+            path: Packages/Application/PackageFactory.OPGM.TimeableNodeVisibility/TimeableNodeVisibilityNodeTypes/*.php
+        -
+            identifier: trait.unused
+            path: Packages/Application/PackageFactory.OPGM.NeosAdapter/NeosNodeTypes/*.php

@@ -20,6 +20,7 @@ use Vendor\Shared\NodeTypes\Mixin\OptionalImageProvider;
 use Vendor\Shared\NodeTypes\Preset\PlainText;
 use Vendor\Shared\NodeTypes\Preset\ThreeFourImage;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
+use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
 
 #[NodeTypeDeclaration]
 #[NodeTypeUiConfiguration(
@@ -32,9 +33,9 @@ use Vendor\WheelInventor\NodeTypes\Content\Content;
     icon: 'file',
 )]
 #[Flow\Proxy(false)]
-final readonly class Download implements OptionalImageProvider
+final readonly class Download implements Content, OptionalImageProvider
 {
-    use Content;
+    use ContentProperties;
     use HeadlineMixin;
 
     public function __construct(

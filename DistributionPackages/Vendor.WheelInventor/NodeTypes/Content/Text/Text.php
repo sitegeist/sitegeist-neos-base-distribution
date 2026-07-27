@@ -12,6 +12,7 @@ use Vendor\Shared\NodeTypes\Mixin\OptionalLinkMixin;
 use Vendor\Shared\NodeTypes\Mixin\TextColumnsMixin;
 use Vendor\Shared\NodeTypes\Mixin\TextMixin;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
+use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
 
 #[NodeTypeDeclaration]
 #[NodeTypeUiConfiguration(
@@ -19,9 +20,9 @@ use Vendor\WheelInventor\NodeTypes\Content\Content;
     icon: 'align-left',
 )]
 #[Flow\Proxy(false)]
-final readonly class Text
+final readonly class Text implements Content
 {
-    use Content;
+    use ContentProperties;
     use HeadlineMixin;
     use TextMixin;
     use TextColumnsMixin;

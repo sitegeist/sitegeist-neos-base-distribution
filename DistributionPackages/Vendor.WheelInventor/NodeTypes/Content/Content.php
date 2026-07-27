@@ -19,12 +19,9 @@ use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertyUiConfiguration;
     icon: 'anchor',
     position: 'start 0',
 )]
-trait Content
+interface Content extends NeosContent
 {
-    use NeosContent;
-
     #[PropertyUiConfiguration(label: 'Anchor', reloadIfChanged: true)]
     #[InspectorConfiguration(group: 'anchor')]
-    public readonly ?string $anchorId;
-
+    public ?string $anchorId {get;}
 }

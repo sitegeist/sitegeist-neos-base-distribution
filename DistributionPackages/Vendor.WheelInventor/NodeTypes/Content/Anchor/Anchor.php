@@ -28,10 +28,8 @@ use Vendor\WheelInventor\NodeTypes\Content\AnchorlessContent;
     position: 'start 0',
 )]
 #[Flow\Proxy(false)]
-final readonly class Anchor
+final readonly class Anchor implements AnchorlessContent
 {
-    use AnchorlessContent;
-
     public function __construct(
         #[PropertyUiConfiguration(label: 'Ziel-Anker')]
         #[InspectorConfiguration(group: 'anchor')]

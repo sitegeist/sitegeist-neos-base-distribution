@@ -14,6 +14,7 @@ use Vendor\Shared\NodeTypes\Mixin\HeadlineMixin;
 use Vendor\Shared\NodeTypes\Mixin\OptionalLinkMixin;
 use Vendor\Shared\NodeTypes\Mixin\TextMixin;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
+use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
 
 #[NodeTypeDeclaration]
 #[NodeTypeUiConfiguration(
@@ -27,9 +28,9 @@ use Vendor\WheelInventor\NodeTypes\Content\Content;
     position: 'folder-open',
 )]
 #[Flow\Proxy(false)]
-final readonly class AccordionItem
+final readonly class AccordionItem implements Content
 {
-    use Content;
+    use ContentProperties;
     use HeadlineMixin;
     use TextMixin;
     use OptionalLinkMixin;

@@ -15,16 +15,6 @@ final class AnchorRenderer implements ContentNodeRendererInterface
 {
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
-        return $this->render($context, false);
-    }
-
-    public function renderAsStickyContent(NeosContext $context): ComponentInterface
-    {
-        return $this->render($context, true);
-    }
-
-    private function render(NeosContext $context, bool $sticky): ComponentInterface
-    {
         $anchor = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, Anchor::class);
 
         // @todo: link & inBackend in der Komponente?
@@ -43,7 +33,6 @@ final class AnchorRenderer implements ContentNodeRendererInterface
                 true
             ),
             inBackend: $context->renderingMode->isEdit,
-            forSticky: $sticky,
         );
     }
 }

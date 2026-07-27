@@ -14,6 +14,7 @@ use Vendor\Shared\NodeTypes\Mixin\TextMixin;
 use Vendor\Shared\NodeTypes\Preset\PlainText;
 use Vendor\Shared\NodeTypes\Preset\SquareImage;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
+use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
 
 #[NodeTypeDeclaration]
 #[NodeTypeUiConfiguration(
@@ -21,9 +22,9 @@ use Vendor\WheelInventor\NodeTypes\Content\Content;
     icon: 'comment-alt',
 )]
 #[Flow\Proxy(false)]
-final readonly class Quotation implements ImageProvider
+final readonly class Quotation implements Content, ImageProvider
 {
-    use Content;
+    use ContentProperties;
     use TextMixin;
 
     public function __construct(

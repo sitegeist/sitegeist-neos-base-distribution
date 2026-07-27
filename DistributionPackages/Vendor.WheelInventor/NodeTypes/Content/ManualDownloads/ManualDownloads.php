@@ -13,6 +13,7 @@ use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTemplates\NodeTempla
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
 use Vendor\Shared\NodeTypes\Mixin\HeadlineMixin;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
+use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
 use Vendor\WheelInventor\NodeTypes\Content\Download\Download;
 
 #[NodeTypeDeclaration]
@@ -36,8 +37,8 @@ use Vendor\WheelInventor\NodeTypes\Content\Download\Download;
     ]
 )]
 #[Flow\Proxy(false)]
-final readonly class ManualDownloads extends ContentCollection
+final readonly class ManualDownloads extends ContentCollection implements Content
 {
-    use Content;
+    use ContentProperties;
     use HeadlineMixin;
 }

@@ -1,0 +1,31 @@
+Flowpack:
+  JobQueue:
+    Common:
+      presets:
+        'default':
+          # FQN of the queue implementation to use
+          className: 'Flowpack\JobQueue\Doctrine\Queue\DoctrineQueue'
+
+          # if defined, all queues are prefixed with the configured "queueNamePrefix". This helps if multiple
+          # Flow instances share the same queue service.
+          queueNamePrefix: ''
+
+          # If set jobs are executed on a separate thread avoiding side-effects and memory-leaks
+          executeIsolated: true
+
+          # If set to true, forwards the full output (stdout + stderr) of the respective job to the stdout of its "parent"
+          outputResults: false
+
+          # The max number of times a message is released when job execution failed
+          maximumNumberOfReleases: 3
+
+          # Default options when submitting new jobs
+          options: {}
+
+          # Default options when a message is released again
+          releaseOptions:
+            delay: 300
+
+      queues:
+        'packagefactory-neos-seo-xmlsitemap':
+          preset: 'default'

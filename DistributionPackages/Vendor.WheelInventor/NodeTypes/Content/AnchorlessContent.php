@@ -10,7 +10,6 @@ use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
 #[NodeTypeDeclaration(
     label: '${Neos.Node.labelForNode(node).properties("headline", "title", "text") || Neos.Node.labelForNode(node)}'
 )]
-trait AnchorlessContent
+interface AnchorlessContent extends NeosContent
 {
-    use NeosContent;
 }

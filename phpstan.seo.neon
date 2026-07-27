@@ -1,0 +1,9 @@
+parameters:
+    level: 8
+    paths:
+        - Packages/Application/PackageFactory.Neos.Seo/Classes
+        - Packages/Application/PackageFactory.Neos.Seo/NodeTypes
+    ignoreErrors:
+        -
+            identifier: trait.unused
+            path: Packages/Application/PackageFactory.Neos.Seo/NodeTypes/**/*.php

@@ -12,6 +12,7 @@ use Vendor\Shared\NodeTypes\Mixin\HeadlineMixin;
 use Vendor\Shared\NodeTypes\Mixin\ImageProvider;
 use Vendor\Shared\NodeTypes\Preset\FreeCroppingImage;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
+use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
 
 #[NodeTypeDeclaration]
 #[NodeTypeUiConfiguration(
@@ -19,9 +20,9 @@ use Vendor\WheelInventor\NodeTypes\Content\Content;
     icon: 'image',
 )]
 #[Flow\Proxy(false)]
-final readonly class Image implements ImageProvider
+final readonly class Image implements Content, ImageProvider
 {
-    use Content;
+    use ContentProperties;
     use HeadlineMixin;
 
     public function __construct(
