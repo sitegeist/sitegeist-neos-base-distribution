@@ -32,12 +32,14 @@ final class CollectionBasedDownloadsRenderer implements ContentNodeRendererInter
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
         $collectionBasedDownloads = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, CollectionBasedDownloads::class);
+        $assetCollections = $collectionBasedDownloads->assetCollections ?? [];
+        $tags = $collectionBasedDownloads->tags ?? [];
         $documentQuery = $this->documentRepository->createQuery();
         /** @var array<Document> $documents */
         $documents = $documentQuery->matching(
             $documentQuery->logicalOr(
-                $documentQuery->contains('assetCollections', $collectionBasedDownloads->assetCollections),
-                $documentQuery->contains('tags', $collectionBasedDownloads->tags),
+                $documentQuery->contains('assetCollections', $assetCollections),
+                $documentQuery->contains('tags', $tags),
             )
         )->execute()->toArray();
 

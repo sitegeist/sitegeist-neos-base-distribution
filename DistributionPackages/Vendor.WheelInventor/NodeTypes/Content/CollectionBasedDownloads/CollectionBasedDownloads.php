@@ -48,7 +48,7 @@ final readonly class CollectionBasedDownloads implements Content
             multiple: true,
             dataSourceIdentifier: AssetCollectionProvider::IDENTIFIER,
         )]
-        public array $assetCollections,
+        public ?array $assetCollections = [],
         #[PropertyUiConfiguration(label: 'Tags', reloadIfChanged: true)]
         #[InspectorConfiguration(group: 'downloads')]
         #[SelectBoxEditorConfiguration(
@@ -57,7 +57,7 @@ final readonly class CollectionBasedDownloads implements Content
             multiple: true,
             dataSourceIdentifier: TagProvider::IDENTIFIER,
         )]
-        public array $tags,
-    ){
+        public ?array $tags = [],
+    ) {
     }
 }
