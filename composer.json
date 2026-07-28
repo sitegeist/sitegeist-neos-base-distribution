@@ -44,7 +44,8 @@
 		"packagefactory/neos-seo": "dev-main",
 		"packagefactory/opgm-contentrepositoryregistryadapter": "dev-main",
 		"packagefactory/opgm": "dev-main",
-		"packagefactory/opgm-timeablenodevisibility": "dev-main"
+		"packagefactory/opgm-timeablenodevisibility": "dev-main",
+		"packagefactory/neos-seo-jobqueue": "dev-main"
 	},
 	"require-dev": {
 		"neos/buildessentials": "^9.0",
@@ -71,7 +72,7 @@
 		"post-package-update": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
 		"post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
 		"post-create-project-cmd": "ddev config --project-name=`basename \"$PWD\"`",
-		"build:cpx": "./flow components:build 'Vendor.Shared' 'PackageFactory.Neos.Seo'",
+		"build:cpx": "./flow components:build 'PackageFactory.Neos.Seo, Vendor.Shared'",
 		"flush": [
 			"./flow flow:cache:flush --force",
 			"./flow flow:package:rescan",
@@ -162,6 +163,10 @@
 		"packagefactory/neos-seo": {
 			"type": "vcs",
 			"url": "https://codeberg.org/PackageFactory/neos-seo"
+		},
+		"packagefactory/neos-seo-jobqueue": {
+			"type": "vcs",
+			"url": "https://codeberg.org/PackageFactory/neos-seo-jobqueue"
 		},
 		"packagefactory/opgm-timeablenodevisibility": {
 			"type": "vcs",

@@ -15,6 +15,7 @@
 
 		"packagefactory/neos-componentview": "*",
 		"packagefactory/opgm-neosadapter": "*",
+		"packagefactory/opgm-timeablenodevisibility": "*",
 		"packagefactory/neos-seo": "*",
 
 		"sitegeist/csvpo": "^2.0",

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "04a43ee707af73133c1c2f35a3b8fd7e",
+    "content-hash": "f288ab5c1d96f946b8386ce5313b1e30",
     "packages": [
         {
             "name": "altcha-org/altcha",
@@ -2025,6 +2025,118 @@
                 "source": "https://github.com/darylldoyle/svg-sanitizer/tree/0.22.0"
             },
             "time": "2025-08-12T10:13:48+00:00"
+        },
+        {
+            "name": "flowpack/jobqueue-common",
+            "version": "3.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Flowpack/jobqueue-common.git",
+                "reference": "5d63e76b81ffb7311514902dc18ace44872d9f48"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Flowpack/jobqueue-common/zipball/5d63e76b81ffb7311514902dc18ace44872d9f48",
+                "reference": "5d63e76b81ffb7311514902dc18ace44872d9f48",
+                "shasum": ""
+            },
+            "require": {
+                "neos/cache": "*",
+                "neos/flow": "^6.3 || ^7.0 || ^8.0 || ^9.0",
+                "php": "^7.4 || ^8.0"
+            },
+            "type": "neos-package",
+            "extra": {
+                "neos": {
+                    "package-key": "Flowpack.JobQueue.Common"
+                },
+                "applied-flow-migrations": [
+                    "TYPO3.Flow-201209251426",
+                    "TYPO3.FLOW3-201209201112",
+                    "TYPO3.FLOW3-201201261636",
+                    "TYPO3.Fluid-201205031303",
+                    "TYPO3.FLOW3-201205292145",
+                    "TYPO3.FLOW3-201206271128",
+                    "TYPO3.Flow-201211151101",
+                    "TYPO3.Flow-201212051340",
+                    "TYPO3.TypoScript-130516234520",
+                    "TYPO3.TypoScript-130516235550",
+                    "TYPO3.TYPO3CR-130523180140",
+                    "TYPO3.Neos.NodeTypes-201309111655",
+                    "TYPO3.Flow-201310031523",
+                    "TYPO3.Flow-201405111147",
+                    "TYPO3.Neos-201407061038",
+                    "TYPO3.Neos-201409071922",
+                    "TYPO3.TYPO3CR-140911160326",
+                    "TYPO3.Neos-201410010000",
+                    "TYPO3.TYPO3CR-141101082142",
+                    "TYPO3.Neos-20141113115300",
+                    "TYPO3.Fluid-20141113120800",
+                    "TYPO3.Flow-20141113121400",
+                    "TYPO3.Fluid-20141121091700",
+                    "TYPO3.Neos-20141218134700",
+                    "TYPO3.Fluid-20150214130800",
+                    "TYPO3.Neos-20150303231600",
+                    "TYPO3.TYPO3CR-20150510103823",
+                    "TYPO3.Flow-20151113161300",
+                    "TYPO3.Flow-20161115140400",
+                    "TYPO3.Flow-20161115140430",
+                    "Neos.Flow-20161124204700",
+                    "Neos.Flow-20161124204701",
+                    "Neos.Flow-20161124224015",
+                    "Neos.Eel-20161124230101",
+                    "Neos.Kickstart-20161124230102",
+                    "Neos.Kickstarter-20161125110814",
+                    "Neos.Flow-20161125124112",
+                    "TYPO3.FluidAdaptor-20161130112935",
+                    "TYPO3.Form-20160601101500",
+                    "Neos.Twitter.Bootstrap-20161124204912",
+                    "Neos.Form-20161124205254",
+                    "Neos.Party-20161124225257",
+                    "Neos.Setup-20161124230842",
+                    "Neos.Imagine-20161124231742",
+                    "Neos.Media-20161124233100",
+                    "Neos.NodeTypes-20161125002300",
+                    "Neos.Neos-20161125002322",
+                    "Neos.ContentRepository-20161125012000",
+                    "Neos.Fusion-20161125013710",
+                    "Neos.Setup-20161125014759",
+                    "Neos.Fusion-20161125104701",
+                    "Neos.NodeTypes-20161125104800",
+                    "Neos.Neos-20161125104802",
+                    "Neos.Neos-20161125122412",
+                    "Neos.Fusion-20161201202543",
+                    "Neos.Neos-20161201222211",
+                    "Neos.Fusion-20161202215034",
+                    "Neos.Fusion-20161219092345",
+                    "Neos.ContentRepository-20161219093512",
+                    "Neos.Media-20161219094126",
+                    "Neos.Neos-20161219094403",
+                    "Neos.Neos-20161219122512",
+                    "Neos.Fusion-20161219130100",
+                    "Neos.Neos-20161220163741",
+                    "Neos.Neos-20170115114620",
+                    "Neos.Fusion-20170120013047",
+                    "Neos.Flow-20170125103800",
+                    "Neos.Seo-20170127154600",
+                    "Neos.Flow-20170127183102"
+                ]
+            },
+            "autoload": {
+                "psr-4": {
+                    "Flowpack\\JobQueue\\Common\\": "Classes"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Common functionality for a JobQueue in Flow applications.",
+            "support": {
+                "issues": "https://github.com/Flowpack/jobqueue-common/issues",
+                "source": "https://github.com/Flowpack/jobqueue-common/tree/3.4.1"
+            },
+            "time": "2025-06-02T21:30:02+00:00"
         },
         {
             "name": "flowpack/nodetemplates",
@@ -6348,12 +6460,12 @@
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/neos-seo.git",
-                "reference": "d6581dd3618849b3be890eab5bcd2b18d6c38f05"
+                "reference": "26dd4760aaa8222921f2f69736a7d17f5d84ec53"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/neos-seo/archive/d6581dd3618849b3be890eab5bcd2b18d6c38f05.zip",
-                "reference": "d6581dd3618849b3be890eab5bcd2b18d6c38f05",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/neos-seo/archive/26dd4760aaa8222921f2f69736a7d17f5d84ec53.zip",
+                "reference": "26dd4760aaa8222921f2f69736a7d17f5d84ec53",
                 "shasum": ""
             },
             "require": {
@@ -6367,7 +6479,7 @@
                 "squizlabs/php_codesniffer": "^4.0"
             },
             "suggest": {
-                "flowpack/jobqueue-common": "For rendering the XML sitemap asynchronously",
+                "packagefactory/neos-seo-jobqueue": "For rendering the XML sitemap asynchronously",
                 "packagefactory/opgm-timeablenodevisibility": "For making use of the Timeable interface"
             },
             "default-branch": true,
@@ -6397,7 +6509,52 @@
                 "source": "https://codeberg.org/PackageFactory/neos-seo/branch/main",
                 "issues": "https://codeberg.org/PackageFactory/neos-seo/issues"
             },
-            "time": "2026-07-26T21:54:06+02:00"
+            "time": "2026-07-27T23:57:19+02:00"
+        },
+        {
+            "name": "packagefactory/neos-seo-jobqueue",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://codeberg.org/PackageFactory/neos-seo-jobqueue.git",
+                "reference": "bf05226506a22ee563b42853f65f5368109f8b3a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/neos-seo-jobqueue/archive/bf05226506a22ee563b42853f65f5368109f8b3a.zip",
+                "reference": "bf05226506a22ee563b42853f65f5368109f8b3a",
+                "shasum": ""
+            },
+            "require": {
+                "flowpack/jobqueue-common": "^3.4",
+                "packagefactory/neos-seo": "*"
+            },
+            "default-branch": true,
+            "type": "neos-package",
+            "extra": {
+                "neos": {
+                    "package-key": "PackageFactory.Neos.Seo.JobQueue"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PackageFactory\\Neos\\Seo\\JobQueue\\": "Classes"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "PackageFactory\\Neos\\Seo\\JobQueue\\Tests\\": "Tests"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "Integration of Flowpack.JobQueue capabilities into the SEO package, e.g. for asynchronous rendering of XML sitemaps.",
+            "support": {
+                "source": "https://codeberg.org/PackageFactory/neos-seo-jobqueue/branch/main",
+                "issues": "https://codeberg.org/PackageFactory/neos-seo-jobqueue/issues"
+            },
+            "time": "2026-07-27T23:47:30+02:00"
         },
         {
             "name": "packagefactory/opgm",
@@ -6550,12 +6707,12 @@
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/opgm-neosadapter.git",
-                "reference": "7dbe4a4b48820ed5f61d2f28e27b47567f973adf"
+                "reference": "ff66e925dd57f823fc15c7f6de28d03061067748"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm-neosadapter/archive/7dbe4a4b48820ed5f61d2f28e27b47567f973adf.zip",
-                "reference": "7dbe4a4b48820ed5f61d2f28e27b47567f973adf",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm-neosadapter/archive/ff66e925dd57f823fc15c7f6de28d03061067748.zip",
+                "reference": "ff66e925dd57f823fc15c7f6de28d03061067748",
                 "shasum": ""
             },
             "require": {
@@ -6593,7 +6750,7 @@
                 "source": "https://codeberg.org/PackageFactory/opgm-neosadapter/branch/main",
                 "issues": "https://codeberg.org/PackageFactory/opgm-neosadapter/issues"
             },
-            "time": "2026-07-26T20:08:18+02:00"
+            "time": "2026-07-28T10:09:13+02:00"
         },
         {
             "name": "packagefactory/opgm-timeablenodevisibility",
@@ -6601,12 +6758,12 @@
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/opgm-timeablenodevisibility.git",
-                "reference": "f3c6a8f0b2a391fbaf37d1d17010c3fb15576810"
+                "reference": "81fcac3739a938884206687e5602f955a1c452f4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm-timeablenodevisibility/archive/f3c6a8f0b2a391fbaf37d1d17010c3fb15576810.zip",
-                "reference": "f3c6a8f0b2a391fbaf37d1d17010c3fb15576810",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm-timeablenodevisibility/archive/81fcac3739a938884206687e5602f955a1c452f4.zip",
+                "reference": "81fcac3739a938884206687e5602f955a1c452f4",
                 "shasum": ""
             },
             "require": {
@@ -6645,7 +6802,7 @@
                 "source": "https://codeberg.org/PackageFactory/opgm-timeablenodevisibility/branch/main",
                 "issues": "https://codeberg.org/PackageFactory/opgm-timeablenodevisibility/issues"
             },
-            "time": "2026-07-26T20:08:59+02:00"
+            "time": "2026-07-28T10:10:21+02:00"
         },
         {
             "name": "psr/cache",
@@ -10559,11 +10716,11 @@
         },
         {
             "name": "vendor/shared",
-            "version": "dev-cpx",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./DistributionPackages/Vendor.Shared",
-                "reference": "2001d655562c76eb2c33b45ef877f68148bf0171"
+                "reference": "73b4c544a010178f9a3a505540242cdd0cfae908"
             },
             "require": {
                 "flowpack/nodetemplates": "^3.0",
@@ -10578,6 +10735,7 @@
                 "packagefactory/neos-componentview": "*",
                 "packagefactory/neos-seo": "*",
                 "packagefactory/opgm-neosadapter": "*",
+                "packagefactory/opgm-timeablenodevisibility": "*",
                 "sitegeist/csvpo": "^2.0",
                 "sitegeist/iconoclasm": "^2.1",
                 "sitegeist/inspectorgadget": "^3.0",
@@ -10605,7 +10763,7 @@
         },
         {
             "name": "vendor/wheelInventor",
-            "version": "dev-cpx",
+            "version": "dev-main",
             "dist": {
                 "type": "path",
                 "url": "./DistributionPackages/Vendor.WheelInventor",
@@ -13815,6 +13973,7 @@
     "minimum-stability": "dev",
     "stability-flags": {
         "packagefactory/neos-seo": 20,
+        "packagefactory/neos-seo-jobqueue": 20,
         "packagefactory/opgm": 20,
         "packagefactory/opgm-contentrepositoryregistryadapter": 20,
         "packagefactory/opgm-neosadapter": 20,
