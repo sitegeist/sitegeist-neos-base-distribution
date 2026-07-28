@@ -165,7 +165,7 @@
 		},
 		"packagefactory/opgm-timeablenodevisibility": {
 			"type": "vcs",
-			"url": "ssh://git@codeberg.org/PackageFactory/opgm-timeablenodevisibility.git"
+			"url": "https://codeberg.org/PackageFactory/opgm-timeablenodevisibility"
 		},
 		"local": {
 			"type": "path",

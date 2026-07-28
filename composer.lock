@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ef78687fd156bca809f26b0a17978772",
+    "content-hash": "04a43ee707af73133c1c2f35a3b8fd7e",
     "packages": [
         {
             "name": "altcha-org/altcha",
@@ -6600,8 +6600,14 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "ssh://git@codeberg.org/PackageFactory/opgm-timeablenodevisibility.git",
+                "url": "https://codeberg.org/PackageFactory/opgm-timeablenodevisibility.git",
                 "reference": "f3c6a8f0b2a391fbaf37d1d17010c3fb15576810"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm-timeablenodevisibility/archive/f3c6a8f0b2a391fbaf37d1d17010c3fb15576810.zip",
+                "reference": "f3c6a8f0b2a391fbaf37d1d17010c3fb15576810",
+                "shasum": ""
             },
             "require": {
                 "neos/neos": "^9.0",
@@ -6635,7 +6641,11 @@
                 "GPL-3.0-or-later"
             ],
             "description": "OPGM adapter for the neos/timeable-node-visibility package.",
-            "time": "2026-07-26T18:08:59+00:00"
+            "support": {
+                "source": "https://codeberg.org/PackageFactory/opgm-timeablenodevisibility/branch/main",
+                "issues": "https://codeberg.org/PackageFactory/opgm-timeablenodevisibility/issues"
+            },
+            "time": "2026-07-26T20:08:59+02:00"
         },
         {
             "name": "psr/cache",
