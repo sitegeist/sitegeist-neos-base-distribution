@@ -51,7 +51,7 @@ final readonly class Download implements Content, OptionalImageProvider
                 mediaTypes: ['application/pdf']
             )
         )]
-        public Document $asset,
+        public ?Document $asset = null,
     ) {
     }
 }

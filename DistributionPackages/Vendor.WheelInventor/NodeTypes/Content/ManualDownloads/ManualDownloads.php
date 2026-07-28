@@ -16,11 +16,10 @@ use Vendor\WheelInventor\NodeTypes\Content\Content;
 use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
 use Vendor\WheelInventor\NodeTypes\Content\Download\Download;
 
-#[NodeTypeDeclaration]
-#[NodeTypeConstraintsDeclaration(
-    fqns: [
+#[NodeTypeDeclaration(
+    constraints: new NodeTypeConstraintsDeclaration(fqns: [
         Download::class => true,
-    ]
+    ])
 )]
 #[NodeTypeUiConfiguration(
     label: 'Downloads (Manuell)',
