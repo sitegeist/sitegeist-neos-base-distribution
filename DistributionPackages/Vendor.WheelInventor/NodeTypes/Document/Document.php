@@ -29,6 +29,7 @@ abstract readonly class Document implements
 
     public function __construct(
         public Node $node,
+        public bool $hiddenInMenu = false,
     ) {
     }
 }

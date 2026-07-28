@@ -10716,7 +10716,7 @@
         },
         {
             "name": "vendor/shared",
-            "version": "dev-main",
+            "version": "dev-cpx",
             "dist": {
                 "type": "path",
                 "url": "./DistributionPackages/Vendor.Shared",
@@ -10763,7 +10763,7 @@
         },
         {
             "name": "vendor/wheelInventor",
-            "version": "dev-main",
+            "version": "dev-cpx",
             "dist": {
                 "type": "path",
                 "url": "./DistributionPackages/Vendor.WheelInventor",

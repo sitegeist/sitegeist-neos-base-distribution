@@ -34,6 +34,7 @@ final readonly class Anchor implements AnchorlessContent
         #[PropertyUiConfiguration(label: 'Ziel-Anker')]
         #[InspectorConfiguration(group: 'anchor')]
         #[SelectBoxEditorConfiguration(
+            allowEmpty: true,
             placeholder: 'Anker auswählen',
             dataSourceIdentifier: AnchorDataSource::IDENTIFIER,
         )]

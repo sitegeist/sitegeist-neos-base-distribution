@@ -17,7 +17,11 @@ use Vendor\WheelInventor\NodeTypes\Content\AccordionItem\AccordionItem;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
 use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
 
-#[NodeTypeDeclaration]
+#[NodeTypeDeclaration(
+    constraints: new NodeTypeConstraintsDeclaration(fqns: [
+        AccordionItem::class => true,
+    ])
+)]
 #[NodeTypeUiConfiguration(
     label: 'Akkordeon',
     icon: 'list',
@@ -28,9 +32,6 @@ use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
     icon: 'palette',
     position: '40',
 )]
-#[NodeTypeConstraintsDeclaration(fqns: [
-    AccordionItem::class => true,
-])]
 #[NodeTemplateDeclaration(
     childNodes: [
         'accordion1' => new NodeTemplateChildNodeDeclaration(

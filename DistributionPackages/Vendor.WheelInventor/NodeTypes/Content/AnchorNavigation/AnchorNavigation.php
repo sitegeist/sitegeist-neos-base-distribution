@@ -16,11 +16,10 @@ use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertyUiConfiguration;
 use Vendor\WheelInventor\NodeTypes\Content\Anchor\Anchor;
 use Vendor\WheelInventor\NodeTypes\Content\AnchorlessContent;
 
-#[NodeTypeDeclaration]
-#[NodeTypeConstraintsDeclaration(
-    fqns: [
+#[NodeTypeDeclaration(
+    constraints: new NodeTypeConstraintsDeclaration(fqns: [
         Anchor::class => true,
-    ],
+    ])
 )]
 #[NodeTypeUiConfiguration(
     label: 'Anchor Navigation',
