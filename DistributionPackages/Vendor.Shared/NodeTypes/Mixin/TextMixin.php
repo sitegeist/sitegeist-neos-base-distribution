@@ -7,13 +7,14 @@ namespace Vendor\Shared\NodeTypes\Mixin;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\InlineEditor\InlineEditorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertySearchConfiguration;
-use Vendor\Shared\NodeTypes\Preset\RteText;
+use Vendor\Shared\NodeTypes\EditableText;
+use Vendor\Shared\NodeTypes\Preset\RichText;
 
 #[NodeTypeDeclaration]
 trait TextMixin
 {
-    #[RteText]
+    #[RichText]
     #[InlineEditorConfiguration(placeholder: 'Bitte Text eingeben')]
     #[PropertySearchConfiguration(fulltextExtractor: '${Indexing.extractInto("text", value)}')]
-    public readonly ?string $text;
+    public readonly EditableText $text;
 }

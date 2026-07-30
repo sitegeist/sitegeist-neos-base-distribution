@@ -26,12 +26,8 @@ final class ImageRenderer implements ContentNodeRendererInterface
         return ContentContainerFactory::create(
             $context,
             ImageComponent::create(
-                headline: $context->neos->getEditable(
-                    $context->node,
-                    'headline',
-                    true
-                ),
-                figure: $this->figureFactory->tryForImageProvider($image)
+                headline: $context->neos->getEditableFromProperty($image->headline, true),
+                figure: $this->figureFactory->tryForImageProvider($image),
             )
         );
     }

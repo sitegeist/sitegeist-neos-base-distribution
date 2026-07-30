@@ -15,6 +15,7 @@ use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\MediaConstraintsD
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\InspectorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertyUiConfiguration;
 use Sitegeist\Kaleidoscope\ValueObjects\ImageSourceProxy;
+use Vendor\Shared\NodeTypes\EditableText;
 use Vendor\Shared\NodeTypes\Mixin\HeadlineMixin;
 use Vendor\Shared\NodeTypes\Mixin\OptionalImageProvider;
 use Vendor\Shared\NodeTypes\Preset\PlainText;
@@ -43,7 +44,7 @@ final readonly class Download implements Content, OptionalImageProvider
         public ?ImageSourceProxy $image,
         #[PlainText]
         #[InlineEditorConfiguration(placeholder: 'Bitte Titel eingeben')]
-        public ?string $title,
+        public EditableText $title,
         #[PropertyUiConfiguration(label: 'Datei', reloadIfChanged: true)]
         #[InspectorConfiguration(group: 'asset')]
         #[AssetEditorConfiguration(

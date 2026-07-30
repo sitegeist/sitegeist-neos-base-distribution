@@ -28,27 +28,22 @@ final class DownloadRenderer implements ContentNodeRendererInterface
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
         $download = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, Download::class);
-        $asset = $download->asset;
 
         // @todo: link & inBackend in der Komponente?
         return DownloadsItem::create(
             media: $this->figureFactory->tryForOptionalImageProvider($download),
             headline: Headline::create(
-                content: $context->neos->getEditable(
-                    $context->node,
-                    'title',
-                    true
-                ),
+                content: $context->neos->getEditableFromProperty($download->title, true),
                 variant: HeadlineVariant::VARIANT_REGULAR,
                 size: HeadlineSize::SIZE_MD,
                 tag: HeadlineTag::TAG_DIV
             ),
-            primaryMetaHeadline: $asset ? strtoupper($asset->getFileExtension()) : null,
-            secondaryMetaHeadline: $asset ? Files::bytesToSizeString($asset->getResource()->getFileSize()) : null,
-            link: (!$context->renderingMode->isEdit && $asset)
+            primaryMetaHeadline: $download->asset ? strtoupper($download->asset->getFileExtension()) : null,
+            secondaryMetaHeadline: $download->asset ? Files::bytesToSizeString($download->asset->getResource()->getFileSize()) : null,
+            link: (!$context->renderingMode->isEdit && $download->asset)
                 ? LinkStruct::create(
-                    href: (string)$context->neos->getPersistentResourceUri($asset->getResource()),
-                    title: $asset->getTitle(),
+                    href: (string)$context->neos->getPersistentResourceUri($download->asset->getResource()),
+                    title: $download->asset->getTitle(),
                     rel: 'noopener nofollow',
                     target: LinkTarget::TARGET_BLANK
                 )

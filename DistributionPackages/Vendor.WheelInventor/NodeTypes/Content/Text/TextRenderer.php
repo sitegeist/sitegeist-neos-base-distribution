@@ -27,17 +27,9 @@ final class TextRenderer implements ContentNodeRendererInterface
             $context,
             TextComponent::create(
                 columns: $text->columns,
-                headline: $context->neos->getEditable(
-                    $context->node,
-                    'headline',
-                    true
-                ),
-                content: $context->neos->getEditable(
-                    $context->node,
-                    'text',
-                    true
-                ),
-                button: $this->linkedButtonFactory->tryForMixin($context) ?: ''
+                headline: $context->neos->getEditableFromProperty($text->headline, true),
+                content: $context->neos->getEditableFromProperty($text->text, true),
+                button: $this->linkedButtonFactory->tryForLinkProvider($text, $context) ?: ''
             )
         );
     }

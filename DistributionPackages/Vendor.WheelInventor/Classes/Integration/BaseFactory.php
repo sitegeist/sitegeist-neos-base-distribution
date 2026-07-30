@@ -10,7 +10,6 @@ use PackageFactory\Neos\ComponentEngine\NeosContext;
 use PackageFactory\ComponentEngine\ComponentCollection;
 use PackageFactory\ComponentEngine\ComponentInterface;
 use Psr\Http\Message\UriInterface;
-use Vendor\WheelInventor\Integration\Base;
 
 class BaseFactory
 {
@@ -29,16 +28,14 @@ class BaseFactory
             language: $context->subgraph->getDimensionSpacePoint()->coordinates['language'] ?? '',
             content: $content,
             headMetaData: ComponentCollection::list(
-                ...array_filter([
-                    $this->neosStuffFactory->tryGetHeadStuff($context),
-                    HtmlResourceFactory::stylesheet(
-                        $this->resourceUriWithCacheBuster('Vendor.Shared', 'Build/Styles/main.min.css', $context)
-                    ),
-                    HtmlResourceFactory::script(
-                        $this->resourceUriWithCacheBuster('Vendor.Shared', 'Build/JavaScript/main.min.js', $context),
-                        ['crossorigin' => 'anonymous']
-                    ),
-                ])
+                $this->neosStuffFactory->tryGetHeadStuff($context),
+                HtmlResourceFactory::stylesheet(
+                    $this->resourceUriWithCacheBuster('Vendor.Shared', 'Build/Styles/main.min.css', $context)
+                ),
+                HtmlResourceFactory::script(
+                    $this->resourceUriWithCacheBuster('Vendor.Shared', 'Build/JavaScript/main.min.js', $context),
+                    ['crossorigin' => 'anonymous']
+                ),
             ),
             bodyMetaData: $this->neosStuffFactory->tryGetBodyStuff($context->renderingMode->isEdit),
         );

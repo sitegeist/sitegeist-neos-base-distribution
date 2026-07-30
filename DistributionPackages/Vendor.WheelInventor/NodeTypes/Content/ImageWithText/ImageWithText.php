@@ -16,7 +16,8 @@ use Vendor\Shared\Components\Block\ImageWithText\ImageWithTextAlignment;
 use Vendor\Shared\Components\Block\ImageWithText\ImageWithTextLayout;
 use Vendor\Shared\NodeTypes\Mixin\HeadlineMixin;
 use Vendor\Shared\NodeTypes\Mixin\OptionalImageProvider;
-use Vendor\Shared\NodeTypes\Mixin\OptionalLinkMixin;
+use Vendor\Shared\NodeTypes\Mixin\OptionalLinkProperties;
+use Vendor\Shared\NodeTypes\Mixin\OptionalLinkProvider;
 use Vendor\Shared\NodeTypes\Mixin\TextMixin;
 use Vendor\Shared\NodeTypes\Preset\FreeCroppingImage;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
@@ -34,12 +35,12 @@ use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
     position: '10',
 )]
 #[Flow\Proxy(false)]
-final readonly class ImageWithText implements Content, OptionalImageProvider
+final readonly class ImageWithText implements Content, OptionalImageProvider, OptionalLinkProvider
 {
     use ContentProperties;
     use HeadlineMixin;
     use TextMixin;
-    use OptionalLinkMixin;
+    use OptionalLinkProperties;
 
     public function __construct(
         #[FreeCroppingImage]

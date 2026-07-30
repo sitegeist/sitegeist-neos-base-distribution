@@ -28,18 +28,10 @@ final class ImageWithTextRenderer implements ContentNodeRendererInterface
         return ContentContainerFactory::create(
             $context,
             ImageWithTextComponent::create(
-                headline: $context->neos->getEditable(
-                    $context->node,
-                    'headline',
-                    true
-                ),
-                content: $context->neos->getEditable(
-                    $context->node,
-                    'text',
-                    true
-                ),
+                headline: $context->neos->getEditableFromProperty($imageWithText->headline, true),
+                content: $context->neos->getEditableFromProperty($imageWithText->text, true),
                 figure: $this->figureFactory->tryForOptionalImageProvider($imageWithText),
-                button: $this->linkedButtonFactory->tryForMixin($context) ?: '',
+                button: $this->linkedButtonFactory->tryForLinkProvider($imageWithText, $context) ?: '',
                 alignment: $imageWithText->alignment,
                 layout: $imageWithText->layout,
             )

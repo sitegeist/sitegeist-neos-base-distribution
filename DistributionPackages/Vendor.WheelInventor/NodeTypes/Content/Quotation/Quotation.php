@@ -9,6 +9,7 @@ use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\InlineEditor\InlineEditorConfiguration;
 use Sitegeist\Kaleidoscope\ValueObjects\ImageSourceProxy;
+use Vendor\Shared\NodeTypes\EditableText;
 use Vendor\Shared\NodeTypes\Mixin\ImageProvider;
 use Vendor\Shared\NodeTypes\Mixin\TextMixin;
 use Vendor\Shared\NodeTypes\Preset\PlainText;
@@ -31,13 +32,13 @@ final readonly class Quotation implements Content, ImageProvider
         #[SquareImage]
         public ImageSourceProxy $image,
         #[PlainText]
-        public ?string $text,
+        public EditableText $text,
         #[PlainText]
         #[InlineEditorConfiguration(placeholder: 'Bitte Name eingeben')]
-        public ?string $spokenByCharacterName,
+        public EditableText $spokenByCharacterName,
         #[PlainText]
         #[InlineEditorConfiguration(placeholder: 'Bitte Jobbezeichnung eingeben')]
-        public ?string $spokenByCharacterJobTitle,
+        public EditableText $spokenByCharacterJobTitle,
     ) {
     }
 }

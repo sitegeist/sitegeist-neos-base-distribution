@@ -9,6 +9,8 @@ use Vendor\Shared\Components\Block\Button\Button;
 use Vendor\Shared\Components\Block\Button\ButtonTag;
 use Vendor\Shared\Components\Block\Button\ButtonVariant;
 use Vendor\Shared\Components\Block\LinkedButton\LinkedButton;
+use Vendor\Shared\NodeTypes\Mixin\LinkProvider;
+use Vendor\Shared\NodeTypes\Mixin\OptionalLinkProvider;
 
 final class LinkedButtonFactory
 {
@@ -17,27 +19,23 @@ final class LinkedButtonFactory
     ) {
     }
 
-    public function tryForMixin(
+    public function tryForLinkProvider(
+        LinkProvider|OptionalLinkProvider $linkProvider,
         NeosContext $context,
-        string $propertyName = 'link'
     ): Button|LinkedButton|null {
         $button = Button::create(
-            $context->neos->getEditable(
-                $context->node,
-                $propertyName . '__label',
-                true
-            ),
+            $context->neos->getEditableFromProperty($linkProvider->linkLabel, true),
             ButtonTag::TAG_SPAN,
             ButtonVariant::VARIANT_REGULAR
         );
 
-        $linkStruct = $this->linkStructFactory->tryForMixin($context, $propertyName);
+        $linkStruct = $this->linkStructFactory->tryForLinkProvider($linkProvider, $context);
 
         if ($context->renderingMode->isEdit && $linkStruct) {
             return $button;
         }
 
-        $label = $context->nodes->getStringValue($context->node, $propertyName . '__label');
+        $label = $linkProvider->linkLabel->value;
         if (!$label || !$linkStruct) {
             return null;
         }

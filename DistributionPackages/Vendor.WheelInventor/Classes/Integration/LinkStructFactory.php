@@ -12,6 +12,8 @@ use Neos\Neos\Domain\Link\Link as NeosLink;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
 use Vendor\Shared\Components\Block\Link\LinkStruct;
 use Vendor\Shared\Components\Block\Link\LinkTarget;
+use Vendor\Shared\NodeTypes\Mixin\LinkProvider;
+use Vendor\Shared\NodeTypes\Mixin\OptionalLinkProvider;
 
 final class LinkStructFactory
 {
@@ -20,21 +22,15 @@ final class LinkStructFactory
     ) {
     }
 
-    public function tryForMixin(
+    public function tryForLinkProvider(
+        LinkProvider|OptionalLinkProvider $linkProvider,
         NeosContext $context,
-        string $propertyName = 'link',
     ): ?LinkStruct {
-        $link = $context->nodes->getObjectValue(
-            $context->node,
-            $propertyName,
-            NeosLink::class
-        );
-
-        if (!$link) {
+        if (!$linkProvider->link) {
             return null;
         }
 
-        $neosLink = $this->resolveLink($link, $context);
+        $neosLink = $this->resolveLink($linkProvider->link, $context);
 
         if ($neosLink === null) {
             return null;

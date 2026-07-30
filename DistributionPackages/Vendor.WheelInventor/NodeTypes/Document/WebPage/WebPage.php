@@ -26,16 +26,17 @@ use Vendor\WheelInventor\NodeTypes\Document\Document;
 use Vendor\WheelInventor\NodeTypes\Document\Shortcut;
 use Vendor\WheelInventor\NodeTypes\Tag\MainNavigationElement;
 
-#[NodeTypeDeclaration]
+#[NodeTypeDeclaration(
+    constraints: new NodeTypeConstraintsDeclaration(
+        fqns: [
+            WebPage::class => true,
+            Shortcut::class => true,
+        ],
+    )
+)]
 #[NodeTypeUiConfiguration(
     label: 'Web Page',
     icon: 'file',
-)]
-#[NodeTypeConstraintsDeclaration(
-    fqns: [
-        WebPage::class => true,
-        Shortcut::class => true,
-    ],
 )]
 #[Flow\Proxy(false)]
 final readonly class WebPage extends Document implements MainNavigationElement

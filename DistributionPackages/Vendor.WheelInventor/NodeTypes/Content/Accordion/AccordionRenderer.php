@@ -9,7 +9,8 @@ use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface
 use PackageFactory\Neos\ComponentEngine\Integration\ContentRenderer;
 use PackageFactory\Neos\ComponentEngine\Integration\RenderingUseCase;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
-use Vendor\Shared\Components\Block\Accordion\Accordion;
+use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
+use Vendor\Shared\Components\Block\Accordion\Accordion as AccordionComponent;
 use Vendor\WheelInventor\Integration\ContentContainerFactory;
 
 final class AccordionRenderer implements ContentNodeRendererInterface
@@ -21,12 +22,13 @@ final class AccordionRenderer implements ContentNodeRendererInterface
 
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
+        $accordion = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, Accordion::class);
+
         return ContentContainerFactory::create(
             $context,
-            Accordion::create(
-                $context->neos->getEditable(
-                    $context->node,
-                    'headline',
+            AccordionComponent::create(
+                $context->neos->getEditableFromProperty(
+                    $accordion->headline,
                     true
                 ),
                 $this->contentRenderer->renderContentChildren(

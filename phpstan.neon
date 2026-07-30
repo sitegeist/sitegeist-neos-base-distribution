@@ -1,3 +1,6 @@
+includes:
+  - Packages/Libraries/spaze/phpstan-disallowed-calls/extension.neon
+
 parameters:
     level: 8
     paths:
@@ -5,6 +8,12 @@ parameters:
     excludePaths:
         analyse:
             - DistributionPackages/*/Components/**/*.php
+    disallowedMethodCalls:
+        -
+            method: 'PackageFactory\Neos\ComponentEngine\NeosAccessInterface::getEditable()'
+            message: 'this is unsafe regarding property names and types'
+            errorTip: 'Pass property of type EditableText from the OPGM node model to NeosAccessInterface::getEditableFromProperty ($context->neos->getEditableFromProperty()) instead'
+            errorIdentifier: 'componentEngine.legacyEditable'
     ignoreErrors:
         -
             identifier: property.uninitializedReadonly

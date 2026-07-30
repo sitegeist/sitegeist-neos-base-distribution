@@ -23,19 +23,11 @@ final class AccordionItemRenderer implements ContentNodeRendererInterface
         $accordionItem = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, AccordionItem::class);
 
         return AccordionItemComponent::create(
-            headline: $context->neos->getEditable(
-                $context->node,
-                'headline',
-                true
-            ),
-            content: $context->neos->getEditable(
-                $context->node,
-                'text',
-                true
-            ),
+            headline: $context->neos->getEditableFromProperty($accordionItem->headline, true),
+            content: $context->neos->getEditableFromProperty($accordionItem->text, true),
             initialOpen: $accordionItem->initiallyOpen,
             inBackend: $context->renderingMode->isEdit,
-            button: $this->linkedButtonFactory->tryForMixin($context) ?: ''
+            button: $this->linkedButtonFactory->tryForLinkProvider($accordionItem, $context) ?: ''
         );
     }
 }

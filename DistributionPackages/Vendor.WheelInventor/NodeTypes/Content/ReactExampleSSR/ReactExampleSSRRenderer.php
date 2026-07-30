@@ -8,7 +8,8 @@ use Neos\Flow\Package\PackageManager;
 use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
-use Vendor\Shared\Components\Application\ReactExampleSSR\ReactExampleSSR;
+use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
+use Vendor\Shared\Components\Application\ReactExampleSSR\ReactExampleSSR as ReactExampleSSRComponent;
 use Vendor\WheelInventor\Integration\ContentContainerFactory;
 
 final class ReactExampleSSRRenderer implements ContentNodeRendererInterface
@@ -20,6 +21,7 @@ final class ReactExampleSSRRenderer implements ContentNodeRendererInterface
 
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
+        $reactExampleSSR = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, ReactExampleSSR::class);
         $appData = json_encode([
             'endpointBaseUri' => '/placeholder'
         ]) ?: '{}';
@@ -36,12 +38,8 @@ final class ReactExampleSSRRenderer implements ContentNodeRendererInterface
 
         return ContentContainerFactory::create(
             $context,
-            ReactExampleSSR::create(
-                headline: $context->neos->getEditable(
-                    $context->node,
-                    'headline',
-                    true
-                ),
+            ReactExampleSSRComponent::create(
+                headline: $context->neos->getEditableFromProperty($reactExampleSSR->headline, true),
                 appData: $appData,
                 labels: $labels,
                 renderedApplication: $react ?: null

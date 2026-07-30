@@ -30,21 +30,9 @@ final class QuotationRenderer implements ContentNodeRendererInterface
             variant: ContentContainerVariant::VARIANT_REGULAR,
             content: QuotationComponent::create(
                 figure: $this->figureFactory->tryForImageProvider($quotation),
-                content: $context->neos->getEditable(
-                    $context->node,
-                    'text',
-                    true
-                ),
-                spokenByName: $context->neos->getEditable(
-                    $context->node,
-                    'spokenByCharacterName',
-                    true
-                ),
-                spokenByJobTitle: $context->neos->getEditable(
-                    $context->node,
-                    'spokenByCharacterJobTitle',
-                    true
-                )
+                content: $context->neos->getEditableFromProperty($quotation->text, true),
+                spokenByName: $context->neos->getEditableFromProperty($quotation->spokenByCharacterName, true),
+                spokenByJobTitle: $context->neos->getEditableFromProperty($quotation->spokenByCharacterJobTitle, true),
             ),
             anchorId: $quotation->anchorId,
         );

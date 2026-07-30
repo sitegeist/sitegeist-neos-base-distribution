@@ -7,10 +7,8 @@ namespace Vendor\WheelInventor\NodeTypes\Content;
 use Neos\Neos\NodeTypes\ContentProperties as NeosContentProperties;
 use Neos\TimeableNodeVisibility\NodeTypes\TimeableProperties;
 
-trait ContentProperties
+trait AnchorlessContentProperties
 {
     use NeosContentProperties;
     use TimeableProperties;
-
-    public readonly ?string $anchorId;
 }

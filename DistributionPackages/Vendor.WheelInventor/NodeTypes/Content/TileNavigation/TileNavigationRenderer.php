@@ -42,11 +42,7 @@ final class TileNavigationRenderer implements ContentNodeRendererInterface
         return ContentContainerFactory::create(
             $context,
             TileNavigationComponent::create(
-                $context->neos->getEditable(
-                    $context->node,
-                    'headline',
-                    true
-                ),
+                $context->neos->getEditableFromProperty($tileNavigation->headline, true),
                 ComponentCollection::list(...$cards)
             )
         );

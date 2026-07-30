@@ -23,17 +23,14 @@ use Vendor\WheelInventor\NodeTypes\Document\Documents;
 )]
 trait FooterMixin
 {
-    #[PlainText]
     #[PropertyUiConfiguration(label: 'Titel Footer-Navigation - Teil 1')]
     #[InspectorConfiguration(group: 'footerLinks')]
     public readonly ?string $primaryMenuTitle;
 
-    #[PlainText]
     #[PropertyUiConfiguration(label: 'Titel Footer-Navigation - Teil 2')]
     #[InspectorConfiguration(group: 'footerLinks')]
     public readonly ?string $secondaryMenuTitle;
 
-    #[PlainText]
     #[PropertyUiConfiguration(label: 'Titel Footer-Navigation - Teil 3')]
     #[InspectorConfiguration(group: 'footerLinks')]
     public readonly ?string $tertiaryMenuTitle;

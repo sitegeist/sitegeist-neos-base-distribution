@@ -11,7 +11,8 @@ use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\InlineEditor\Inli
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\LinkEditor\LinkEditorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\InspectorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertyUiConfiguration;
-use Vendor\Shared\NodeTypes\Preset\RteText;
+use Vendor\Shared\NodeTypes\EditableText;
+use Vendor\Shared\NodeTypes\Preset\RichText;
 
 #[InspectorGroupDeclaration(
     name: 'link',
@@ -19,14 +20,14 @@ use Vendor\Shared\NodeTypes\Preset\RteText;
     icon: 'link',
 )]
 #[NodeTypeDeclaration]
-trait OptionalLinkMixin
+interface LinkProvider
 {
     #[LinkEditorConfiguration(title: true)]
     #[InspectorConfiguration(group: 'link')]
     #[PropertyUiConfiguration(label: 'Link-Ziel', reloadIfChanged: true)]
-    public readonly ?Link $link;
+    public Link $link {get;}
 
-    #[RteText]
+    #[RichText]
     #[InlineEditorConfiguration(placeholder: 'Bitte Label eingeben')]
-    public readonly ?string $linkLabel;
+    public EditableText $linkLabel {get;}
 }

@@ -46,11 +46,7 @@ final class CollectionBasedDownloadsRenderer implements ContentNodeRendererInter
         return ContentContainerFactory::create(
             $context,
             Downloads::create(
-                $context->neos->getEditable(
-                    $context->node,
-                    'headline',
-                    true
-                ),
+                $context->neos->getEditableFromProperty($collectionBasedDownloads->headline, true),
                 ComponentCollection::list(...array_map(
                     // @todo: link & inBackend in der Komponente?
                     fn (Document $document): DownloadsItem => DownloadsItem::create(

@@ -27,11 +27,7 @@ final class AnchorRenderer implements ContentNodeRendererInterface
                 rel: null,
                 target: null
             ),
-            title: $context->neos->getEditable(
-                $context->node,
-                'title',
-                true
-            ),
+            title: $context->neos->getEditableFromProperty($anchor->title, true),
             inBackend: $context->renderingMode->isEdit,
         );
     }

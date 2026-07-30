@@ -38,6 +38,6 @@ use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\LinkingOptions;
         a: true,
     ),
 )]
-final class RteText implements PropertyPresetInterface
+final class RichText implements PropertyPresetInterface
 {
 }

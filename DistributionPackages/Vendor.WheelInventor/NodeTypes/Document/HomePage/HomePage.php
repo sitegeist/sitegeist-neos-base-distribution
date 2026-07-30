@@ -33,24 +33,25 @@ use Vendor\WheelInventor\NodeTypes\Document\Document;
 use Vendor\WheelInventor\NodeTypes\Document\Shortcut;
 use Vendor\WheelInventor\NodeTypes\Document\WebPage\WebPage;
 
-#[NodeTypeDeclaration]
+#[NodeTypeDeclaration(
+    constraints: new NodeTypeConstraintsDeclaration(
+        fqns: [
+            WebPage::class => true,
+            Shortcut::class => true,
+        ],
+    ),
+)]
 #[NodeTypeUiConfiguration(
     label: 'Homepage',
     icon: 'globe',
-)]
-#[NodeTypeConstraintsDeclaration(
-    fqns: [
-        WebPage::class => true,
-        Shortcut::class => true,
-    ],
 )]
 #[Flow\Proxy(false)]
 final readonly class HomePage extends Document implements
     Site,
     GoogleSiteVerificationProvider
 {
-    use SocialMixin;
     use GoogleSiteVerificationProperties;
+    use SocialMixin;
     use FooterMixin;
 
     public function __construct(

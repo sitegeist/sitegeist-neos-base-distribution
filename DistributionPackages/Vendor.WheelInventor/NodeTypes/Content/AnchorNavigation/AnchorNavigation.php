@@ -15,6 +15,7 @@ use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\InspectorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertyUiConfiguration;
 use Vendor\WheelInventor\NodeTypes\Content\Anchor\Anchor;
 use Vendor\WheelInventor\NodeTypes\Content\AnchorlessContent;
+use Vendor\WheelInventor\NodeTypes\Content\AnchorlessContentProperties;
 
 #[NodeTypeDeclaration(
     constraints: new NodeTypeConstraintsDeclaration(fqns: [
@@ -41,6 +42,8 @@ use Vendor\WheelInventor\NodeTypes\Content\AnchorlessContent;
 #[Flow\Proxy(false)]
 final readonly class AnchorNavigation extends ContentCollection implements AnchorlessContent
 {
+    use AnchorlessContentProperties;
+
     public function __construct(
         #[PropertyUiConfiguration(label: 'Sticky Navigation?', reloadIfChanged: true)]
         #[InspectorConfiguration(group: 'default')]

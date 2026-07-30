@@ -12,9 +12,11 @@ use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\InlineEditor\Inli
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\SelectBoxEditor\SelectBoxEditorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\InspectorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertyUiConfiguration;
+use Vendor\Shared\NodeTypes\EditableText;
 use Vendor\Shared\NodeTypes\Preset\PlainText;
 use Vendor\WheelInventor\DataSource\AnchorDataSource;
 use Vendor\WheelInventor\NodeTypes\Content\AnchorlessContent;
+use Vendor\WheelInventor\NodeTypes\Content\AnchorlessContentProperties;
 
 #[NodeTypeDeclaration]
 #[NodeTypeUiConfiguration(
@@ -30,6 +32,8 @@ use Vendor\WheelInventor\NodeTypes\Content\AnchorlessContent;
 #[Flow\Proxy(false)]
 final readonly class Anchor implements AnchorlessContent
 {
+    use AnchorlessContentProperties;
+
     public function __construct(
         #[PropertyUiConfiguration(label: 'Ziel-Anker')]
         #[InspectorConfiguration(group: 'anchor')]
@@ -41,7 +45,7 @@ final readonly class Anchor implements AnchorlessContent
         public ?string $targetIdentifier,
         #[PlainText]
         #[InlineEditorConfiguration(placeholder: 'Bitte Titel eingeben')]
-        public ?string $title,
+        public EditableText $title,
     ) {
     }
 }

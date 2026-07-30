@@ -21,8 +21,8 @@
 
 		"flowpack/nodetemplates": "^3.0",
 
-		"packagefactory/neos-component-engine": "1.0.0-alpha3",
-		"packagefactory/component-engine": "1.0.0-alpha3",
+		"packagefactory/neos-component-engine": "dev-editableString as 1.0.0-alpha3",
+		"packagefactory/component-engine": "1.0.0-alpha3 as 1.0.0-alpha4",
 		"packagefactory/neos-componentview": "^1.0",
 
 		"sitegeist/csvpo": "^2.0",
@@ -61,7 +61,8 @@
 		"deployer/deployer": "^7.0",
 		"editorconfig-checker/editorconfig-checker": "^10.0",
 		"sitegeist/magicwand": "^4.4",
-		"sitegeist/chantalle": "^2.0"
+		"sitegeist/chantalle": "^2.0",
+		"spaze/phpstan-disallowed-calls": "^4.13"
 	},
 	"suggest": {
 		"ext-pdo_sqlite": "For running functional tests out-of-the-box this is required"
