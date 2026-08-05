@@ -17,6 +17,7 @@ use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertyUiConfiguration;
 use Sitegeist\Kaleidoscope\ValueObjects\ImageSourceProxy;
 use Vendor\Shared\NodeTypes\EditableText;
 use Vendor\Shared\NodeTypes\Mixin\HeadlineMixin;
+use Vendor\Shared\NodeTypes\Mixin\HeadlineProperties;
 use Vendor\Shared\NodeTypes\Mixin\OptionalImageProvider;
 use Vendor\Shared\NodeTypes\Preset\PlainText;
 use Vendor\Shared\NodeTypes\Preset\ThreeFourImage;
@@ -34,10 +35,10 @@ use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
     icon: 'file',
 )]
 #[Flow\Proxy(false)]
-final readonly class Download implements Content, OptionalImageProvider
+final readonly class Download implements Content, HeadlineMixin, OptionalImageProvider
 {
     use ContentProperties;
-    use HeadlineMixin;
+    use HeadlineProperties;
 
     public function __construct(
         #[ThreeFourImage]

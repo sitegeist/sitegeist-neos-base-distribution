@@ -25,9 +25,4 @@ abstract readonly class Document implements
     use TimeableProperties;
     use StandardSeoProperties;
     use PreviewMixin;
-
-    public function __construct(
-        public bool $hiddenInMenu = false,
-    ) {
-    }
 }

@@ -16,7 +16,9 @@ use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
 use PackageFactory\OPGM\Domain\NodeType\TetheredChildRelationDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
 use Vendor\Shared\NodeTypes\Mixin\FooterMixin;
+use Vendor\Shared\NodeTypes\Mixin\FooterProperties;
 use Vendor\Shared\NodeTypes\Mixin\SocialMixin;
+use Vendor\Shared\NodeTypes\Mixin\SocialProperties;
 use Vendor\WheelInventor\NodeTypes\Content\Accordion\Accordion;
 use Vendor\WheelInventor\NodeTypes\Content\AnchorNavigation\AnchorNavigation;
 use Vendor\WheelInventor\NodeTypes\Content\CollectionBasedDownloads\CollectionBasedDownloads;
@@ -48,11 +50,13 @@ use Vendor\WheelInventor\NodeTypes\Document\WebPage\WebPage;
 #[Flow\Proxy(false)]
 final readonly class HomePage extends Document implements
     Site,
-    GoogleSiteVerificationProvider
+    GoogleSiteVerificationProvider,
+    SocialMixin,
+    FooterMixin
 {
     use GoogleSiteVerificationProperties;
-    use SocialMixin;
-    use FooterMixin;
+    use SocialProperties;
+    use FooterProperties;
 
     public function __construct(
         #[TetheredChildRelationDeclaration(
@@ -75,7 +79,6 @@ final readonly class HomePage extends Document implements
         )]
         // @todo: custom content collection type?
         public Node $main,
-        public string $uriPathSegment = '',
     ) {
     }
 }

@@ -7,7 +7,6 @@ namespace Vendor\Shared\NodeTypes\Preset;
 use PackageFactory\OPGM\Domain\Property\PropertyPresetInterface;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\FormattingOptions;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\InlineEditor\InlineEditorConfiguration;
-use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertySearchConfiguration;
 
 #[\Attribute(\Attribute::TARGET_PROPERTY | \Attribute::TARGET_PARAMETER)]
 #[InlineEditorConfiguration(
@@ -18,7 +17,6 @@ use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertySearchConfigurat
         removeFormat: true,
     ),
 )]
-#[PropertySearchConfiguration(fulltextExtractor: '${Indexing.extractInto("p", value)}')]
 final class PlainText implements PropertyPresetInterface
 {
 }

@@ -13,6 +13,7 @@ use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTemplateDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTemplates\NodeTemplateChildNodeDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
 use Vendor\Shared\NodeTypes\Mixin\HeadlineMixin;
+use Vendor\Shared\NodeTypes\Mixin\HeadlineProperties;
 use Vendor\WheelInventor\NodeTypes\Content\AccordionItem\AccordionItem;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
 use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
@@ -43,8 +44,8 @@ use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
     ]
 )]
 #[Flow\Proxy(false)]
-final readonly class Accordion extends ContentCollection implements Content
+final readonly class Accordion extends ContentCollection implements Content, HeadlineMixin
 {
     use ContentProperties;
-    use HeadlineMixin;
+    use HeadlineProperties;
 }

@@ -17,7 +17,7 @@ use Vendor\Shared\Components\Block\Text\TextColumns;
     icon: 'align-left',
 )]
 #[NodeTypeDeclaration]
-trait TextColumnsMixin
+interface TextColumnsMixin
 {
     #[EnumSelectBoxEditorConfiguration]
     #[PropertyUiConfiguration(
@@ -25,5 +25,5 @@ trait TextColumnsMixin
         reloadIfChanged: true,
     )]
     #[InspectorConfiguration(group: 'textFormatting')]
-    public readonly TextColumns $columns;
+    public TextColumns $columns {get;}
 }

@@ -15,10 +15,12 @@ use Sitegeist\Kaleidoscope\ValueObjects\ImageSourceProxy;
 use Vendor\Shared\Components\Block\ImageWithText\ImageWithTextAlignment;
 use Vendor\Shared\Components\Block\ImageWithText\ImageWithTextLayout;
 use Vendor\Shared\NodeTypes\Mixin\HeadlineMixin;
+use Vendor\Shared\NodeTypes\Mixin\HeadlineProperties;
 use Vendor\Shared\NodeTypes\Mixin\OptionalImageProvider;
 use Vendor\Shared\NodeTypes\Mixin\OptionalLinkProperties;
 use Vendor\Shared\NodeTypes\Mixin\OptionalLinkProvider;
 use Vendor\Shared\NodeTypes\Mixin\TextMixin;
+use Vendor\Shared\NodeTypes\Mixin\TextProperties;
 use Vendor\Shared\NodeTypes\Preset\FreeCroppingImage;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
 use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
@@ -35,11 +37,16 @@ use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
     position: '10',
 )]
 #[Flow\Proxy(false)]
-final readonly class ImageWithText implements Content, OptionalImageProvider, OptionalLinkProvider
+final readonly class ImageWithText implements
+    Content,
+    HeadlineMixin,
+    TextMixin,
+    OptionalImageProvider,
+    OptionalLinkProvider
 {
     use ContentProperties;
-    use HeadlineMixin;
-    use TextMixin;
+    use HeadlineProperties;
+    use TextProperties;
     use OptionalLinkProperties;
 
     public function __construct(

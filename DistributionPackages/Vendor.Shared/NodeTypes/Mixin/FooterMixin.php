@@ -11,7 +11,6 @@ use PackageFactory\OPGM\Domain\Property\PropertyScopeDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\InspectorGroupDeclaration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\InspectorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertyUiConfiguration;
-use Vendor\Shared\NodeTypes\Preset\PlainText;
 use Vendor\WheelInventor\NodeTypes\Document\Documents;
 
 #[NodeTypeDeclaration]
@@ -21,35 +20,35 @@ use Vendor\WheelInventor\NodeTypes\Document\Documents;
     icon: 'link',
     tab: 'footer',
 )]
-trait FooterMixin
+interface FooterMixin
 {
     #[PropertyUiConfiguration(label: 'Titel Footer-Navigation - Teil 1')]
     #[InspectorConfiguration(group: 'footerLinks')]
-    public readonly ?string $primaryMenuTitle;
+    public ?string $primaryMenuTitle {get;}
 
     #[PropertyUiConfiguration(label: 'Titel Footer-Navigation - Teil 2')]
     #[InspectorConfiguration(group: 'footerLinks')]
-    public readonly ?string $secondaryMenuTitle;
+    public ?string $secondaryMenuTitle {get;}
 
     #[PropertyUiConfiguration(label: 'Titel Footer-Navigation - Teil 3')]
     #[InspectorConfiguration(group: 'footerLinks')]
-    public readonly ?string $tertiaryMenuTitle;
+    public ?string $tertiaryMenuTitle {get;}
 
     #[ReferenceRelationDeclaration]
     #[PropertyScopeDeclaration(scope: PropertyScope::SCOPE_NODE_AGGREGATE)]
     #[PropertyUiConfiguration(label: 'Footer-Navigation - Teil 1', reloadIfChanged: true)]
     #[InspectorConfiguration(group: 'footerLinks')]
-    public readonly Documents $primaryMenu;
+    public Documents $primaryMenu {get;}
 
     #[ReferenceRelationDeclaration]
     #[PropertyScopeDeclaration(scope: PropertyScope::SCOPE_NODE_AGGREGATE)]
     #[PropertyUiConfiguration(label: 'Footer-Navigation - Teil 2', reloadIfChanged: true)]
     #[InspectorConfiguration(group: 'footerLinks')]
-    public readonly Documents $secondaryMenu;
+    public Documents $secondaryMenu {get;}
 
     #[ReferenceRelationDeclaration]
     #[PropertyScopeDeclaration(scope: PropertyScope::SCOPE_NODE_AGGREGATE)]
     #[PropertyUiConfiguration(label: 'Footer-Navigation - Teil 3', reloadIfChanged: true)]
     #[InspectorConfiguration(group: 'footerLinks')]
-    public readonly Documents $tertiaryMenu;
+    public Documents $tertiaryMenu {get;}
 }

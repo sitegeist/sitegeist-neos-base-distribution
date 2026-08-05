@@ -4,16 +4,13 @@ declare(strict_types=1);
 
 namespace Vendor\Shared\NodeTypes\Mixin;
 
-use Neos\Neos\Domain\Link\Link;
 use Vendor\Shared\NodeTypes\EditableText;
 
 /**
- * Backing trait for {@see LinkProvider}
  * @phpstan-ignore trait.unused (not yet)
+ * Backing trait for {@see AbstractMixin}
  */
-trait LinkProperties
+trait AbstractProperties
 {
-    public readonly Link $link;
-
-    public readonly EditableText $linkLabel;
+    public readonly EditableText $abstract;
 }

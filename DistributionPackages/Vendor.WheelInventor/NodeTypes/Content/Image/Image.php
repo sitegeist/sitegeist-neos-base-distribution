@@ -9,6 +9,7 @@ use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
 use Sitegeist\Kaleidoscope\ValueObjects\ImageSourceProxy;
 use Vendor\Shared\NodeTypes\Mixin\HeadlineMixin;
+use Vendor\Shared\NodeTypes\Mixin\HeadlineProperties;
 use Vendor\Shared\NodeTypes\Mixin\ImageProvider;
 use Vendor\Shared\NodeTypes\Preset\FreeCroppingImage;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
@@ -20,10 +21,10 @@ use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
     icon: 'image',
 )]
 #[Flow\Proxy(false)]
-final readonly class Image implements Content, ImageProvider
+final readonly class Image implements Content, HeadlineMixin, ImageProvider
 {
     use ContentProperties;
-    use HeadlineMixin;
+    use HeadlineProperties;
 
     public function __construct(
         #[FreeCroppingImage]

@@ -20,9 +20,4 @@ final readonly class Shortcut implements NeosShortcut, PreviewProvider, Timeable
     use ShortcutProperties;
     use PreviewMixin;
     use TimeableProperties;
-
-    public function __construct(
-        public bool $hiddenInMenu = false,
-    ) {
-    }
 }

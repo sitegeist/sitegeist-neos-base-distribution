@@ -12,6 +12,7 @@ use Sitegeist\Kaleidoscope\ValueObjects\ImageSourceProxy;
 use Vendor\Shared\NodeTypes\EditableText;
 use Vendor\Shared\NodeTypes\Mixin\ImageProvider;
 use Vendor\Shared\NodeTypes\Mixin\TextMixin;
+use Vendor\Shared\NodeTypes\Mixin\TextProperties;
 use Vendor\Shared\NodeTypes\Preset\PlainText;
 use Vendor\Shared\NodeTypes\Preset\SquareImage;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
@@ -23,10 +24,10 @@ use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
     icon: 'comment-alt',
 )]
 #[Flow\Proxy(false)]
-final readonly class Quotation implements Content, ImageProvider
+final readonly class Quotation implements Content, TextMixin, ImageProvider
 {
     use ContentProperties;
-    use TextMixin;
+    use TextProperties;
 
     public function __construct(
         #[SquareImage]

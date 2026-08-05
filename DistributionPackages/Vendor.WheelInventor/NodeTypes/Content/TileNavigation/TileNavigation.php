@@ -11,6 +11,7 @@ use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\InspectorGroupDeclaratio
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\InspectorConfiguration;
 use Vendor\Shared\NodeTypes\Mixin\HeadlineMixin;
+use Vendor\Shared\NodeTypes\Mixin\HeadlineProperties;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
 use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
 use Vendor\WheelInventor\NodeTypes\Document\Documents;
@@ -26,10 +27,10 @@ use Vendor\WheelInventor\NodeTypes\Document\Documents;
     icon: 'th-large',
 )]
 #[Flow\Proxy(false)]
-final readonly class TileNavigation implements Content
+final readonly class TileNavigation implements Content, HeadlineMixin
 {
     use ContentProperties;
-    use HeadlineMixin;
+    use HeadlineProperties;
 
     public function __construct(
         #[ReferenceRelationDeclaration]

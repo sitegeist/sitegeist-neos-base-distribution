@@ -11,9 +11,11 @@ use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\InspectorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertyUiConfiguration;
 use Vendor\Shared\NodeTypes\Mixin\HeadlineMixin;
+use Vendor\Shared\NodeTypes\Mixin\HeadlineProperties;
 use Vendor\Shared\NodeTypes\Mixin\OptionalLinkProperties;
 use Vendor\Shared\NodeTypes\Mixin\OptionalLinkProvider;
 use Vendor\Shared\NodeTypes\Mixin\TextMixin;
+use Vendor\Shared\NodeTypes\Mixin\TextProperties;
 use Vendor\WheelInventor\NodeTypes\Content\Content;
 use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
 
@@ -29,11 +31,11 @@ use Vendor\WheelInventor\NodeTypes\Content\ContentProperties;
     position: 'folder-open',
 )]
 #[Flow\Proxy(false)]
-final readonly class AccordionItem implements Content, OptionalLinkProvider
+final readonly class AccordionItem implements Content, HeadlineMixin, TextMixin, OptionalLinkProvider
 {
     use ContentProperties;
-    use HeadlineMixin;
-    use TextMixin;
+    use HeadlineProperties;
+    use TextProperties;
     use OptionalLinkProperties;
 
     public function __construct(

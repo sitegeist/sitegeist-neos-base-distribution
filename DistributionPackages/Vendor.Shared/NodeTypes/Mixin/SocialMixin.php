@@ -20,7 +20,7 @@ use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertyUiConfiguration;
     tab: 'footer',
 )]
 #[NodeTypeDeclaration]
-trait SocialMixin
+interface SocialMixin
 {
     #[PropertyUiConfiguration(
         label: 'Facebook',
@@ -34,7 +34,7 @@ trait SocialMixin
             )
         )
     )]
-    public readonly ?Link $socialFacebookUri;
+    public ?Link $socialFacebookUri {get;}
 
     #[PropertyUiConfiguration(
         label: 'Instagram',
@@ -48,7 +48,7 @@ trait SocialMixin
             )
         )
     )]
-    public readonly ?Link $socialInstagramUri;
+    public ?Link $socialInstagramUri {get;}
 
     #[PropertyUiConfiguration(
         label: 'Xing',
@@ -62,7 +62,7 @@ trait SocialMixin
             )
         )
     )]
-    public readonly ?Link $socialXingUri;
+    public ?Link $socialXingUri {get;}
 
     #[PropertyUiConfiguration(
         label: 'X',
@@ -76,7 +76,7 @@ trait SocialMixin
             )
         )
     )]
-    public readonly ?Link $socialXUri;
+    public ?Link $socialXUri {get;}
 
     #[PropertyUiConfiguration(
         label: 'Linkedin',
@@ -90,5 +90,5 @@ trait SocialMixin
             )
         )
     )]
-    public readonly ?Link $socialLinkedinUri;
+    public ?Link $socialLinkedinUri {get;}
 }

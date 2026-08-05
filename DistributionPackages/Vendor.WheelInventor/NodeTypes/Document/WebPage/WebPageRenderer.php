@@ -19,8 +19,8 @@ use Vendor\WheelInventor\Integration\SiteHeaderFactory;
 final class WebPageRenderer implements DocumentNodeRendererInterface
 {
     public function __construct(
-        private BaseFactory $baseFactory,
-        private ContentRenderer $contentRenderer,
+        private readonly BaseFactory $baseFactory,
+        private readonly ContentRenderer $contentRenderer,
         private readonly SiteHeaderFactory $siteHeaderFactory,
         private readonly SiteFooterFactory $siteFooterFactory,
     ) {
