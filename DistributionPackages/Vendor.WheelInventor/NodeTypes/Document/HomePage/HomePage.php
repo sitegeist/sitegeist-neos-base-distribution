@@ -9,6 +9,7 @@ use Neos\Flow\Annotations as Flow;
 use Neos\Neos\NodeTypes\Content;
 use Neos\Neos\NodeTypes\ContentCollection;
 use Neos\Neos\NodeTypes\Site;
+use Neos\Neos\NodeTypes\SiteProperties;
 use PackageFactory\Neos\Seo\NodeTypes\Mixin\GoogleSiteVerificationProperties;
 use PackageFactory\Neos\Seo\NodeTypes\Mixin\GoogleSiteVerificationProvider;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeConstraintsDeclaration;
@@ -54,6 +55,7 @@ final readonly class HomePage extends Document implements
     SocialMixin,
     FooterMixin
 {
+    use SiteProperties;
     use GoogleSiteVerificationProperties;
     use SocialProperties;
     use FooterProperties;

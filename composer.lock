@@ -6572,12 +6572,12 @@
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/opgm.git",
-                "reference": "79929e241bac28c5e1d1e372d58acdf811654b5f"
+                "reference": "c0d7888d0be6fec4d2506048879779965fe3a831"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm/archive/79929e241bac28c5e1d1e372d58acdf811654b5f.zip",
-                "reference": "79929e241bac28c5e1d1e372d58acdf811654b5f",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm/archive/c0d7888d0be6fec4d2506048879779965fe3a831.zip",
+                "reference": "c0d7888d0be6fec4d2506048879779965fe3a831",
                 "shasum": ""
             },
             "require": {
@@ -6662,7 +6662,7 @@
                 "source": "https://codeberg.org/PackageFactory/opgm/branch/main",
                 "issues": "https://codeberg.org/PackageFactory/opgm/issues"
             },
-            "time": "2026-08-05T11:43:50+02:00"
+            "time": "2026-08-06T00:03:41+02:00"
         },
         {
             "name": "packagefactory/opgm-contentrepositoryregistryadapter",
@@ -6717,12 +6717,12 @@
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/opgm-neosadapter.git",
-                "reference": "6013231029ad01f3b68dc6a66cdbecfc39469455"
+                "reference": "8d9fe39a61716668479b955f2b0f49d476c3dfcd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm-neosadapter/archive/6013231029ad01f3b68dc6a66cdbecfc39469455.zip",
-                "reference": "6013231029ad01f3b68dc6a66cdbecfc39469455",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm-neosadapter/archive/8d9fe39a61716668479b955f2b0f49d476c3dfcd.zip",
+                "reference": "8d9fe39a61716668479b955f2b0f49d476c3dfcd",
                 "shasum": ""
             },
             "require": {
@@ -6761,7 +6761,7 @@
                 "source": "https://codeberg.org/PackageFactory/opgm-neosadapter/branch/main",
                 "issues": "https://codeberg.org/PackageFactory/opgm-neosadapter/issues"
             },
-            "time": "2026-08-05T12:12:01+02:00"
+            "time": "2026-08-06T09:20:37+02:00"
         },
         {
             "name": "packagefactory/opgm-timeablenodevisibility",
@@ -8415,12 +8415,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX.git",
-                "reference": "ceef4009040a9665cda6f3a387d128b1cf248984"
+                "reference": "51fb3c005fb9631d505b0b0fa655fb46858043fc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Devclaim/Sitegeist.PaperTiger.CPX/zipball/ceef4009040a9665cda6f3a387d128b1cf248984",
-                "reference": "ceef4009040a9665cda6f3a387d128b1cf248984",
+                "url": "https://api.github.com/repos/Devclaim/Sitegeist.PaperTiger.CPX/zipball/51fb3c005fb9631d505b0b0fa655fb46858043fc",
+                "reference": "51fb3c005fb9631d505b0b0fa655fb46858043fc",
                 "shasum": ""
             },
             "require": {
@@ -8462,7 +8462,7 @@
                 "source": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX/tree/main",
                 "issues": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX/issues"
             },
-            "time": "2026-08-05T10:14:22+00:00"
+            "time": "2026-08-06T07:24:29+00:00"
         },
         {
             "name": "sitegeist/schemeonyou",
@@ -11155,21 +11155,21 @@
         },
         {
             "name": "guzzlehttp/guzzle",
-            "version": "7.15.2",
+            "version": "7.15.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/guzzle.git",
-                "reference": "744101956d78b7c1384d0cbf379db13e859167bf"
+                "reference": "ae311b8f045ea93ce7b1c9cdb7cec06c53f944bc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/744101956d78b7c1384d0cbf379db13e859167bf",
-                "reference": "744101956d78b7c1384d0cbf379db13e859167bf",
+                "url": "https://api.github.com/repos/guzzle/guzzle/zipball/ae311b8f045ea93ce7b1c9cdb7cec06c53f944bc",
+                "reference": "ae311b8f045ea93ce7b1c9cdb7cec06c53f944bc",
                 "shasum": ""
             },
             "require": {
                 "ext-json": "*",
-                "guzzlehttp/promises": "^2.5.1",
+                "guzzlehttp/promises": "^2.5.2",
                 "guzzlehttp/psr7": "^2.13",
                 "php": "^7.2.5 || ^8.0",
                 "psr/http-client": "^1.0",
@@ -11263,7 +11263,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/guzzle/issues",
-                "source": "https://github.com/guzzle/guzzle/tree/7.15.2"
+                "source": "https://github.com/guzzle/guzzle/tree/7.15.3"
             },
             "funding": [
                 {
@@ -11279,20 +11279,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-07-26T23:23:20+00:00"
+            "time": "2026-08-05T19:48:21+00:00"
         },
         {
             "name": "guzzlehttp/promises",
-            "version": "2.5.1",
+            "version": "2.5.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/guzzle/promises.git",
-                "reference": "9ad1e4fc607446a055b95870c7f668e93b5cff29"
+                "reference": "2823687acff28b2dbe67b2508a6b300e2c3fa4ce"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/guzzle/promises/zipball/9ad1e4fc607446a055b95870c7f668e93b5cff29",
-                "reference": "9ad1e4fc607446a055b95870c7f668e93b5cff29",
+                "url": "https://api.github.com/repos/guzzle/promises/zipball/2823687acff28b2dbe67b2508a6b300e2c3fa4ce",
+                "reference": "2823687acff28b2dbe67b2508a6b300e2c3fa4ce",
                 "shasum": ""
             },
             "require": {
@@ -11347,7 +11347,7 @@
             ],
             "support": {
                 "issues": "https://github.com/guzzle/promises/issues",
-                "source": "https://github.com/guzzle/promises/tree/2.5.1"
+                "source": "https://github.com/guzzle/promises/tree/2.5.2"
             },
             "funding": [
                 {
@@ -11363,7 +11363,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-07-08T15:48:39+00:00"
+            "time": "2026-08-05T19:30:54+00:00"
         },
         {
             "name": "mikey179/vfsstream",
@@ -13525,19 +13525,20 @@
         },
         {
             "name": "squizlabs/php_codesniffer",
-            "version": "4.0.1",
+            "version": "4.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/PHPCSStandards/PHP_CodeSniffer.git",
-                "reference": "0525c73950de35ded110cffafb9892946d7771b5"
+                "reference": "bbdc3d0532623e21838b7041a4364383a8126f96"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/0525c73950de35ded110cffafb9892946d7771b5",
-                "reference": "0525c73950de35ded110cffafb9892946d7771b5",
+                "url": "https://api.github.com/repos/PHPCSStandards/PHP_CodeSniffer/zipball/bbdc3d0532623e21838b7041a4364383a8126f96",
+                "reference": "bbdc3d0532623e21838b7041a4364383a8126f96",
                 "shasum": ""
             },
             "require": {
+                "ext-libxml": "*",
                 "ext-simplexml": "*",
                 "ext-tokenizer": "*",
                 "ext-xmlwriter": "*",
@@ -13545,6 +13546,10 @@
             },
             "require-dev": {
                 "phpunit/phpunit": "^8.4.0 || ^9.3.4 || ^10.5.32 || 11.3.3 - 11.5.28 || ^11.5.31"
+            },
+            "suggest": {
+                "ext-iconv": "For accurate character length calculation when the checked files contain multi-byte characters.",
+                "ext-pcntl": "For parallel processing support via the --parallel CLI option."
             },
             "bin": [
                 "bin/phpcbf",
@@ -13600,7 +13605,7 @@
                     "type": "thanks_dev"
                 }
             ],
-            "time": "2025-11-10T16:43:36+00:00"
+            "time": "2026-08-06T02:45:27+00:00"
         },
         {
             "name": "symfony/config",

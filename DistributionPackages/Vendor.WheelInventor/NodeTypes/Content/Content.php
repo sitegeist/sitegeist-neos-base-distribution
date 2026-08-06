@@ -8,19 +8,18 @@ use Neos\Neos\NodeTypes\Content as NeosContent;
 use Neos\TimeableNodeVisibility\NodeTypes\Timeable;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\InspectorGroupDeclaration;
+use PackageFactory\OPGM\NeosAdapter\NodeTypes\NeosLabelProvider;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\InspectorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertyUiConfiguration;
 
-#[NodeTypeDeclaration(
-    label: '${Neos.Node.labelForNode(node).properties("headline", "title", "text") || Neos.Node.labelForNode(node)}'
-)]
+#[NodeTypeDeclaration]
 #[InspectorGroupDeclaration(
     name: 'anchor',
     label: 'Anchor',
     icon: 'anchor',
     position: 'start 0',
 )]
-interface Content extends NeosContent, Timeable
+interface Content extends NeosContent, Timeable, NeosLabelProvider
 {
     #[PropertyUiConfiguration(label: 'Anchor', reloadIfChanged: true)]
     #[InspectorConfiguration(group: 'anchor')]
