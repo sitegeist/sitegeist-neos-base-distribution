@@ -20,14 +20,12 @@ final readonly class AnchorNavigationItem implements _\ComponentInterface
     public static function create(
         LinkStruct $link,
         _\ComponentInterface|string|null $title,
-        bool $inBackend,
     ): self {
         return new self(
             _98_Link: Link::create(
                 component: 'AnchorNavigationItem',
                 link: $link,
                 variant: LinkVariant::VARIANT_DEFAULT,
-                inBackend: $inBackend,
                 content: _\SlotComponent::list(
                     '<span class="whitespace-nowrap px-24 py-16 group-data-[sticky=true]:px-0 group-data-[sticky=true]:py-16 group-data-[sticky=true]:pr-8 group-data-[sticky=true]:last:pr-0">',
                     (($temp = $title) === null ? null : $temp),

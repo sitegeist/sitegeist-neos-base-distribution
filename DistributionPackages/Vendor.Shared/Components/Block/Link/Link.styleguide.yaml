@@ -13,7 +13,6 @@ props: &defaultProps
     target: "_self"
   component: null
   variant: "default"
-  inBackend: false
 useCases:
   menuItem:
     title: "Menu item"

@@ -26,7 +26,6 @@ final readonly class MainNavigationSubItem implements _\ComponentInterface
                 link: $link,
                 variant: LinkVariant::VARIANT_MENU_SUB_ITEM,
                 component: null,
-                inBackend: false,
                 content: _\SlotComponent::list(
                     '<sl-menu-item class="max-lg:hidden">',
                     _\Util::escapeRenderValue($label),

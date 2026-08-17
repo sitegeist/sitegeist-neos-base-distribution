@@ -21,10 +21,8 @@ props: &defaultProps
     title: "Lorem ipsum"
     rel: null
     target: "_self"
-  inBackend: false
 useCases:
   backend:
     title: "Backend preview"
     props:
       <<: *defaultProps
-      inBackend: true

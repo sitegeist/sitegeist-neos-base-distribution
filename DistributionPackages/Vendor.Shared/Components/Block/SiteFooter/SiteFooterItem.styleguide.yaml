@@ -16,7 +16,6 @@ props: &defaultProps
       target: "_self"
     component: null
     variant: "default"
-    inBackend: false
 useCases:
   plainText:
     title: "Plain text"

@@ -47,13 +47,7 @@ final class DownloadRenderer implements ContentNodeRendererInterface
                     rel: 'noopener nofollow',
                     target: LinkTarget::TARGET_BLANK
                 )
-                : LinkStruct::create(
-                    href: null,
-                    title: null,
-                    rel: null,
-                    target: null
-                ),
-            inBackend: $context->renderingMode->isEdit
+                : null,
         );
     }
 }

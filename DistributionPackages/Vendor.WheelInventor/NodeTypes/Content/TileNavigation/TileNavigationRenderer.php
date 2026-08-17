@@ -58,19 +58,13 @@ final class TileNavigationRenderer implements ContentNodeRendererInterface
             headline: $document->previewHeadline ?: $context->nodes->getLabel($document->node),
             text: $document->previewText,
             link: $inBackend
-                ? LinkStruct::create(
-                    href: null,
-                    title: null,
-                    rel: null,
-                    target: null
-                )
+                ? null
                 : LinkStruct::create(
                     href: (string)$context->neos->getNodeUri($document->node),
                     title: $context->nodes->getLabel($document->node),
                     rel: null,
                     target: LinkTarget::TARGET_SELF
                 ),
-            inBackend: $inBackend
         );
     }
 }

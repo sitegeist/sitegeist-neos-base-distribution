@@ -26,10 +26,11 @@ final class WebPageRenderer implements DocumentNodeRendererInterface
     ) {
     }
 
-    public function renderAsDocument(NeosContext $context): Base {
+    public function renderAsDocument(NeosContext $context): Base
+    {
         return $this->baseFactory->createWithContent(
-            $context,
-            PageBody::create(
+            context: $context,
+            content: PageBody::create(
                 content: ComponentCollection::list(
                     $this->contentRenderer->forContentCollectionChildNode(
                         $context->documentNode, NodeName::fromString('main'), $context

@@ -17,18 +17,18 @@ final class AnchorRenderer implements ContentNodeRendererInterface
     {
         $anchor = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, Anchor::class);
 
-        // @todo: link & inBackend in der Komponente?
         return AnchorNavigationItem::create(
-            link: LinkStruct::create(
-                href: (!$context->renderingMode->isEdit && $anchor->targetIdentifier)
-                    ? '#' . $anchor->targetIdentifier
-                    : null,
-                title: null,
-                rel: null,
-                target: null
-            ),
+            link: $context->renderingMode->isEdit
+                ? null
+                : LinkStruct::create(
+                    href: $anchor->targetIdentifier
+                        ? '#' . $anchor->targetIdentifier
+                        : null,
+                    title: null,
+                    rel: null,
+                    target: null
+                ),
             title: $context->neos->getEditableFromProperty($anchor->title, true),
-            inBackend: $context->renderingMode->isEdit,
         );
     }
 }

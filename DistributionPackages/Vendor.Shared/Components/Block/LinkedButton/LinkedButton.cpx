@@ -12,7 +12,6 @@ export component LinkedButton {
             link={link}
             component="LinkedButton"
             variant={LinkVariant.VARIANT_NONE}
-            inBackend={false}
         >
             {button}
         </Link>

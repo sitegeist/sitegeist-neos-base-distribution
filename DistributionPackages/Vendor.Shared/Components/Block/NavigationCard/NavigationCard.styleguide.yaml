@@ -14,7 +14,6 @@ props: &defaultProps
     title: "Lorem ipsum"
     rel: null
     target: "_self"
-  inBackend: false
 useCases:
   noImage:
     title: "Without image"

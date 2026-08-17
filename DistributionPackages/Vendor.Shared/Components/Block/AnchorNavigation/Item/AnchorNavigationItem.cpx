@@ -5,13 +5,12 @@ from "../../Link/LinkVariant.cpx" import { LinkVariant }
 export component AnchorNavigationItem {
     link: LinkStruct
     title: slot
-    inBackend: boolean
+
     render
         <Link
             component="AnchorNavigationItem"
             link={link}
             variant={LinkVariant.VARIANT_DEFAULT}
-            inBackend={inBackend}
         >
             <span class="whitespace-nowrap px-24 py-16 group-data-[sticky=true]:px-0 group-data-[sticky=true]:py-16 group-data-[sticky=true]:pr-8 group-data-[sticky=true]:last:pr-0">
                 {title}

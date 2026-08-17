@@ -15,7 +15,6 @@ props: &defaultProps
         target: "_self"
       component: null
       variant: "default"
-      inBackend: false
     - __type: "Vendor.Shared/Block/Link/Link.cpx"
       content: "Amet"
       link:
@@ -26,7 +25,6 @@ props: &defaultProps
         target: "_self"
       component: null
       variant: "default"
-      inBackend: false
   secondaryMenuTitle: "Dolor sit"
   secondaryNavigationItems:
     - __type: "Vendor.Shared/Block/Link/Link.cpx"
@@ -39,7 +37,6 @@ props: &defaultProps
         target: "_self"
       component: null
       variant: "default"
-      inBackend: false
     - __type: "Vendor.Shared/Block/Link/Link.cpx"
       content: "Consetetur"
       link:
@@ -50,7 +47,6 @@ props: &defaultProps
         target: "_self"
       component: null
       variant: "default"
-      inBackend: false
   thirdMenuTitle: "Amet elit"
   thirdNavigationItems:
     - __type: "Vendor.Shared/Block/Link/Link.cpx"
@@ -63,7 +59,6 @@ props: &defaultProps
         target: "_self"
       component: null
       variant: "default"
-      inBackend: false
     - __type: "Vendor.Shared/Block/Link/Link.cpx"
       content: "Quis"
       link:
@@ -74,7 +69,6 @@ props: &defaultProps
         target: "_self"
       component: null
       variant: "default"
-      inBackend: false
   facebookLinkStruct: &socialLink
     __type: "Vendor.Shared/Block/Link/LinkStruct.cpx"
     href: "https://example.com"
@@ -89,4 +83,3 @@ props: &defaultProps
     <<: *socialLink
   linkedinLinkStruct:
     <<: *socialLink
-  inBackend: false

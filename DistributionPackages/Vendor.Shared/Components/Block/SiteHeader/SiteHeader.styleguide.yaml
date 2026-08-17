@@ -14,7 +14,6 @@ props: &defaultProps
       target: "_self"
     component: null
     variant: "default"
-    inBackend: false
   mainNavigation:
     __type: "Vendor.Shared/Block/SiteHeader/MainNavigation/MainNavigation.cpx"
 useCases:

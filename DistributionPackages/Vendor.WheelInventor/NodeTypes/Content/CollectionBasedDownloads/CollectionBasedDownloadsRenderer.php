@@ -67,13 +67,7 @@ final class CollectionBasedDownloadsRenderer implements ContentNodeRendererInter
                                 rel: 'noopener nofollow',
                                 target: LinkTarget::TARGET_BLANK
                             )
-                            : LinkStruct::create(
-                                href: null,
-                                title: null,
-                                rel: null,
-                                target: null
-                            ),
-                        inBackend: $context->renderingMode->isEdit
+                            : null,
                     ),
                     array_values($documents),
                 )),

@@ -11,12 +11,11 @@ export component SiteFooter {
     secondaryNavigationItems: slot
     thirdMenuTitle: slot
     thirdNavigationItems: slot
-    facebookLinkStruct: LinkStruct
-    instagramLinkStruct: LinkStruct
-    xingLinkStruct: LinkStruct
-    xLinkStruct: LinkStruct
-    linkedinLinkStruct: LinkStruct
-    inBackend: boolean
+    facebookLinkStruct: ?LinkStruct
+    instagramLinkStruct: ?LinkStruct
+    xingLinkStruct: ?LinkStruct
+    xLinkStruct: ?LinkStruct
+    linkedinLinkStruct: ?LinkStruct
 
     render
         <footer
@@ -38,52 +37,47 @@ export component SiteFooter {
                 </SiteFooterItem>
                 <SiteFooterItem title="Folgen Sie uns!">
                     <div class="flex flex-wrap gap-16 mt-auto">
-                        {facebookLinkStruct.href
+                        {facebookLinkStruct
                             ? <Link
                                 link={facebookLinkStruct}
                                 variant={LinkVariant.VARIANT_DEFAULT}
                                 component={null}
-                                inBackend={inBackend}
                             >
                                 <Icon icon="facebook" class="h-24 w-24" />
                             </Link>
                             : null}
-                        {instagramLinkStruct.href
+                        {instagramLinkStruct
                             ? <Link
                                 link={instagramLinkStruct}
                                 variant={LinkVariant.VARIANT_DEFAULT}
                                 component={null}
-                                inBackend={inBackend}
                             >
                                 <Icon icon="instagram" class="h-24 w-24" />
                             </Link>
                             : null}
-                        {xingLinkStruct.href
+                        {xingLinkStruct
                             ? <Link
                                 link={xingLinkStruct}
                                 variant={LinkVariant.VARIANT_DEFAULT}
                                 component={null}
-                                inBackend={inBackend}
                             >
                                 <Icon icon="xing" class="h-24 w-24" />
                             </Link>
                             : null}
-                        {xLinkStruct.href
+                        {xLinkStruct
                             ? <Link
                                 link={xLinkStruct}
                                 variant={LinkVariant.VARIANT_DEFAULT}
                                 component={null}
-                                inBackend={inBackend}
                             >
                                 <Icon icon="x" class="h-24 w-24" />
                             </Link>
                             : null}
-                        {linkedinLinkStruct.href
+                        {linkedinLinkStruct
                             ? <Link
                                 link={linkedinLinkStruct}
                                 variant={LinkVariant.VARIANT_DEFAULT}
                                 component={null}
-                                inBackend={inBackend}
                             >
                                 <Icon icon="linkedin" class="h-24 w-24" />
                             </Link>

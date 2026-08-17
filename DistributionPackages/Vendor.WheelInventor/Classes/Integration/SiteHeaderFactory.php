@@ -22,7 +22,6 @@ final class SiteHeaderFactory
     public function forDocumentNode(
         NeosContext $context
     ): SiteHeader {
-
         return SiteHeader::create(
             // @todo: link in der Komponente?
             homeLink: Link::create(
@@ -35,7 +34,6 @@ final class SiteHeaderFactory
                 ),
                 component: null,
                 variant: LinkVariant::VARIANT_MENU_ITEM,
-                inBackend: false
             ),
             mainNavigation: MainNavigation::create(
                 items: $this->mainNavigationItemFactory->fromRootNode($context)

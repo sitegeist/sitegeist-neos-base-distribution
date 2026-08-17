@@ -30,7 +30,6 @@ final readonly class LinkedButton implements _\ComponentInterface
                 link: $link,
                 component: 'LinkedButton',
                 variant: LinkVariant::VARIANT_NONE,
-                inBackend: false,
                 content: _\SlotComponent::list(
                     $button
                 ),
