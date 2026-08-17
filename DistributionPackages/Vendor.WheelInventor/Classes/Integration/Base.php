@@ -4,10 +4,12 @@ declare(strict_types=1);
 
 namespace Vendor\WheelInventor\Integration;
 
+use Neos\Flow\Annotations as Flow;
 use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\ComponentEngine\Util;
 use PackageFactory\Neos\Seo\Components\SeoMetaTags\SeoMetaTags;
 
+#[Flow\Proxy(false)]
 final readonly class Base implements ComponentInterface
 {
     private function __construct(
