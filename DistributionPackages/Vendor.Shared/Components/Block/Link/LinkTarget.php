@@ -8,4 +8,19 @@ enum LinkTarget : string
 {
     case TARGET_BLANK = '_blank';
     case TARGET_SELF = '_self';
+
+    public function asString(): string
+    {
+        return $this->value;
+    }
+
+    public function asText(): string
+    {
+        return $this->value;
+    }
+
+    public function asAttributeValue(): string
+    {
+        return $this->value;
+    }
 }

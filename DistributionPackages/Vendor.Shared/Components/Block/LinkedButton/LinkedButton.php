@@ -27,16 +27,17 @@ final readonly class LinkedButton implements _\ComponentInterface
     ): self {
         return new self(
             _108_Link: Link::create(
+                content: _\SlotComponent::list(
+                    $button,
+                ),
                 link: $link,
                 component: 'LinkedButton',
                 variant: LinkVariant::VARIANT_NONE,
-                content: _\SlotComponent::list(
-                    $button
-                ),
             ),
         );
     }
 
+    #[\Override]
     public function render(): string
     {
         return $this->_108_Link->render();

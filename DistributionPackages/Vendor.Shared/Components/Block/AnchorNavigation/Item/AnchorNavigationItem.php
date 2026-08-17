@@ -23,18 +23,19 @@ final readonly class AnchorNavigationItem implements _\ComponentInterface
     ): self {
         return new self(
             _98_Link: Link::create(
-                component: 'AnchorNavigationItem',
-                link: $link,
-                variant: LinkVariant::VARIANT_DEFAULT,
                 content: _\SlotComponent::list(
                     '<span class="whitespace-nowrap px-24 py-16 group-data-[sticky=true]:px-0 group-data-[sticky=true]:py-16 group-data-[sticky=true]:pr-8 group-data-[sticky=true]:last:pr-0">',
-                    (($temp = $title) === null ? null : $temp),
-                    '</span>'
+                    (is_string(($temp = $title)) ? _\Util::escapeText($temp) : $temp),
+                    '</span>',
                 ),
+                link: $link,
+                component: 'AnchorNavigationItem',
+                variant: LinkVariant::VARIANT_DEFAULT,
             ),
         );
     }
 
+    #[\Override]
     public function render(): string
     {
         return $this->_98_Link->render();

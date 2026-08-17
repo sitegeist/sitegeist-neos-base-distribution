@@ -26,22 +26,23 @@ final readonly class ReactExample implements _\ComponentInterface
     ): self {
         return new self(
             _128_ContentGrid: ContentGrid::create(
-                componentName: 'ReactExample',
                 content: _\SlotComponent::list(
                     '<div class="col-span-full">',
                     Headline::create(
-                        tag: HeadlineTag::TAG_H2,
-                        size: HeadlineSize::SIZE_LG,
+                        content: (is_string(($temp = $headline)) ? _\StringComponent::fromString($temp) : $temp),
                         variant: HeadlineVariant::VARIANT_REGULAR,
-                        content: $headline,
+                        size: HeadlineSize::SIZE_LG,
+                        tag: HeadlineTag::TAG_H2,
                     ),
                     '</div>',
-                    '<div data-root data-app-data="' . _\Util::escapeAttributeValue($appData) . '" data-labels="' . _\Util::escapeAttributeValue($labels) . '" class="col-span-full"></div>'
+                    '<div data-root data-app-data="' . _\Util::escapeAttributeValue($appData) . '" data-labels="' . _\Util::escapeAttributeValue($labels) . '" class="col-span-full"></div>',
                 ),
+                componentName: 'ReactExample',
             ),
         );
     }
 
+    #[\Override]
     public function render(): string
     {
         return $this->_128_ContentGrid->render();

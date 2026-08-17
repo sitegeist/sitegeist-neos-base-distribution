@@ -38,10 +38,10 @@ final readonly class AccordionItem implements _\ComponentInterface
             inBackend: $inBackend,
             button: is_string($button) ? _\StringComponent::fromString($button) : $button,
             _3216_Headline: Headline::create(
-                tag: HeadlineTag::TAG_H2,
-                size: HeadlineSize::SIZE_MD,
+                content: (is_string(($temp = $headline)) ? _\StringComponent::fromString($temp) : $temp),
                 variant: HeadlineVariant::VARIANT_REGULAR,
-                content: $headline,
+                size: HeadlineSize::SIZE_MD,
+                tag: HeadlineTag::TAG_H2,
             ),
             _3816_Icon: Icon::create(
                 icon: 'plus',
@@ -54,8 +54,9 @@ final readonly class AccordionItem implements _\ComponentInterface
         );
     }
 
+    #[\Override]
     public function render(): string
     {
-        return '<' . ($_149_tag = ($this->inBackend ? 'div' : 'details')) . ' data-component="AccordionItem" class="' . _\Util::joinAttributeValues(['w-full group/accordion last:border-b-2 last:border-brand', '[&amp;:has(&gt;summary:hover)+details&gt;summary]:border-highlight', '[&amp;:has(&gt;summary:hover)]:border-highlight', ($this->inBackend ? '' : 'overflow-hidden')]) . '"' . ($this->initialOpen ? ' open' : '') . '><summary class="' . _\Util::joinAttributeValues(['w-full py-24 flex justify-between items-center', 'border-t-2 border-brand marker:hidden hover:border-highlight', ((!$this->inBackend) ? 'cursor-pointer hover:text-highlight select-none' : '')]) . '">' . $this->_3216_Headline->render() . '' . $this->_3816_Icon->render() . '' . $this->_3916_Icon->render() . '</summary><div class="flex flex-col gap-16 md:gap-24 pb-24 pt-2 m:pt-4 l:pt-8 xl:pt-16">' . (($temp = $this->content) === null ? '' : $temp->render()) . '' . (($temp = $this->button) === null ? '' : $temp->render()) . '</div></' . $_149_tag . '>';
+        return '<' . ($_149_tag = ($this->inBackend ? 'div' : 'details')) . ' data-component="AccordionItem" class="' . _\Util::joinAttributeValues('w-full group/accordion last:border-b-2 last:border-brand', '[&amp;:has(&gt;summary:hover)+details&gt;summary]:border-highlight', '[&amp;:has(&gt;summary:hover)]:border-highlight', ($this->inBackend ? '' : 'overflow-hidden')) . '"' . ($this->initialOpen ? ' open' : '') . '><summary class="' . _\Util::joinAttributeValues('w-full py-24 flex justify-between items-center', 'border-t-2 border-brand marker:hidden hover:border-highlight', ((!$this->inBackend) ? 'cursor-pointer hover:text-highlight select-none' : '')) . '">' . $this->_3216_Headline->render() . $this->_3816_Icon->render() . $this->_3916_Icon->render() . '</summary><div class="flex flex-col gap-16 md:gap-24 pb-24 pt-2 m:pt-4 l:pt-8 xl:pt-16">' . ((($temp = $this->content) === null) ? '' : $temp->render()) . ((($temp = $this->button) === null) ? '' : $temp->render()) . '</div></' . $_149_tag . '>';
     }
 }

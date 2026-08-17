@@ -25,24 +25,25 @@ final readonly class Image implements _\ComponentInterface
     ): self {
         return new self(
             _118_ContentGrid: ContentGrid::create(
-                componentName: 'Image',
                 content: _\SlotComponent::list(
                     '<div class="col-span-full">',
                     Headline::create(
-                        tag: HeadlineTag::TAG_H2,
-                        size: HeadlineSize::SIZE_LG,
+                        content: (is_string(($temp = $headline)) ? _\StringComponent::fromString($temp) : $temp),
                         variant: HeadlineVariant::VARIANT_REGULAR,
-                        content: $headline,
+                        size: HeadlineSize::SIZE_LG,
+                        tag: HeadlineTag::TAG_H2,
                     ),
                     '</div>',
                     '<div class="col-span-full">',
-                    (($temp = $figure) === null ? null : $temp),
-                    '</div>'
+                    (is_string(($temp = $figure)) ? _\Util::escapeText($temp) : $temp),
+                    '</div>',
                 ),
+                componentName: 'Image',
             ),
         );
     }
 
+    #[\Override]
     public function render(): string
     {
         return $this->_118_ContentGrid->render();

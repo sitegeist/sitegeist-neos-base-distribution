@@ -25,6 +25,7 @@ final readonly class InvalidIcon implements _\ComponentInterface
         );
     }
 
+    #[\Override]
     public function render(): string
     {
         return $this->_48_Icon->render();

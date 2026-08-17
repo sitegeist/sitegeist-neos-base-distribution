@@ -22,13 +22,14 @@ final readonly class AtomContainer implements _\ComponentInterface
             _68_PageGrid: PageGrid::create(
                 content: _\SlotComponent::list(
                     '<div data-component="AtomContainer" class="col-span-content-full py-32">',
-                    (($temp = $content) === null ? null : $temp),
-                    '</div>'
+                    (is_string(($temp = $content)) ? _\Util::escapeText($temp) : $temp),
+                    '</div>',
                 ),
             ),
         );
     }
 
+    #[\Override]
     public function render(): string
     {
         return $this->_68_PageGrid->render();

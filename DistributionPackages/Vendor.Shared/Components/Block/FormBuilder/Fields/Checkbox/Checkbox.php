@@ -29,8 +29,9 @@ final readonly class Checkbox implements _\ComponentInterface
         );
     }
 
+    #[\Override]
     public function render(): string
     {
-        return '<label class="papertiger-checkbox-item"><input type="checkbox" name="' . _\Util::escapeAttributeValue($this->option->name) . '" value="' . _\Util::escapeAttributeValue($this->option->value) . '"' . (($temp = $this->option->isChecked) === null ? '' : ($temp ? ' checked' : '')) . '' . (($temp = $this->option->isRequired) === null ? '' : ($temp ? ' required' : '')) . ' class="papertiger-checkbox-item__input" data-fieldtype="input"' . ($this->option->customErrorMessageEnabled ? (($temp = $this->option->customErrorMessage) === null ? '' : ' data-custom-error-message="' . _\Util::escapeAttributeValue($temp) . '"') : '') . ' oninvalid="this.setCustomValidity(this.dataset.customErrorMessage || \'\')" oninput="this.setCustomValidity(\'\')" /><span class="papertiger-checkbox-item__label">' . _\Util::escapeRenderValue($this->option->label) . '</span>' . $this->_2312_Icon->render() . '</label>';
+        return '<label class="papertiger-checkbox-item"><input type="checkbox" name="' . _\Util::escapeAttributeValue($this->option->name) . '" value="' . _\Util::escapeAttributeValue($this->option->value) . '"' . ((($temp = $this->option->isChecked) === null) ? '' : ($temp ? ' checked' : '')) . ((($temp = $this->option->isRequired) === null) ? '' : ($temp ? ' required' : '')) . ' class="papertiger-checkbox-item__input" data-fieldtype="input"' . (((($temp = $this->option->customErrorMessageEnabled) === null) ? false : $temp) ? ((($temp = $this->option->customErrorMessage) === null) ? '' : ' data-custom-error-message="' . _\Util::escapeAttributeValue($temp) . '"') : '') . ' oninvalid="this.setCustomValidity(this.dataset.customErrorMessage || \'\')" oninput="this.setCustomValidity(\'\')" /><span class="papertiger-checkbox-item__label">' . _\Util::escapeText($this->option->label) . '</span>' . $this->_2312_Icon->render() . '</label>';
     }
 }

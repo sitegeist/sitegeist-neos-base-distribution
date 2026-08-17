@@ -8,4 +8,19 @@ enum ContentCollectionGridVariant : string
 {
     case VARIANT_THREE_COLUMNS = 'threeColumns';
     case VARIANT_FOUR_COLUMNS = 'fourColumns';
+
+    public function asString(): string
+    {
+        return $this->value;
+    }
+
+    public function asText(): string
+    {
+        return $this->value;
+    }
+
+    public function asAttributeValue(): string
+    {
+        return $this->value;
+    }
 }

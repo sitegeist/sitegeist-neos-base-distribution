@@ -29,8 +29,9 @@ final readonly class Input implements _\ComponentInterface
         );
     }
 
+    #[\Override]
     public function render(): string
     {
-        return '<div class="relative">' . $this->_830_InputField->render() . '' . $this->_858_InvalidIcon->render() . '</div>';
+        return '<div class="relative">' . $this->_830_InputField->render() . $this->_858_InvalidIcon->render() . '</div>';
     }
 }

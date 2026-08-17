@@ -25,24 +25,25 @@ final readonly class FormBuilder implements _\ComponentInterface
     ): self {
         return new self(
             _118_ContentGrid: ContentGrid::create(
-                componentName: 'FormBuilder',
                 content: _\SlotComponent::list(
                     '<div class="col-span-full">',
                     Headline::create(
-                        tag: HeadlineTag::TAG_H2,
-                        size: HeadlineSize::SIZE_LG,
+                        content: (is_string(($temp = $headline)) ? _\StringComponent::fromString($temp) : $temp),
                         variant: HeadlineVariant::VARIANT_REGULAR,
-                        content: $headline,
+                        size: HeadlineSize::SIZE_LG,
+                        tag: HeadlineTag::TAG_H2,
                     ),
                     '</div>',
                     '<div class="col-span-full" data-form-wrapper>',
-                    (($temp = $content) === null ? null : $temp),
-                    '</div>'
+                    (is_string(($temp = $content)) ? _\Util::escapeText($temp) : $temp),
+                    '</div>',
                 ),
+                componentName: 'FormBuilder',
             ),
         );
     }
 
+    #[\Override]
     public function render(): string
     {
         return $this->_118_ContentGrid->render();

@@ -36,8 +36,9 @@ final readonly class Button implements _\ComponentInterface
         );
     }
 
+    #[\Override]
     public function render(): string
     {
-        return '<' . ($_109_tag = $this->tag->value) . ' data-component="Button" class="' . _\Util::joinAttributeValues(['flex gap-16 items-center w-fit copy-medium', match ($this->tag) { ButtonTag::TAG_BUTTON => 'cursor-pointer', default => '' }, match ($this->variant) { ButtonVariant::VARIANT_REGULAR => 'border min-w-touch min-h-touch border-brand px-24 py-8 hover:text-highlight hover:border-highlight', ButtonVariant::VARIANT_SOLID => 'bg-brand min-w-touch min-h-touch text-brand-contrast px-24 py-8 hover:bg-highlight', ButtonVariant::VARIANT_GHOST => 'hover:text-highlight' }]) . '">' . (($temp = $this->content) === null ? '' : $temp->render()) . '' . $this->_2912_Icon->render() . '</' . $_109_tag . '>';
+        return '<' . ($_109_tag = $this->tag->asString()) . ' data-component="Button" class="' . _\Util::joinAttributeValues('flex gap-16 items-center w-fit copy-medium', match ($this->tag) { ButtonTag::TAG_BUTTON => 'cursor-pointer', default => '' }, match ($this->variant) { ButtonVariant::VARIANT_REGULAR => 'border min-w-touch min-h-touch border-brand px-24 py-8 hover:text-highlight hover:border-highlight', ButtonVariant::VARIANT_SOLID => 'bg-brand min-w-touch min-h-touch text-brand-contrast px-24 py-8 hover:bg-highlight', ButtonVariant::VARIANT_GHOST => 'hover:text-highlight' }) . '">' . ((($temp = $this->content) === null) ? '' : $temp->render()) . $this->_2912_Icon->render() . '</' . $_109_tag . '>';
     }
 }

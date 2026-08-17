@@ -26,8 +26,9 @@ final readonly class Message implements _\ComponentInterface
         );
     }
 
+    #[\Override]
     public function render(): string
     {
-        return '<div id="' . _\Util::escapeAttributeValue($this->message->id) . '" data-custom-message class="papertiger-message" role="status">' . (($temp = $this->content) === null ? '' : $temp->render()) . '</div>';
+        return '<div id="' . _\Util::escapeAttributeValue($this->message->id) . '" data-custom-message class="papertiger-message" role="status">' . ((($temp = $this->content) === null) ? '' : $temp->render()) . '</div>';
     }
 }

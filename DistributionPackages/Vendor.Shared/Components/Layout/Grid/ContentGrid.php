@@ -25,8 +25,9 @@ final readonly class ContentGrid implements _\ComponentInterface
         );
     }
 
+    #[\Override]
     public function render(): string
     {
-        return '<div data-component="' . _\Util::escapeAttributeValue($this->componentName) . '" class="' . _\Util::joinAttributeValues(['col-span-full grid grid-cols-subgrid', 'gap-y-16 md:gap-y-32']) . '">' . (($temp = $this->content) === null ? '' : $temp->render()) . '</div>';
+        return '<div data-component="' . _\Util::escapeAttributeValue($this->componentName) . '" class="' . _\Util::joinAttributeValues('col-span-full grid grid-cols-subgrid', 'gap-y-16 md:gap-y-32') . '">' . ((($temp = $this->content) === null) ? '' : $temp->render()) . '</div>';
     }
 }

@@ -8,4 +8,19 @@ enum ContentContainerTag : string
 {
     case TAG_DIV = 'div';
     case TAG_SECTION = 'section';
+
+    public function asString(): string
+    {
+        return $this->value;
+    }
+
+    public function asText(): string
+    {
+        return $this->value;
+    }
+
+    public function asAttributeValue(): string
+    {
+        return $this->value;
+    }
 }

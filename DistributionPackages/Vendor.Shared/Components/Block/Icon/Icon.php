@@ -25,8 +25,9 @@ final readonly class Icon implements _\ComponentInterface
         );
     }
 
+    #[\Override]
     public function render(): string
     {
-        return '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" component="Icon" class="' . _\Util::joinAttributeValues(['fill-current', (($temp = $this->class) === null ? '' : _\Util::escapeAttributeValue($temp))]) . '" height="1em" width="1em"><use xlink:href="' . '/stampede/svgsprite?collection=shared#' . _\Util::escapeAttributeValue($this->icon) . '" href="' . '/stampede/svgsprite?collection=shared#' . _\Util::escapeAttributeValue($this->icon) . '" /></svg>';
+        return '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" component="Icon" class="' . _\Util::joinAttributeValues('fill-current', ((($temp = $this->class) === null) ? '' : _\Util::escapeAttributeValue($temp))) . '" height="1em" width="1em"><use xlink:href="/stampede/svgsprite?collection=shared#' . _\Util::escapeAttributeValue($this->icon) . '" href="/stampede/svgsprite?collection=shared#' . _\Util::escapeAttributeValue($this->icon) . '" /></svg>';
     }
 }

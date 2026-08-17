@@ -29,8 +29,9 @@ final readonly class Upload implements _\ComponentInterface
         );
     }
 
+    #[\Override]
     public function render(): string
     {
-        return '<div class="relative">' . $this->_830_UploadField->render() . '' . $this->_859_InvalidIcon->render() . '</div>';
+        return '<div class="relative">' . $this->_830_UploadField->render() . $this->_859_InvalidIcon->render() . '</div>';
     }
 }

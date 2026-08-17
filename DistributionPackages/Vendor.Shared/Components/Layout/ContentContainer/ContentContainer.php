@@ -33,8 +33,9 @@ final readonly class ContentContainer implements _\ComponentInterface
         );
     }
 
+    #[\Override]
     public function render(): string
     {
-        return '<' . ($_109_tag = $this->tagName->value) . '' . (($temp = $this->anchorId) === null ? '' : ' id="' . _\Util::escapeAttributeValue($temp) . '"') . ' class="' . _\Util::joinAttributeValues(['grid grid-cols-subgrid h-fit', match ($this->variant) { ContentContainerVariant::VARIANT_REGULAR => 'my-16 sm:my-24 lg:my-32 col-span-content-full', ContentContainerVariant::VARIANT_NO_PADDING => '' }]) . '">' . (($temp = $this->content) === null ? '' : $temp->render()) . '</' . $_109_tag . '>';
+        return '<' . ($_109_tag = $this->tagName->asString()) . '' . ((($temp = $this->anchorId) === null) ? '' : ' id="' . _\Util::escapeAttributeValue($temp) . '"') . ' class="' . _\Util::joinAttributeValues('grid grid-cols-subgrid h-fit', match ($this->variant) { ContentContainerVariant::VARIANT_REGULAR => 'my-16 sm:my-24 lg:my-32 col-span-content-full', ContentContainerVariant::VARIANT_NO_PADDING => '' }) . '">' . ((($temp = $this->content) === null) ? '' : $temp->render()) . '</' . $_109_tag . '>';
     }
 }

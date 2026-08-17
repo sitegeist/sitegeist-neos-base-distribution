@@ -30,28 +30,29 @@ final readonly class Text implements _\ComponentInterface
     ): self {
         return new self(
             _168_ContentGrid: ContentGrid::create(
-                componentName: 'Text',
                 content: _\SlotComponent::list(
-                    '<div class="' . _\Util::joinAttributeValues(['col-span-full', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-full lg:col-span-6', default => 'sm:col-span-full' }]) . '">',
+                    '<div class="' . _\Util::joinAttributeValues('col-span-full', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-full lg:col-span-6', default => 'sm:col-span-full' }) . '">',
                     Headline::create(
-                        tag: HeadlineTag::TAG_H2,
-                        size: HeadlineSize::SIZE_LG,
+                        content: (is_string(($temp = $headline)) ? _\StringComponent::fromString($temp) : $temp),
                         variant: HeadlineVariant::VARIANT_REGULAR,
-                        content: $headline,
+                        size: HeadlineSize::SIZE_LG,
+                        tag: HeadlineTag::TAG_H2,
                     ),
                     '</div>',
-                    '<div class="' . _\Util::joinAttributeValues(['col-span-full flex flex-col gap-16 md:gap-24', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-full lg:col-span-6', default => 'sm:col-span-full' }]) . '">',
+                    '<div class="' . _\Util::joinAttributeValues('col-span-full flex flex-col gap-16 md:gap-24', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-full lg:col-span-6', default => 'sm:col-span-full' }) . '">',
                     Copy::create(
+                        content: (is_string(($temp = $content)) ? _\StringComponent::fromString($temp) : $temp),
                         size: CopySize::SIZE_MD,
-                        content: $content,
                     ),
-                    (($temp = $button) === null ? null : $temp),
-                    '</div>'
+                    (is_string(($temp = $button)) ? _\Util::escapeText($temp) : $temp),
+                    '</div>',
                 ),
+                componentName: 'Text',
             ),
         );
     }
 
+    #[\Override]
     public function render(): string
     {
         return $this->_168_ContentGrid->render();

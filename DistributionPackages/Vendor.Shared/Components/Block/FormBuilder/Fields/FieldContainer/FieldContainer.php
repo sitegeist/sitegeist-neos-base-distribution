@@ -32,8 +32,9 @@ final readonly class FieldContainer implements _\ComponentInterface
         );
     }
 
+    #[\Override]
     public function render(): string
     {
-        return '<div' . (($temp = $this->fieldContainer->id) === null ? '' : ' id="' . _\Util::escapeAttributeValue($temp) . '"') . '' . ($this->fieldContainer->hasErrors ? ' class="papertiger-field papertiger-field--invalid showInvalid group"' : ' class="papertiger-field group"') . ' data-form-field>' . (($temp = $this->label) === null ? '' : $temp->render()) . '' . (($temp = $this->content) === null ? '' : $temp->render()) . '' . (($temp = $this->error) === null ? '' : $temp->render()) . '</div>';
+        return '<div' . ((($temp = $this->fieldContainer->id) === null) ? '' : ' id="' . _\Util::escapeAttributeValue($temp) . '"') . (((($temp = $this->fieldContainer->hasErrors) === null) ? false : $temp) ? ' class="papertiger-field papertiger-field--invalid showInvalid group"' : ' class="papertiger-field group"') . ' data-form-field>' . ((($temp = $this->label) === null) ? '' : $temp->render()) . ((($temp = $this->content) === null) ? '' : $temp->render()) . ((($temp = $this->error) === null) ? '' : $temp->render()) . '</div>';
     }
 }

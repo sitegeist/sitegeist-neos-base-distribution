@@ -30,13 +30,14 @@ final readonly class PageBody implements _\ComponentInterface
             _1014_PageGrid: PageGrid::create(
                 content: _\SlotComponent::list(
                     $siteHeader,
-                    (($temp = $content) === null ? null : $temp),
-                    $siteFooter
+                    (is_string(($temp = $content)) ? _\Util::escapeText($temp) : $temp),
+                    $siteFooter,
                 ),
             ),
         );
     }
 
+    #[\Override]
     public function render(): string
     {
         return '<body>' . $this->_1014_PageGrid->render() . '</body>';

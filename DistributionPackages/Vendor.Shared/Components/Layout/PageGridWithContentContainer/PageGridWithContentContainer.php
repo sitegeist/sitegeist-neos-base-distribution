@@ -27,16 +27,17 @@ final readonly class PageGridWithContentContainer implements _\ComponentInterfac
                     ContentContainer::create(
                         tagName: ContentContainerTag::TAG_SECTION,
                         variant: ContentContainerVariant::VARIANT_REGULAR,
-                        anchorId: '',
                         content: _\SlotComponent::list(
-                            (($temp = $content) === null ? null : $temp)
+                            (is_string(($temp = $content)) ? _\Util::escapeText($temp) : $temp),
                         ),
-                    )
+                        anchorId: '',
+                    ),
                 ),
             ),
         );
     }
 
+    #[\Override]
     public function render(): string
     {
         return $this->_98_PageGrid->render();

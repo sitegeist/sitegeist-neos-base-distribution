@@ -29,8 +29,9 @@ final readonly class Button implements _\ComponentInterface
         );
     }
 
+    #[\Override]
     public function render(): string
     {
-        return '<button type="submit" class="papertiger-field__button papertiger-field__button--submit">' . $this->_812_Icon->render() . '<span class="papertiger-field__button-label">' . (($temp = $this->field->label) === null ? '' : _\Util::escapeRenderValue($temp)) . '</span></button>';
+        return '<button type="submit" class="papertiger-field__button papertiger-field__button--submit">' . $this->_812_Icon->render() . '<span class="papertiger-field__button-label">' . ((($temp = $this->field->label) === null) ? '' : _\Util::escapeText($temp)) . '</span></button>';
     }
 }

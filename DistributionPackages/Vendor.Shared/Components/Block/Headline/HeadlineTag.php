@@ -10,4 +10,19 @@ enum HeadlineTag : string
     case TAG_H2 = 'h2';
     case TAG_H3 = 'h3';
     case TAG_DIV = 'div';
+
+    public function asString(): string
+    {
+        return $this->value;
+    }
+
+    public function asText(): string
+    {
+        return $this->value;
+    }
+
+    public function asAttributeValue(): string
+    {
+        return $this->value;
+    }
 }

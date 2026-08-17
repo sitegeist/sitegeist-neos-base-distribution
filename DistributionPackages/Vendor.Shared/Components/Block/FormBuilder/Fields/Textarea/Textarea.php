@@ -29,8 +29,9 @@ final readonly class Textarea implements _\ComponentInterface
         );
     }
 
+    #[\Override]
     public function render(): string
     {
-        return '<div class="relative">' . $this->_830_TextareaField->render() . '' . $this->_861_InvalidIcon->render() . '</div>';
+        return '<div class="relative">' . $this->_830_TextareaField->render() . $this->_861_InvalidIcon->render() . '</div>';
     }
 }

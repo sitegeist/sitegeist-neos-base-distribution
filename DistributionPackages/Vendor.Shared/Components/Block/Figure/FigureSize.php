@@ -11,4 +11,19 @@ enum FigureSize : string
     case SIZE_THIRD_HALF_FULL = 'thirdHalfFull';
     case SIZE_FULL_FULL_FULL = 'fullFullFull';
     case SIZE_HALF_FULL_FULL = 'halfFullFull';
+
+    public function asString(): string
+    {
+        return $this->value;
+    }
+
+    public function asText(): string
+    {
+        return $this->value;
+    }
+
+    public function asAttributeValue(): string
+    {
+        return $this->value;
+    }
 }

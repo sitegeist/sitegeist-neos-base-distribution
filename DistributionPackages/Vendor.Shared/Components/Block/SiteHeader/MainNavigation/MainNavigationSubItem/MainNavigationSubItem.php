@@ -23,21 +23,22 @@ final readonly class MainNavigationSubItem implements _\ComponentInterface
     ): self {
         return new self(
             _98_Link: Link::create(
-                link: $link,
-                variant: LinkVariant::VARIANT_MENU_SUB_ITEM,
-                component: null,
                 content: _\SlotComponent::list(
                     '<sl-menu-item class="max-lg:hidden">',
-                    _\Util::escapeRenderValue($label),
+                    _\Util::escapeText($label),
                     '</sl-menu-item>',
                     '<span class="lg:hidden">',
-                    _\Util::escapeRenderValue($label),
-                    '</span>'
+                    _\Util::escapeText($label),
+                    '</span>',
                 ),
+                link: $link,
+                component: null,
+                variant: LinkVariant::VARIANT_MENU_SUB_ITEM,
             ),
         );
     }
 
+    #[\Override]
     public function render(): string
     {
         return $this->_98_Link->render();

@@ -26,8 +26,9 @@ final readonly class Copy implements _\ComponentInterface
         );
     }
 
+    #[\Override]
     public function render(): string
     {
-        return '<div data-component="Copy" class="' . _\Util::joinAttributeValues(['prose', match ($this->size) { CopySize::SIZE_SM => 'copy-small', CopySize::SIZE_MD => 'copy-medium', CopySize::SIZE_LG => 'copy-large' }]) . '">' . (($temp = $this->content) === null ? '' : $temp->render()) . '</div>';
+        return '<div data-component="Copy" class="' . _\Util::joinAttributeValues('prose', match ($this->size) { CopySize::SIZE_SM => 'copy-small', CopySize::SIZE_MD => 'copy-medium', CopySize::SIZE_LG => 'copy-large' }) . '">' . ((($temp = $this->content) === null) ? '' : $temp->render()) . '</div>';
     }
 }

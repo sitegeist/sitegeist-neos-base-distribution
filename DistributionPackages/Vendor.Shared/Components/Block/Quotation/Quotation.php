@@ -25,11 +25,10 @@ final readonly class Quotation implements _\ComponentInterface
     ): self {
         return new self(
             _118_ContentGrid: ContentGrid::create(
-                componentName: 'Quotation',
                 content: _\SlotComponent::list(
                     '<div class="col-span-full sm:col-span-4">',
                     '<div class="w-full aspect-square rounded-full overflow-hidden">',
-                    (($temp = $figure) === null ? null : $temp),
+                    (is_string(($temp = $figure)) ? _\Util::escapeText($temp) : $temp),
                     '</div>',
                     '</div>',
                     '<div class="col-span-full sm:col-span-8 md:col-start-6 flex flex-col gap-16 md:gap-24 justify-center">',
@@ -38,24 +37,26 @@ final readonly class Quotation implements _\ComponentInterface
                     '"',
                     '</span>',
                     Copy::create(
+                        content: (is_string(($temp = $content)) ? _\StringComponent::fromString($temp) : $temp),
                         size: CopySize::SIZE_MD,
-                        content: $content,
                     ),
                     '</div>',
                     '<div class="flex flex-col">',
                     '<span class="copy-medium font-bold">',
-                    (($temp = $spokenByName) === null ? null : $temp),
+                    (is_string(($temp = $spokenByName)) ? _\Util::escapeText($temp) : $temp),
                     '</span>',
                     '<span class="copy-small">',
-                    (($temp = $spokenByJobTitle) === null ? null : $temp),
+                    (is_string(($temp = $spokenByJobTitle)) ? _\Util::escapeText($temp) : $temp),
                     '</span>',
                     '</div>',
-                    '</div>'
+                    '</div>',
                 ),
+                componentName: 'Quotation',
             ),
         );
     }
 
+    #[\Override]
     public function render(): string
     {
         return $this->_118_ContentGrid->render();

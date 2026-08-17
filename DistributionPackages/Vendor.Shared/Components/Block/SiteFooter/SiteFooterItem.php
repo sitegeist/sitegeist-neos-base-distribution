@@ -25,8 +25,9 @@ final readonly class SiteFooterItem implements _\ComponentInterface
         );
     }
 
+    #[\Override]
     public function render(): string
     {
-        return '<div class="text-center lg:text-left flex flex-col gap-24">' . (($this->title !== null) ? '<div class="text-center lg:text-left font-bold">' . (($temp = $this->title) === null ? '' : $temp->render()) . '</div>' : '') . '' . (($temp = $this->content) === null ? '' : $temp->render()) . '</div>';
+        return '<div class="text-center lg:text-left flex flex-col gap-24">' . (((($temp = $this->title) === null) ? false : true) ? '<div class="text-center lg:text-left font-bold">' . ((($temp = $this->title) === null) ? '' : $temp->render()) . '</div>' : '') . ((($temp = $this->content) === null) ? '' : $temp->render()) . '</div>';
     }
 }

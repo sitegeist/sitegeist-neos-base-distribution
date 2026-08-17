@@ -27,25 +27,26 @@ final readonly class TileNavigation implements _\ComponentInterface
     ): self {
         return new self(
             _138_ContentGrid: ContentGrid::create(
-                componentName: 'TileNavigation',
                 content: _\SlotComponent::list(
                     '<div class="col-span-full">',
                     Headline::create(
-                        tag: HeadlineTag::TAG_H2,
-                        size: HeadlineSize::SIZE_LG,
+                        content: (is_string(($temp = $headline)) ? _\StringComponent::fromString($temp) : $temp),
                         variant: HeadlineVariant::VARIANT_REGULAR,
-                        content: $headline,
+                        size: HeadlineSize::SIZE_LG,
+                        tag: HeadlineTag::TAG_H2,
                     ),
                     '</div>',
                     ContentCollectionGrid::create(
+                        content: (is_string(($temp = $content)) ? _\StringComponent::fromString($temp) : $temp),
                         variant: ContentCollectionGridVariant::VARIANT_FOUR_COLUMNS,
-                        content: $content,
-                    )
+                    ),
                 ),
+                componentName: 'TileNavigation',
             ),
         );
     }
 
+    #[\Override]
     public function render(): string
     {
         return $this->_138_ContentGrid->render();

@@ -26,15 +26,16 @@ final readonly class Select implements _\ComponentInterface
             _1012_SelectField: SelectField::create(
                 field: $field,
                 content: _\SlotComponent::list(
-                    (($temp = $content) === null ? null : $temp)
+                    (is_string(($temp = $content)) ? _\Util::escapeText($temp) : $temp),
                 ),
             ),
             _1112_InvalidIcon: InvalidIcon::create(),
         );
     }
 
+    #[\Override]
     public function render(): string
     {
-        return '<div class="relative">' . $this->_1012_SelectField->render() . '' . $this->_1112_InvalidIcon->render() . '</div>';
+        return '<div class="relative">' . $this->_1012_SelectField->render() . $this->_1112_InvalidIcon->render() . '</div>';
     }
 }

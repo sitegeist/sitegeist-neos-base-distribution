@@ -38,8 +38,9 @@ final readonly class SiteHeader implements _\ComponentInterface
         );
     }
 
+    #[\Override]
     public function render(): string
     {
-        return '<header data-component="SiteHeader" class="' . _\Util::joinAttributeValues(['group/SiteHeader col-span-full sticky top-0', 'grid grid-cols-subgrid z-50 bg-brand-grey h-header']) . '"><div class="col-span-content-full flex justify-between w-full items-center">' . $this->homeLink->render() . '' . $this->mainNavigation->render() . '' . $this->_1916_MenuButton->render() . '</div></header>';
+        return '<header data-component="SiteHeader" class="' . _\Util::joinAttributeValues('group/SiteHeader col-span-full sticky top-0', 'grid grid-cols-subgrid z-50 bg-brand-grey h-header') . '"><div class="col-span-content-full flex justify-between w-full items-center">' . $this->homeLink->render() . $this->mainNavigation->render() . $this->_1916_MenuButton->render() . '</div></header>';
     }
 }
