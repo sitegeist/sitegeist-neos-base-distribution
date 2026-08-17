@@ -8,6 +8,7 @@ use Neos\Flow\Annotations as Flow;
 use Neos\Neos\NodeTypes\ContentCollection;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeConstraintsDeclaration;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
+use PackageFactory\OPGM\NeosAdapter\Infrastructure\NodeLabelRenderingAccessInterface;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\InspectorGroupDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTemplateDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTemplates\NodeTemplateChildNodeDeclaration;
@@ -48,4 +49,9 @@ final readonly class Accordion extends ContentCollection implements Content, Hea
 {
     use ContentProperties;
     use HeadlineProperties;
+
+    public function getNeosLabel(NodeLabelRenderingAccessInterface $nodeLabelRenderingAccess): ?string
+    {
+        return $this->headline->value;
+    }
 }

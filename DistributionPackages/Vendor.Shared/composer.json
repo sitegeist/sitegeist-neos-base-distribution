@@ -17,6 +17,7 @@
 		"packagefactory/opgm-neosadapter": "*",
 		"packagefactory/opgm-timeablenodevisibility": "*",
 		"packagefactory/neos-seo": "*",
+		"packagefactory/neos-seo-jobqueue": "*",
 
 		"sitegeist/csvpo": "^2.0",
 		"sitegeist/iconoclasm": "^2.1",

@@ -6,6 +6,7 @@ namespace Vendor\WheelInventor\NodeTypes\Content\ImageWithText;
 
 use Neos\Flow\Annotations as Flow;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
+use PackageFactory\OPGM\NeosAdapter\Infrastructure\NodeLabelRenderingAccessInterface;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\InspectorGroupDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\SelectBoxEditor\EnumSelectBoxEditorConfiguration;
@@ -61,5 +62,10 @@ final readonly class ImageWithText implements
         #[EnumSelectBoxEditorConfiguration]
         public ImageWithTextLayout $layout = ImageWithTextLayout::VARIANT_50_50,
     ) {
+    }
+
+    public function getNeosLabel(NodeLabelRenderingAccessInterface $nodeLabelRenderingAccess): ?string
+    {
+        return $this->headline->value ?: $this->text->value;
     }
 }

@@ -9,10 +9,14 @@ use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface
 use PackageFactory\Neos\ComponentEngine\Integration\ContentRenderer;
 use PackageFactory\Neos\ComponentEngine\Integration\RenderingUseCase;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
-use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
 use Vendor\Shared\Components\Block\Downloads\Downloads;
 use Vendor\WheelInventor\Integration\ContentContainerFactory;
+use Vendor\WheelInventor\NodeTypes\Document\Document;
+use Vendor\WheelInventor\NodeTypes\Document\HomePage\HomePage;
 
+/**
+ * @implements ContentNodeRendererInterface<ManualDownloads,Document,HomePage>
+ */
 final class ManualDownloadsRenderer implements ContentNodeRendererInterface
 {
     public function __construct(
@@ -22,12 +26,10 @@ final class ManualDownloadsRenderer implements ContentNodeRendererInterface
 
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
-        $manualDownloads = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, ManualDownloads::class);
-
         return ContentContainerFactory::create(
-            $context,
+            $context->current,
             Downloads::create(
-                $context->neos->getEditableFromProperty($manualDownloads->headline, true),
+                $context->neos->getEditableFromProperty($context->current->headline, true),
                 $this->contentRenderer->renderContentChildren(
                     $context,
                     RenderingUseCase::CONTENT,

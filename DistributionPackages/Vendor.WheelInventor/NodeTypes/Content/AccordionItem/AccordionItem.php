@@ -6,6 +6,7 @@ namespace Vendor\WheelInventor\NodeTypes\Content\AccordionItem;
 
 use Neos\Flow\Annotations as Flow;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
+use PackageFactory\OPGM\NeosAdapter\Infrastructure\NodeLabelRenderingAccessInterface;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\InspectorGroupDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\InspectorConfiguration;
@@ -43,5 +44,10 @@ final readonly class AccordionItem implements Content, HeadlineMixin, TextMixin,
         #[InspectorConfiguration(group: 'accordionOptions')]
         public bool $initiallyOpen = false,
     ) {
+    }
+
+    public function getNeosLabel(NodeLabelRenderingAccessInterface $nodeLabelRenderingAccess): ?string
+    {
+        return $this->headline->value ?: $this->text->value;
     }
 }

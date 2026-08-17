@@ -6,6 +6,7 @@ namespace Vendor\WheelInventor\NodeTypes\Content\Image;
 
 use Neos\Flow\Annotations as Flow;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
+use PackageFactory\OPGM\NeosAdapter\Infrastructure\NodeLabelRenderingAccessInterface;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
 use Sitegeist\Kaleidoscope\ValueObjects\ImageSourceProxy;
 use Vendor\Shared\NodeTypes\Mixin\HeadlineMixin;
@@ -30,5 +31,10 @@ final readonly class Image implements Content, HeadlineMixin, ImageProvider
         #[FreeCroppingImage]
         public ImageSourceProxy $image,
     ) {
+    }
+
+    public function getNeosLabel(NodeLabelRenderingAccessInterface $nodeLabelRenderingAccess): ?string
+    {
+        return $this->headline->value;
     }
 }

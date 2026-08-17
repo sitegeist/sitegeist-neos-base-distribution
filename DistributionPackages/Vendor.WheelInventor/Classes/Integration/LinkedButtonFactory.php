@@ -14,11 +14,6 @@ use Vendor\Shared\NodeTypes\Mixin\OptionalLinkProvider;
 
 final class LinkedButtonFactory
 {
-    public function __construct(
-        private readonly LinkStructFactory $linkStructFactory
-    ) {
-    }
-
     public function tryForLinkProvider(
         LinkProvider|OptionalLinkProvider $linkProvider,
         NeosContext $context,
@@ -29,7 +24,9 @@ final class LinkedButtonFactory
             ButtonVariant::VARIANT_REGULAR
         );
 
-        $linkStruct = $this->linkStructFactory->tryForLinkProvider($linkProvider, $context);
+        $linkStruct = $linkProvider->link
+            ? LinkStructFactory::tryForLink($linkProvider->link, $context->subgraph, $context->neos)
+            : null;
 
         if ($context->renderingMode->isEdit && $linkStruct) {
             return $button;

@@ -11,7 +11,7 @@ use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\InlineEditor\Inli
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\LinkEditor\LinkEditorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\InspectorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertyUiConfiguration;
-use Vendor\Shared\NodeTypes\EditableText;
+use Neos\Neos\Domain\Property\EditableText;
 use Vendor\Shared\NodeTypes\Preset\RichText;
 
 #[InspectorGroupDeclaration(

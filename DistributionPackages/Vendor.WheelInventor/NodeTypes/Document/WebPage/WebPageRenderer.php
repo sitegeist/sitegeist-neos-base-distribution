@@ -6,16 +6,20 @@ namespace Vendor\WheelInventor\NodeTypes\Document\WebPage;
 
 use Neos\ContentRepository\Core\SharedModel\Node\NodeName;
 use Neos\Flow\Annotations as Flow;
+use PackageFactory\ComponentEngine\ComponentList;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentRenderer;
 use PackageFactory\Neos\ComponentEngine\Integration\DocumentNodeRendererInterface;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
-use PackageFactory\ComponentEngine\ComponentCollection;
 use Vendor\Shared\Components\Layout\PageBody\PageBody;
 use Vendor\WheelInventor\Integration\BaseFactory;
 use Vendor\WheelInventor\Integration\Base;
 use Vendor\WheelInventor\Integration\SiteFooterFactory;
 use Vendor\WheelInventor\Integration\SiteHeaderFactory;
+use Vendor\WheelInventor\NodeTypes\Document\HomePage\HomePage;
 
+/**
+ * @implements DocumentNodeRendererInterface<WebPage,WebPage,HomePage>
+ */
 final class WebPageRenderer implements DocumentNodeRendererInterface
 {
     public function __construct(
@@ -31,7 +35,7 @@ final class WebPageRenderer implements DocumentNodeRendererInterface
         return $this->baseFactory->createWithContent(
             context: $context,
             content: PageBody::create(
-                content: ComponentCollection::list(
+                content: ComponentList::list(
                     $this->contentRenderer->forContentCollectionChildNode(
                         $context->documentNode, NodeName::fromString('main'), $context
                     ),

@@ -7,12 +7,16 @@ namespace Vendor\WheelInventor\NodeTypes\Content\ImageWithText;
 use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
-use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
 use Vendor\Shared\Components\Block\ImageWithText\ImageWithText as ImageWithTextComponent;
 use Vendor\WheelInventor\Integration\ContentContainerFactory;
 use Vendor\WheelInventor\Integration\FigureFactory;
 use Vendor\WheelInventor\Integration\LinkedButtonFactory;
+use Vendor\WheelInventor\NodeTypes\Document\Document;
+use Vendor\WheelInventor\NodeTypes\Document\HomePage\HomePage;
 
+/**
+ * @implements ContentNodeRendererInterface<ImageWithText,Document,HomePage>
+ */
 final class ImageWithTextRenderer implements ContentNodeRendererInterface
 {
     public function __construct(
@@ -23,17 +27,15 @@ final class ImageWithTextRenderer implements ContentNodeRendererInterface
 
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
-        $imageWithText = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, ImageWithText::class);
-
         return ContentContainerFactory::create(
-            $context,
+            $context->current,
             ImageWithTextComponent::create(
-                headline: $context->neos->getEditableFromProperty($imageWithText->headline, true),
-                content: $context->neos->getEditableFromProperty($imageWithText->text, true),
-                figure: $this->figureFactory->tryForOptionalImageProvider($imageWithText),
-                button: $this->linkedButtonFactory->tryForLinkProvider($imageWithText, $context) ?: '',
-                alignment: $imageWithText->alignment,
-                layout: $imageWithText->layout,
+                headline: $context->neos->getEditableFromProperty($context->current->headline, true),
+                content: $context->neos->getEditableFromProperty($context->current->text, true),
+                figure: $this->figureFactory->tryForOptionalImageProvider($context->current),
+                button: $this->linkedButtonFactory->tryForLinkProvider($context->current, $context) ?: '',
+                alignment: $context->current->alignment,
+                layout: $context->current->layout,
             )
         );
     }

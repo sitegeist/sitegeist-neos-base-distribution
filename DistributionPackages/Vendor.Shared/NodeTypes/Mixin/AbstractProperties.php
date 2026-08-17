@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace Vendor\Shared\NodeTypes\Mixin;
 
-use Vendor\Shared\NodeTypes\EditableText;
+use Neos\Neos\Domain\Property\EditableText;
 
 /**
- * @phpstan-ignore trait.unused (not yet)
  * Backing trait for {@see AbstractMixin}
+ * @phpstan-ignore trait.unused (not yet)
  */
 trait AbstractProperties
 {

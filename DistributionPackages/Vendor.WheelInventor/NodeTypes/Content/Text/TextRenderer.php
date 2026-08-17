@@ -11,7 +11,12 @@ use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
 use Vendor\WheelInventor\Integration\ContentContainerFactory;
 use Vendor\WheelInventor\Integration\LinkedButtonFactory;
 use Vendor\Shared\Components\Block\Text\Text as TextComponent;
+use Vendor\WheelInventor\NodeTypes\Document\Document;
+use Vendor\WheelInventor\NodeTypes\Document\HomePage\HomePage;
 
+/**
+ * @implements ContentNodeRendererInterface<Text,Document,HomePage>
+ */
 final class TextRenderer implements ContentNodeRendererInterface
 {
     public function __construct(
@@ -24,12 +29,12 @@ final class TextRenderer implements ContentNodeRendererInterface
         $text = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, Text::class);
 
         return ContentContainerFactory::create(
-            $context,
+            $text,
             TextComponent::create(
                 columns: $text->columns,
-                headline: $context->neos->getEditableFromProperty($text->headline, true),
-                content: $context->neos->getEditableFromProperty($text->text, true),
-                button: $this->linkedButtonFactory->tryForLinkProvider($text, $context) ?: ''
+                headline: $context->neos->getEditableFromProperty($context->current->headline, true),
+                content: $context->neos->getEditableFromProperty($context->current->text, true),
+                button: $this->linkedButtonFactory->tryForLinkProvider($context->current, $context) ?: ''
             )
         );
     }

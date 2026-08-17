@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "80eff11183175875d1cea8c6cff88eb5",
+    "content-hash": "ec60f65bb712bb87b92412a3d27ce567",
     "packages": [
         {
             "name": "altcha-org/altcha",
@@ -3810,16 +3810,16 @@
         },
         {
             "name": "neos/eventstore",
-            "version": "2.0.0",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neos/eventstore.git",
-                "reference": "5a1362c890f5a7e2a6150b477ca779a62b045f1d"
+                "reference": "16b21b83b34ca105d11092637cffb8f67781525c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neos/eventstore/zipball/5a1362c890f5a7e2a6150b477ca779a62b045f1d",
-                "reference": "5a1362c890f5a7e2a6150b477ca779a62b045f1d",
+                "url": "https://api.github.com/repos/neos/eventstore/zipball/16b21b83b34ca105d11092637cffb8f67781525c",
+                "reference": "16b21b83b34ca105d11092637cffb8f67781525c",
                 "shasum": ""
             },
             "require": {
@@ -3847,7 +3847,7 @@
             "description": "Store for Event-Sourced applications",
             "support": {
                 "issues": "https://github.com/neos/eventstore/issues",
-                "source": "https://github.com/neos/eventstore/tree/2.0.0"
+                "source": "https://github.com/neos/eventstore/tree/2.0.1"
             },
             "funding": [
                 {
@@ -3855,20 +3855,20 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-06-10T16:41:32+00:00"
+            "time": "2026-08-07T14:38:13+00:00"
         },
         {
             "name": "neos/eventstore-doctrineadapter",
-            "version": "3.0.0",
+            "version": "3.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neos/eventstore-doctrineadapter.git",
-                "reference": "d11608e96f933e47b091df3ab3c7ad3b57d10d40"
+                "reference": "d2d4cc96169ad14883463c2960d9f91caeb000d7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neos/eventstore-doctrineadapter/zipball/d11608e96f933e47b091df3ab3c7ad3b57d10d40",
-                "reference": "d11608e96f933e47b091df3ab3c7ad3b57d10d40",
+                "url": "https://api.github.com/repos/neos/eventstore-doctrineadapter/zipball/d2d4cc96169ad14883463c2960d9f91caeb000d7",
+                "reference": "d2d4cc96169ad14883463c2960d9f91caeb000d7",
                 "shasum": ""
             },
             "require": {
@@ -3898,7 +3898,7 @@
             "description": "Doctrine DBAL based implementation for the neos/eventstore",
             "support": {
                 "issues": "https://github.com/neos/eventstore-doctrineadapter/issues",
-                "source": "https://github.com/neos/eventstore-doctrineadapter/tree/3.0.0"
+                "source": "https://github.com/neos/eventstore-doctrineadapter/tree/3.0.1"
             },
             "funding": [
                 {
@@ -3906,7 +3906,7 @@
                     "type": "other"
                 }
             ],
-            "time": "2026-06-10T16:42:56+00:00"
+            "time": "2026-08-07T14:36:54+00:00"
         },
         {
             "name": "neos/flow",
@@ -4311,22 +4311,22 @@
         },
         {
             "name": "neos/fusion-form",
-            "version": "v3.1.0",
+            "version": "v3.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/neos/fusion-form.git",
-                "reference": "204b13f90ba49c6f550144540cb8e9dae8aa4fd8"
+                "reference": "9ebb85c143572f7910e0ac029a4b6f141e077dd5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/neos/fusion-form/zipball/204b13f90ba49c6f550144540cb8e9dae8aa4fd8",
-                "reference": "204b13f90ba49c6f550144540cb8e9dae8aa4fd8",
+                "url": "https://api.github.com/repos/neos/fusion-form/zipball/9ebb85c143572f7910e0ac029a4b6f141e077dd5",
+                "reference": "9ebb85c143572f7910e0ac029a4b6f141e077dd5",
                 "shasum": ""
             },
             "require": {
                 "neos/flow": "^8.0 || ^9.0",
                 "neos/fusion": "^8.0 || ^9.0",
-                "neos/fusion-afx": "^1.2 || ^7.0 || ^8.0 || ^9.0",
+                "neos/fusion-afx": "^8.0 || ^9.0",
                 "neos/utility-arrays": "*",
                 "neos/utility-objecthandling": "*",
                 "php": ">=8.2",
@@ -4335,7 +4335,7 @@
             "require-dev": {
                 "neos/symfonymailer": "^0.1.0",
                 "phpstan/phpstan": "^2.1",
-                "phpunit/phpunit": "^7.1 || ^8.0 || ^9.0"
+                "phpunit/phpunit": "~11.5"
             },
             "suggest": {
                 "neos/symfonymailer": "Required for the Neos.Fusion.Form.Runtime:Email action to work"
@@ -4353,7 +4353,7 @@
             "description": "Fusion Form",
             "support": {
                 "issues": "https://github.com/neos/fusion-form/issues",
-                "source": "https://github.com/neos/fusion-form/tree/v3.1.0"
+                "source": "https://github.com/neos/fusion-form/tree/v3.1.1"
             },
             "funding": [
                 {
@@ -4361,7 +4361,7 @@
                     "type": "custom"
                 }
             ],
-            "time": "2026-04-16T12:44:05+00:00"
+            "time": "2026-08-13T14:29:05+00:00"
         },
         {
             "name": "neos/http-factories",
@@ -6349,18 +6349,24 @@
         },
         {
             "name": "packagefactory/component-engine",
-            "version": "1.0.0-alpha3",
+            "version": "1.0.0-alpha5",
             "source": {
                 "type": "git",
-                "url": "https://codeberg.org/PackageFactory/component-engine",
-                "reference": "e68fc7e155d59c28b3cb9191361bdfeb69735b66"
+                "url": "https://codeberg.org/PackageFactory/component-engine.git",
+                "reference": "0560c8258e6b42e06ec144f4bfca387ae5a0c673"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/component-engine/archive/0560c8258e6b42e06ec144f4bfca387ae5a0c673.zip",
+                "reference": "0560c8258e6b42e06ec144f4bfca387ae5a0c673",
+                "shasum": ""
             },
             "require": {
-                "php": ">=8.2"
+                "php": ">=8.4"
             },
             "require-dev": {
                 "behat/behat": "^3.27",
-                "packagefactory/grammar": "~0.10.0",
+                "packagefactory/grammar": "~0.11.0",
                 "phpbench/phpbench": "^1.4",
                 "phpstan/phpstan": "^2.1",
                 "phpunit/php-code-coverage": "^11.0",
@@ -6381,26 +6387,77 @@
                 "GPL-3.0-or-later"
             ],
             "description": "Universal View Components for PHP",
-            "time": "2025-12-30T13:30:49+00:00"
+            "support": {
+                "issues": "https://codeberg.org/PackageFactory/component-engine/issues",
+                "source": "https://codeberg.org/PackageFactory/component-engine/tag/1.0.0-alpha5"
+            },
+            "time": "2026-08-14T22:18:38+00:00"
         },
         {
-            "name": "packagefactory/neos-component-engine",
-            "version": "dev-editableString",
+            "name": "packagefactory/contentrepository-futurefeatures",
+            "version": "v1.0.1",
             "source": {
                 "type": "git",
-                "url": "https://codeberg.org/PackageFactory/neos-component-engine.git",
-                "reference": "f68262760cf37545c7f25dd058c6acb006b6e1ec"
+                "url": "https://codeberg.org/PackageFactory/contentrepository-futurefeatures.git",
+                "reference": "5980715e8c3d5c05ee0d9aac8c0598229d012ebd"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/neos-component-engine/archive/f68262760cf37545c7f25dd058c6acb006b6e1ec.zip",
-                "reference": "f68262760cf37545c7f25dd058c6acb006b6e1ec",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/contentrepository-futurefeatures/archive/5980715e8c3d5c05ee0d9aac8c0598229d012ebd.zip",
+                "reference": "5980715e8c3d5c05ee0d9aac8c0598229d012ebd",
                 "shasum": ""
             },
             "require": {
-                "neos/neos": "^9.0",
-                "neos/neos-ui": "^9.0",
-                "packagefactory/component-engine": "1.0.0-alpha4"
+                "neos/contentrepository-core": "^9.0"
+            },
+            "type": "neos-package",
+            "extra": {
+                "installer-name": "PackageFactory.ContentRepository.FutureFeatures",
+                "neos": {
+                    "package-key": "PackageFactory.ContentRepository.FutureFeatures"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PackageFactory\\ContentRepository\\FutureFeatures\\": "Classes",
+                    "Neos\\ContentRepository\\Core\\": "ContentRepositoryClasses"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "PackageFactory\\ContentRepository\\FutureFeatures\\Tests\\": "Tests"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "Potential future features for the Neos Content Repository that make life for the Component Engine and the OPGM easier.",
+            "support": {
+                "source": "https://codeberg.org/PackageFactory/contentrepository-futurefeatures/tag/v1.0.1",
+                "issues": "https://codeberg.org/PackageFactory/contentrepository-futurefeatures/issues"
+            },
+            "time": "2026-08-14T23:15:28+02:00"
+        },
+        {
+            "name": "packagefactory/neos-component-engine",
+            "version": "1.0.0-alpha5",
+            "source": {
+                "type": "git",
+                "url": "https://codeberg.org/PackageFactory/neos-component-engine.git",
+                "reference": "d8b0ad07e37efe95a4062d2320418e538b2a183c"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/neos-component-engine/archive/d8b0ad07e37efe95a4062d2320418e538b2a183c.zip",
+                "reference": "d8b0ad07e37efe95a4062d2320418e538b2a183c",
+                "shasum": ""
+            },
+            "require": {
+                "neos/neos": "^9.1",
+                "neos/neos-ui": "^9.1",
+                "packagefactory/component-engine": "1.0.0-alpha5",
+                "packagefactory/neos-futurefeatures": "^1.0",
+                "php": ">=8.4"
             },
             "require-dev": {
                 "neos/contentgraph-doctrinedbaladapter": "^9.0",
@@ -6427,9 +6484,9 @@
             "description": "Adapter package that integrates PackageFactory.ComponentEngine with Neos CMS",
             "support": {
                 "issues": "https://codeberg.org/PackageFactory/neos-component-engine/issues",
-                "source": "https://codeberg.org/PackageFactory/neos-component-engine/branch/editableString"
+                "source": "https://codeberg.org/PackageFactory/neos-component-engine/tag/1.0.0-alpha5"
             },
-            "time": "2026-07-30T12:10:01+00:00"
+            "time": "2026-08-14T23:57:47+00:00"
         },
         {
             "name": "packagefactory/neos-componentview",
@@ -6463,6 +6520,52 @@
             "notification-url": "https://packagist.org/downloads/",
             "description": "A view based on the Neos Component Engine",
             "time": "2025-11-02T11:47:08+00:00"
+        },
+        {
+            "name": "packagefactory/neos-futurefeatures",
+            "version": "v1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://codeberg.org/PackageFactory/neos-futurefeatures.git",
+                "reference": "00b7b71cf9dae35726a1cdebb57828979514c1a5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/neos-futurefeatures/archive/00b7b71cf9dae35726a1cdebb57828979514c1a5.zip",
+                "reference": "00b7b71cf9dae35726a1cdebb57828979514c1a5",
+                "shasum": ""
+            },
+            "require": {
+                "neos/neos": "^9.0",
+                "packagefactory/contentrepository-futurefeatures": "^1.0"
+            },
+            "type": "neos-package",
+            "extra": {
+                "installer-name": "PackageFactory.Neos.FutureFeatures",
+                "neos": {
+                    "package-key": "PackageFactory.Neos.FutureFeatures"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "PackageFactory\\Neos\\FutureFeatures\\": "Classes",
+                    "Neos\\Neos\\": "NeosClasses"
+                }
+            },
+            "autoload-dev": {
+                "psr-4": {
+                    "PackageFactory\\Neos\\FutureFeatures\\Tests\\": "Tests"
+                }
+            },
+            "license": [
+                "GPL-3.0-or-later"
+            ],
+            "description": "Potential future features for Neos that make life for the Component Engine and the OPGM easier.",
+            "support": {
+                "source": "https://codeberg.org/PackageFactory/neos-futurefeatures/tag/v1.0.1",
+                "issues": "https://codeberg.org/PackageFactory/neos-futurefeatures/issues"
+            },
+            "time": "2026-08-14T23:17:38+02:00"
         },
         {
             "name": "packagefactory/neos-seo",
@@ -6572,17 +6675,18 @@
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/opgm.git",
-                "reference": "c0d7888d0be6fec4d2506048879779965fe3a831"
+                "reference": "4ef22e37b40bd37bad737a2e7a0ff29f96eff326"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm/archive/c0d7888d0be6fec4d2506048879779965fe3a831.zip",
-                "reference": "c0d7888d0be6fec4d2506048879779965fe3a831",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm/archive/4ef22e37b40bd37bad737a2e7a0ff29f96eff326.zip",
+                "reference": "4ef22e37b40bd37bad737a2e7a0ff29f96eff326",
                 "shasum": ""
             },
             "require": {
                 "neos/contentrepository-core": "^9.0",
                 "neos/utility-arrays": "*",
+                "packagefactory/contentrepository-futurefeatures": "^1.0",
                 "php": "^8.4"
             },
             "require-dev": {
@@ -6662,7 +6766,7 @@
                 "source": "https://codeberg.org/PackageFactory/opgm/branch/main",
                 "issues": "https://codeberg.org/PackageFactory/opgm/issues"
             },
-            "time": "2026-08-06T00:03:41+02:00"
+            "time": "2026-08-14T23:04:10+02:00"
         },
         {
             "name": "packagefactory/opgm-contentrepositoryregistryadapter",
@@ -6717,16 +6821,17 @@
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/opgm-neosadapter.git",
-                "reference": "8d9fe39a61716668479b955f2b0f49d476c3dfcd"
+                "reference": "2681b20e3834ee53d7474b37b1b06ffc47ef513d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm-neosadapter/archive/8d9fe39a61716668479b955f2b0f49d476c3dfcd.zip",
-                "reference": "8d9fe39a61716668479b955f2b0f49d476c3dfcd",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/opgm-neosadapter/archive/2681b20e3834ee53d7474b37b1b06ffc47ef513d.zip",
+                "reference": "2681b20e3834ee53d7474b37b1b06ffc47ef513d",
                 "shasum": ""
             },
             "require": {
                 "neos/neos": "^9.0",
+                "packagefactory/neos-futurefeatures": "^1.0",
                 "packagefactory/opgm-contentrepositoryregistryadapter": "*"
             },
             "require-dev": {
@@ -6741,6 +6846,12 @@
             },
             "default-branch": true,
             "type": "neos-package",
+            "extra": {
+                "installer-name": "PackageFactory.OPGM.NeosAdapter",
+                "neos": {
+                    "package-key": "PackageFactory.OPGM.NeosAdapter"
+                }
+            },
             "autoload": {
                 "psr-4": {
                     "PackageFactory\\OPGM\\NeosAdapter\\": "Classes",
@@ -6761,7 +6872,7 @@
                 "source": "https://codeberg.org/PackageFactory/opgm-neosadapter/branch/main",
                 "issues": "https://codeberg.org/PackageFactory/opgm-neosadapter/issues"
             },
-            "time": "2026-08-06T09:20:37+02:00"
+            "time": "2026-08-14T23:25:57+02:00"
         },
         {
             "name": "packagefactory/opgm-timeablenodevisibility",
@@ -9182,16 +9293,16 @@
         },
         {
             "name": "symfony/mime",
-            "version": "v8.1.2",
+            "version": "v8.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mime.git",
-                "reference": "75f4779d4ec2e13f24a3a7e5d0347c340c7ca627"
+                "reference": "8f8ac859d369fe3d18e3837998b1c992bbee92c9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mime/zipball/75f4779d4ec2e13f24a3a7e5d0347c340c7ca627",
-                "reference": "75f4779d4ec2e13f24a3a7e5d0347c340c7ca627",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/8f8ac859d369fe3d18e3837998b1c992bbee92c9",
+                "reference": "8f8ac859d369fe3d18e3837998b1c992bbee92c9",
                 "shasum": ""
             },
             "require": {
@@ -9244,7 +9355,7 @@
                 "mime-type"
             ],
             "support": {
-                "source": "https://github.com/symfony/mime/tree/v8.1.2"
+                "source": "https://github.com/symfony/mime/tree/v8.1.4"
             },
             "funding": [
                 {
@@ -9264,7 +9375,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-07-29T08:00:47+00:00"
+            "time": "2026-08-07T15:02:39+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -9998,16 +10109,16 @@
         },
         {
             "name": "symfony/property-info",
-            "version": "v7.4.15",
+            "version": "v7.4.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/property-info.git",
-                "reference": "fce3f4d9cfeb4ddc674c357b5a4c3a23ccf408ad"
+                "reference": "c79afdb2e720db8ee4f7050a07b3116b92cb896b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/property-info/zipball/fce3f4d9cfeb4ddc674c357b5a4c3a23ccf408ad",
-                "reference": "fce3f4d9cfeb4ddc674c357b5a4c3a23ccf408ad",
+                "url": "https://api.github.com/repos/symfony/property-info/zipball/c79afdb2e720db8ee4f7050a07b3116b92cb896b",
+                "reference": "c79afdb2e720db8ee4f7050a07b3116b92cb896b",
                 "shasum": ""
             },
             "require": {
@@ -10064,7 +10175,7 @@
                 "validator"
             ],
             "support": {
-                "source": "https://github.com/symfony/property-info/tree/v7.4.15"
+                "source": "https://github.com/symfony/property-info/tree/v7.4.16"
             },
             "funding": [
                 {
@@ -10084,7 +10195,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-07-28T07:09:44+00:00"
+            "time": "2026-08-07T14:56:57+00:00"
         },
         {
             "name": "symfony/serializer",
@@ -10516,16 +10627,16 @@
         },
         {
             "name": "symfony/var-exporter",
-            "version": "v8.1.3",
+            "version": "v8.1.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-exporter.git",
-                "reference": "766dac532a04d8980b4d83183fd3d1ea284bac11"
+                "reference": "6efa89335ab6d336643a807fcc89ae4f8a7a17e9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/766dac532a04d8980b4d83183fd3d1ea284bac11",
-                "reference": "766dac532a04d8980b4d83183fd3d1ea284bac11",
+                "url": "https://api.github.com/repos/symfony/var-exporter/zipball/6efa89335ab6d336643a807fcc89ae4f8a7a17e9",
+                "reference": "6efa89335ab6d336643a807fcc89ae4f8a7a17e9",
                 "shasum": ""
             },
             "require": {
@@ -10575,7 +10686,7 @@
                 "serialize"
             ],
             "support": {
-                "source": "https://github.com/symfony/var-exporter/tree/v8.1.3"
+                "source": "https://github.com/symfony/var-exporter/tree/v8.1.4"
             },
             "funding": [
                 {
@@ -10595,7 +10706,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-07-29T16:43:23+00:00"
+            "time": "2026-07-30T12:40:56+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -10731,7 +10842,7 @@
             "dist": {
                 "type": "path",
                 "url": "./DistributionPackages/Vendor.Shared",
-                "reference": "73b4c544a010178f9a3a505540242cdd0cfae908"
+                "reference": "5da89b6abf69b05114c1d92ed1ec3de350373800"
             },
             "require": {
                 "flowpack/nodetemplates": "^3.0",
@@ -10745,6 +10856,7 @@
                 "neos/redirecthandler-ui": "^3.0",
                 "packagefactory/neos-componentview": "*",
                 "packagefactory/neos-seo": "*",
+                "packagefactory/neos-seo-jobqueue": "*",
                 "packagefactory/opgm-neosadapter": "*",
                 "packagefactory/opgm-timeablenodevisibility": "*",
                 "sitegeist/csvpo": "^2.0",
@@ -11419,20 +11531,20 @@
         },
         {
             "name": "myclabs/deep-copy",
-            "version": "1.13.4",
+            "version": "1.14.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/myclabs/DeepCopy.git",
-                "reference": "07d290f0c47959fd5eed98c95ee5602db07e0b6a"
+                "reference": "8680aa248f8e07bc8fb43f56f0f5fc77a0c96aae"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/07d290f0c47959fd5eed98c95ee5602db07e0b6a",
-                "reference": "07d290f0c47959fd5eed98c95ee5602db07e0b6a",
+                "url": "https://api.github.com/repos/myclabs/DeepCopy/zipball/8680aa248f8e07bc8fb43f56f0f5fc77a0c96aae",
+                "reference": "8680aa248f8e07bc8fb43f56f0f5fc77a0c96aae",
                 "shasum": ""
             },
             "require": {
-                "php": "^7.1 || ^8.0"
+                "php": "^8.0"
             },
             "conflict": {
                 "doctrine/collections": "<1.6.8",
@@ -11467,15 +11579,15 @@
             ],
             "support": {
                 "issues": "https://github.com/myclabs/DeepCopy/issues",
-                "source": "https://github.com/myclabs/DeepCopy/tree/1.13.4"
+                "source": "https://github.com/myclabs/DeepCopy/tree/1.14.0"
             },
             "funding": [
                 {
-                    "url": "https://tidelift.com/funding/github/packagist/myclabs/deep-copy",
-                    "type": "tidelift"
+                    "url": "https://github.com/mnapoli",
+                    "type": "github"
                 }
             ],
-            "time": "2025-08-01T08:46:24+00:00"
+            "time": "2026-08-11T10:17:44+00:00"
         },
         {
             "name": "neos/behat",
@@ -13117,16 +13229,16 @@
         },
         {
             "name": "sebastian/recursion-context",
-            "version": "5.0.1",
+            "version": "5.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/recursion-context.git",
-                "reference": "47e34210757a2f37a97dcd207d032e1b01e64c7a"
+                "reference": "5d32fe257a9b39cb63146924d6b4e32a22d4502a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/47e34210757a2f37a97dcd207d032e1b01e64c7a",
-                "reference": "47e34210757a2f37a97dcd207d032e1b01e64c7a",
+                "url": "https://api.github.com/repos/sebastianbergmann/recursion-context/zipball/5d32fe257a9b39cb63146924d6b4e32a22d4502a",
+                "reference": "5d32fe257a9b39cb63146924d6b4e32a22d4502a",
                 "shasum": ""
             },
             "require": {
@@ -13169,7 +13281,7 @@
             "support": {
                 "issues": "https://github.com/sebastianbergmann/recursion-context/issues",
                 "security": "https://github.com/sebastianbergmann/recursion-context/security/policy",
-                "source": "https://github.com/sebastianbergmann/recursion-context/tree/5.0.1"
+                "source": "https://github.com/sebastianbergmann/recursion-context/tree/5.0.2"
             },
             "funding": [
                 {
@@ -13189,7 +13301,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2025-08-10T07:50:56+00:00"
+            "time": "2026-08-11T05:27:39+00:00"
         },
         {
             "name": "sebastian/type",
@@ -13609,16 +13721,16 @@
         },
         {
             "name": "symfony/config",
-            "version": "v7.4.15",
+            "version": "v7.4.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/config.git",
-                "reference": "b18e33881ef402ad940f36e85935420624009bf4"
+                "reference": "e896f5e874e6983d0a098f554ca82a08a924c298"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/config/zipball/b18e33881ef402ad940f36e85935420624009bf4",
-                "reference": "b18e33881ef402ad940f36e85935420624009bf4",
+                "url": "https://api.github.com/repos/symfony/config/zipball/e896f5e874e6983d0a098f554ca82a08a924c298",
+                "reference": "e896f5e874e6983d0a098f554ca82a08a924c298",
                 "shasum": ""
             },
             "require": {
@@ -13664,7 +13776,7 @@
             "description": "Helps you find, load, combine, autofill and validate configuration values of any kind",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/config/tree/v7.4.15"
+                "source": "https://github.com/symfony/config/tree/v7.4.16"
             },
             "funding": [
                 {
@@ -13684,7 +13796,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-07-22T12:54:40+00:00"
+            "time": "2026-07-30T15:04:16+00:00"
         },
         {
             "name": "symfony/css-selector",
@@ -13744,16 +13856,16 @@
         },
         {
             "name": "symfony/dependency-injection",
-            "version": "v7.4.15",
+            "version": "v7.4.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/dependency-injection.git",
-                "reference": "b7825671c553af46a98c744e23f37f972aee6427"
+                "reference": "7f59a843c1fbcceafecdf6863d3e38ea6ecd5061"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/b7825671c553af46a98c744e23f37f972aee6427",
-                "reference": "b7825671c553af46a98c744e23f37f972aee6427",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/7f59a843c1fbcceafecdf6863d3e38ea6ecd5061",
+                "reference": "7f59a843c1fbcceafecdf6863d3e38ea6ecd5061",
                 "shasum": ""
             },
             "require": {
@@ -13804,7 +13916,7 @@
             "description": "Allows you to standardize and centralize the way objects are constructed in your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/dependency-injection/tree/v7.4.15"
+                "source": "https://github.com/symfony/dependency-injection/tree/v7.4.16"
             },
             "funding": [
                 {
@@ -13824,20 +13936,20 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-07-22T08:40:50+00:00"
+            "time": "2026-08-06T09:45:22+00:00"
         },
         {
             "name": "symfony/translation",
-            "version": "v7.4.14",
+            "version": "v7.4.16",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/translation.git",
-                "reference": "a1af4dacb24eb7ef4f1ca71b94da8ddbce572281"
+                "reference": "501e0ff4553c744209ca1a68790d8a4541563710"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/translation/zipball/a1af4dacb24eb7ef4f1ca71b94da8ddbce572281",
-                "reference": "a1af4dacb24eb7ef4f1ca71b94da8ddbce572281",
+                "url": "https://api.github.com/repos/symfony/translation/zipball/501e0ff4553c744209ca1a68790d8a4541563710",
+                "reference": "501e0ff4553c744209ca1a68790d8a4541563710",
                 "shasum": ""
             },
             "require": {
@@ -13904,7 +14016,7 @@
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
             "support": {
-                "source": "https://github.com/symfony/translation/tree/v7.4.14"
+                "source": "https://github.com/symfony/translation/tree/v7.4.16"
             },
             "funding": [
                 {
@@ -13924,7 +14036,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-06-06T09:33:19+00:00"
+            "time": "2026-07-30T12:37:26+00:00"
         },
         {
             "name": "symfony/translation-contracts",
@@ -14059,23 +14171,9 @@
             "time": "2025-11-17T20:03:58+00:00"
         }
     ],
-    "aliases": [
-        {
-            "package": "packagefactory/component-engine",
-            "version": "1.0.0.0-alpha3",
-            "alias": "1.0.0-alpha4",
-            "alias_normalized": "1.0.0.0-alpha4"
-        },
-        {
-            "package": "packagefactory/neos-component-engine",
-            "version": "dev-editableString",
-            "alias": "1.0.0-alpha3",
-            "alias_normalized": "1.0.0.0-alpha3"
-        }
-    ],
+    "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "packagefactory/neos-component-engine": 20,
         "packagefactory/neos-seo": 20,
         "packagefactory/neos-seo-jobqueue": 20,
         "packagefactory/opgm": 20,

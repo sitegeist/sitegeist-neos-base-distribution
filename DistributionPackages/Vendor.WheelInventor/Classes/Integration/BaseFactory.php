@@ -6,34 +6,62 @@ namespace Vendor\WheelInventor\Integration;
 
 use Neos\Flow\Annotations as Flow;
 use PackageFactory\Neos\ComponentEngine\Integration\NeosStuffFactory;
+use PackageFactory\Neos\ComponentEngine\NeosAccessInterface;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
-use PackageFactory\ComponentEngine\ComponentCollection;
+use PackageFactory\ComponentEngine\ComponentList;
 use PackageFactory\ComponentEngine\ComponentInterface;
+use PackageFactory\Neos\Seo\Application\SeoMetaTags\SeoMetaTagsFactory;
+use PackageFactory\Neos\Seo\Application\SeoMetaTags\StandardTitle;
+use PackageFactory\Neos\Seo\Components\JsonLdTag\JsonLdTag;
+use PackageFactory\Neos\Seo\Domain\HrefLangLocaleResolver;
+use PackageFactory\Neos\Seo\Domain\SiteSeoConfiguration\SiteSeoConfigurationProvider;
 use Psr\Http\Message\UriInterface;
 
 class BaseFactory
 {
     public function __construct(
-        private NeosStuffFactory $neosStuffFactory,
+        private readonly NeosStuffFactory $neosStuffFactory,
         #[Flow\InjectConfiguration(path: 'headerComment', package: 'Neos.Neos')]
-        protected string $headerComment
+        protected string $headerComment,
+        private readonly HrefLangLocaleResolver $hrefLangLocaleResolver,
+        private readonly SiteSeoConfigurationProvider $siteSeoConfigurationProvider,
+        private readonly SeoMetaTagsFactory $seoMetaTagsFactory,
     ) {
     }
 
-    public function createWithContent(NeosContext $context, ComponentInterface $content): Base
-    {
+    /**
+     * @param list<JsonLdTag> $additionalStructuredData
+     */
+    public function createWithContent(
+        NeosContext $context,
+        ComponentInterface $content,
+        array $additionalStructuredData = [],
+    ): Base {
+        $searchEngineDirectivesConfiguration = $this->siteSeoConfigurationProvider
+            ->readFromConfigurationForSiteNode($context->siteNode)
+            ->searchEngineDirectivesConfiguration;
+
+        $locale = $this->hrefLangLocaleResolver->tryResolveLocale(
+            $context->subgraph->getDimensionSpacePoint(),
+            $searchEngineDirectivesConfiguration,
+        ) ?: $this->hrefLangLocaleResolver->tryResolveDefaultLocale($searchEngineDirectivesConfiguration);
+
         return Base::create(
             comment: $this->headerComment,
-            title: $context->documentNode->getProperty('title') ?? '[todo]',
-            language: $context->subgraph->getDimensionSpacePoint()->coordinates['language'] ?? '',
+            language: $locale?->toTagValue() ?: '',
+            seoMetaTags: $this->seoMetaTagsFactory->create(
+                context: $context,
+                title: StandardTitle::createDefault(),
+                additionalStructuredData: $additionalStructuredData,
+            ),
             content: $content,
-            headMetaData: ComponentCollection::list(
+            headMetaData: ComponentList::list(
                 $this->neosStuffFactory->tryGetHeadStuff($context),
                 HtmlResourceFactory::stylesheet(
-                    $this->resourceUriWithCacheBuster('Vendor.Shared', 'Build/Styles/main.min.css', $context)
+                    $this->resourceUriWithCacheBuster('Vendor.Shared', 'Build/Styles/main.min.css', $context->neos)
                 ),
                 HtmlResourceFactory::script(
-                    $this->resourceUriWithCacheBuster('Vendor.Shared', 'Build/JavaScript/main.min.js', $context),
+                    $this->resourceUriWithCacheBuster('Vendor.Shared', 'Build/JavaScript/main.min.js', $context->neos),
                     ['crossorigin' => 'anonymous']
                 ),
             ),
@@ -44,9 +72,9 @@ class BaseFactory
     private function resourceUriWithCacheBuster(
         string $packageKey,
         string $relativePathAndFilename,
-        NeosContext $context
+        NeosAccessInterface $neosAccess,
     ): UriInterface {
-        $uri = $context->neos->getStaticResourceUri($packageKey, $relativePathAndFilename);
+        $uri = $neosAccess->getStaticResourceUri($packageKey, $relativePathAndFilename);
         $resourcePath = 'resource://' . $packageKey . '/Public/Resources/' . $relativePathAndFilename;
 
         if (file_exists($resourcePath) && !is_dir($resourcePath) && ($fileHash = sha1_file($resourcePath)) !== false) {

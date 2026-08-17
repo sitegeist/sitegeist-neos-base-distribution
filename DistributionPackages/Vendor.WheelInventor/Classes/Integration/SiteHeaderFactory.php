@@ -11,6 +11,8 @@ use Vendor\Shared\Components\Block\Link\LinkTarget;
 use Vendor\Shared\Components\Block\Link\LinkVariant;
 use Vendor\Shared\Components\Block\SiteHeader\MainNavigation\MainNavigation;
 use Vendor\Shared\Components\Block\SiteHeader\SiteHeader;
+use Vendor\WheelInventor\NodeTypes\Document\Document;
+use Vendor\WheelInventor\NodeTypes\Document\HomePage\HomePage;
 
 final class SiteHeaderFactory
 {
@@ -19,15 +21,18 @@ final class SiteHeaderFactory
     ) {
     }
 
+    /**
+     * @param NeosContext<Document,Document,HomePage> $context
+     */
     public function forDocumentNode(
-        NeosContext $context
+        NeosContext $context,
     ): SiteHeader {
         return SiteHeader::create(
             // @todo: link in der Komponente?
             homeLink: Link::create(
                 content: "Home",
                 link: LinkStruct::create(
-                    href: (string)$context->neos->getNodeUri($context->siteNode),
+                    href: (string)$context->neos->getNodeUri($context->site->node),
                     title: "Home",
                     rel: null,
                     target: LinkTarget::TARGET_SELF
@@ -36,7 +41,11 @@ final class SiteHeaderFactory
                 variant: LinkVariant::VARIANT_MENU_ITEM,
             ),
             mainNavigation: MainNavigation::create(
-                items: $this->mainNavigationItemFactory->fromRootNode($context)
+                items: $this->mainNavigationItemFactory->fromRootNode(
+                    $context->site,
+                    $context->subgraph,
+                    $context->neos
+                )
             ),
         );
     }

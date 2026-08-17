@@ -6,6 +6,7 @@ namespace Vendor\WheelInventor\NodeTypes\Content\Text;
 
 use Neos\Flow\Annotations as Flow;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
+use PackageFactory\OPGM\NeosAdapter\Infrastructure\NodeLabelRenderingAccessInterface;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
 use Vendor\Shared\NodeTypes\Mixin\HeadlineMixin;
 use Vendor\Shared\NodeTypes\Mixin\HeadlineProperties;
@@ -31,4 +32,9 @@ final readonly class Text implements Content, HeadlineMixin, TextMixin, TextColu
     use TextProperties;
     use TextColumnsProperties;
     use OptionalLinkProperties;
+
+    public function getNeosLabel(NodeLabelRenderingAccessInterface $nodeLabelRenderingAccess): ?string
+    {
+        return $this->headline->value ?: $this->text->value;
+    }
 }

@@ -8,6 +8,7 @@ use Neos\Flow\Annotations as Flow;
 use Neos\Neos\NodeTypes\ContentCollection;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeConstraintsDeclaration;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
+use PackageFactory\OPGM\NeosAdapter\Infrastructure\NodeLabelRenderingAccessInterface;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTemplateDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTemplates\NodeTemplateChildNodeDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
@@ -49,5 +50,10 @@ final readonly class AnchorNavigation extends ContentCollection implements Ancho
         #[InspectorConfiguration(group: 'default')]
         public bool $isSticky = false,
     ) {
+    }
+
+    public function getNeosLabel(NodeLabelRenderingAccessInterface $nodeLabelRenderingAccess): ?string
+    {
+        return null;
     }
 }

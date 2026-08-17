@@ -17,6 +17,6 @@ trait ContentProperties
 
     public function getNeosLabel(NodeLabelRenderingAccessInterface $nodeLabelRenderingAccess): ?string
     {
-        return $this->headline?->value ?? $this->title?->value ?? $this->text?->value;
+        return $this->headline->value ?: $this->title->value ?: $this->text->value;
     }
 }

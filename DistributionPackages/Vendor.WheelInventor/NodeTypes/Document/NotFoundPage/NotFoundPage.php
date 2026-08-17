@@ -7,6 +7,7 @@ namespace Vendor\WheelInventor\NodeTypes\Document\NotFoundPage;
 use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
 use Neos\Flow\Annotations as Flow;
 use Neos\Neos\NodeTypes\ContentCollection;
+use PackageFactory\Neos\Seo\NodeTypes\Tag\MetaRobotsNoIndex;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeConstraintsDeclaration;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
 use PackageFactory\OPGM\Domain\NodeType\TetheredChildRelationDeclaration;
@@ -23,7 +24,7 @@ use Vendor\WheelInventor\NodeTypes\Document\Document;
     icon: 'exclamation-triangle',
 )]
 #[Flow\Proxy(false)]
-final readonly class NotFoundPage extends Document
+final readonly class NotFoundPage extends Document implements MetaRobotsNoIndex
 {
     public function __construct(
         #[TetheredChildRelationDeclaration(

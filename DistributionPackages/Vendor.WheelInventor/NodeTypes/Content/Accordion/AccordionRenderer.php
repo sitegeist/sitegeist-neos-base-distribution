@@ -9,10 +9,14 @@ use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface
 use PackageFactory\Neos\ComponentEngine\Integration\ContentRenderer;
 use PackageFactory\Neos\ComponentEngine\Integration\RenderingUseCase;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
-use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
 use Vendor\Shared\Components\Block\Accordion\Accordion as AccordionComponent;
 use Vendor\WheelInventor\Integration\ContentContainerFactory;
+use Vendor\WheelInventor\NodeTypes\Document\Document;
+use Vendor\WheelInventor\NodeTypes\Document\HomePage\HomePage;
 
+/**
+ * @implements ContentNodeRendererInterface<Accordion,Document,HomePage>
+ */
 final class AccordionRenderer implements ContentNodeRendererInterface
 {
     public function __construct(
@@ -22,13 +26,11 @@ final class AccordionRenderer implements ContentNodeRendererInterface
 
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
-        $accordion = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, Accordion::class);
-
         return ContentContainerFactory::create(
-            $context,
+            $context->current,
             AccordionComponent::create(
                 $context->neos->getEditableFromProperty(
-                    $accordion->headline,
+                    $context->current->headline,
                     true
                 ),
                 $this->contentRenderer->renderContentChildren(

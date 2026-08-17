@@ -7,6 +7,7 @@ namespace Vendor\WheelInventor\NodeTypes\Content\Download;
 use Neos\Flow\Annotations as Flow;
 use Neos\Media\Domain\Model\Document;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
+use PackageFactory\OPGM\NeosAdapter\Infrastructure\NodeLabelRenderingAccessInterface;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\InspectorGroupDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\AssetEditor\AssetEditorConfiguration;
@@ -15,7 +16,7 @@ use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\MediaConstraintsD
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\InspectorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertyUiConfiguration;
 use Sitegeist\Kaleidoscope\ValueObjects\ImageSourceProxy;
-use Vendor\Shared\NodeTypes\EditableText;
+use Neos\Neos\Domain\Property\EditableText;
 use Vendor\Shared\NodeTypes\Mixin\HeadlineMixin;
 use Vendor\Shared\NodeTypes\Mixin\HeadlineProperties;
 use Vendor\Shared\NodeTypes\Mixin\OptionalImageProvider;
@@ -55,5 +56,10 @@ final readonly class Download implements Content, HeadlineMixin, OptionalImagePr
         )]
         public ?Document $asset = null,
     ) {
+    }
+
+    public function getNeosLabel(NodeLabelRenderingAccessInterface $nodeLabelRenderingAccess): ?string
+    {
+        return $this->headline->value ?: $this->title->value;
     }
 }

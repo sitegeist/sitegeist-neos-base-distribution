@@ -6,13 +6,14 @@ namespace Vendor\WheelInventor\Integration;
 
 use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\ComponentEngine\Util;
+use PackageFactory\Neos\Seo\Components\SeoMetaTags\SeoMetaTags;
 
 final readonly class Base implements ComponentInterface
 {
     private function __construct(
         private string $comment,
-        private string $title,
         private string $language,
+        private SeoMetaTags $seoMetaTags,
         private ComponentInterface $content,
         private ?ComponentInterface $headMetaData,
         private ?ComponentInterface $bodyMetaData,
@@ -21,16 +22,16 @@ final readonly class Base implements ComponentInterface
 
     public static function create(
         string $comment,
-        string $title,
         string $language,
+        SeoMetaTags $seoMetaTags,
         ComponentInterface $content,
         ?ComponentInterface $headMetaData,
         ?ComponentInterface $bodyMetaData,
     ): self {
         return new self(
             comment: $comment,
-            title: $title,
             language: $language,
+            seoMetaTags: $seoMetaTags,
             content: $content,
             headMetaData: $headMetaData,
             bodyMetaData: $bodyMetaData,
@@ -44,9 +45,8 @@ final readonly class Base implements ComponentInterface
             . $this->comment
             . '<html lang="'
             . Util::escapeAttributeValue($this->language)
-            . '"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><title>'
-            . Util::escapeRenderValue($this->title)
-            . '</title>'
+            . '"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width">'
+            . $this->seoMetaTags->render()
             . '<link rel="icon" href="data:image/png;base64,iVBORw0KGgo=">'
             . $this->headMetaData?->render()
             . '</head>'

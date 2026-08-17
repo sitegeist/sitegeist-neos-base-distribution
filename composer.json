@@ -21,8 +21,6 @@
 
 		"flowpack/nodetemplates": "^3.0",
 
-		"packagefactory/neos-component-engine": "dev-editableString as 1.0.0-alpha3",
-		"packagefactory/component-engine": "1.0.0-alpha3 as 1.0.0-alpha4",
 		"packagefactory/neos-componentview": "^1.0",
 
 		"sitegeist/csvpo": "^2.0",
@@ -45,7 +43,9 @@
 		"packagefactory/opgm-contentrepositoryregistryadapter": "dev-main",
 		"packagefactory/opgm": "dev-main",
 		"packagefactory/opgm-timeablenodevisibility": "dev-main",
-		"packagefactory/neos-seo-jobqueue": "dev-main"
+		"packagefactory/neos-seo-jobqueue": "dev-main",
+		"packagefactory/neos-futurefeatures": "*",
+		"packagefactory/contentrepository-futurefeatures": "*"
 	},
 	"require-dev": {
 		"neos/buildessentials": "^9.0",
@@ -73,7 +73,7 @@
 		"post-package-update": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
 		"post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
 		"post-create-project-cmd": "ddev config --project-name=`basename \"$PWD\"`",
-		"build:cpx": "./flow components:build 'PackageFactory.Neos.Seo, Vendor.Shared'",
+		"build:cpx": "./flow components:build 'PackageFactory.Neos.Seo, Sitegeist.PaperTiger.CPX, Vendor.Shared'",
 		"flush": [
 			"./flow flow:cache:flush --force",
 			"./flow flow:package:rescan",

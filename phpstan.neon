@@ -6,8 +6,7 @@ parameters:
     paths:
         - DistributionPackages
     excludePaths:
-        analyse:
-            - DistributionPackages/*/Components/**/*.php
+        analyse: []
     disallowedMethodCalls:
         -
             method: 'PackageFactory\Neos\ComponentEngine\NeosAccessInterface::getEditable()'
@@ -18,3 +17,6 @@ parameters:
         -
             identifier: property.uninitializedReadonly
             path: DistributionPackages/*/NodeTypes/**/*.php
+        -
+            identifier: identical.alwaysFalse
+            path: DistributionPackages/*/Components/**/*.php

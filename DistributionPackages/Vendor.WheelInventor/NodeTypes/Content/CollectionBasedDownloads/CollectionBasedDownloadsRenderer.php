@@ -7,11 +7,10 @@ namespace Vendor\WheelInventor\NodeTypes\Content\CollectionBasedDownloads;
 use Neos\Media\Domain\Model\Document;
 use Neos\Media\Domain\Repository\DocumentRepository;
 use Neos\Utility\Files;
-use PackageFactory\ComponentEngine\ComponentCollection;
+use PackageFactory\ComponentEngine\ComponentList;
 use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
-use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
 use Vendor\Shared\Components\Block\Downloads\Downloads;
 use Vendor\Shared\Components\Block\Downloads\Item\DownloadsItem;
 use Vendor\Shared\Components\Block\Headline\Headline;
@@ -21,7 +20,11 @@ use Vendor\Shared\Components\Block\Headline\HeadlineVariant;
 use Vendor\Shared\Components\Block\Link\LinkStruct;
 use Vendor\Shared\Components\Block\Link\LinkTarget;
 use Vendor\WheelInventor\Integration\ContentContainerFactory;
+use Vendor\WheelInventor\NodeTypes\Document\HomePage\HomePage;
 
+/**
+ * @implements ContentNodeRendererInterface<CollectionBasedDownloads,\Vendor\WheelInventor\NodeTypes\Document\Document,HomePage>
+ */
 final class CollectionBasedDownloadsRenderer implements ContentNodeRendererInterface
 {
     public function __construct(
@@ -31,9 +34,8 @@ final class CollectionBasedDownloadsRenderer implements ContentNodeRendererInter
 
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
-        $collectionBasedDownloads = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, CollectionBasedDownloads::class);
-        $assetCollections = $collectionBasedDownloads->assetCollections ?? [];
-        $tags = $collectionBasedDownloads->tags ?? [];
+        $assetCollections = $context->current->assetCollections ?? [];
+        $tags = $context->current->tags ?? [];
         $documentQuery = $this->documentRepository->createQuery();
         /** @var array<Document> $documents */
         $documents = $documentQuery->matching(
@@ -44,10 +46,10 @@ final class CollectionBasedDownloadsRenderer implements ContentNodeRendererInter
         )->execute()->toArray();
 
         return ContentContainerFactory::create(
-            $context,
+            $context->current,
             Downloads::create(
-                $context->neos->getEditableFromProperty($collectionBasedDownloads->headline, true),
-                ComponentCollection::list(...array_map(
+                $context->neos->getEditableFromProperty($context->current->headline, true),
+                ComponentList::list(...array_map(
                     // @todo: link & inBackend in der Komponente?
                     fn (Document $document): DownloadsItem => DownloadsItem::create(
                         /** @todo create figure from PDF thumbnail */

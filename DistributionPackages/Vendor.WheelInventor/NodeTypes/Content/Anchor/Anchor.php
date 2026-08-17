@@ -6,13 +6,14 @@ namespace Vendor\WheelInventor\NodeTypes\Content\Anchor;
 
 use Neos\Flow\Annotations as Flow;
 use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
+use PackageFactory\OPGM\NeosAdapter\Infrastructure\NodeLabelRenderingAccessInterface;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\InspectorGroupDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\InlineEditor\InlineEditorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\SelectBoxEditor\SelectBoxEditorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\InspectorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertyUiConfiguration;
-use Vendor\Shared\NodeTypes\EditableText;
+use Neos\Neos\Domain\Property\EditableText;
 use Vendor\Shared\NodeTypes\Preset\PlainText;
 use Vendor\WheelInventor\DataSource\AnchorDataSource;
 use Vendor\WheelInventor\NodeTypes\Content\AnchorlessContent;
@@ -47,5 +48,10 @@ final readonly class Anchor implements AnchorlessContent
         #[InlineEditorConfiguration(placeholder: 'Bitte Titel eingeben')]
         public EditableText $title,
     ) {
+    }
+
+    public function getNeosLabel(NodeLabelRenderingAccessInterface $nodeLabelRenderingAccess): ?string
+    {
+        return $this->title->getPlainValue();
     }
 }

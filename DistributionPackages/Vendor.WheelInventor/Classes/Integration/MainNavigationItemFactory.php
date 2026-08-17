@@ -4,16 +4,21 @@ declare(strict_types=1);
 
 namespace Vendor\WheelInventor\Integration;
 
+use Neos\ContentRepository\Core\Projection\ContentGraph\ContentSubgraphInterface;
 use Neos\ContentRepository\Core\Projection\ContentGraph\Filter\FindSubtreeFilter;
 use Neos\ContentRepository\Core\Projection\ContentGraph\Subtree;
 use Neos\Neos\Domain\NodeLabel\NodeLabelGeneratorInterface;
-use PackageFactory\ComponentEngine\ComponentCollection;
+use Neos\Neos\NodeTypes\Document;
+use Neos\Neos\NodeTypes\Site;
+use PackageFactory\ComponentEngine\ComponentList;
 use PackageFactory\Neos\ComponentEngine\NeosAccessInterface;
-use PackageFactory\Neos\ComponentEngine\NeosContext;
+use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
+use PackageFactory\OPGM\Infrastructure\NodeTypeNameExtractor;
 use Vendor\Shared\Components\Block\Link\LinkStruct;
 use Vendor\Shared\Components\Block\Link\LinkTarget;
 use Vendor\Shared\Components\Block\SiteHeader\MainNavigation\MainNavigationItem\MainNavigationItem;
 use Vendor\Shared\Components\Block\SiteHeader\MainNavigation\MainNavigationSubItem\MainNavigationSubItem;
+use Vendor\WheelInventor\NodeTypes\Tag\MainNavigationElement;
 
 final class MainNavigationItemFactory
 {
@@ -22,19 +27,22 @@ final class MainNavigationItemFactory
     ) {
     }
 
-    /**TODO: add cache segment/ add hiddeninindex filter */
+    /**TODO: add cache segment */
 
     public const MAX_NAVIGATION_DEPTH = 2;
 
     /**
-     * @return ComponentCollection<MainNavigationItem>|null
+     * @return ComponentList<MainNavigationItem>|null
      */
-    public function fromRootNode(NeosContext $context): ComponentCollection|null
-    {
-        $subtree = $context->subgraph->findSubtree(
-            $context->siteNode->aggregateId,
+    public function fromRootNode(
+        Site $site,
+        ContentSubgraphInterface $subgraph,
+        NeosAccessInterface $neosAccess
+    ): ?ComponentList {
+        $subtree = $subgraph->findSubtree(
+            $site->node->aggregateId,
             FindSubtreeFilter::create(
-                "Vendor.WheelInventor:Tag.MainNavigationElement",
+                NodeTypeNameExtractor::requireFromFQN(MainNavigationElement::class)->value,
                 self::MAX_NAVIGATION_DEPTH
             )
         );
@@ -48,7 +56,8 @@ final class MainNavigationItemFactory
         foreach ($subtree->children as $child) {
             $item = $this->createMainNavigationItemFromSubtree(
                 $child,
-                $context->neos
+                $subgraph,
+                $neosAccess
             );
             if (!$item instanceof MainNavigationItem) {
                 continue;
@@ -57,22 +66,32 @@ final class MainNavigationItemFactory
             $childNavigationItems[] = $item;
         };
 
-        return ComponentCollection::list(...$childNavigationItems);
+        return ComponentList::list(...$childNavigationItems);
     }
 
     private function createMainNavigationItemFromSubtree(
         Subtree $subtree,
+        ContentSubgraphInterface $subgraph,
         NeosAccessInterface $neos,
         int $level = 1
-    ): MainNavigationItem|MainNavigationSubItem {
+    ): MainNavigationItem|MainNavigationSubItem|null {
         $childNavigationItems = [];
 
+        $document = ObjectPropertyGraphMapper::map($subtree->node, $subgraph);
+        if (!$document instanceof Document || $document->hiddenInMenu) {
+            return null;
+        }
+
         foreach ($subtree->children as $child) {
-            $childNavigationItems[] = $this->createMainNavigationItemFromSubtree(
+            $menuItem = $this->createMainNavigationItemFromSubtree(
                 $child,
+                $subgraph,
                 $neos,
                 $level + 1
             );
+            if ($menuItem) {
+                $childNavigationItems[] = $menuItem;
+            }
         }
 
         $linkStruct = LinkStruct::create(
@@ -82,19 +101,13 @@ final class MainNavigationItemFactory
             target: LinkTarget::TARGET_SELF
         );
 
-        $itemsCollection = !empty($childNavigationItems)
-            ? ComponentCollection::list(...$childNavigationItems)
-            : null;
-
         if ($level === 1) {
-            // @todo: link & inBackend in der Komponente?
             return MainNavigationItem::create(
                 link: $linkStruct,
                 label: $this->nodeLabelGenerator->getLabel($subtree->node),
-                items: $itemsCollection
+                items: ComponentList::list(...$childNavigationItems)
             );
         } else {
-            // @todo: link & inBackend in der Komponente?
             return MainNavigationSubItem::create(
                 link: $linkStruct,
                 label: $this->nodeLabelGenerator->getLabel($subtree->node)

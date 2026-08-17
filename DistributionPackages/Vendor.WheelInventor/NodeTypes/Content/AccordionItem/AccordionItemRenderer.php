@@ -7,10 +7,14 @@ namespace Vendor\WheelInventor\NodeTypes\Content\AccordionItem;
 use PackageFactory\ComponentEngine\ComponentInterface;
 use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
-use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
 use Vendor\Shared\Components\Block\Accordion\Item\AccordionItem as AccordionItemComponent;
 use Vendor\WheelInventor\Integration\LinkedButtonFactory;
+use Vendor\WheelInventor\NodeTypes\Document\Document;
+use Vendor\WheelInventor\NodeTypes\Document\HomePage\HomePage;
 
+/**
+ * @implements ContentNodeRendererInterface<AccordionItem,Document,HomePage>
+ */
 final class AccordionItemRenderer implements ContentNodeRendererInterface
 {
     public function __construct(
@@ -20,14 +24,12 @@ final class AccordionItemRenderer implements ContentNodeRendererInterface
 
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
-        $accordionItem = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, AccordionItem::class);
-
         return AccordionItemComponent::create(
-            headline: $context->neos->getEditableFromProperty($accordionItem->headline, true),
-            content: $context->neos->getEditableFromProperty($accordionItem->text, true),
-            initialOpen: $accordionItem->initiallyOpen,
+            headline: $context->neos->getEditableFromProperty($context->current->headline, true),
+            content: $context->neos->getEditableFromProperty($context->current->text, true),
+            initialOpen: $context->current->initiallyOpen,
             inBackend: $context->renderingMode->isEdit,
-            button: $this->linkedButtonFactory->tryForLinkProvider($accordionItem, $context) ?: ''
+            button: $this->linkedButtonFactory->tryForLinkProvider($context->current, $context) ?: ''
         );
     }
 }

@@ -9,10 +9,14 @@ use PackageFactory\Neos\ComponentEngine\Integration\ContentNodeRendererInterface
 use PackageFactory\Neos\ComponentEngine\Integration\ContentRenderer;
 use PackageFactory\Neos\ComponentEngine\Integration\RenderingUseCase;
 use PackageFactory\Neos\ComponentEngine\NeosContext;
-use PackageFactory\OPGM\Domain\ObjectPropertyGraphMapper;
 use Vendor\Shared\Components\Block\AnchorNavigation\AnchorNavigation as AnchorNavigationComponent;
 use Vendor\WheelInventor\Integration\ContentContainerFactory;
+use Vendor\WheelInventor\NodeTypes\Document\Document;
+use Vendor\WheelInventor\NodeTypes\Document\HomePage\HomePage;
 
+/**
+ * @implements ContentNodeRendererInterface<AnchorNavigation,Document,HomePage>
+ */
 final class AnchorNavigationRenderer implements ContentNodeRendererInterface
 {
     public function __construct(
@@ -22,20 +26,18 @@ final class AnchorNavigationRenderer implements ContentNodeRendererInterface
 
     public function renderAsContent(NeosContext $context): ComponentInterface
     {
-        $anchorNavigation = ObjectPropertyGraphMapper::map($context->node, $context->subgraph, AnchorNavigation::class);
-
         $anchorNavigationComponent = AnchorNavigationComponent::create(
             items: $this->contentRenderer->renderContentChildren(
                 $context,
                 RenderingUseCase::CONTENT
             ),
-            isSticky: $anchorNavigation->isSticky,
+            isSticky: $context->current->isSticky,
         );
 
-        return $anchorNavigation->isSticky
+        return $context->current->isSticky
             ? $anchorNavigationComponent
             : ContentContainerFactory::create(
-                $context,
+                $context->current,
                 $anchorNavigationComponent,
             );
     }
