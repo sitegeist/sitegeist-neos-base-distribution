@@ -12,6 +12,7 @@
 		"neos/redirecthandler-ui": "^3.0",
 
 		"flowpack/nodetemplates": "^3.0",
+		"flowpack/jobqueue-doctrine": "*",
 
 		"packagefactory/neos-componentview": "*",
 		"packagefactory/opgm-neosadapter": "*",
