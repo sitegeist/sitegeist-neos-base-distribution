@@ -5,12 +5,10 @@ declare(strict_types=1);
 namespace Vendor\WheelInventor\NodeTypes\Document;
 
 use Neos\Flow\Annotations as Flow;
-use PackageFactory\OPGM\Domain\NodeType\NodeTypeDeclaration;
 
 /**
  * @implements \IteratorAggregate<Document|Shortcut>
  */
-#[NodeTypeDeclaration]
 #[Flow\Proxy(false)]
 final readonly class Documents implements \IteratorAggregate
 {

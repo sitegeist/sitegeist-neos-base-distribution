@@ -14,6 +14,7 @@ use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\NodeTypeUiConfiguration;
 use Vendor\WheelInventor\NodeTypes\Content\Accordion\Accordion;
 use Vendor\WheelInventor\NodeTypes\Content\AnchorNavigation\AnchorNavigation;
 use Vendor\WheelInventor\NodeTypes\Content\CollectionBasedDownloads\CollectionBasedDownloads;
+use Vendor\WheelInventor\NodeTypes\Content\FormBuilder\FormBuilder;
 use Vendor\WheelInventor\NodeTypes\Content\Image\Image;
 use Vendor\WheelInventor\NodeTypes\Content\ImageWithText\ImageWithText;
 use Vendor\WheelInventor\NodeTypes\Content\ManualDownloads\ManualDownloads;
@@ -56,7 +57,7 @@ final readonly class WebPage extends Document implements MainNavigationElement
                 AnchorNavigation::class => true,
                 ReactExample::class => true,
                 ReactExampleSSR::class => true,
-                // @todo: FormBuilder
+                FormBuilder::class => true,
             ]),
         )]
         // @todo: custom content collection type?
