@@ -1,5 +1,5 @@
 includes:
-  - Packages/Libraries/spaze/phpstan-disallowed-calls/extension.neon
+    - Packages/Libraries/spaze/phpstan-disallowed-calls/extension.neon
 
 parameters:
     level: 8

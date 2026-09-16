@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ec60f65bb712bb87b92412a3d27ce567",
+    "content-hash": "e513fcba9da383f59d1e7bd9b46990c4",
     "packages": [
         {
             "name": "altcha-org/altcha",
@@ -6573,12 +6573,12 @@
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/neos-seo.git",
-                "reference": "26dd4760aaa8222921f2f69736a7d17f5d84ec53"
+                "reference": "9edcdb1e60cefdde931085105ed2327c0b8bfdda"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/neos-seo/archive/26dd4760aaa8222921f2f69736a7d17f5d84ec53.zip",
-                "reference": "26dd4760aaa8222921f2f69736a7d17f5d84ec53",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/neos-seo/archive/9edcdb1e60cefdde931085105ed2327c0b8bfdda.zip",
+                "reference": "9edcdb1e60cefdde931085105ed2327c0b8bfdda",
                 "shasum": ""
             },
             "require": {
@@ -6622,7 +6622,7 @@
                 "source": "https://codeberg.org/PackageFactory/neos-seo/branch/main",
                 "issues": "https://codeberg.org/PackageFactory/neos-seo/issues"
             },
-            "time": "2026-07-27T23:57:19+02:00"
+            "time": "2026-08-17T14:51:44+02:00"
         },
         {
             "name": "packagefactory/neos-seo-jobqueue",

@@ -6,6 +6,14 @@ Neos:
           loadingDepth: 2
         structureTree:
           loadingDepth: 2
+      inspector:
+        dataTypes:
+          DateTimeImmutable:
+            typeConverter: Neos\Neos\Service\Mapping\DateStringConverter
+            editor: Neos.Neos/Inspector/Editors/DateTimeEditor
+            editorOptions:
+              format: d-m-Y
+
     nodeTypes:
       groups:
         structure: ~
