@@ -8,5 +8,17 @@ export component PageBody {
     siteFooter: SiteFooter
 
     render
-        <body><PageGrid>{siteHeader}{content}{siteFooter}</PageGrid></body>
+        <body>
+            <PageGrid>
+                {siteHeader}
+                <main
+                    id="main-content"
+                    tabindex="-1"
+                    class="col-span-full grid grid-cols-subgrid content-start outline-none"
+                >
+                    {content}
+                </main>
+                {siteFooter}
+            </PageGrid>
+        </body>
 }

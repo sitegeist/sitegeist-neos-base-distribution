@@ -35,7 +35,7 @@
 		"sitegeist/schemeonyou": "^2.1.0",
 		"sitegeist/stampede": "^2.0",
 
-		"vendor/wheelinventor": "*",
+		"vendor/site": "*",
 		"neos/symfonymailer": "^1.0.2",
 		"altcha-org/altcha": "^2.0",
 		"packagefactory/opgm-neosadapter": "dev-main",

@@ -30,7 +30,9 @@ final readonly class PageBody implements _\ComponentInterface
             _1014_PageGrid: PageGrid::create(
                 content: _\SlotComponent::list(
                     $siteHeader,
+                    '<main id="main-content" tabindex="-1" class="col-span-full grid grid-cols-subgrid content-start outline-none">',
                     (is_string(($temp = $content)) ? _\Util::escapeText($temp) : $temp),
+                    '</main>',
                     $siteFooter,
                 ),
             ),

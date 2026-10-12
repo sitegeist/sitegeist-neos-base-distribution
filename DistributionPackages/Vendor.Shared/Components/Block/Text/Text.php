@@ -31,7 +31,7 @@ final readonly class Text implements _\ComponentInterface
         return new self(
             _168_ContentGrid: ContentGrid::create(
                 content: _\SlotComponent::list(
-                    '<div class="' . _\Util::joinAttributeValues('col-span-full', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-full lg:col-span-6', default => 'sm:col-span-full' }) . '">',
+                    '<div class="' . _\Util::joinAttributeValues('col-span-full', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-full md:col-span-4 xl:col-span-6', default => 'sm:col-span-full' }) . '">',
                     Headline::create(
                         content: (is_string(($temp = $headline)) ? _\StringComponent::fromString($temp) : $temp),
                         variant: HeadlineVariant::VARIANT_REGULAR,
@@ -39,7 +39,7 @@ final readonly class Text implements _\ComponentInterface
                         tag: HeadlineTag::TAG_H2,
                     ),
                     '</div>',
-                    '<div class="' . _\Util::joinAttributeValues('col-span-full flex flex-col gap-16 md:gap-24', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-full lg:col-span-6', default => 'sm:col-span-full' }) . '">',
+                    '<div class="' . _\Util::joinAttributeValues('col-span-full flex flex-col gap-16 md:gap-24', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-full md:col-span-4 xl:col-span-6', default => 'sm:col-span-full' }) . '">',
                     Copy::create(
                         content: (is_string(($temp = $content)) ? _\StringComponent::fromString($temp) : $temp),
                         size: CopySize::SIZE_MD,

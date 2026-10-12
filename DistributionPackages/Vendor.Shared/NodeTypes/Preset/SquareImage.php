@@ -12,6 +12,7 @@ use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\ImageEditor\Image
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\Editor\ImageEditor\LockedAspectRatio;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\InspectorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertyUiConfiguration;
+use Vendor\Shared\NodeTypes\Editor\AssetWithMetadataEditorConfiguration;
 
 #[\Attribute(\Attribute::TARGET_PROPERTY | \Attribute::TARGET_PARAMETER)]
 #[PropertyUiConfiguration(
@@ -35,6 +36,7 @@ use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertyUiConfiguration;
         ),
     )
 )]
+#[AssetWithMetadataEditorConfiguration]
 final class SquareImage implements PropertyPresetInterface
 {
 }

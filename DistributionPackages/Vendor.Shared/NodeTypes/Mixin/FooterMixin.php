@@ -11,7 +11,7 @@ use PackageFactory\OPGM\Domain\Property\PropertyScopeDeclaration;
 use PackageFactory\OPGM\NeosAdapter\NodeTypeDeclaration\InspectorGroupDeclaration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\InspectorConfiguration;
 use PackageFactory\OPGM\NeosAdapter\PropertyDeclaration\PropertyUiConfiguration;
-use Vendor\WheelInventor\NodeTypes\Document\Documents;
+use Vendor\Site\NodeTypes\Document\Documents;
 
 #[NodeTypeDeclaration]
 #[InspectorGroupDeclaration(

@@ -25,9 +25,9 @@ export component ImageWithText {
                         default -> "lg:order-1"
                     },
                     match (layout) {
-                        ImageWithTextLayout.VARIANT_66_33 -> "col-span-full md:col-span-8",
-                        ImageWithTextLayout.VARIANT_33_66 -> "col-span-full md:col-span-4",
-                        default -> "col-span-full md:col-span-6"
+                        ImageWithTextLayout.VARIANT_66_33 -> "col-span-full md:col-span-5 xl:col-span-8",
+                        ImageWithTextLayout.VARIANT_33_66 -> "col-span-full md:col-span-3 xl:col-span-4",
+                        default -> "col-span-full md:col-span-4 xl:col-span-6"
                     }
                 ]}
             >
@@ -41,9 +41,9 @@ export component ImageWithText {
                         default -> "lg:order-2"
                     },
                     match (layout) {
-                        ImageWithTextLayout.VARIANT_66_33 -> "col-span-full md:col-span-4",
-                        ImageWithTextLayout.VARIANT_33_66 -> "col-span-full md:col-span-8",
-                        default -> "col-span-full md:col-span-6"
+                        ImageWithTextLayout.VARIANT_66_33 -> "col-span-full md:col-span-3 xl:col-span-4",
+                        ImageWithTextLayout.VARIANT_33_66 -> "col-span-full md:col-span-5 xl:col-span-8",
+                        default -> "col-span-full md:col-span-4 xl:col-span-6"
                     }
                 ]}
             >

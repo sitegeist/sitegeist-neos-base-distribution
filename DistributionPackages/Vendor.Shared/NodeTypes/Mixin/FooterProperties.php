@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Vendor\Shared\NodeTypes\Mixin;
 
-use Vendor\WheelInventor\NodeTypes\Document\Documents;
+use Vendor\Site\NodeTypes\Document\Documents;
 
 /**
  * Backing trait for {@see FooterMixin}

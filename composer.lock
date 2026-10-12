@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e513fcba9da383f59d1e7bd9b46990c4",
+    "content-hash": "ecfc3a25650873213e52a8f22f86f543",
     "packages": [
         {
             "name": "altcha-org/altcha",
@@ -10963,12 +10963,12 @@
             }
         },
         {
-            "name": "vendor/wheelInventor",
+            "name": "vendor/site",
             "version": "dev-cpx",
             "dist": {
                 "type": "path",
-                "url": "./DistributionPackages/Vendor.WheelInventor",
-                "reference": "722b25aed0eef7402b96787ce962d9a789be5380"
+                "url": "./DistributionPackages/Vendor.Site",
+                "reference": "079a1624f8ff1a0f1bbb71ebeed3f33914ab378c"
             },
             "require": {
                 "vendor/shared": "*"
@@ -10976,14 +10976,14 @@
             "type": "neos-site",
             "extra": {
                 "neos": {
-                    "package-key": "Vendor.WheelInventor"
+                    "package-key": "Vendor.Site"
                 }
             },
             "autoload": {
                 "psr-4": {
-                    "Vendor\\WheelInventor\\": "Classes/",
-                    "Vendor\\WheelInventor\\Components\\": "Components",
-                    "Vendor\\WheelInventor\\NodeTypes\\": "NodeTypes"
+                    "Vendor\\Site\\": "Classes/",
+                    "Vendor\\Site\\Components\\": "Components",
+                    "Vendor\\Site\\NodeTypes\\": "NodeTypes"
                 }
             },
             "transport-options": {

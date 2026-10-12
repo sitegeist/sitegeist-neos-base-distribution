@@ -11,6 +11,11 @@
 	background-image: none;
 }
 
+/* CKEditor sets overflow:auto on inline editables, which causes y-scroll with tight line-heights */
+.ck.ck-editor__editable.ck-editor__editable_inline {
+	overflow: visible;
+}
+
 @theme {
 	--spacing-1: 1px;
 	--spacing-2: 2px;
@@ -64,17 +69,33 @@
 	--grid-template-columns-2-66-33: 2fr 1fr;
 	--grid-template-columns-3-COL: 1fr 1fr 1fr;
 
-	--grid-template-columns-page-12: minmax(0, auto) repeat(12, minmax(0, 122px)) minmax(0, auto);
-	--grid-template-columns-page-8: minmax(0, auto) repeat(8, minmax(0, 1fr)) minmax(0, auto);
-	--grid-template-columns-page-4: minmax(0, auto) repeat(4, minmax(0, 1fr)) minmax(0, auto);
+	/* page grid: 4 columns on mobile, 8 from md, 12 from xl - framed by two flexible outer columns */
+	--grid-template-columns-page-4: minmax(0, auto) repeat(4, minmax(0, 168px)) minmax(0, auto);
+	--grid-template-columns-page-8: minmax(0, auto) repeat(8, minmax(0, 124px)) minmax(0, auto);
+	/* 12 content columns plus their 11 gaps (gap-x-64 from xl) add up to 1792px at most */
+	--max-width-page-content: 1792px;
+	--grid-template-columns-page-12: minmax(0, auto) repeat(12, minmax(0, calc((var(--max-width-page-content) - 11 * var(--spacing-64)) / 12))) minmax(0, auto);
 
 	--grid-column-span-content-full: 2 / -2;
 
 	--padding-ratio-4-3: calc(3 * 100% / 4);
+
+	--aspect-1-1: 1 / 1;
+	--aspect-2-1: 2 / 1;
+	--aspect-2-3: 2 / 3;
+	--aspect-3-1: 3 / 1;
+	--aspect-3-2: 3 / 2;
+	--aspect-3-4: 3 / 4;
+	--aspect-4-3: 4 / 3;
+	--aspect-8-3: 8 / 3;
+	--aspect-16-9: 16 / 9;
+	--aspect-21-9: 21 / 9;
 }
 
-html {
-	scroll-behavior: smooth;
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
 }
 
 *[id] {
@@ -104,8 +125,22 @@ body {
 	flex-direction: column;
 }
 
+/*
+ * Line clamped elements (and other containers marked with neos-outline-inset) clip their
+ * overflow, which would hide the Neos outlines drawn around inline editables inside
+ * them - so these are drawn on the inside instead
+ */
+:is(
+	[class*='line-clamp-'],
+	[class*='line-clamp-'] *,
+	.neos-outline-inset,
+	.neos-outline-inset *
+)[data-__neos-property][contenteditable]:is(:hover, .ck-focused) {
+	outline-offset: -2px !important;
+}
+
 /* Replace with main once component engine supports custom tags for contentCollection */
-body > div > .neos-contentcollection {
+body > div > main > .neos-contentcollection {
 	display: grid;
 	grid-template-columns: subgrid;
 	grid-column-start: 1;

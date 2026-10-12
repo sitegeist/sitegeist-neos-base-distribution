@@ -25,6 +25,6 @@ final readonly class PageGrid implements _\ComponentInterface
     #[\Override]
     public function render(): string
     {
-        return '<div class="' . _\Util::joinAttributeValues('w-full h-full grid grid-cols-page-12', 'gap-x-16 md:gap-x-32 grow grid-rows-[auto_1fr_auto]') . '">' . ((($temp = $this->content) === null) ? '' : $temp->render()) . '</div>';
+        return '<div class="' . _\Util::joinAttributeValues('w-full h-full grid grid-cols-page-4 md:grid-cols-page-8 xl:grid-cols-page-12', 'gap-x-24 md:gap-x-32 lg:gap-x-56 xl:gap-x-64 grow grid-rows-[auto_1fr_auto]') . '">' . ((($temp = $this->content) === null) ? '' : $temp->render()) . '</div>';
     }
 }

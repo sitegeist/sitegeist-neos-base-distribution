@@ -1,0 +1,19 @@
+{
+	"name": "vendor/site",
+	"type": "neos-site",
+	"require": {
+		"vendor/shared": "*"
+	},
+	"autoload": {
+		"psr-4": {
+			"Vendor\\Site\\": "Classes/",
+			"Vendor\\Site\\Components\\": "Components",
+			"Vendor\\Site\\NodeTypes\\": "NodeTypes"
+		}
+	},
+	"extra": {
+		"neos": {
+			"package-key": "Vendor.Site"
+		}
+	}
+}

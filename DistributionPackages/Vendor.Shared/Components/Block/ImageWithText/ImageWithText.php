@@ -34,10 +34,10 @@ final readonly class ImageWithText implements _\ComponentInterface
         return new self(
             _198_ContentGrid: ContentGrid::create(
                 content: _\SlotComponent::list(
-                    '<div' . ((($temp = _\Util::joinAttributeValues(match ($alignment) { ImageWithTextAlignment::VARIANT_IMAGELAST => 'lg:order-2', default => 'lg:order-1' }, match ($layout) { ImageWithTextLayout::VARIANT_66_33 => 'col-span-full md:col-span-8', ImageWithTextLayout::VARIANT_33_66 => 'col-span-full md:col-span-4', default => 'col-span-full md:col-span-6' })) === '') ? '' : ' class="' . $temp . '"') . '>',
+                    '<div' . ((($temp = _\Util::joinAttributeValues(match ($alignment) { ImageWithTextAlignment::VARIANT_IMAGELAST => 'lg:order-2', default => 'lg:order-1' }, match ($layout) { ImageWithTextLayout::VARIANT_66_33 => 'col-span-full md:col-span-5 xl:col-span-8', ImageWithTextLayout::VARIANT_33_66 => 'col-span-full md:col-span-3 xl:col-span-4', default => 'col-span-full md:col-span-4 xl:col-span-6' })) === '') ? '' : ' class="' . $temp . '"') . '>',
                     (is_string(($temp = $figure)) ? _\Util::escapeText($temp) : $temp),
                     '</div>',
-                    '<div class="' . _\Util::joinAttributeValues('flex flex-col gap-16 md:gap-24 justify-center', match ($alignment) { ImageWithTextAlignment::VARIANT_IMAGELAST => 'lg:order-1', default => 'lg:order-2' }, match ($layout) { ImageWithTextLayout::VARIANT_66_33 => 'col-span-full md:col-span-4', ImageWithTextLayout::VARIANT_33_66 => 'col-span-full md:col-span-8', default => 'col-span-full md:col-span-6' }) . '">',
+                    '<div class="' . _\Util::joinAttributeValues('flex flex-col gap-16 md:gap-24 justify-center', match ($alignment) { ImageWithTextAlignment::VARIANT_IMAGELAST => 'lg:order-1', default => 'lg:order-2' }, match ($layout) { ImageWithTextLayout::VARIANT_66_33 => 'col-span-full md:col-span-3 xl:col-span-4', ImageWithTextLayout::VARIANT_33_66 => 'col-span-full md:col-span-5 xl:col-span-8', default => 'col-span-full md:col-span-4 xl:col-span-6' }) . '">',
                     Headline::create(
                         content: (is_string(($temp = $headline)) ? _\StringComponent::fromString($temp) : $temp),
                         variant: HeadlineVariant::VARIANT_REGULAR,

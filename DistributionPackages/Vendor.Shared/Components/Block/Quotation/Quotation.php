@@ -26,12 +26,12 @@ final readonly class Quotation implements _\ComponentInterface
         return new self(
             _118_ContentGrid: ContentGrid::create(
                 content: _\SlotComponent::list(
-                    '<div class="col-span-full sm:col-span-4">',
+                    '<div class="col-span-full md:col-span-3 xl:col-span-4">',
                     '<div class="w-full aspect-square rounded-full overflow-hidden">',
                     (is_string(($temp = $figure)) ? _\Util::escapeText($temp) : $temp),
                     '</div>',
                     '</div>',
-                    '<div class="col-span-full sm:col-span-8 md:col-start-6 flex flex-col gap-16 md:gap-24 justify-center">',
+                    '<div class="col-span-full md:col-span-5 md:col-start-4 xl:col-span-7 xl:col-start-6 flex flex-col gap-16 md:gap-24 justify-center">',
                     '<div class="relative flex flex-col gap-8 pt-40">',
                     '<span class="absolute top-0 left-0 md:-left-24 text-[100px] leading-[0.7] pointer-events-none z-0">',
                     '"',
