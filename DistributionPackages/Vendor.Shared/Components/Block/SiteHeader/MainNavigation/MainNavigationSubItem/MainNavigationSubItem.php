@@ -13,16 +13,17 @@ use Vendor\Shared\Components\Block\Link\LinkVariant;
 final readonly class MainNavigationSubItem implements _\ComponentInterface
 {
     private function __construct(
-        private Link $_9_8_Link,
+        private Link $_11_8_Link,
     ) {
     }
 
     public static function create(
         LinkStruct $link,
         string $label,
+        ?string $ariaCurrent,
     ): self {
         return new self(
-            _9_8_Link: Link::create(
+            _11_8_Link: Link::create(
                 content: _\SlotComponent::list(
                     '<sl-menu-item class="max-lg:hidden">',
                     _\Util::escapeText($label),
@@ -33,6 +34,7 @@ final readonly class MainNavigationSubItem implements _\ComponentInterface
                 ),
                 link: $link,
                 component: null,
+                ariaCurrent: $ariaCurrent,
                 variant: LinkVariant::VARIANT_MENU_SUB_ITEM,
             ),
         );
@@ -41,6 +43,6 @@ final readonly class MainNavigationSubItem implements _\ComponentInterface
     #[\Override]
     public function render(): string
     {
-        return $this->_9_8_Link->render();
+        return $this->_11_8_Link->render();
     }
 }

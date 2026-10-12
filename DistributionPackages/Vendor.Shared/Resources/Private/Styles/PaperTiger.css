@@ -1,6 +1,36 @@
 @layer components {
+	/*
+	 * Fields sit in a 6 column grid, so they can share a row by their width setting
+	 * (half, thirds, sixths). Below md every field takes the full row.
+	 */
 	.papertiger-form__element {
-		@apply flex flex-col gap-16 md:gap-24;
+		@apply grid grid-cols-6 gap-x-24 gap-y-16 md:gap-y-24;
+
+		& > * {
+			@apply col-span-full;
+		}
+	}
+
+	@variant md {
+		[data-field-width='half'] {
+			@apply col-span-3;
+		}
+
+		[data-field-width='oneThird'] {
+			@apply col-span-2;
+		}
+
+		[data-field-width='twoThirds'] {
+			@apply col-span-4;
+		}
+
+		[data-field-width='oneSixth'] {
+			@apply col-span-1;
+		}
+
+		[data-field-width='fiveSixths'] {
+			@apply col-span-5;
+		}
 	}
 
 	.papertiger-error {

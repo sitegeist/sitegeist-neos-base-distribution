@@ -1,0 +1,7 @@
+Neos:
+  Media:
+    image:
+      defaultOptions:
+        # 90 is the Neos default; for the WebP thumbnails of the frontend 80 looks the same and
+        # saves roughly a third of the bytes
+        quality: 80

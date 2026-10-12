@@ -128,6 +128,7 @@ final class SiteFooterFactory
                 ),
             component: null,
             variant: LinkVariant::VARIANT_MENU_SUB_ITEM,
+            ariaCurrent: null,
         );
     }
 

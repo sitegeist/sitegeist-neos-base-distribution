@@ -22,7 +22,8 @@ final class FigureFactory
     public function tryForImageProvider(
         ImageProvider $imageProvider,
         FigureSize $figureSize = FigureSize::SIZE_DEFAULT,
-        bool $isLazyLoaded = false,
+        // content images can be anywhere on the page, only the ones visible right away should be eager
+        bool $isLazyLoaded = true,
     ): ?Figure {
         $imageSource = $this->imageSourceFactory->tryCreateForImageSourceProxy($imageProvider->image);
         if ($imageSource === null) {
@@ -32,6 +33,8 @@ final class FigureFactory
         return Figure::create(
             image: $imageSource,
             size: $figureSize,
+            width: $imageSource->source->width(),
+            height: $imageSource->source->height(),
             isLazyLoaded: $isLazyLoaded,
         );
     }
@@ -39,7 +42,8 @@ final class FigureFactory
     public function tryForOptionalImageProvider(
         OptionalImageProvider $optionalImageProvider,
         FigureSize $figureSize = FigureSize::SIZE_DEFAULT,
-        bool $isLazyLoaded = false,
+        // content images can be anywhere on the page, only the ones visible right away should be eager
+        bool $isLazyLoaded = true,
         bool $inBackend = false,
     ): ?Figure {
         $imageSource = $optionalImageProvider->image
@@ -65,6 +69,8 @@ final class FigureFactory
             ? Figure::create(
                 image: $imageSource,
                 size: $figureSize,
+                width: $imageSource->source->width(),
+                height: $imageSource->source->height(),
                 isLazyLoaded: $isLazyLoaded,
             )
             : null;
@@ -83,6 +89,8 @@ final class FigureFactory
             return Figure::create(
                 image: $imageSource,
                 size: $figureSize,
+                width: $imageSource->source->width(),
+                height: $imageSource->source->height(),
                 isLazyLoaded: true,
             );
         }

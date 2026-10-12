@@ -15,6 +15,7 @@ final readonly class Link implements _\ComponentInterface
         private ?_\ComponentInterface $content,
         private ?LinkStruct $link,
         private ?string $component,
+        private ?string $ariaCurrent,
         private LinkVariant $variant,
     ) {
     }
@@ -23,12 +24,14 @@ final readonly class Link implements _\ComponentInterface
         _\ComponentInterface|string|null $content,
         ?LinkStruct $link,
         ?string $component,
+        ?string $ariaCurrent,
         LinkVariant $variant,
     ): self {
         return new self(
             content: is_string($content) ? _\StringComponent::fromString($content) : $content,
             link: $link,
             component: $component,
+            ariaCurrent: $ariaCurrent,
             variant: $variant,
         );
     }
@@ -36,6 +39,6 @@ final readonly class Link implements _\ComponentInterface
     #[\Override]
     public function render(): string
     {
-        return '<' . ($_10_8_tag = (($this->link !== null) ? 'a' : 'div')) . '' . (($this->component !== null) ? ((($temp = $this->component) === null) ? '' : ' data-component="' . _\Util::escapeAttributeValue($temp) . '"') : ' data-component="Link"') . ((($temp = $this->link?->href) === null) ? '' : ' href="' . _\Util::escapeAttributeValue($temp) . '"') . ((($temp = $this->link?->title) === null) ? '' : ' title="' . _\Util::escapeAttributeValue($temp) . '"') . ((($temp = $this->link?->rel) === null) ? '' : ' rel="' . _\Util::escapeAttributeValue($temp) . '"') . ((($temp = $this->link?->target) === null) ? '' : ' target="' . $temp->asAttributeValue() . '"') . ((($temp = _\Util::joinAttributeValues((($this->link !== null) ? 'cursor-pointer' : ''), match ($this->variant) { LinkVariant::VARIANT_NONE => 'w-fit', LinkVariant::VARIANT_DEFAULT => (($this->link !== null) ? 'link-medium hover:text-highlight flex' : 'link-medium flex'), LinkVariant::VARIANT_MENU_ITEM => (($this->link !== null) ? 'link-large lg:link-medium hover:text-highlight flex h-full items-center' : 'link-large lg:link-medium flex h-full items-center'), LinkVariant::VARIANT_MENU_SUB_ITEM => (($this->link !== null) ? 'link-medium lg:link-small hover:text-highlight' : 'link-medium lg:link-small') })) === '') ? '' : ' class="' . $temp . '"') . '>' . ((($temp = $this->content) === null) ? '' : $temp->render()) . '</' . $_10_8_tag . '>';
+        return '<' . ($_12_8_tag = (($this->link !== null) ? 'a' : 'div')) . '' . (($this->component !== null) ? ((($temp = $this->component) === null) ? '' : ' data-component="' . _\Util::escapeAttributeValue($temp) . '"') : ' data-component="Link"') . ((($temp = $this->link?->href) === null) ? '' : ' href="' . _\Util::escapeAttributeValue($temp) . '"') . ((($temp = $this->link?->title) === null) ? '' : ' title="' . _\Util::escapeAttributeValue($temp) . '"') . ((($temp = $this->link?->rel) === null) ? '' : ' rel="' . _\Util::escapeAttributeValue($temp) . '"') . ((($temp = $this->link?->target) === null) ? '' : ' target="' . $temp->asAttributeValue() . '"') . ((($temp = $this->ariaCurrent) === null) ? '' : ' aria-current="' . _\Util::escapeAttributeValue($temp) . '"') . ((($temp = _\Util::joinAttributeValues((($this->link !== null) ? 'cursor-pointer' : ''), match ($this->variant) { LinkVariant::VARIANT_NONE => 'w-fit', LinkVariant::VARIANT_DEFAULT => (($this->link !== null) ? 'link-medium hover:text-highlight flex' : 'link-medium flex'), LinkVariant::VARIANT_MENU_ITEM => (($this->link !== null) ? 'link-large lg:link-medium hover:text-highlight flex h-full items-center' : 'link-large lg:link-medium flex h-full items-center'), LinkVariant::VARIANT_MENU_SUB_ITEM => (($this->link !== null) ? 'link-medium lg:link-small hover:text-highlight' : 'link-medium lg:link-small') })) === '') ? '' : ' class="' . $temp . '"') . '>' . ((($temp = $this->content) === null) ? '' : $temp->render()) . '</' . $_12_8_tag . '>';
     }
 }

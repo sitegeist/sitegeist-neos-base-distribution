@@ -12,36 +12,42 @@ export component AccordionItem {
     button: slot
 
     render
-        <element
-            tagName={inBackend ? "div" : "details"}
-            data-component="AccordionItem"
-            class={[
-                "w-full group/accordion last:border-b-2 last:border-brand",
-                "[&:has(>summary:hover)+details>summary]:border-highlight",
-                "[&:has(>summary:hover)]:border-highlight",
-                inBackend ? "" : "overflow-hidden"
-            ]}
-            open={initialOpen}
-        >
-            <summary
-                class={[
-                    "w-full py-24 flex justify-between items-center",
-                    "border-t-2 border-brand marker:hidden hover:border-highlight",
-                    !inBackend ? "cursor-pointer hover:text-highlight select-none" : ""
-                ]}
-            >
-                <Headline
-                    tag={HeadlineTag.TAG_H2}
-                    size={HeadlineSize.SIZE_MD}
-                    variant={HeadlineVariant.VARIANT_REGULAR}
-                    content={headline}
-                />
-                <Icon icon="plus" class="w-32 h-32 group-open/accordion:hidden" />
-                <Icon icon="minus" class="w-32 h-32 hidden group-open/accordion:block" />
-            </summary>
-            <div class="flex flex-col gap-16 md:gap-24 pb-24 pt-2 m:pt-4 l:pt-8 xl:pt-16">
-                {content}
-                {button}
-            </div>
-        </element>
+        <>
+            {inBackend
+                ? <div data-component="AccordionItem" class="accordion-item w-full">
+                    <div class="w-full py-24 flex justify-between items-center gap-16">
+                        <Headline
+                            tag={HeadlineTag.TAG_H3}
+                            size={HeadlineSize.SIZE_MD}
+                            variant={HeadlineVariant.VARIANT_REGULAR}
+                            content={headline}
+                        />
+                        <Icon icon="minus" class="w-32 h-32 shrink-0" />
+                    </div>
+                    <div class="flex flex-col gap-16 md:gap-24 pb-24">
+                        {content}
+                        {button}
+                    </div>
+                </div>
+                : <sl-details data-component="AccordionItem" class="accordion-item w-full" open={initialOpen}>
+                    <div slot="summary">
+                        <Headline
+                            tag={HeadlineTag.TAG_H3}
+                            size={HeadlineSize.SIZE_MD}
+                            variant={HeadlineVariant.VARIANT_REGULAR}
+                            content={headline}
+                        />
+                    </div>
+                    <span slot="expand-icon" class="accordion-item__icon">
+                        <Icon icon="plus" class="w-32 h-32" />
+                    </span>
+                    <span slot="collapse-icon" class="accordion-item__icon">
+                        <Icon icon="minus" class="w-32 h-32" />
+                    </span>
+                    <div class="flex flex-col gap-16 md:gap-24">
+                        {content}
+                        {button}
+                    </div>
+                </sl-details>}
+        </>
 }

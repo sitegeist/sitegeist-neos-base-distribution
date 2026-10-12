@@ -1,0 +1,12 @@
+# adds the field width to PaperTiger form fields, see FieldWidthNodeRendererProvider
+PackageFactory\Neos\ComponentEngine\Integration\ContentRenderer:
+  arguments:
+    1:
+      object:
+        name: Vendor\Shared\PaperTiger\FieldWidthNodeRendererProvider
+
+Vendor\Shared\PaperTiger\FieldWidthNodeRendererProvider:
+  arguments:
+    1:
+      object:
+        name: PackageFactory\Neos\ComponentEngine\Infrastructure\Fs\FactoryRelay\FsNodeTypeNodeRendererProvider

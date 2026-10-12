@@ -21,7 +21,9 @@ final class LinkedButtonFactory
         $button = Button::create(
             $context->neos->getEditableFromProperty($linkProvider->linkLabel, true),
             ButtonTag::TAG_SPAN,
-            ButtonVariant::VARIANT_REGULAR
+            ButtonVariant::VARIANT_REGULAR,
+            null,
+            null,
         );
 
         $linkStruct = $linkProvider->link

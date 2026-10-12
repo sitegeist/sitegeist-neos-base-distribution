@@ -16,8 +16,9 @@ props: &defaultProps
   size:
     __type: "Vendor.Shared/Block/Figure/FigureSize.cpx"
     value: "default"
+  width: 1200
+  height: 800
   isLazyLoaded: true
-  class: null
 useCases:
   portrait:
     title: "Portrait format"
@@ -35,3 +36,5 @@ useCases:
       size:
         __type: "Vendor.Shared/Block/Figure/FigureSize.cpx"
         value: "halfFullFull"
+      width: 800
+      height: 1200

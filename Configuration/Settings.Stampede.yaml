@@ -1,0 +1,8 @@
+Sitegeist:
+  Stampede:
+    # Stampede only sends the Cache-Control header when it builds the sprite, not when it answers
+    # from its own cache - so browsers would not cache the sprite most of the time. Building it
+    # from the few icon files is cheap, the browsers caching it is what saves the requests.
+    enableCache: false
+    # the sprite url carries no version, so changed icons reach the visitors within a day
+    publicCacheLifetime: 86400

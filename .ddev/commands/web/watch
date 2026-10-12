@@ -1,0 +1,8 @@
+#!/bin/bash
+
+## Description: Watch frontend assets
+## Usage: watch
+
+set -eu -o pipefail
+
+yarn watch

@@ -10,13 +10,19 @@ export default (el: HTMLElement): void => {
 	const drawer = el.querySelector("sl-drawer") as any;
 
 	if (menuButton && drawer) {
+		// screen readers announce whether the menu behind the button is open
+		const setOpen = (isOpen: boolean) => {
+			isOpen ? el.setAttribute("data-open", "true") : el.removeAttribute("data-open");
+			menuButton.setAttribute("aria-expanded", String(isOpen));
+		};
+
 		const openMenu = () => {
-			el.setAttribute("data-open", "true");
+			setOpen(true);
 			drawer.show();
 		};
 
 		const closeMenu = () => {
-			el.removeAttribute("data-open");
+			setOpen(false);
 			drawer.hide();
 		};
 
@@ -26,7 +32,7 @@ export default (el: HTMLElement): void => {
 
 		drawer.addEventListener("sl-hide", (event: Event) => {
 			if (event.target === drawer) {
-				el.removeAttribute("data-open");
+				setOpen(false);
 			}
 		});
 	}

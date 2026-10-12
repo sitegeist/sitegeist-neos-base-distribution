@@ -5,6 +5,8 @@ export component Link {
     content: slot
     link?: LinkStruct
     component?: string
+    // "page" for the current page, "true" for a section it belongs to
+    ariaCurrent?: string
     variant: LinkVariant
 
     render
@@ -15,6 +17,7 @@ export component Link {
             title={link?.title}
             rel={link?.rel}
             target={link?.target}
+            aria-current={ariaCurrent}
             class={[
                 link !== null ? "cursor-pointer" : "",
                 match (variant) {

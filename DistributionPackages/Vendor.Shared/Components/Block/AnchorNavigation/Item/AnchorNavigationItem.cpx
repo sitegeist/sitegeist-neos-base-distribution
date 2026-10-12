@@ -11,6 +11,7 @@ export component AnchorNavigationItem {
             component="AnchorNavigationItem"
             link={link}
             variant={LinkVariant.VARIANT_DEFAULT}
+            ariaCurrent={null}
         >
             <span class="whitespace-nowrap px-24 py-16 group-data-[sticky=true]:px-0 group-data-[sticky=true]:py-16 group-data-[sticky=true]:pr-8 group-data-[sticky=true]:last:pr-0">
                 {title}

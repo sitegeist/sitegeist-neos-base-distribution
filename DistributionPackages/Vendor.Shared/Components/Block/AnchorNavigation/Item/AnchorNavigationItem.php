@@ -30,6 +30,7 @@ final readonly class AnchorNavigationItem implements _\ComponentInterface
                 ),
                 link: $link,
                 component: 'AnchorNavigationItem',
+                ariaCurrent: null,
                 variant: LinkVariant::VARIANT_DEFAULT,
             ),
         );

@@ -5,12 +5,15 @@ from "../../../Link/LinkVariant.cpx" import { LinkVariant }
 export component MainNavigationSubItem {
     link: LinkStruct
     label: string
+    // "page" for the current page, "true" for a section it belongs to
+    ariaCurrent?: string
 
     render
         <Link
             link={link}
             variant={LinkVariant.VARIANT_MENU_SUB_ITEM}
             component={null}
+            ariaCurrent={ariaCurrent}
         >
             <sl-menu-item class="max-lg:hidden">{label}</sl-menu-item>
             <span class="lg:hidden">{label}</span>

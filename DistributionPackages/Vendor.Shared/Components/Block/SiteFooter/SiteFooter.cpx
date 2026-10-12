@@ -42,8 +42,10 @@ export component SiteFooter {
                                 link={facebookLinkStruct}
                                 variant={LinkVariant.VARIANT_DEFAULT}
                                 component={null}
+                                ariaCurrent={null}
                             >
                                 <Icon icon="facebook" class="h-24 w-24" />
+                                <span class="sr-only">Facebook</span>
                             </Link>
                             : null}
                         {instagramLinkStruct !== null
@@ -51,8 +53,10 @@ export component SiteFooter {
                                 link={instagramLinkStruct}
                                 variant={LinkVariant.VARIANT_DEFAULT}
                                 component={null}
+                                ariaCurrent={null}
                             >
                                 <Icon icon="instagram" class="h-24 w-24" />
+                                <span class="sr-only">Instagram</span>
                             </Link>
                             : null}
                         {xingLinkStruct !== null
@@ -60,8 +64,10 @@ export component SiteFooter {
                                 link={xingLinkStruct}
                                 variant={LinkVariant.VARIANT_DEFAULT}
                                 component={null}
+                                ariaCurrent={null}
                             >
                                 <Icon icon="xing" class="h-24 w-24" />
+                                <span class="sr-only">XING</span>
                             </Link>
                             : null}
                         {xLinkStruct !== null
@@ -69,8 +75,10 @@ export component SiteFooter {
                                 link={xLinkStruct}
                                 variant={LinkVariant.VARIANT_DEFAULT}
                                 component={null}
+                                ariaCurrent={null}
                             >
                                 <Icon icon="x" class="h-24 w-24" />
+                                <span class="sr-only">X</span>
                             </Link>
                             : null}
                         {linkedinLinkStruct !== null
@@ -78,8 +86,10 @@ export component SiteFooter {
                                 link={linkedinLinkStruct}
                                 variant={LinkVariant.VARIANT_DEFAULT}
                                 component={null}
+                                ariaCurrent={null}
                             >
                                 <Icon icon="linkedin" class="h-24 w-24" />
+                                <span class="sr-only">LinkedIn</span>
                             </Link>
                             : null}
                     </div>

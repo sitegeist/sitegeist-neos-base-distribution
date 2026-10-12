@@ -32,6 +32,7 @@ final readonly class LinkedButton implements _\ComponentInterface
                 ),
                 link: $link,
                 component: 'LinkedButton',
+                ariaCurrent: null,
                 variant: LinkVariant::VARIANT_NONE,
             ),
         );

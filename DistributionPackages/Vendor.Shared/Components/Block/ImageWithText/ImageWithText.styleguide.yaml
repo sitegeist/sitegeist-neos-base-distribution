@@ -13,7 +13,7 @@ props: &defaultProps
     __type: "Vendor.Shared/Block/LinkedButton/LinkedButton.cpx"
   alignment:
     __type: "Vendor.Shared/Block/ImageWithText/ImageWithTextAlignment.cpx"
-    value: "Bild links"
+    value: "Bild zuerst"
   layout:
     __type: "Vendor.Shared/Block/ImageWithText/ImageWithTextLayout.cpx"
     value: "50-50"
@@ -24,7 +24,7 @@ useCases:
       <<: *defaultProps
       alignment:
         __type: "Vendor.Shared/Block/ImageWithText/ImageWithTextAlignment.cpx"
-        value: "Bild rechts"
+        value: "Text zuerst"
       layout:
         __type: "Vendor.Shared/Block/ImageWithText/ImageWithTextLayout.cpx"
         value: "66-33"

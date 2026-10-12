@@ -5,8 +5,11 @@ declare(strict_types=1);
 namespace Vendor\Site\Integration;
 
 use Neos\ContentRepository\Core\Projection\ContentGraph\ContentSubgraphInterface;
+use Neos\ContentRepository\Core\Projection\ContentGraph\Filter\FindAncestorNodesFilter;
 use Neos\ContentRepository\Core\Projection\ContentGraph\Filter\FindSubtreeFilter;
+use Neos\ContentRepository\Core\Projection\ContentGraph\Node;
 use Neos\ContentRepository\Core\Projection\ContentGraph\Subtree;
+use Neos\ContentRepository\Core\SharedModel\Node\NodeAggregateIds;
 use Neos\Neos\Domain\NodeLabel\NodeLabelGeneratorInterface;
 use Neos\Neos\NodeTypes\Document;
 use Neos\Neos\NodeTypes\Site;
@@ -36,6 +39,7 @@ final class MainNavigationItemFactory
      */
     public function fromRootNode(
         Site $site,
+        Node $documentNode,
         ContentSubgraphInterface $subgraph,
         NeosAccessInterface $neosAccess
     ): ?ComponentList {
@@ -51,13 +55,21 @@ final class MainNavigationItemFactory
             return null;
         }
 
+        // the current page and the sections it belongs to
+        $currentPath = $subgraph
+            ->findAncestorNodes($documentNode->aggregateId, FindAncestorNodesFilter::create())
+            ->toNodeAggregateIds()
+            ->merge(NodeAggregateIds::create($documentNode->aggregateId));
+
         /** @var list<MainNavigationItem> $childNavigationItems */
         $childNavigationItems = [];
         foreach ($subtree->children as $child) {
             $item = $this->createMainNavigationItemFromSubtree(
                 $child,
                 $subgraph,
-                $neosAccess
+                $neosAccess,
+                $documentNode,
+                $currentPath
             );
             if (!$item instanceof MainNavigationItem) {
                 continue;
@@ -73,6 +85,8 @@ final class MainNavigationItemFactory
         Subtree $subtree,
         ContentSubgraphInterface $subgraph,
         NeosAccessInterface $neos,
+        Node $documentNode,
+        NodeAggregateIds $currentPath,
         int $level = 1
     ): MainNavigationItem|MainNavigationSubItem|null {
         $childNavigationItems = [];
@@ -87,6 +101,8 @@ final class MainNavigationItemFactory
                 $child,
                 $subgraph,
                 $neos,
+                $documentNode,
+                $currentPath,
                 $level + 1
             );
             if ($menuItem) {
@@ -101,16 +117,24 @@ final class MainNavigationItemFactory
             target: LinkTarget::TARGET_SELF
         );
 
+        $ariaCurrent = match (true) {
+            $subtree->node->aggregateId->equals($documentNode->aggregateId) => 'page',
+            $currentPath->contain($subtree->node->aggregateId) => 'true',
+            default => null,
+        };
+
         if ($level === 1) {
             return MainNavigationItem::create(
                 link: $linkStruct,
                 label: $this->nodeLabelGenerator->getLabel($subtree->node),
+                ariaCurrent: $ariaCurrent,
                 items: ComponentList::list(...$childNavigationItems)
             );
         } else {
             return MainNavigationSubItem::create(
                 link: $linkStruct,
-                label: $this->nodeLabelGenerator->getLabel($subtree->node)
+                label: $this->nodeLabelGenerator->getLabel($subtree->node),
+                ariaCurrent: $ariaCurrent,
             );
         }
     }

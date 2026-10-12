@@ -5,6 +5,9 @@ from "Sitegeist.Kaleidoscope.Cpx/ImageSource/ImageSource.cpx" import { ImageSour
 export component Figure {
     image: ImageSource
     size?: FigureSize
+    // the size of the image itself, so browsers reserve its space before it is loaded
+    width?: integer
+    height?: integer
     isLazyLoaded: boolean
 
     render
@@ -17,8 +20,8 @@ export component Figure {
         >
             <Image
                 imageSource={image}
-                width={null}
-                height={null}
+                width={width}
+                height={height}
                 format={null}
                 srcset={match (size) {
                     FigureSize.SIZE_FIFTH_HALF_FULL -> "320w, 640w",
@@ -37,7 +40,7 @@ export component Figure {
                     FigureSize.SIZE_DEFAULT, null -> "100vw"
                 }}
                 loading={isLazyLoaded ? "lazy" : "eager"}
-                fetchpriority={null}
+                fetchpriority={isLazyLoaded ? null : "high"}
                 alt={null}
                 title={null}
                 class="w-full h-full object-cover"

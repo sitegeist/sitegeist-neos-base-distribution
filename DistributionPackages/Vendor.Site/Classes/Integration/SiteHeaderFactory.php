@@ -39,10 +39,12 @@ final class SiteHeaderFactory
                 ),
                 component: null,
                 variant: LinkVariant::VARIANT_MENU_ITEM,
+                ariaCurrent: null,
             ),
             mainNavigation: MainNavigation::create(
                 items: $this->mainNavigationItemFactory->fromRootNode(
                     $context->site,
+                    $context->documentNode,
                     $context->subgraph,
                     $context->neos
                 )

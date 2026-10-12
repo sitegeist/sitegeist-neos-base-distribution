@@ -1,0 +1,9 @@
+#!/bin/bash
+
+## Description: Cleanup PHP and Node dependencies/artifacts
+## Usage: cleanup
+
+set -eu -o pipefail
+
+composer cleanup:php
+yarn cleanup:node

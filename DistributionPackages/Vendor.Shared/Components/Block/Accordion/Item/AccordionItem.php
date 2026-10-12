@@ -19,9 +19,11 @@ final readonly class AccordionItem implements _\ComponentInterface
         private bool $initialOpen,
         private bool $inBackend,
         private ?_\ComponentInterface $button,
-        private Headline $_32_16_Headline,
-        private Icon $_38_16_Icon,
-        private Icon $_39_16_Icon,
+        private Headline $_18_24_Headline,
+        private Icon $_24_24_Icon,
+        private Headline $_33_24_Headline,
+        private Icon $_41_24_Icon,
+        private Icon $_44_24_Icon,
     ) {
     }
 
@@ -37,19 +39,29 @@ final readonly class AccordionItem implements _\ComponentInterface
             initialOpen: $initialOpen,
             inBackend: $inBackend,
             button: is_string($button) ? _\StringComponent::fromString($button) : $button,
-            _32_16_Headline: Headline::create(
+            _18_24_Headline: Headline::create(
                 content: (is_string(($temp = $headline)) ? _\StringComponent::fromString($temp) : $temp),
                 variant: HeadlineVariant::VARIANT_REGULAR,
                 size: HeadlineSize::SIZE_MD,
-                tag: HeadlineTag::TAG_H2,
+                tag: HeadlineTag::TAG_H3,
             ),
-            _38_16_Icon: Icon::create(
-                icon: 'plus',
-                class: 'w-32 h-32 group-open/accordion:hidden',
-            ),
-            _39_16_Icon: Icon::create(
+            _24_24_Icon: Icon::create(
                 icon: 'minus',
-                class: 'w-32 h-32 hidden group-open/accordion:block',
+                class: 'w-32 h-32 shrink-0',
+            ),
+            _33_24_Headline: Headline::create(
+                content: (is_string(($temp = $headline)) ? _\StringComponent::fromString($temp) : $temp),
+                variant: HeadlineVariant::VARIANT_REGULAR,
+                size: HeadlineSize::SIZE_MD,
+                tag: HeadlineTag::TAG_H3,
+            ),
+            _41_24_Icon: Icon::create(
+                icon: 'plus',
+                class: 'w-32 h-32',
+            ),
+            _44_24_Icon: Icon::create(
+                icon: 'minus',
+                class: 'w-32 h-32',
             ),
         );
     }
@@ -57,6 +69,6 @@ final readonly class AccordionItem implements _\ComponentInterface
     #[\Override]
     public function render(): string
     {
-        return '<' . ($_14_8_tag = ($this->inBackend ? 'div' : 'details')) . ' data-component="AccordionItem" class="' . _\Util::joinAttributeValues('w-full group/accordion last:border-b-2 last:border-brand', '[&amp;:has(&gt;summary:hover)+details&gt;summary]:border-highlight', '[&amp;:has(&gt;summary:hover)]:border-highlight', ($this->inBackend ? '' : 'overflow-hidden')) . '"' . ($this->initialOpen ? ' open' : '') . '><summary class="' . _\Util::joinAttributeValues('w-full py-24 flex justify-between items-center', 'border-t-2 border-brand marker:hidden hover:border-highlight', ((!$this->inBackend) ? 'cursor-pointer hover:text-highlight select-none' : '')) . '">' . $this->_32_16_Headline->render() . $this->_38_16_Icon->render() . $this->_39_16_Icon->render() . '</summary><div class="flex flex-col gap-16 md:gap-24 pb-24 pt-2 m:pt-4 l:pt-8 xl:pt-16">' . ((($temp = $this->content) === null) ? '' : $temp->render()) . ((($temp = $this->button) === null) ? '' : $temp->render()) . '</div></' . $_14_8_tag . '>';
+        return ($this->inBackend ? '<div data-component="AccordionItem" class="accordion-item w-full"><div class="w-full py-24 flex justify-between items-center gap-16">' . $this->_18_24_Headline->render() . $this->_24_24_Icon->render() . '</div><div class="flex flex-col gap-16 md:gap-24 pb-24">' . ((($temp = $this->content) === null) ? '' : $temp->render()) . ((($temp = $this->button) === null) ? '' : $temp->render()) . '</div></div>' : '<sl-details data-component="AccordionItem" class="accordion-item w-full"' . ($this->initialOpen ? ' open' : '') . '><div slot="summary">' . $this->_33_24_Headline->render() . '</div><span slot="expand-icon" class="accordion-item__icon">' . $this->_41_24_Icon->render() . '</span><span slot="collapse-icon" class="accordion-item__icon">' . $this->_44_24_Icon->render() . '</span><div class="flex flex-col gap-16 md:gap-24">' . ((($temp = $this->content) === null) ? '' : $temp->render()) . ((($temp = $this->button) === null) ? '' : $temp->render()) . '</div></sl-details>');
     }
 }

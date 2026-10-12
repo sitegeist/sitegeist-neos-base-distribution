@@ -20,3 +20,41 @@ sl-details::part(header),
 sl-details::part(content) {
 	@apply px-0 py-8;
 }
+
+/* Accordion item: the frontend renders an sl-details, the backend a plain div with the same class */
+.accordion-item {
+	@apply border-t-2 border-brand transition-colors duration-200 last:border-b-2;
+}
+
+sl-details.accordion-item:hover {
+	@apply border-highlight;
+}
+
+sl-details.accordion-item::part(base) {
+	@apply rounded-none border-none bg-transparent;
+}
+
+sl-details.accordion-item::part(header) {
+	@apply h-auto gap-16 px-0 py-24 cursor-pointer select-none;
+}
+
+sl-details.accordion-item:hover::part(header) {
+	@apply text-highlight;
+}
+
+sl-details.accordion-item::part(header):focus-visible {
+	@apply outline-2 outline-offset-2 outline-highlight;
+}
+
+/* the icons are swapped through the expand and collapse slots, Shoelace would rotate them as well */
+sl-details.accordion-item::part(summary-icon) {
+	rotate: none;
+}
+
+sl-details.accordion-item::part(content) {
+	@apply px-0 pt-0 pb-24;
+}
+
+.accordion-item__icon {
+	@apply flex;
+}

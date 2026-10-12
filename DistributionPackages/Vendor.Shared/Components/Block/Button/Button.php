@@ -16,7 +16,9 @@ final readonly class Button implements _\ComponentInterface
         private ?_\ComponentInterface $content,
         private ButtonTag $tag,
         private ButtonVariant $variant,
-        private Icon $_29_12_Icon,
+        private ?string $ariaLabel,
+        private ?bool $disabled,
+        private Icon $_35_12_Icon,
     ) {
     }
 
@@ -24,12 +26,16 @@ final readonly class Button implements _\ComponentInterface
         _\ComponentInterface|string|null $content,
         ButtonTag $tag,
         ButtonVariant $variant,
+        ?string $ariaLabel,
+        ?bool $disabled,
     ): self {
         return new self(
             content: is_string($content) ? _\StringComponent::fromString($content) : $content,
             tag: $tag,
             variant: $variant,
-            _29_12_Icon: Icon::create(
+            ariaLabel: $ariaLabel,
+            disabled: $disabled,
+            _35_12_Icon: Icon::create(
                 icon: 'arrow-right',
                 class: 'w-24 h-24',
             ),
@@ -39,6 +45,6 @@ final readonly class Button implements _\ComponentInterface
     #[\Override]
     public function render(): string
     {
-        return '<' . ($_10_8_tag = $this->tag->asString()) . ' data-component="Button" class="' . _\Util::joinAttributeValues('flex gap-16 items-center w-fit copy-medium', match ($this->tag) { ButtonTag::TAG_BUTTON => 'cursor-pointer', default => '' }, match ($this->variant) { ButtonVariant::VARIANT_REGULAR => 'border min-w-touch min-h-touch border-brand px-24 py-8 hover:text-highlight hover:border-highlight', ButtonVariant::VARIANT_SOLID => 'bg-brand min-w-touch min-h-touch text-brand-contrast px-24 py-8 hover:bg-highlight', ButtonVariant::VARIANT_GHOST => 'hover:text-highlight' }) . '">' . ((($temp = $this->content) === null) ? '' : $temp->render()) . $this->_29_12_Icon->render() . '</' . $_10_8_tag . '>';
+        return '<' . ($_13_8_tag = $this->tag->asString()) . ' data-component="Button"' . ((($temp = $this->ariaLabel) === null) ? '' : ' aria-label="' . _\Util::escapeAttributeValue($temp) . '"') . ((($temp = $this->disabled) === null) ? '' : ($temp ? ' disabled' : '')) . ' class="' . _\Util::joinAttributeValues('flex gap-16 items-center w-fit copy-medium', 'disabled:cursor-not-allowed disabled:opacity-50', match ($this->tag) { ButtonTag::TAG_BUTTON => 'cursor-pointer', default => '' }, match ($this->variant) { ButtonVariant::VARIANT_REGULAR => 'border min-w-touch min-h-touch border-brand px-24 py-8 hover:text-highlight hover:border-highlight', ButtonVariant::VARIANT_SOLID => 'bg-brand min-w-touch min-h-touch text-brand-contrast px-24 py-8 hover:bg-highlight', ButtonVariant::VARIANT_GHOST => 'hover:text-highlight' }) . '">' . ((($temp = $this->content) === null) ? '' : $temp->render()) . $this->_35_12_Icon->render() . '</' . $_13_8_tag . '>';
     }
 }

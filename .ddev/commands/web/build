@@ -1,0 +1,9 @@
+#!/bin/bash
+
+## Description: Build frontend assets
+## Usage: build
+
+set -eu -o pipefail
+
+composer build:cpx
+yarn build

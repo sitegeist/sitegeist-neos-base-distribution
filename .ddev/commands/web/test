@@ -1,0 +1,9 @@
+#!/bin/bash
+
+## Description: Run project tests
+## Usage: test
+
+set -eu -o pipefail
+
+composer test
+yarn test

@@ -5,6 +5,8 @@ from "../../../Link/LinkVariant.cpx" import { LinkVariant }
 export component MainNavigationItem {
     link: LinkStruct
     label: string
+    // "page" for the current page, "true" for a section it belongs to
+    ariaCurrent?: string
     items: slot
 
     render
@@ -16,6 +18,7 @@ export component MainNavigationItem {
                             link={link}
                             variant={LinkVariant.VARIANT_MENU_ITEM}
                             component={null}
+                            ariaCurrent={ariaCurrent}
                         >
                             {label}
                         </Link>
@@ -36,6 +39,7 @@ export component MainNavigationItem {
                                 link={link}
                                 variant={LinkVariant.VARIANT_MENU_ITEM}
                                 component={null}
+                                ariaCurrent={ariaCurrent}
                             >
                                 {label}
                             </Link>
@@ -49,6 +53,7 @@ export component MainNavigationItem {
                     link={link}
                     variant={LinkVariant.VARIANT_MENU_ITEM}
                     component={null}
+                    ariaCurrent={ariaCurrent}
                 >
                     {label}
                 </Link>}

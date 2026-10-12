@@ -4,8 +4,10 @@ export component MenuButton {
             class="relative z-30 flex h-24 w-24 items-center justify-center shrink-0 cursor-pointer lg:hidden hover:text-highlight"
             data-menu-button
             aria-label="Toggle menu"
+            aria-expanded="false"
         >
             <svg
+                aria-hidden="true"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"

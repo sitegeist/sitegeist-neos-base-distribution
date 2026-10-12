@@ -1,0 +1,15 @@
+#!/bin/bash
+
+## Description: Run all linters
+## Usage: lint
+
+set -eu -o pipefail
+
+echo "Lint .editorconfig"
+composer lint:editorconfig
+
+echo "Lint PHP sources"
+composer lint
+
+echo "Lint CSS/TS sources"
+yarn lint

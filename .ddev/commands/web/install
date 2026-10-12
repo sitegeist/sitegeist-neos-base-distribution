@@ -1,0 +1,22 @@
+#!/bin/bash
+
+## Description: Install the project
+## Usage: install
+
+set -eu -o pipefail
+
+mkdir -p Data/Logs
+
+if [ -z "${CI+x}" ]; then
+  mkdir -p .git/hooks
+  {
+    echo "#!/bin/sh"
+    echo "ddev lint"
+  } > .git/hooks/pre-commit
+  chmod +x .git/hooks/pre-commit
+fi
+
+composer install
+yarn
+./flow flow:package:rescan
+composer flush

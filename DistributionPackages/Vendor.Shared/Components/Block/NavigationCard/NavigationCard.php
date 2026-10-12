@@ -41,7 +41,7 @@ final readonly class NavigationCard implements _\ComponentInterface
                 content: (is_string(($temp = $headline)) ? _\StringComponent::fromString($temp) : $temp),
                 variant: HeadlineVariant::VARIANT_REGULAR,
                 size: HeadlineSize::SIZE_MD,
-                tag: HeadlineTag::TAG_DIV,
+                tag: HeadlineTag::TAG_H3,
             ),
             _38_16_Copy: Copy::create(
                 content: (is_string(($temp = $text)) ? _\StringComponent::fromString($temp) : $temp),
@@ -51,6 +51,8 @@ final readonly class NavigationCard implements _\ComponentInterface
                 content: null,
                 tag: ButtonTag::TAG_SPAN,
                 variant: ButtonVariant::VARIANT_GHOST,
+                ariaLabel: null,
+                disabled: null,
             ),
         );
     }

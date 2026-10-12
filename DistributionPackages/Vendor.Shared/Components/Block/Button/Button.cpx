@@ -6,13 +6,19 @@ export component Button {
     content: slot
     tag: ButtonTag
     variant: ButtonVariant
+    // for buttons without a visible label
+    ariaLabel?: string
+    disabled?: boolean
 
     render
         <element
             data-component="Button"
             tagName={tag}
+            aria-label={ariaLabel}
+            disabled={disabled}
             class={[
                 "flex gap-16 items-center w-fit copy-medium",
+                "disabled:cursor-not-allowed disabled:opacity-50",
                 match (tag) {
                     ButtonTag.TAG_BUTTON -> "cursor-pointer",
                     default -> ""

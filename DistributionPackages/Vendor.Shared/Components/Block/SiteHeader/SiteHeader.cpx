@@ -14,6 +14,17 @@ export component SiteHeader {
                 "grid grid-cols-subgrid z-50 bg-brand-grey h-header"
             ]}
         >
+            <a
+                href="#main-content"
+                class={[
+                    // keyboard users skip the navigation, the link only moves into view once it is focused
+                    "absolute left-16 top-8 z-60 -translate-y-[200%] focus:translate-y-0",
+                    "rounded-full bg-white px-24 py-12 shadow-lg",
+                    "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight"
+                ]}
+            >
+                Zum Inhalt springen
+            </a>
             <div class="col-span-content-full flex justify-between w-full items-center">
                 {homeLink}
                 {mainNavigation}

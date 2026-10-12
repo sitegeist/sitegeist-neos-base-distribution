@@ -1,0 +1,27 @@
+# Adds a width to all PaperTiger form fields. It is rendered as data-field-width on the field
+# container by the FieldWidthNodeRendererProvider and laid out by Resources/Private/Styles/PaperTiger.css
+'Sitegeist.PaperTiger.CPX:Field.FormField':
+  properties:
+    width:
+      type: string
+      ui:
+        label: 'Breite'
+        reloadIfChanged: true
+        inspector:
+          group: 'form'
+          position: 900
+          editor: 'Neos.Neos/Inspector/Editors/SelectBoxEditor'
+          editorOptions:
+            allowEmpty: true
+            placeholder: 'Volle Breite'
+            values:
+              half:
+                label: 'Halb'
+              oneThird:
+                label: 'Ein Drittel'
+              twoThirds:
+                label: 'Zwei Drittel'
+              oneSixth:
+                label: 'Ein Sechstel'
+              fiveSixths:
+                label: 'Fünf Sechstel'

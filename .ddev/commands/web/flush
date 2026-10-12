@@ -1,0 +1,8 @@
+#!/bin/bash
+
+## Description: Flush Flow caches, rescan packages, migrate database, and publish resources
+## Usage: flush
+
+set -eu -o pipefail
+
+composer flush

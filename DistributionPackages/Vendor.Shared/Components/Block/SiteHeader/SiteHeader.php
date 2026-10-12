@@ -19,7 +19,7 @@ final readonly class SiteHeader implements _\ComponentInterface
     private function __construct(
         private Link|_\ComponentEnvelopeInterface $homeLink,
         private MainNavigation|_\ComponentEnvelopeInterface $mainNavigation,
-        private MenuButton $_19_16_MenuButton,
+        private MenuButton $_30_16_MenuButton,
     ) {
     }
 
@@ -34,13 +34,13 @@ final readonly class SiteHeader implements _\ComponentInterface
         return new self(
             homeLink: $homeLink,
             mainNavigation: $mainNavigation,
-            _19_16_MenuButton: MenuButton::create(),
+            _30_16_MenuButton: MenuButton::create(),
         );
     }
 
     #[\Override]
     public function render(): string
     {
-        return '<header data-component="SiteHeader" class="' . _\Util::joinAttributeValues('group/SiteHeader col-span-full sticky top-0', 'grid grid-cols-subgrid z-50 bg-brand-grey h-header') . '"><div class="col-span-content-full flex justify-between w-full items-center">' . $this->homeLink->render() . $this->mainNavigation->render() . $this->_19_16_MenuButton->render() . '</div></header>';
+        return '<header data-component="SiteHeader" class="' . _\Util::joinAttributeValues('group/SiteHeader col-span-full sticky top-0', 'grid grid-cols-subgrid z-50 bg-brand-grey h-header') . '"><a href="#main-content" class="' . _\Util::joinAttributeValues('absolute left-16 top-8 z-60 -translate-y-[200%] focus:translate-y-0', 'rounded-full bg-white px-24 py-12 shadow-lg', 'focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-highlight') . '">Zum Inhalt springen</a><div class="col-span-content-full flex justify-between w-full items-center">' . $this->homeLink->render() . $this->mainNavigation->render() . $this->_30_16_MenuButton->render() . '</div></header>';
     }
 }
