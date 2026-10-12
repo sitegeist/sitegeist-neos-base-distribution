@@ -1,6 +1,6 @@
 export component Icon {
     icon: string
-    class: ?string
+    class?: string
 
     render
         <svg

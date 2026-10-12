@@ -6,10 +6,10 @@ export component Label {
     render
         <label for={label.inputId} class="papertiger-field__label" data-custom-label>
             <span class="papertiger-field__label-text">{label.label}</span>
-            {(!label.isRequired && label.label)
+            {(label.isRequired !== true && label.label !== null)
                 ? <span class="papertiger-field__optional">(optional)</span>
                 : null}
-            {(label.isRequired && label.label)
+            {(label.isRequired === true && label.label !== null)
                 ? <span class="papertiger-field__required">*</span>
                 : null}
         </label>

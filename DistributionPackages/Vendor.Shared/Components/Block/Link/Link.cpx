@@ -3,30 +3,30 @@ from "./LinkVariant.cpx" import { LinkVariant }
 
 export component Link {
     content: slot
-    link: ?LinkStruct
-    component: ?string
+    link?: LinkStruct
+    component?: string
     variant: LinkVariant
 
     render
         <element
-            tagName={link ? "a" : "div"}
-            data-component={component ? component : "Link"}
+            tagName={link !== null ? "a" : "div"}
+            data-component={component !== null ? component : "Link"}
             href={link?.href}
             title={link?.title}
             rel={link?.rel}
             target={link?.target}
             class={[
-                link ? "cursor-pointer" : "",
+                link !== null ? "cursor-pointer" : "",
                 match (variant) {
                     LinkVariant.VARIANT_NONE -> "w-fit",
                     LinkVariant.VARIANT_DEFAULT ->
-                        link ? "link-medium hover:text-highlight flex" : "link-medium flex",
+                        link !== null ? "link-medium hover:text-highlight flex" : "link-medium flex",
                     LinkVariant.VARIANT_MENU_ITEM ->
-                        link
+                        link !== null
                             ? "link-large lg:link-medium hover:text-highlight flex h-full items-center"
                             : "link-large lg:link-medium flex h-full items-center",
                     LinkVariant.VARIANT_MENU_SUB_ITEM ->
-                        link
+                        link !== null
                             ? "link-medium lg:link-small hover:text-highlight"
                             : "link-medium lg:link-small"
                 }

@@ -73,7 +73,7 @@
 		"post-package-update": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
 		"post-package-install": "Neos\\Flow\\Composer\\InstallerScripts::postPackageUpdateAndInstall",
 		"post-create-project-cmd": "ddev config --project-name=`basename \"$PWD\"`",
-		"build:cpx": "./flow components:build 'PackageFactory.Neos.Seo, Sitegeist.PaperTiger.CPX, Vendor.Shared'",
+		"build:cpx": "./flow components:build 'Vendor.Shared'",
 		"flush": [
 			"./flow flow:cache:flush --force",
 			"./flow flow:package:rescan",
@@ -147,7 +147,7 @@
 		},
 		"sitegeist/papertiger-cpx": {
 			"type": "vcs",
-			"url": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX"
+			"url": "https://github.com/sitegeist/Sitegeist.PaperTiger.CPX"
 		},
 		"packagefactory/opgm": {
 			"type": "vcs",

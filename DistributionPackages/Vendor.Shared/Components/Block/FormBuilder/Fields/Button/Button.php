@@ -13,7 +13,7 @@ final readonly class Button implements _\ComponentInterface
 {
     private function __construct(
         private ButtonFieldProps $field,
-        private Icon $_812_Icon,
+        private Icon $_8_12_Icon,
     ) {
     }
 
@@ -22,7 +22,7 @@ final readonly class Button implements _\ComponentInterface
     ): self {
         return new self(
             field: $field,
-            _812_Icon: Icon::create(
+            _8_12_Icon: Icon::create(
                 icon: 'spinner',
                 class: 'papertiger-field__button-spinner h-20 w-20 mr-8 animate-spin',
             ),
@@ -32,6 +32,6 @@ final readonly class Button implements _\ComponentInterface
     #[\Override]
     public function render(): string
     {
-        return '<button type="submit" class="papertiger-field__button papertiger-field__button--submit">' . $this->_812_Icon->render() . '<span class="papertiger-field__button-label">' . ((($temp = $this->field->label) === null) ? '' : _\Util::escapeText($temp)) . '</span></button>';
+        return '<button type="submit" class="papertiger-field__button papertiger-field__button--submit">' . $this->_8_12_Icon->render() . '<span class="papertiger-field__button-label">' . ((($temp = $this->field->label) === null) ? '' : _\Util::escapeText($temp)) . '</span></button>';
     }
 }

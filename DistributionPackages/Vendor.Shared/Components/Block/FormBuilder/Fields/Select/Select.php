@@ -13,8 +13,8 @@ use Vendor\Shared\Components\Block\FormBuilder\Fields\InvalidIcon\InvalidIcon;
 final readonly class Select implements _\ComponentInterface
 {
     private function __construct(
-        private SelectField $_1012_SelectField,
-        private InvalidIcon $_1112_InvalidIcon,
+        private SelectField $_10_12_SelectField,
+        private InvalidIcon $_11_12_InvalidIcon,
     ) {
     }
 
@@ -23,19 +23,19 @@ final readonly class Select implements _\ComponentInterface
         _\ComponentInterface|string|null $content,
     ): self {
         return new self(
-            _1012_SelectField: SelectField::create(
+            _10_12_SelectField: SelectField::create(
                 field: $field,
                 content: _\SlotComponent::list(
                     (is_string(($temp = $content)) ? _\Util::escapeText($temp) : $temp),
                 ),
             ),
-            _1112_InvalidIcon: InvalidIcon::create(),
+            _11_12_InvalidIcon: InvalidIcon::create(),
         );
     }
 
     #[\Override]
     public function render(): string
     {
-        return '<div class="relative">' . $this->_1012_SelectField->render() . $this->_1112_InvalidIcon->render() . '</div>';
+        return '<div class="relative">' . $this->_10_12_SelectField->render() . $this->_11_12_InvalidIcon->render() . '</div>';
     }
 }

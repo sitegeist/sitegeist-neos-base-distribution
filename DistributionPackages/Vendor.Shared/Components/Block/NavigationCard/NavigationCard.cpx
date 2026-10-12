@@ -13,11 +13,11 @@ export component NavigationCard {
     figure: slot
     headline: slot
     text: slot
-    link: ?LinkStruct
+    link?: LinkStruct
 
     render
         <element
-            tagName={link ? "a" : "div"}
+            tagName={link !== null ? "a" : "div"}
             data-component="NavigationCard"
             href={link?.href}
             title={link?.title}
@@ -25,7 +25,7 @@ export component NavigationCard {
             target={link?.target}
             class={[
                 "flex flex-col w-full h-full relative bg-brand-grey",
-                link ? "cursor-pointer hover:text-highlight" : ""
+                link !== null ? "cursor-pointer hover:text-highlight" : ""
             ]}
         >
             <div class="w-full aspect-4/3 overflow-hidden shrink-0">{figure}</div>

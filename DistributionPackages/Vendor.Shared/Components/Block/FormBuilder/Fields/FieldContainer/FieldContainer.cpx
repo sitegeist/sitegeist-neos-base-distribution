@@ -9,7 +9,7 @@ export component FieldContainer {
     render
         <div
             id={fieldContainer.id}
-            class={fieldContainer.hasErrors
+            class={fieldContainer.hasErrors === true
                 ? "papertiger-field papertiger-field--invalid showInvalid group"
                 : "papertiger-field group"}
             data-form-field

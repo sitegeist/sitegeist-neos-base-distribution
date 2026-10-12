@@ -5,7 +5,7 @@ export component ContentContainer {
     tagName: ContentContainerTag
     variant: ContentContainerVariant
     content: slot
-    anchorId: ?string
+    anchorId?: string
 
     render
         <element

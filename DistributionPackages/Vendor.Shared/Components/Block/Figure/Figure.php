@@ -13,7 +13,7 @@ use Vendor\Shared\Components\Block\Figure\FigureSize;
 final readonly class Figure implements _\ComponentInterface
 {
     private function __construct(
-        private Image $_1712_Image,
+        private Image $_17_12_Image,
     ) {
     }
 
@@ -23,7 +23,7 @@ final readonly class Figure implements _\ComponentInterface
         bool $isLazyLoaded,
     ): self {
         return new self(
-            _1712_Image: Image::create(
+            _17_12_Image: Image::create(
                 imageSource: $image,
                 srcset: match ($size) { FigureSize::SIZE_FIFTH_HALF_FULL => '320w, 640w', FigureSize::SIZE_THIRD_HALF_FULL => '320w, 640w', FigureSize::SIZE_HALF_FULL_FULL => '320w, 640w, 870w', FigureSize::SIZE_FULL_FULL_FULL => '320w, 640w, 1000w, 1200w, 1440w, 1600w', FigureSize::SIZE_DEFAULT, null => '320w, 640w, 1000w, 1200w, 1440w, 1600w' },
                 sizes: match ($size) { FigureSize::SIZE_FIFTH_HALF_FULL => '(min-width: 1024px) 20vw, (min-width: 640px) 50vw, 100vw', FigureSize::SIZE_THIRD_HALF_FULL => '(min-width: 640px) 50vw, (min-width: 1024px) 33vw, 100vw', FigureSize::SIZE_HALF_FULL_FULL => '(min-width: 768px) 50vw, 100vw', FigureSize::SIZE_FULL_FULL_FULL => '100vw', FigureSize::SIZE_DEFAULT, null => '100vw' },
@@ -34,6 +34,7 @@ final readonly class Figure implements _\ComponentInterface
                 format: null,
                 class: 'w-full h-full object-cover',
                 loading: ($isLazyLoaded ? 'lazy' : 'eager'),
+                fetchpriority: null,
             ),
         );
     }
@@ -41,6 +42,6 @@ final readonly class Figure implements _\ComponentInterface
     #[\Override]
     public function render(): string
     {
-        return '<figure data-component="Figure" class="' . _\Util::joinAttributeValues('[Block.Figure]', 'w-full h-full flex flex-col max-h-full relative') . '">' . $this->_1712_Image->render() . '</figure>';
+        return '<figure data-component="Figure" class="' . _\Util::joinAttributeValues('[Block.Figure]', 'w-full h-full flex flex-col max-h-full relative') . '">' . $this->_17_12_Image->render() . '</figure>';
     }
 }

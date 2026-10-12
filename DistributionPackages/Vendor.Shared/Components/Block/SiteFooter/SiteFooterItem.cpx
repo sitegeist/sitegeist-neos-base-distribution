@@ -4,7 +4,7 @@ export component SiteFooterItem {
 
     render
         <div class="text-center lg:text-left flex flex-col gap-24">
-            {title ? <div class="text-center lg:text-left font-bold">{title}</div> : null}
+            {title !== null ? <div class="text-center lg:text-left font-bold">{title}</div> : null}
             {content}
         </div>
 }

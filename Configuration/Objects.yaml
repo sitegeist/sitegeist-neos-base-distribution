@@ -1,0 +1,5 @@
+# AltchaService gets its cache from a factory, which Flow can only resolve when the service is
+# fetched from the object manager - as a prototype it is built with "new" and the proxy build fails.
+# @todo remove once Sitegeist.PaperTiger.CPX declares the service a singleton itself
+Sitegeist\PaperTiger\CPX\Infrastructure\AltchaService:
+  scope: singleton

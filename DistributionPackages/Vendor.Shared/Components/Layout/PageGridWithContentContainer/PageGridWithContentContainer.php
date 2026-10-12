@@ -14,7 +14,7 @@ use Vendor\Shared\Components\Layout\Grid\PageGrid;
 final readonly class PageGridWithContentContainer implements _\ComponentInterface
 {
     private function __construct(
-        private PageGrid $_98_PageGrid,
+        private PageGrid $_9_8_PageGrid,
     ) {
     }
 
@@ -22,7 +22,7 @@ final readonly class PageGridWithContentContainer implements _\ComponentInterfac
         _\ComponentInterface|string|null $content,
     ): self {
         return new self(
-            _98_PageGrid: PageGrid::create(
+            _9_8_PageGrid: PageGrid::create(
                 content: _\SlotComponent::list(
                     ContentContainer::create(
                         tagName: ContentContainerTag::TAG_SECTION,
@@ -40,6 +40,6 @@ final readonly class PageGridWithContentContainer implements _\ComponentInterfac
     #[\Override]
     public function render(): string
     {
-        return $this->_98_PageGrid->render();
+        return $this->_9_8_PageGrid->render();
     }
 }

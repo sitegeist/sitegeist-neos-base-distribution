@@ -14,7 +14,7 @@ use Vendor\Shared\Components\Block\Link\LinkVariant;
 final readonly class LinkedButton implements _\ComponentInterface
 {
     private function __construct(
-        private Link $_108_Link,
+        private Link $_10_8_Link,
     ) {
     }
 
@@ -26,7 +26,7 @@ final readonly class LinkedButton implements _\ComponentInterface
         LinkStruct $link,
     ): self {
         return new self(
-            _108_Link: Link::create(
+            _10_8_Link: Link::create(
                 content: _\SlotComponent::list(
                     $button,
                 ),
@@ -40,6 +40,6 @@ final readonly class LinkedButton implements _\ComponentInterface
     #[\Override]
     public function render(): string
     {
-        return $this->_108_Link->render();
+        return $this->_10_8_Link->render();
     }
 }

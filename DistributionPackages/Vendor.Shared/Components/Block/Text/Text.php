@@ -18,7 +18,7 @@ use Vendor\Shared\Components\Layout\Grid\ContentGrid;
 final readonly class Text implements _\ComponentInterface
 {
     private function __construct(
-        private ContentGrid $_168_ContentGrid,
+        private ContentGrid $_16_8_ContentGrid,
     ) {
     }
 
@@ -29,7 +29,7 @@ final readonly class Text implements _\ComponentInterface
         _\ComponentInterface|string|null $button,
     ): self {
         return new self(
-            _168_ContentGrid: ContentGrid::create(
+            _16_8_ContentGrid: ContentGrid::create(
                 content: _\SlotComponent::list(
                     '<div class="' . _\Util::joinAttributeValues('col-span-full', match ($columns) { TextColumns::COLUMNS_TWO_COLUMNS => 'sm:col-span-full md:col-span-4 xl:col-span-6', default => 'sm:col-span-full' }) . '">',
                     Headline::create(
@@ -55,6 +55,6 @@ final readonly class Text implements _\ComponentInterface
     #[\Override]
     public function render(): string
     {
-        return $this->_168_ContentGrid->render();
+        return $this->_16_8_ContentGrid->render();
     }
 }

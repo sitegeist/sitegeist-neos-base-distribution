@@ -13,7 +13,7 @@ use Vendor\Shared\Components\Layout\Grid\ContentGrid;
 final readonly class Quotation implements _\ComponentInterface
 {
     private function __construct(
-        private ContentGrid $_118_ContentGrid,
+        private ContentGrid $_11_8_ContentGrid,
     ) {
     }
 
@@ -24,7 +24,7 @@ final readonly class Quotation implements _\ComponentInterface
         _\ComponentInterface|string|null $spokenByJobTitle,
     ): self {
         return new self(
-            _118_ContentGrid: ContentGrid::create(
+            _11_8_ContentGrid: ContentGrid::create(
                 content: _\SlotComponent::list(
                     '<div class="col-span-full md:col-span-3 xl:col-span-4">',
                     '<div class="w-full aspect-square rounded-full overflow-hidden">',
@@ -59,6 +59,6 @@ final readonly class Quotation implements _\ComponentInterface
     #[\Override]
     public function render(): string
     {
-        return $this->_118_ContentGrid->render();
+        return $this->_11_8_ContentGrid->render();
     }
 }

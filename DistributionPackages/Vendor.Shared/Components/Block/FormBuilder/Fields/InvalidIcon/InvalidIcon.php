@@ -11,14 +11,14 @@ use Vendor\Shared\Components\Block\Icon\Icon;
 final readonly class InvalidIcon implements _\ComponentInterface
 {
     private function __construct(
-        private Icon $_48_Icon,
+        private Icon $_4_8_Icon,
     ) {
     }
 
     public static function create(): self
     {
         return new self(
-            _48_Icon: Icon::create(
+            _4_8_Icon: Icon::create(
                 icon: 'alert',
                 class: 'papertiger-field__invalid-icon',
             ),
@@ -28,6 +28,6 @@ final readonly class InvalidIcon implements _\ComponentInterface
     #[\Override]
     public function render(): string
     {
-        return $this->_48_Icon->render();
+        return $this->_4_8_Icon->render();
     }
 }

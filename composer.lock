@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ecfc3a25650873213e52a8f22f86f543",
+    "content-hash": "9cdb7618bdbfecabdeff6edf5bbf9323",
     "packages": [
         {
             "name": "altcha-org/altcha",
@@ -6417,16 +6417,16 @@
         },
         {
             "name": "packagefactory/component-engine",
-            "version": "1.0.0-alpha7",
+            "version": "1.0.0-alpha9",
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/component-engine.git",
-                "reference": "dd2cd30f678bda4ef0fbcef07fdaa28448bdf667"
+                "reference": "9c8b96c9f4b99ed68b8dec8ae8778d94fa989d9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/component-engine/archive/dd2cd30f678bda4ef0fbcef07fdaa28448bdf667.zip",
-                "reference": "dd2cd30f678bda4ef0fbcef07fdaa28448bdf667",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/component-engine/archive/9c8b96c9f4b99ed68b8dec8ae8778d94fa989d9d.zip",
+                "reference": "9c8b96c9f4b99ed68b8dec8ae8778d94fa989d9d",
                 "shasum": ""
             },
             "require": {
@@ -6434,7 +6434,7 @@
             },
             "require-dev": {
                 "behat/behat": "^3.27",
-                "packagefactory/grammar": "~0.11.0",
+                "packagefactory/grammar": "~0.13.0",
                 "phpbench/phpbench": "^1.4",
                 "phpstan/phpstan": "^2.1",
                 "phpunit/php-code-coverage": "^11.0",
@@ -6457,9 +6457,9 @@
             "description": "Universal View Components for PHP",
             "support": {
                 "issues": "https://codeberg.org/PackageFactory/component-engine/issues",
-                "source": "https://codeberg.org/PackageFactory/component-engine/tag/1.0.0-alpha7"
+                "source": "https://codeberg.org/PackageFactory/component-engine/tag/1.0.0-alpha9"
             },
-            "time": "2026-08-28T20:59:16+00:00"
+            "time": "2026-09-28T15:48:00+00:00"
         },
         {
             "name": "packagefactory/contentrepository-futurefeatures",
@@ -6504,22 +6504,22 @@
         },
         {
             "name": "packagefactory/neos-component-engine",
-            "version": "1.0.0-alpha7",
+            "version": "1.0.0-alpha9",
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/neos-component-engine.git",
-                "reference": "87da1c66b8c6235763e1ea68cc532837b5ad40f2"
+                "reference": "5ebdfcc976fff36e3fddccaec32abe0b55130f9d"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/neos-component-engine/archive/87da1c66b8c6235763e1ea68cc532837b5ad40f2.zip",
-                "reference": "87da1c66b8c6235763e1ea68cc532837b5ad40f2",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/neos-component-engine/archive/5ebdfcc976fff36e3fddccaec32abe0b55130f9d.zip",
+                "reference": "5ebdfcc976fff36e3fddccaec32abe0b55130f9d",
                 "shasum": ""
             },
             "require": {
                 "neos/neos": "^9.1",
                 "neos/neos-ui": "^9.1",
-                "packagefactory/component-engine": "1.0.0-alpha7",
+                "packagefactory/component-engine": "1.0.0-alpha9",
                 "packagefactory/neos-futurefeatures": "^1.0",
                 "php": ">=8.4"
             },
@@ -6549,29 +6549,29 @@
             "description": "Adapter package that integrates PackageFactory.ComponentEngine with Neos CMS",
             "support": {
                 "issues": "https://codeberg.org/PackageFactory/neos-component-engine/issues",
-                "source": "https://codeberg.org/PackageFactory/neos-component-engine/tag/1.0.0-alpha7"
+                "source": "https://codeberg.org/PackageFactory/neos-component-engine/tag/1.0.0-alpha9"
             },
-            "time": "2026-08-28T21:38:51+00:00"
+            "time": "2026-09-28T16:17:06+00:00"
         },
         {
             "name": "packagefactory/neos-componentview",
-            "version": "1.0.0-alpha4",
+            "version": "1.0.0-alpha6",
             "source": {
                 "type": "git",
                 "url": "https://codeberg.org/PackageFactory/neos-component-view.git",
-                "reference": "e88bb3228a8b18d332610632f46493713545f4c4"
+                "reference": "a3da664266a614196bab7f736ba62ed23de318e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://codeberg.org/api/v1/repos/PackageFactory/neos-component-view/archive/e88bb3228a8b18d332610632f46493713545f4c4.zip",
-                "reference": "e88bb3228a8b18d332610632f46493713545f4c4",
+                "url": "https://codeberg.org/api/v1/repos/PackageFactory/neos-component-view/archive/a3da664266a614196bab7f736ba62ed23de318e8.zip",
+                "reference": "a3da664266a614196bab7f736ba62ed23de318e8",
                 "shasum": ""
             },
             "require": {
                 "neos/neos": "^9.1",
                 "neos/neos-ui": "^9.1",
-                "packagefactory/component-engine": "1.0.0-alpha7",
-                "packagefactory/neos-component-engine": "1.0.0-alpha7"
+                "packagefactory/component-engine": "1.0.0-alpha9",
+                "packagefactory/neos-component-engine": "1.0.0-alpha9"
             },
             "require-dev": {
                 "neos/contentgraph-doctrinedbaladapter": "^9.1",
@@ -6598,9 +6598,9 @@
             "description": "A view based on the Neos Component Engine",
             "support": {
                 "issues": "https://codeberg.org/PackageFactory/neos-component-view/issues",
-                "source": "https://codeberg.org/PackageFactory/neos-component-view/tag/1.0.0-alpha4"
+                "source": "https://codeberg.org/PackageFactory/neos-component-view/tag/1.0.0-alpha6"
             },
-            "time": "2026-08-28T22:00:43+00:00"
+            "time": "2026-09-28T16:21:16+00:00"
         },
         {
             "name": "packagefactory/neos-futurefeatures",
@@ -8248,13 +8248,13 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/sitegeist/Sitegeist.Kaleidoscope.Cpx.git",
-                "reference": "c55abcbb5d82a529c279b6bf38d362dd91121a64"
+                "url": "git@github.com:sitegeist/Sitegeist.Kaleidoscope.Cpx.git",
+                "reference": "d30260a409a552434b1439991be045e5734db28c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sitegeist/Sitegeist.Kaleidoscope.Cpx/zipball/c55abcbb5d82a529c279b6bf38d362dd91121a64",
-                "reference": "c55abcbb5d82a529c279b6bf38d362dd91121a64",
+                "url": "https://api.github.com/repos/sitegeist/Sitegeist.Kaleidoscope.Cpx/zipball/d30260a409a552434b1439991be045e5734db28c",
+                "reference": "d30260a409a552434b1439991be045e5734db28c",
                 "shasum": ""
             },
             "require": {
@@ -8278,11 +8278,7 @@
                 "GPL-3.0-or-later"
             ],
             "description": "Adapter package that integrates PackageFactory.ComponentEngine with Sitegeist.Kaleidoscpope",
-            "support": {
-                "source": "https://github.com/sitegeist/Sitegeist.Kaleidoscope.Cpx/tree/main",
-                "issues": "https://github.com/sitegeist/Sitegeist.Kaleidoscope.Cpx/issues"
-            },
-            "time": "2026-08-19T16:50:35+00:00"
+            "time": "2026-10-05T07:45:17+00:00"
         },
         {
             "name": "sitegeist/kaleidoscope-valueobjects",
@@ -8602,13 +8598,13 @@
             "version": "dev-main",
             "source": {
                 "type": "git",
-                "url": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX.git",
-                "reference": "dd0e80e7f3f3dcdb3371fb80fdd2db89e8b261b8"
+                "url": "https://github.com/sitegeist/Sitegeist.PaperTiger.CPX.git",
+                "reference": "e4a53a6a102a18c90fed49c905e8a67646560f55"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Devclaim/Sitegeist.PaperTiger.CPX/zipball/dd0e80e7f3f3dcdb3371fb80fdd2db89e8b261b8",
-                "reference": "dd0e80e7f3f3dcdb3371fb80fdd2db89e8b261b8",
+                "url": "https://api.github.com/repos/sitegeist/Sitegeist.PaperTiger.CPX/zipball/e4a53a6a102a18c90fed49c905e8a67646560f55",
+                "reference": "e4a53a6a102a18c90fed49c905e8a67646560f55",
                 "shasum": ""
             },
             "require": {
@@ -8647,10 +8643,10 @@
             ],
             "description": "Editable form nodetypes for Neos CMS with CPX-oriented rendering fallbacks",
             "support": {
-                "source": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX/tree/main",
-                "issues": "https://github.com/Devclaim/Sitegeist.PaperTiger.CPX/issues"
+                "source": "https://github.com/sitegeist/Sitegeist.PaperTiger.CPX/tree/main",
+                "issues": "https://github.com/sitegeist/Sitegeist.PaperTiger.CPX/issues"
             },
-            "time": "2026-09-16T12:37:05+00:00"
+            "time": "2026-10-08T12:07:58+00:00"
         },
         {
             "name": "sitegeist/schemeonyou",
@@ -14310,5 +14306,5 @@
     "prefer-lowest": false,
     "platform": {},
     "platform-dev": {},
-    "plugin-api-version": "2.9.0"
+    "plugin-api-version": "2.6.0"
 }

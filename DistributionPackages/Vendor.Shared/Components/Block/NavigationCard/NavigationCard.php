@@ -22,9 +22,9 @@ final readonly class NavigationCard implements _\ComponentInterface
     private function __construct(
         private ?_\ComponentInterface $figure,
         private ?LinkStruct $link,
-        private Headline $_3216_Headline,
-        private Copy $_3816_Copy,
-        private Button $_4020_Button,
+        private Headline $_32_16_Headline,
+        private Copy $_38_16_Copy,
+        private Button $_40_20_Button,
     ) {
     }
 
@@ -37,17 +37,17 @@ final readonly class NavigationCard implements _\ComponentInterface
         return new self(
             figure: is_string($figure) ? _\StringComponent::fromString($figure) : $figure,
             link: $link,
-            _3216_Headline: Headline::create(
+            _32_16_Headline: Headline::create(
                 content: (is_string(($temp = $headline)) ? _\StringComponent::fromString($temp) : $temp),
                 variant: HeadlineVariant::VARIANT_REGULAR,
                 size: HeadlineSize::SIZE_MD,
                 tag: HeadlineTag::TAG_DIV,
             ),
-            _3816_Copy: Copy::create(
+            _38_16_Copy: Copy::create(
                 content: (is_string(($temp = $text)) ? _\StringComponent::fromString($temp) : $temp),
                 size: CopySize::SIZE_MD,
             ),
-            _4020_Button: Button::create(
+            _40_20_Button: Button::create(
                 content: null,
                 tag: ButtonTag::TAG_SPAN,
                 variant: ButtonVariant::VARIANT_GHOST,
@@ -58,6 +58,6 @@ final readonly class NavigationCard implements _\ComponentInterface
     #[\Override]
     public function render(): string
     {
-        return '<' . ($_189_tag = (((($temp = $this->link) === null) ? false : true) ? 'a' : 'div')) . ' data-component="NavigationCard"' . ((($temp = $this->link?->href) === null) ? '' : ' href="' . _\Util::escapeAttributeValue($temp) . '"') . ((($temp = $this->link?->title) === null) ? '' : ' title="' . _\Util::escapeAttributeValue($temp) . '"') . ((($temp = $this->link?->rel) === null) ? '' : ' rel="' . _\Util::escapeAttributeValue($temp) . '"') . ((($temp = $this->link?->target) === null) ? '' : ' target="' . $temp->asAttributeValue() . '"') . ' class="' . _\Util::joinAttributeValues('flex flex-col w-full h-full relative bg-brand-grey', (((($temp = $this->link) === null) ? false : true) ? 'cursor-pointer hover:text-highlight' : '')) . '"><div class="w-full aspect-4/3 overflow-hidden shrink-0">' . ((($temp = $this->figure) === null) ? '' : $temp->render()) . '</div><div class="flex flex-col justify-between p-16 gap-16 bg-brand-grey h-full">' . $this->_3216_Headline->render() . $this->_3816_Copy->render() . '<div class="mt-auto ml-auto">' . $this->_4020_Button->render() . '</div></div></' . $_189_tag . '>';
+        return '<' . ($_18_8_tag = (($this->link !== null) ? 'a' : 'div')) . ' data-component="NavigationCard"' . ((($temp = $this->link?->href) === null) ? '' : ' href="' . _\Util::escapeAttributeValue($temp) . '"') . ((($temp = $this->link?->title) === null) ? '' : ' title="' . _\Util::escapeAttributeValue($temp) . '"') . ((($temp = $this->link?->rel) === null) ? '' : ' rel="' . _\Util::escapeAttributeValue($temp) . '"') . ((($temp = $this->link?->target) === null) ? '' : ' target="' . $temp->asAttributeValue() . '"') . ' class="' . _\Util::joinAttributeValues('flex flex-col w-full h-full relative bg-brand-grey', (($this->link !== null) ? 'cursor-pointer hover:text-highlight' : '')) . '"><div class="w-full aspect-4/3 overflow-hidden shrink-0">' . ((($temp = $this->figure) === null) ? '' : $temp->render()) . '</div><div class="flex flex-col justify-between p-16 gap-16 bg-brand-grey h-full">' . $this->_32_16_Headline->render() . $this->_38_16_Copy->render() . '<div class="mt-auto ml-auto">' . $this->_40_20_Button->render() . '</div></div></' . $_18_8_tag . '>';
     }
 }

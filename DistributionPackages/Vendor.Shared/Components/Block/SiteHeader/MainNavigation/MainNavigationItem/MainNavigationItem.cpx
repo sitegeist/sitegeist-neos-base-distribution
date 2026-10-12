@@ -9,7 +9,7 @@ export component MainNavigationItem {
 
     render
         <div data-component="MainNavigationItem" class="relative group/navItem">
-            {items
+            {items !== null
                 ? <>
                     <div class="max-lg:hidden h-full">
                         <Link

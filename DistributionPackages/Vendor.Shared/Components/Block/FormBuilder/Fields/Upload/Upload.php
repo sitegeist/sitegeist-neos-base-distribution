@@ -13,8 +13,8 @@ use Vendor\Shared\Components\Block\FormBuilder\Fields\InvalidIcon\InvalidIcon;
 final readonly class Upload implements _\ComponentInterface
 {
     private function __construct(
-        private UploadField $_830_UploadField,
-        private InvalidIcon $_859_InvalidIcon,
+        private UploadField $_8_30_UploadField,
+        private InvalidIcon $_8_59_InvalidIcon,
     ) {
     }
 
@@ -22,16 +22,16 @@ final readonly class Upload implements _\ComponentInterface
         UploadFieldProps $field,
     ): self {
         return new self(
-            _830_UploadField: UploadField::create(
+            _8_30_UploadField: UploadField::create(
                 field: $field,
             ),
-            _859_InvalidIcon: InvalidIcon::create(),
+            _8_59_InvalidIcon: InvalidIcon::create(),
         );
     }
 
     #[\Override]
     public function render(): string
     {
-        return '<div class="relative">' . $this->_830_UploadField->render() . $this->_859_InvalidIcon->render() . '</div>';
+        return '<div class="relative">' . $this->_8_30_UploadField->render() . $this->_8_59_InvalidIcon->render() . '</div>';
     }
 }

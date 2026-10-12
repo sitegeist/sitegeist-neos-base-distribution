@@ -14,7 +14,7 @@ export component Checkbox {
                 required={option.isRequired}
                 class="papertiger-checkbox-item__input"
                 data-fieldtype="input"
-                data-custom-error-message={option.customErrorMessageEnabled
+                data-custom-error-message={option.customErrorMessageEnabled === true
                     ? option.customErrorMessage
                     : null}
                 oninvalid="this.setCustomValidity(this.dataset.customErrorMessage || '')"

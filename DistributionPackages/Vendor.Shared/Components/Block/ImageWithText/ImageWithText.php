@@ -19,7 +19,7 @@ use Vendor\Shared\Components\Layout\Grid\ContentGrid;
 final readonly class ImageWithText implements _\ComponentInterface
 {
     private function __construct(
-        private ContentGrid $_198_ContentGrid,
+        private ContentGrid $_19_8_ContentGrid,
     ) {
     }
 
@@ -32,7 +32,7 @@ final readonly class ImageWithText implements _\ComponentInterface
         ImageWithTextLayout $layout,
     ): self {
         return new self(
-            _198_ContentGrid: ContentGrid::create(
+            _19_8_ContentGrid: ContentGrid::create(
                 content: _\SlotComponent::list(
                     '<div' . ((($temp = _\Util::joinAttributeValues(match ($alignment) { ImageWithTextAlignment::VARIANT_IMAGELAST => 'lg:order-2', default => 'lg:order-1' }, match ($layout) { ImageWithTextLayout::VARIANT_66_33 => 'col-span-full md:col-span-5 xl:col-span-8', ImageWithTextLayout::VARIANT_33_66 => 'col-span-full md:col-span-3 xl:col-span-4', default => 'col-span-full md:col-span-4 xl:col-span-6' })) === '') ? '' : ' class="' . $temp . '"') . '>',
                     (is_string(($temp = $figure)) ? _\Util::escapeText($temp) : $temp),
@@ -59,6 +59,6 @@ final readonly class ImageWithText implements _\ComponentInterface
     #[\Override]
     public function render(): string
     {
-        return $this->_198_ContentGrid->render();
+        return $this->_19_8_ContentGrid->render();
     }
 }

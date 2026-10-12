@@ -15,7 +15,7 @@ use Vendor\Shared\Components\Layout\Grid\ContentGrid;
 final readonly class ReactExample implements _\ComponentInterface
 {
     private function __construct(
-        private ContentGrid $_128_ContentGrid,
+        private ContentGrid $_12_8_ContentGrid,
     ) {
     }
 
@@ -25,7 +25,7 @@ final readonly class ReactExample implements _\ComponentInterface
         string $labels,
     ): self {
         return new self(
-            _128_ContentGrid: ContentGrid::create(
+            _12_8_ContentGrid: ContentGrid::create(
                 content: _\SlotComponent::list(
                     '<div class="col-span-full">',
                     Headline::create(
@@ -45,6 +45,6 @@ final readonly class ReactExample implements _\ComponentInterface
     #[\Override]
     public function render(): string
     {
-        return $this->_128_ContentGrid->render();
+        return $this->_12_8_ContentGrid->render();
     }
 }

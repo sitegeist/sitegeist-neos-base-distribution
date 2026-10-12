@@ -11,7 +11,7 @@ use Vendor\Shared\Components\Layout\Grid\PageGrid;
 final readonly class AtomContainer implements _\ComponentInterface
 {
     private function __construct(
-        private PageGrid $_68_PageGrid,
+        private PageGrid $_6_8_PageGrid,
     ) {
     }
 
@@ -19,7 +19,7 @@ final readonly class AtomContainer implements _\ComponentInterface
         _\ComponentInterface|string|null $content,
     ): self {
         return new self(
-            _68_PageGrid: PageGrid::create(
+            _6_8_PageGrid: PageGrid::create(
                 content: _\SlotComponent::list(
                     '<div data-component="AtomContainer" class="col-span-content-full py-32">',
                     (is_string(($temp = $content)) ? _\Util::escapeText($temp) : $temp),
@@ -32,6 +32,6 @@ final readonly class AtomContainer implements _\ComponentInterface
     #[\Override]
     public function render(): string
     {
-        return $this->_68_PageGrid->render();
+        return $this->_6_8_PageGrid->render();
     }
 }

@@ -13,8 +13,8 @@ use Vendor\Shared\Components\Block\FormBuilder\Fields\InvalidIcon\InvalidIcon;
 final readonly class Textarea implements _\ComponentInterface
 {
     private function __construct(
-        private TextareaField $_830_TextareaField,
-        private InvalidIcon $_861_InvalidIcon,
+        private TextareaField $_8_30_TextareaField,
+        private InvalidIcon $_8_61_InvalidIcon,
     ) {
     }
 
@@ -22,16 +22,16 @@ final readonly class Textarea implements _\ComponentInterface
         TextareaFieldProps $field,
     ): self {
         return new self(
-            _830_TextareaField: TextareaField::create(
+            _8_30_TextareaField: TextareaField::create(
                 field: $field,
             ),
-            _861_InvalidIcon: InvalidIcon::create(),
+            _8_61_InvalidIcon: InvalidIcon::create(),
         );
     }
 
     #[\Override]
     public function render(): string
     {
-        return '<div class="relative">' . $this->_830_TextareaField->render() . $this->_861_InvalidIcon->render() . '</div>';
+        return '<div class="relative">' . $this->_8_30_TextareaField->render() . $this->_8_61_InvalidIcon->render() . '</div>';
     }
 }

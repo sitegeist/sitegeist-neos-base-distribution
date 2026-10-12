@@ -11,11 +11,11 @@ export component SiteFooter {
     secondaryNavigationItems: slot
     thirdMenuTitle: slot
     thirdNavigationItems: slot
-    facebookLinkStruct: ?LinkStruct
-    instagramLinkStruct: ?LinkStruct
-    xingLinkStruct: ?LinkStruct
-    xLinkStruct: ?LinkStruct
-    linkedinLinkStruct: ?LinkStruct
+    facebookLinkStruct?: LinkStruct
+    instagramLinkStruct?: LinkStruct
+    xingLinkStruct?: LinkStruct
+    xLinkStruct?: LinkStruct
+    linkedinLinkStruct?: LinkStruct
 
     render
         <footer
@@ -37,7 +37,7 @@ export component SiteFooter {
                 </SiteFooterItem>
                 <SiteFooterItem title="Folgen Sie uns!">
                     <div class="flex flex-wrap gap-16 mt-auto">
-                        {facebookLinkStruct
+                        {facebookLinkStruct !== null
                             ? <Link
                                 link={facebookLinkStruct}
                                 variant={LinkVariant.VARIANT_DEFAULT}
@@ -46,7 +46,7 @@ export component SiteFooter {
                                 <Icon icon="facebook" class="h-24 w-24" />
                             </Link>
                             : null}
-                        {instagramLinkStruct
+                        {instagramLinkStruct !== null
                             ? <Link
                                 link={instagramLinkStruct}
                                 variant={LinkVariant.VARIANT_DEFAULT}
@@ -55,7 +55,7 @@ export component SiteFooter {
                                 <Icon icon="instagram" class="h-24 w-24" />
                             </Link>
                             : null}
-                        {xingLinkStruct
+                        {xingLinkStruct !== null
                             ? <Link
                                 link={xingLinkStruct}
                                 variant={LinkVariant.VARIANT_DEFAULT}
@@ -64,7 +64,7 @@ export component SiteFooter {
                                 <Icon icon="xing" class="h-24 w-24" />
                             </Link>
                             : null}
-                        {xLinkStruct
+                        {xLinkStruct !== null
                             ? <Link
                                 link={xLinkStruct}
                                 variant={LinkVariant.VARIANT_DEFAULT}
@@ -73,7 +73,7 @@ export component SiteFooter {
                                 <Icon icon="x" class="h-24 w-24" />
                             </Link>
                             : null}
-                        {linkedinLinkStruct
+                        {linkedinLinkStruct !== null
                             ? <Link
                                 link={linkedinLinkStruct}
                                 variant={LinkVariant.VARIANT_DEFAULT}

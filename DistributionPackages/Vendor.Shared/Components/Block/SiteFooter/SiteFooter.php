@@ -15,10 +15,10 @@ use Vendor\Shared\Components\Block\SiteFooter\SiteFooterItem;
 final readonly class SiteFooter implements _\ComponentInterface
 {
     private function __construct(
-        private SiteFooterItem $_2816_SiteFooterItem,
-        private SiteFooterItem $_3116_SiteFooterItem,
-        private SiteFooterItem $_3416_SiteFooterItem,
-        private SiteFooterItem $_3716_SiteFooterItem,
+        private SiteFooterItem $_28_16_SiteFooterItem,
+        private SiteFooterItem $_31_16_SiteFooterItem,
+        private SiteFooterItem $_34_16_SiteFooterItem,
+        private SiteFooterItem $_37_16_SiteFooterItem,
     ) {
     }
 
@@ -36,7 +36,7 @@ final readonly class SiteFooter implements _\ComponentInterface
         ?LinkStruct $linkedinLinkStruct,
     ): self {
         return new self(
-            _2816_SiteFooterItem: SiteFooterItem::create(
+            _28_16_SiteFooterItem: SiteFooterItem::create(
                 title: (is_string(($temp = $primaryMenuTitle)) ? _\StringComponent::fromString($temp) : $temp),
                 content: _\SlotComponent::list(
                     '<div class="flex flex-col gap-8">',
@@ -44,7 +44,7 @@ final readonly class SiteFooter implements _\ComponentInterface
                     '</div>',
                 ),
             ),
-            _3116_SiteFooterItem: SiteFooterItem::create(
+            _31_16_SiteFooterItem: SiteFooterItem::create(
                 title: (is_string(($temp = $secondaryMenuTitle)) ? _\StringComponent::fromString($temp) : $temp),
                 content: _\SlotComponent::list(
                     '<div class="flex flex-col gap-8">',
@@ -52,7 +52,7 @@ final readonly class SiteFooter implements _\ComponentInterface
                     '</div>',
                 ),
             ),
-            _3416_SiteFooterItem: SiteFooterItem::create(
+            _34_16_SiteFooterItem: SiteFooterItem::create(
                 title: (is_string(($temp = $thirdMenuTitle)) ? _\StringComponent::fromString($temp) : $temp),
                 content: _\SlotComponent::list(
                     '<div class="flex flex-col gap-8">',
@@ -60,11 +60,11 @@ final readonly class SiteFooter implements _\ComponentInterface
                     '</div>',
                 ),
             ),
-            _3716_SiteFooterItem: SiteFooterItem::create(
+            _37_16_SiteFooterItem: SiteFooterItem::create(
                 title: _\StringComponent::fromString('Folgen Sie uns!'),
                 content: _\SlotComponent::list(
                     '<div class="flex flex-wrap gap-16 mt-auto">',
-                    (((($temp = $facebookLinkStruct) === null) ? false : true) ? Link::create(
+                    (($facebookLinkStruct !== null) ? Link::create(
                         content: _\SlotComponent::list(
                             Icon::create(
                                 icon: 'facebook',
@@ -75,7 +75,7 @@ final readonly class SiteFooter implements _\ComponentInterface
                         component: null,
                         variant: LinkVariant::VARIANT_DEFAULT,
                     ) : null),
-                    (((($temp = $instagramLinkStruct) === null) ? false : true) ? Link::create(
+                    (($instagramLinkStruct !== null) ? Link::create(
                         content: _\SlotComponent::list(
                             Icon::create(
                                 icon: 'instagram',
@@ -86,7 +86,7 @@ final readonly class SiteFooter implements _\ComponentInterface
                         component: null,
                         variant: LinkVariant::VARIANT_DEFAULT,
                     ) : null),
-                    (((($temp = $xingLinkStruct) === null) ? false : true) ? Link::create(
+                    (($xingLinkStruct !== null) ? Link::create(
                         content: _\SlotComponent::list(
                             Icon::create(
                                 icon: 'xing',
@@ -97,7 +97,7 @@ final readonly class SiteFooter implements _\ComponentInterface
                         component: null,
                         variant: LinkVariant::VARIANT_DEFAULT,
                     ) : null),
-                    (((($temp = $xLinkStruct) === null) ? false : true) ? Link::create(
+                    (($xLinkStruct !== null) ? Link::create(
                         content: _\SlotComponent::list(
                             Icon::create(
                                 icon: 'x',
@@ -108,7 +108,7 @@ final readonly class SiteFooter implements _\ComponentInterface
                         component: null,
                         variant: LinkVariant::VARIANT_DEFAULT,
                     ) : null),
-                    (((($temp = $linkedinLinkStruct) === null) ? false : true) ? Link::create(
+                    (($linkedinLinkStruct !== null) ? Link::create(
                         content: _\SlotComponent::list(
                             Icon::create(
                                 icon: 'linkedin',
@@ -128,6 +128,6 @@ final readonly class SiteFooter implements _\ComponentInterface
     #[\Override]
     public function render(): string
     {
-        return '<footer data-component="SiteFooter" class="' . _\Util::joinAttributeValues('group/SiteFooter col-span-full mt-auto bg-brand-grey', 'grid grid-cols-subgrid') . '"><div class="col-span-content-full grid grid-cols-1 lg:grid-cols-4 gap-24 py-24">' . $this->_2816_SiteFooterItem->render() . $this->_3116_SiteFooterItem->render() . $this->_3416_SiteFooterItem->render() . $this->_3716_SiteFooterItem->render() . '</div></footer>';
+        return '<footer data-component="SiteFooter" class="' . _\Util::joinAttributeValues('group/SiteFooter col-span-full mt-auto bg-brand-grey', 'grid grid-cols-subgrid') . '"><div class="col-span-content-full grid grid-cols-1 lg:grid-cols-4 gap-24 py-24">' . $this->_28_16_SiteFooterItem->render() . $this->_31_16_SiteFooterItem->render() . $this->_34_16_SiteFooterItem->render() . $this->_37_16_SiteFooterItem->render() . '</div></footer>';
     }
 }

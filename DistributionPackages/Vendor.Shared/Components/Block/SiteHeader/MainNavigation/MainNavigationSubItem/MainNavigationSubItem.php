@@ -13,7 +13,7 @@ use Vendor\Shared\Components\Block\Link\LinkVariant;
 final readonly class MainNavigationSubItem implements _\ComponentInterface
 {
     private function __construct(
-        private Link $_98_Link,
+        private Link $_9_8_Link,
     ) {
     }
 
@@ -22,7 +22,7 @@ final readonly class MainNavigationSubItem implements _\ComponentInterface
         string $label,
     ): self {
         return new self(
-            _98_Link: Link::create(
+            _9_8_Link: Link::create(
                 content: _\SlotComponent::list(
                     '<sl-menu-item class="max-lg:hidden">',
                     _\Util::escapeText($label),
@@ -41,6 +41,6 @@ final readonly class MainNavigationSubItem implements _\ComponentInterface
     #[\Override]
     public function render(): string
     {
-        return $this->_98_Link->render();
+        return $this->_9_8_Link->render();
     }
 }

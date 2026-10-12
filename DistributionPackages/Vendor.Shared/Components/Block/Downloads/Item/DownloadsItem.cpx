@@ -5,11 +5,11 @@ export component DownloadsItem {
     headline: slot
     primaryMetaHeadline: slot
     secondaryMetaHeadline: slot
-    link: ?LinkStruct
+    link?: LinkStruct
 
     render
         <element
-            tagName={link ? "a" : "div"}
+            tagName={link !== null ? "a" : "div"}
             data-component="DownloadsItem"
             href={link?.href}
             title={link?.title}
@@ -17,7 +17,7 @@ export component DownloadsItem {
             target={link?.target}
             class={[
                 "p-16 flex flex-col justify-between h-full gap-16 bg-brand-grey",
-                link ? "cursor-pointer hover:text-highlight" : ""
+                link !== null ? "cursor-pointer hover:text-highlight" : ""
             ]}
         >
             <div class="flex gap-24 h-full items-stretch">
